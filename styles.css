@@ -902,16 +902,21 @@ body:has(.misc-detail--readings) {
 }
 
 /*
-  INICIO (bienvenida): sin min-height de lienzo (780px) ni scroll de página.
-  Medición real: ese mínimo sumaba ~118px de overflow con cabecera + pie.
+  Secciones que caben en un viewport: sin scroll de página
+  (INICIO bienvenida, MISCELÁNEA hub, SOBRE MÍ).
+  Detalles largos (p. ej. lecturas) o HISTÓRICO no entran aquí.
 */
-html:has(.content-card.is-home):not(:has(.home-split.is-archive)) {
+html:has(.content-card.is-home):not(:has(.home-split.is-archive)),
+html:has(.about-section),
+html:has(.misc-grid):not(:has(.misc-detail)) {
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
 }
 
-body:has(.content-card.is-home):not(:has(.home-split.is-archive)) {
+body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
+body:has(.about-section),
+body:has(.misc-grid):not(:has(.misc-detail)) {
   height: 100vh;
   max-height: 100vh;
   min-height: 0;
@@ -919,7 +924,9 @@ body:has(.content-card.is-home):not(:has(.home-split.is-archive)) {
   overflow-y: hidden;
 }
 
-.tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)) {
+.tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)),
+.tab-panel:has(.about-section),
+.tab-panel:has(.misc-grid):not(:has(.misc-detail)) {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -2647,7 +2654,8 @@ a.news-title-link:hover {
   --about-p-lh: 1.62;
   max-width: 1270px;
   margin: 0 auto;
-  padding: 0.35rem 0.25rem calc(var(--footer-h) + 1rem);
+  /* El pie ya lo reserva .app (padding-bottom); no duplicar aquí. */
+  padding: 0.35rem 0.25rem 0.5rem;
   user-select: none;
   cursor: default;
 }

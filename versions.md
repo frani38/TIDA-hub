@@ -109,6 +109,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - INICIO (bienvenida): se elimina el `min-height: 780px` del panel; la página queda acotada al viewport (`overflow-y: hidden` en html/body). Solo hace scroll interno el texto si no cabe, y el panel NOTICIAS.
 
+## 1.1.12
+
+- MISCELÁNEA (hub de iconos) y SOBRE MÍ: mismo acote al viewport que INICIO (sin barra de scroll de página cuando el contenido cabe). En SOBRE MÍ se quita el padding inferior duplicado del pie.
+
 ---
 
 ## Convención (recordatorio)
