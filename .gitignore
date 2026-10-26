@@ -1,5 +1,7 @@
-# Herramientas / local
-.cursor/
+# Herramientas / local (versionar reglas del agente; ignorar el resto de .cursor)
+.cursor/*
+!.cursor/rules/
+!.cursor/rules/**
 .DS_Store
 Thumbs.db
 *.log

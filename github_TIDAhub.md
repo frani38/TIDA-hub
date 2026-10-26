@@ -140,7 +140,7 @@ Formato de **tres dígitos** (ej. `1.1.0` → se muestra `v1.1.0`):
 - El pie se rellena solo al cargar la página
 - **Regla fija del agente:** `.cursor/rules/version-semver.mdc` — en cada cambio del proyecto se incrementa la versión automáticamente según el tipo de cambio
 
-Versión actual de referencia tras el hito de publicación online: **1.1.0**.
+Versión actual de referencia: ver `siteMeta.version` en `data.js`.
 
 ---
 

@@ -1,0 +1,46 @@
+---
+description: Versionado semántico obligatorio MAJOR.MINOR.PATCH del pie (siteMeta) en cada cambio
+alwaysApply: true
+---
+
+# Versión del sitio (T·I·D·A hub)
+
+## Fuente de verdad
+
+- Archivo: `data.js` → `window.MYWEB_DATA.siteMeta`
+- Campos: `version` (`"MAJOR.MINOR.PATCH"`, **tres números**, sin prefijo `v`) y `updated` (`YYYY-MM-DD`).
+- El pie (`#site-version` en `index.html` / `privacidad.html`) se rellena al cargar desde ahí.
+
+## Formato
+
+`MAJOR.MINOR.PATCH` (ejemplo: `1.1.0`)
+
+| Dígito | Cuándo incrementarlo | Al subir, poner a cero |
+| --- | --- | --- |
+| **MAJOR** (1.º) | Cambio considerable: rediseño, arquitectura, salto incompatible o hito grande del producto | MINOR y PATCH → `0` |
+| **MINOR** (2.º) | Cambio menor de funcionalidad: feature nueva acotada, mejora relevante de UX/flujo | PATCH → `0` |
+| **PATCH** (3.º) | Cambio pequeño: textos, estilos puntuales, bugfix, docs, reglas, retoques | — |
+
+## Obligación del agente (automático)
+
+En **toda** tarea que modifique el proyecto y genere commit (o cambios que el usuario vaya a publicar):
+
+1. Clasificar el cambio (MAJOR / MINOR / PATCH) con la tabla anterior.
+2. Actualizar `siteMeta.version` en `data.js` **en el mismo conjunto de cambios**.
+3. Actualizar `siteMeta.updated` a la fecha del cambio (`YYYY-MM-DD`, zona del proyecto).
+4. Si hay placeholders `vX.Y.Z` en HTML como fallback visible, alinearlos con la nueva versión.
+5. Incluir el bump de versión en el commit (no dejar la versión obsoleta).
+
+No preguntar si hay que versionar: **siempre versionar** salvo que el usuario diga explícitamente que no toque la versión.
+
+## Excepciones (no bumpear)
+
+- Solo lectura, explicación o diagnóstico sin editar archivos del sitio.
+- El usuario pide explícitamente no cambiar la versión.
+
+## Ejemplos
+
+- Web3Forms + Pages + historial en un mismo hito → subir **MINOR** o **MAJOR** según alcance (no solo PATCH).
+- Corregir un solape CSS → **PATCH** (`1.1.0` → `1.1.1`).
+- Nueva sección completa de Miscelánea → **MINOR** (`1.1.1` → `1.2.0`).
+- Rediseño total del layout → **MAJOR** (`1.2.0` → `2.0.0`).
