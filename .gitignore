@@ -1,0 +1,17 @@
+# Herramientas / local
+.cursor/
+.DS_Store
+Thumbs.db
+*.log
+
+# Informe LaTeX (no forma parte de la web publicada)
+\#_Informe/
+
+# Material docente local pesado (no referenciado por la web; ~78 MB)
+TYD_3ºESO/
+
+# Temporales / editores
+*.tmp
+*~
+.vscode/
+.idea/
