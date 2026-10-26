@@ -3668,10 +3668,15 @@
     onUnitSelected({ level, material, unit });
   }
 
-  // Año actual (para mantener visible "Año creación - Año actual").
+  // Pie: año actual + versión desde data.js → siteMeta (única fuente de verdad).
   const yearCurrentEl = document.getElementById("year-current");
   if (yearCurrentEl) {
     yearCurrentEl.textContent = String(new Date().getFullYear());
+  }
+  const siteVersionEl = document.getElementById("site-version");
+  if (siteVersionEl) {
+    const ver = String(DATA.siteMeta?.version || "").trim();
+    if (ver) siteVersionEl.textContent = ver.startsWith("v") ? ver : `v${ver}`;
   }
 
   resetToHome();

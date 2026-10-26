@@ -99,8 +99,20 @@ Tras cambios, en la web publicada usa **Ctrl+F5** (caché de CSS/JS).
 ## Pie de página e identidad
 
 - Licencia **Creative Commons BY-NC-SA 4.0**.
-- Copyright: **PhD.Eng. Francisco Carnero Rodríguez**, año dinámico y versión en el pie.
+- Copyright: **PhD.Eng. Francisco Carnero Rodríguez**, año dinámico y **versión** en el pie.
 - Badge de accesibilidad WCAG (referencia declarada en el pie).
+
+### Versión del sitio (`siteMeta` en `data.js`)
+
+El pie lee `MYWEB_DATA.siteMeta.version` al cargar (p. ej. `v1.1`). **No sube sola**: hay que editar ese campo cuando el cambio lo merezca.
+
+| Tipo | Ejemplo | Cuándo |
+| --- | --- | --- |
+| MAJOR | `2.0` | Rediseño o cambio incompatible |
+| MINOR | `1.1`, `1.2` | Funcionalidad relevante (Pages, Web3Forms, historial, etc.) |
+| PATCH | `1.1.1` | Corrección menor / textos |
+
+Tras cambiar `version` (y opcionalmente `updated`): commit + push. El HTML del pie se actualiza solo.
 
 ## Documentación relacionada
 

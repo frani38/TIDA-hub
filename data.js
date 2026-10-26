@@ -13,6 +13,19 @@
 
 window.MYWEB_DATA = {
   /*
+    Versión mostrada en el pie (vX.Y). Única fuente de verdad.
+    Cuándo subirla (manual, no es automática):
+      - MAJOR (2.0): cambio incompatible o rediseño total.
+      - MINOR (1.1, 1.2…): funcionalidad relevante (p. ej. Web3Forms, Pages, historial, lienzo fijo).
+      - PATCH (1.1.1): corrección menor o texto/estilo sin feature nueva.
+    Tras editar version/updated → commit + push; el pie se actualiza solo al cargar la web.
+  */
+  siteMeta: {
+    version: "1.1",
+    updated: "2026-10-26",
+  },
+
+  /*
     Formulario AYUDA → Web3Forms (https://web3forms.com/).
     1) Crea una Access Key con el correo de destino (p. ej. franciscojcr@educastur.org).
     2) Pega la clave en web3formsAccessKey.

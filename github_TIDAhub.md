@@ -126,6 +126,28 @@ git push origin main
 
 No subas secretos privados. La **Access Key de Web3Forms** está pensada para ir en el cliente (pública); la protección real es restringir dominios en el panel de Web3Forms.
 
+### 6.1. Versión del pie (`vX.Y`)
+
+La versión del footprint **no se incrementa sola** en cada commit (haría ruido y perdería significado). Sí se **muestra sola** desde una única fuente:
+
+- Archivo: `data.js` → `siteMeta.version` (y opcional `siteMeta.updated`)
+- Al cargar, `app.js` / `privacidad.html` escriben `#site-version` en el pie
+
+**Cuándo subirla (criterio):**
+
+- Cambio **importante** del día (varias features o un hito): subir **MINOR** (`1.0` → `1.1`).  
+- Solo un arreglo puntual: **PATCH** (`1.1` → `1.1.1`) o dejarla si es trivial.  
+- Rediseño mayor: **MAJOR** (`1.x` → `2.0`).
+
+**Cómo:**
+
+1. Edita `siteMeta.version` en `data.js` (p. ej. `"1.1"`).  
+2. Actualiza `siteMeta.updated` con la fecha (`YYYY-MM-DD`).  
+3. `git commit` + `git push`.  
+4. Ctrl+F5 → el pie muestra `v1.1`.
+
+Hoy (publicación Pages, Web3Forms, lienzo fijo, historial, privacidad en pie, etc.) quedó en **v1.1**.
+
 ---
 
 ## 7. Registro y uso de Web3Forms (mensajería de AYUDA)
