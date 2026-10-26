@@ -795,15 +795,18 @@ main {
   text-transform: uppercase;
 }
 
-/* Mantener visible el título de la sección al hacer scroll (incluye el botón VOLVER). */
+/* Mantener visible el título de la sección al hacer scroll (incluye el botón VOLVER).
+   Pegado al borde inferior de la cabecera (sin +0.25rem): ese hueco dejaba ver texto
+   entrecortado de la política al hacer scroll en AYUDA. */
 #unit-title {
   position: sticky;
-  top: calc(var(--home-news-top, 0px) + 0.25rem);
+  top: var(--home-news-top, 0px);
   z-index: 20;
   margin-top: 0;
   padding: 0.12rem 0.25rem;
-  background: rgba(10, 15, 31, 0.82);
-  backdrop-filter: blur(8px);
+  background: #0a0f1f;
+  backdrop-filter: none;
+  box-shadow: 0 -2px 0 #0a0f1f;
 }
 
 /* En modo HISTÓRICO (INICIO), no solapar el panel fijo de noticias (derecha). */
@@ -815,8 +818,9 @@ body:has(.home-split.is-archive) #unit-title {
 }
 
 body.theme-light #unit-title {
-  background: rgba(244, 246, 249, 0.9);
+  background: #f4f6f9;
   color: #0f3f9a;
+  box-shadow: 0 -2px 0 #f4f6f9;
 }
 
 .content-card h2:empty {

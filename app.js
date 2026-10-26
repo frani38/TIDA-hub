@@ -510,12 +510,11 @@
   }
 
   function syncHomeNewsDock() {
-    const newsEl = tabPanelEl?.querySelector(".home-news");
-    if (!newsEl) return;
     const headerEl = document.querySelector("header");
     if (!headerEl) return;
     const rect = headerEl.getBoundingClientRect();
-    // Usar el borde inferior exacto (sin huecos).
+    // Borde inferior exacto de la cabecera (lo usan sticky title y paneles).
+    // Se actualiza también fuera de INICIO: en AYUDA/privacidad evita huecos con texto entrecortado.
     document.documentElement.style.setProperty("--home-news-top", `${rect.bottom}px`);
   }
 
