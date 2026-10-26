@@ -1437,19 +1437,22 @@
   }
 
   /**
-   * Deja INICIO como base del historial de esta visita.
-   * - Si la vista no es inicio: […, INICIO, vista] → atrás vuelve a INICIO (no sale del sitio).
-   * - Si es inicio: apila una segunda entrada INICIO → el primer atrás no abandona TIDA-hub.
+   * Tras cargar/recargar: historial nuevo anclado en INICIO.
+   * Dos entradas INICIO → el "atrás" desde portada no abandona TIDA-hub (nueva pestaña / web anterior).
    */
   function seedAppHistory() {
-    const current = snapshotHistoryState();
     const home = homeHistoryState();
-    history.replaceState(home, "", urlFromHistoryState(home));
-    if (!sameHistoryState(current, home)) {
-      history.pushState(current, "", urlFromHistoryState(current));
-    } else {
-      history.pushState(home, "", urlFromHistoryState(home));
-    }
+    const homeUrl = urlFromHistoryState(home);
+    history.replaceState(home, "", homeUrl);
+    history.pushState(home, "", homeUrl);
+  }
+
+  /** Si estamos en INICIO, apila otra entrada para absorber el próximo "atrás". */
+  function armHomeHistoryGuard() {
+    if (suppressHistoryPush) return;
+    if ((currentState.section || "home") !== "home") return;
+    const home = homeHistoryState();
+    history.pushState(home, "", urlFromHistoryState(home));
   }
 
   function openDocenciaUnitFromIds(levelId, materialId, unitId, tabId = "") {
@@ -3796,6 +3799,7 @@
       };
       saveState();
       pushAppHistory();
+      armHomeHistoryGuard();
     });
   }
 
@@ -3889,12 +3893,13 @@
       } else if (location.hash && location.hash !== "#" && location.hash !== "#home") {
         applyRouteFromLocationHash();
       } else {
-        // Entrada sin estado propio: quedarse en INICIO dentro de TIDA-hub.
         restoreHistorySnapshot(homeHistoryState());
       }
     } finally {
       suppressHistoryPush = false;
     }
+    // En INICIO: rearmar guarda para que otro "atrás" no salga del sitio.
+    armHomeHistoryGuard();
   });
 
 
@@ -3950,71 +3955,30 @@
     }
   });
 
-  // Restauración inicial sin ensuciar el historial; luego se fija la entrada actual.
+  // Carga/recarga: siempre INICIO y historial nuevo desde la portada (no restaurar sección previa).
   suppressHistoryPush = true;
   try {
-    if (location.hash && location.hash !== "#" && location.hash !== "#home") {
-      applyRouteFromLocationHash();
-    } else {
-      switch (currentState.section) {
-        case "about":
-          aboutBtnEl?.click();
-          break;
-        case "updates":
-          updatesBtnEl?.click();
-          break;
-        case "legislacion":
-          legislacionBtnEl?.click();
-          break;
-        case "books":
-          booksBtnEl?.click();
-          break;
-        case "miscelanea":
-          miscelaneaBtnEl?.click();
-          break;
-        case "help":
-          helpBtnEl?.click();
-          break;
-        case "privacy":
-          setActiveMenu(helpBtnEl);
-          showPrivacyPolicyPanel(null);
-          break;
-        case "docencia":
-          docenciaBtnEl?.click();
-          setDocenciaCollapsed(false);
-          if (currentState.stageId) {
-            stageSelectEl.value = currentState.stageId;
-            onStageChanged();
-          }
-          if (currentState.levelId) {
-            levelSelectEl.value = currentState.levelId;
-            onLevelChanged();
-          }
-          if (currentState.materialId) {
-            materialSelectEl.value = currentState.materialId;
-            onMaterialChanged();
-          }
-          if (currentState.unitId) {
-            unitSelectEl.value = currentState.unitId;
-            onUnitChanged();
-          }
-          break;
-        case "search":
-          if (unitSearchEl && currentState.searchQuery) {
-            unitSearchEl.value = currentState.searchQuery;
-          }
-          runGlobalSearch();
-          break;
-        default:
-          setActiveMenu(homeBtnEl);
-          updateUpdatesIndicator({ nudge: true });
-          break;
-      }
-    }
+    currentState = {
+      ...currentState,
+      section: "home",
+      stageId: "",
+      levelId: "",
+      materialId: "",
+      unitId: "",
+      tabId: "",
+      searchQuery: ""
+    };
+    saveState();
+    setActiveMenu(homeBtnEl);
+    toggleDocenciaMenu(false);
+    toggleContentCard(true);
+    if (unitSearchEl) unitSearchEl.value = "";
+    if (searchResultsEl) searchResultsEl.innerHTML = "";
+    resetToHome();
+    updateUpdatesIndicator({ nudge: true });
   } finally {
     suppressHistoryPush = false;
   }
-  // Base = INICIO; la vista restaurada (si no es inicio) queda encima en el historial.
   seedAppHistory();
 
   // Tooltips en iconos de cabecera.
