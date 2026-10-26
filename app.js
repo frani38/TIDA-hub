@@ -1520,10 +1520,21 @@
           const detail = typeof data?.message === "string" && data.message ? ` (${data.message})` : "";
           throw new Error(`No se pudo enviar${detail}`);
         }
-        formEl.reset();
-        readEl.checked = false;
-        consentEl.checked = false;
-        setHelpStatus("ok", "Mensaje enviado correctamente. Recibirás respuesta en el correo que has indicado si procede.");
+
+        // Confirmación en la propia web y retorno a INICIO (mensaje de bienvenida).
+        unitTitleEl.textContent = "AYUDA";
+        breadcrumbsEl.textContent = "";
+        progressIndicatorEl.textContent = "";
+        tabPanelEl.innerHTML = `
+          <div class="help-sent" role="status" aria-live="polite">
+            <p class="help-sent__label">Enviado</p>
+            <p class="help-sent__hint">Volviendo al inicio…</p>
+          </div>
+        `;
+        window.setTimeout(() => {
+          homeBtnEl?.click();
+        }, 1600);
+        return;
       } catch (err) {
         // eslint-disable-next-line no-console
         console.error(err);
@@ -1531,7 +1542,6 @@
           "error",
           "No se pudo enviar el mensaje. Inténtalo de nuevo más tarde o escribe directamente a " + notifyEmail + "."
         );
-      } finally {
         submitBtnEl.disabled = false;
         submitBtnEl.textContent = prevLabel || "Enviar mensaje";
       }

@@ -1483,6 +1483,44 @@ body.privacy-page .privacy-card-caption {
   color: var(--text-soft);
 }
 
+.help-sent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 14rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: var(--tech-font);
+  animation: helpSentIn 0.35s ease-out;
+}
+
+.help-sent__label {
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #166534;
+}
+
+.help-sent__hint {
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+@keyframes helpSentIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .help-form-status.is-ok {
   color: #166534;
 }
