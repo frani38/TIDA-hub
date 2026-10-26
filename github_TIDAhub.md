@@ -10,7 +10,7 @@ Repositorio: **https://github.com/frani38/TIDA-hub**
 
 | Sí | No (para este proyecto) |
 | --- | --- |
-| HTML, CSS, JS, imágenes, PDF, fuentes | Servidor Node/PHP propio |
+| HTML, CSS, JS, imágenes, PDF/infografías/pósters, fuentes | Servidor Node/PHP propio |
 | Rama `main` como origen de Pages | Compilación / bundler |
 | Web3Forms para el formulario AYUDA | Backend propio de correo |
 
@@ -289,4 +289,5 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 - Web3Forms (panel / login): https://app.web3forms.com/  
 - Web3Forms (documentación): https://docs.web3forms.com/  
 - README del proyecto: `README.md`  
-- PDF por unidad: `content/README.md`
+- Materiales por unidad (DOCENCIA): `content/README.md`
+- Historial de versiones: `versions.md`

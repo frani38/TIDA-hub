@@ -96,6 +96,11 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 - Añadido este archivo **`versions.md`** con el historial desde 1.0 hasta la línea 1.1.x.
 - Publicación automática: tras cambios del sitio, commit + push a `main` sin preguntar (regla `.cursor/rules/auto-publish.mdc`).
 
+## 1.1.9
+
+- Nuevo paradigma documentado de **DOCENCIA**: material visual/sintético (infografías, pósters, presentaciones, PDF selectivos; apoyo de IA) en los cuatro apartados, frente al modelo clásico solo de apuntes/ejercicios PDF.
+- README / `content/README.md` / referencias en `github_TIDAhub.md`: el hub se describe como espacio de divulgación amplio (no solo docencia), con el resto de secciones al mismo nivel de importancia.
+
 ---
 
 ## Convención (recordatorio)
