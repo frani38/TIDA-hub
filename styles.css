@@ -214,6 +214,13 @@ body.theme-light .site-footer a:hover {
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  /* Permite barras horizontal/vertical cuando la ventana es más estrecha que el diseño. */
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
 html,
 body {
   height: 100%;
@@ -226,6 +233,8 @@ body {
   color: var(--text);
   line-height: 1.65;
   min-height: 100vh;
+  min-width: var(--site-min-width);
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -258,6 +267,8 @@ body {
 
 :root {
   --footer-h: 58px;
+  /* Ancho mínimo del diseño de escritorio: al estrechar la ventana se hace scroll, no se recorta. */
+  --site-min-width: 1280px;
 }
 
 header {
@@ -489,19 +500,20 @@ body.theme-light header .header-search .search-action-btn:hover {
   box-shadow: 0 1px 2px rgba(3, 6, 14, 0.35), 0 10px 24px rgba(3, 8, 20, 0.35);
   margin-top: 0; /* sin solapar cabecera */
   margin-bottom: 1rem;
-  width: 100vw; /* mismo ancho que el encabezado */
+  /* Ancho del cuerpo (respeta --site-min-width); evita el truco 100vw que recorta al estrechar. */
+  width: calc(100% + 2rem);
+  max-width: none;
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  left: auto;
+  right: auto;
+  margin-left: -1rem;
+  margin-right: -1rem;
   transform: none;
   box-sizing: border-box;
   border-left: 0;
   border-right: 0;
   border-top: 0;
   grid-column: 1 / -1;
-  max-width: none;
 }
 
 .top-menu.is-hidden {
@@ -807,9 +819,10 @@ body.theme-light #unit-title {
   margin-top: 0.25rem;
 }
 
-/* En LECTURAS RECOMENDADAS: scroll solo dentro del área de libros (no en toda la página). */
+/* En LECTURAS RECOMENDADAS: scroll vertical interno; horizontal de página si la ventana es estrecha. */
 body:has(.misc-detail--readings) {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .tab-panel:has(.misc-detail--readings) {
@@ -1573,9 +1586,10 @@ body:has(.home-split.is-archive) #tab-panel {
   overscroll-behavior: contain;
 }
 
-/* HISTÓRICO (INICIO): fijar altura visible y hacer scroll en el contenido */
+/* HISTÓRICO (INICIO): scroll vertical interno; horizontal de página si la ventana es estrecha. */
 body:has(.home-split.is-archive) {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .tab-panel:has(.home-split.is-archive) {
