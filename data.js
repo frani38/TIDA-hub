@@ -1550,7 +1550,7 @@ window.MYWEB_DATA = {
         {
           id: "tda_aplicada",
           label: "DIGITALIZACIÓN APLICADA",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         }
       ]
     },
@@ -1561,7 +1561,7 @@ window.MYWEB_DATA = {
         {
           id: "tecdig1",
           label: "TECNOLOGÍA Y DIGITALIZACIÓN I",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         }
       ]
     },
@@ -1572,7 +1572,7 @@ window.MYWEB_DATA = {
         {
           id: "tecdig2",
           label: "TECNOLOGÍA Y DIGITALIZACIÓN II",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         }
       ]
     },
@@ -1583,12 +1583,12 @@ window.MYWEB_DATA = {
         {
           id: "tecnologia",
           label: "TECNOLOGÍA",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         },
         {
           id: "digitalizacion",
           label: "DIGITALIZACIÓN",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         }
       ]
     },
@@ -1599,12 +1599,12 @@ window.MYWEB_DATA = {
         {
           id: "tei1",
           label: "TECNOLOGÍA E INGENIERÍA I - TEI I",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         },
         {
           id: "tda1",
           label: "TECNOLOGÍAS DIGITALES APLICADAS I - TDA I",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         }
       ]
     },
@@ -1615,12 +1615,12 @@ window.MYWEB_DATA = {
         {
           id: "tei2",
           label: "TECNOLOGÍA E INGENIERÍA II - TEI II",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         },
         {
           id: "tda2",
           label: "TECNOLOGÍAS DIGITALES APLICADAS II - TDA II",
-          units: [{ id: "UP01_prueba", label: "UP01_prueba", code: "UP01" }]
+          units: []
         }
       ]
     }
