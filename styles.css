@@ -3311,21 +3311,52 @@ body.theme-light .theme-switch-btn.active {
 }
 
 /*
-  Si la ventana es más estrecha que el diseño (--site-min-width),
-  los paneles position:fixed se anclan al documento (no al viewport)
-  para que el scroll horizontal mueva toda la UI junta, sin reorganizarla.
+  Ventana más estrecha que el diseño (--site-min-width):
+  - La cabecera/página mantienen 1680px + scroll horizontal.
+  - NOTICIAS deja de ser fixed al viewport (eso la solapaba con el texto)
+    y pasa a la columna derecha del propio layout, como en pantalla completa.
 */
 @media (max-width: 1679.98px) {
   body {
     position: relative;
   }
 
-  .home-news {
+  .site-footer {
     position: absolute;
   }
 
-  .site-footer {
-    position: absolute;
+  .empty-state.welcome {
+    /* Evita que sea el containing block de .home-news */
+    position: static;
+  }
+
+  .home-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--home-news-w);
+    column-gap: clamp(1.25rem, 3vw, 2.25rem);
+    align-items: start;
+    padding-right: 0;
+  }
+
+  .home-split.is-archive {
+    padding-right: 0;
+  }
+
+  .tab-panel:has(.home-split.is-archive) .home-split.is-archive {
+    width: 100%;
+  }
+
+  .home-news {
+    position: sticky;
+    top: var(--home-news-top, 0px);
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    max-width: none;
+    height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+    max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+    align-self: start;
   }
 }
 
