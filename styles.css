@@ -1,3 +1,20 @@
+/* Tipografías locales (no dependen de Google Fonts / bloqueadores) */
+@font-face {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("./fonts/orbitron-latin-var.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Oxanium";
+  font-style: normal;
+  font-weight: 200 600;
+  font-display: swap;
+  src: url("./fonts/oxanium-latin-var.woff2") format("woff2");
+}
+
 :root {
   --bg: #0a0f1f;
   --bg-soft: #111a34;
