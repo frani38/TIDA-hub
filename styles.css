@@ -1459,7 +1459,8 @@ body.privacy-page .privacy-card-caption {
   justify-content: center;
   user-select: none;
   cursor: default;
-  position: relative;
+  /* static: .home-news se posiciona respecto a .content-card.is-home */
+  position: static;
   top: 0;
 }
 
@@ -2152,13 +2153,20 @@ a.year-result-title-link:hover {
   text-align: left;
   user-select: text;
   cursor: default;
-  position: fixed;
+  /*
+    Absolute respecto a .content-card.is-home (no fixed al viewport):
+    así queda pegado al borde derecho del diseño también con scroll horizontal,
+    sin solapar el texto ni dejar bandas blancas.
+  */
+  position: absolute;
   z-index: 10;
-  top: var(--home-news-top, 0px);
-  right: 0;
-  bottom: var(--footer-h);
+  top: 0;
+  right: -1rem; /* compensa el padding horizontal de .app */
+  bottom: auto;
   width: var(--home-news-w);
   max-width: var(--home-news-w);
+  height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+  max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
   overflow: auto;
   isolation: isolate;
   background:
@@ -3311,10 +3319,8 @@ body.theme-light .theme-switch-btn.active {
 }
 
 /*
-  Ventana más estrecha que el diseño (--site-min-width):
-  - La cabecera/página mantienen 1680px + scroll horizontal.
-  - NOTICIAS deja de ser fixed al viewport (eso la solapaba con el texto)
-    y pasa a la columna derecha del propio layout, como en pantalla completa.
+  Ventana más estrecha que el diseño: el footer acompaña el ancho del documento
+  (NOTICIAS ya va absolute al layout; no hace falta grid alternativo).
 */
 @media (max-width: 1679.98px) {
   body {
@@ -3323,40 +3329,6 @@ body.theme-light .theme-switch-btn.active {
 
   .site-footer {
     position: absolute;
-  }
-
-  .empty-state.welcome {
-    /* Evita que sea el containing block de .home-news */
-    position: static;
-  }
-
-  .home-split {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--home-news-w);
-    column-gap: clamp(1.25rem, 3vw, 2.25rem);
-    align-items: start;
-    padding-right: 0;
-  }
-
-  .home-split.is-archive {
-    padding-right: 0;
-  }
-
-  .tab-panel:has(.home-split.is-archive) .home-split.is-archive {
-    width: 100%;
-  }
-
-  .home-news {
-    position: sticky;
-    top: var(--home-news-top, 0px);
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    max-width: none;
-    height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
-    max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
-    align-self: start;
   }
 }
 
