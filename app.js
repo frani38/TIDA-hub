@@ -542,7 +542,7 @@
       welcomeEl.classList.remove("welcome-enter");
       welcomeEl.classList.add("welcome-reveal");
       welcomeRevealTimer = null;
-    }, 520);
+    }, 820);
   }
 
   function toggleDocenciaMenu(show) {
