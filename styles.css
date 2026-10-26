@@ -2488,7 +2488,7 @@ a.news-title-link:hover {
 .welcome-char.is-visible {
   opacity: 1;
   filter: none;
-  transition: opacity 180ms linear;
+  transition: opacity 70ms linear;
 }
 
 .empty-state.welcome.welcome-typing {

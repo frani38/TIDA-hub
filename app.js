@@ -609,7 +609,7 @@
       if (i >= chars.length) {
         finishTyping();
       }
-    }, 65);
+    }, 28);
   }
 
   function toggleDocenciaMenu(show) {
