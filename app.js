@@ -60,7 +60,6 @@
     recursos: `<img src="./icons/recursos.png?v=${ICONS_VERSION}" alt="" decoding="async" loading="lazy" />`
   };
 
-  const STATE_KEY = "myweb_state_v2";
   const STAGE_OPTIONS = {
     eso: "ESO",
     bach: "BACHILLERATO"
@@ -560,7 +559,6 @@
     );
     docenciaToggleBtnEl.textContent = collapsed ? "▸" : "▾";
     currentState.docenciaCollapsed = collapsed;
-    saveState();
   }
 
   function getSelectedLabel(selectEl) {
@@ -1130,14 +1128,12 @@
       setActiveMenu(helpBtnEl);
       showPrivacyPolicyPanel(null);
       currentState = { ...currentState, section: "privacy" };
-      saveState();
       pushAppHistory();
     }
     if (t === "updates") {
       setActiveMenu(updatesBtnEl);
       showUpdatesSection();
       currentState = { ...currentState, section: "updates" };
-      saveState();
       pushAppHistory();
     }
   }
@@ -1173,7 +1169,6 @@
         unitId: "",
         tabId: ""
       };
-      saveState();
       pushAppHistory();
       animateContentSwitch();
       return;
@@ -1327,28 +1322,10 @@
       unitId: "",
       tabId: ""
     };
-    saveState();
     pushAppHistory();
     animateContentSwitch();
   }
 
-
-  function saveState() {
-    localStorage.setItem(STATE_KEY, JSON.stringify(currentState));
-  }
-
-  function loadState() {
-    try {
-      const raw = localStorage.getItem(STATE_KEY);
-      if (!raw) return;
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === "object") {
-        currentState = { ...currentState, ...parsed };
-      }
-    } catch (_err) {
-      // ignore
-    }
-  }
 
   /* Historial del navegador (atrás / adelante) */
   let suppressHistoryPush = false;
@@ -1431,28 +1408,10 @@
     history.pushState(st, "", urlFromHistoryState(st));
   }
 
-  function replaceAppHistory() {
-    const st = snapshotHistoryState();
-    history.replaceState(st, "", urlFromHistoryState(st));
-  }
-
-  /**
-   * Tras cargar/recargar: historial nuevo anclado en INICIO.
-   * Dos entradas INICIO → el "atrás" desde portada no abandona TIDA-hub (nueva pestaña / web anterior).
-   */
+  /** Tras cargar/recargar: una sola entrada INICIO; el historial interno crece al navegar. */
   function seedAppHistory() {
     const home = homeHistoryState();
-    const homeUrl = urlFromHistoryState(home);
-    history.replaceState(home, "", homeUrl);
-    history.pushState(home, "", homeUrl);
-  }
-
-  /** Si estamos en INICIO, apila otra entrada para absorber el próximo "atrás". */
-  function armHomeHistoryGuard() {
-    if (suppressHistoryPush) return;
-    if ((currentState.section || "home") !== "home") return;
-    const home = homeHistoryState();
-    history.pushState(home, "", urlFromHistoryState(home));
+    history.replaceState(home, "", urlFromHistoryState(home));
   }
 
   function openDocenciaUnitFromIds(levelId, materialId, unitId, tabId = "") {
@@ -1497,7 +1456,6 @@
       searchQuery: st.searchQuery || "",
       docenciaCollapsed: !!st.docenciaCollapsed
     };
-    saveState();
 
     const section = currentState.section;
     if (section === "home") {
@@ -1704,7 +1662,6 @@
         e.preventDefault();
         showPrivacyPolicyPanel(getDraft());
         currentState = { ...currentState, section: "privacy" };
-        saveState();
         pushAppHistory();
       });
     }
@@ -1980,7 +1937,6 @@
       unitTitleEl.textContent = "AYUDA";
       showHelpForm(draft);
       currentState = { ...currentState, section: "help" };
-      saveState();
       pushAppHistory();
     });
     animateContentSwitch();
@@ -3524,7 +3480,6 @@
         btn.setAttribute("aria-current", btn.dataset.tabId === tab.id ? "true" : "false");
       }
       currentState.tabId = tab.id;
-      saveState();
       renderUnitSectionDetails({ unit, tab, detailEl: detail });
     };
 
@@ -3564,7 +3519,6 @@
         btn.removeAttribute("aria-current");
       }
       currentState.tabId = "";
-      saveState();
       renderUnitOverview(unit, detail);
     }
     return pane;
@@ -3625,7 +3579,6 @@
       unitId: unit.id,
       tabId: tab
     };
-    saveState();
     pushAppHistory();
   }
 
@@ -3640,37 +3593,6 @@
       materialId: decodeURIComponent(parts[1]),
       unitId: decodeURIComponent(parts[2])
     };
-  }
-
-  function tryOpenFromHash() {
-    const parsed = parseHash();
-    if (!parsed) return;
-
-    const level = findLevel(parsed.levelId);
-    if (!level) return;
-    toggleDocenciaMenu(true);
-    const material = findMaterial(level, parsed.materialId);
-    if (!material) return;
-    const stageId = getStageFromLevel(level);
-    const stageLevels = levels.filter((item) => getStageFromLevel(item) === stageId);
-
-    stageSelectEl.value = stageId;
-    fillSelect(levelSelectEl, stageLevels, "Selecciona nivel...");
-    levelSelectEl.value = level.id;
-    fillSelect(materialSelectEl, level.materials || [], "Selecciona materia...");
-    materialSelectEl.value = material.id;
-
-    const units = material.units || [];
-    fillSelect(unitSelectEl, units, "Selecciona unidad...");
-    if (units.length === 0) {
-      showConstructionMessage(level, material);
-      return;
-    }
-
-    const unit = findUnit(material, parsed.unitId);
-    if (!unit) return;
-    unitSelectEl.value = unit.id;
-    onUnitSelected({ level, material, unit });
   }
 
   function onStageChanged() {
@@ -3688,7 +3610,6 @@
 
     toggleContentCard(false);
     currentState = { ...currentState, section: "docencia", stageId, levelId: "", materialId: "", unitId: "" };
-    saveState();
     updateDocenciaMenuTitle();
   }
 
@@ -3709,7 +3630,6 @@
       materialId: "",
       unitId: ""
     };
-    saveState();
     updateDocenciaMenuTitle();
   }
 
@@ -3737,7 +3657,6 @@
       materialId: material.id,
       unitId: ""
     };
-    saveState();
     updateDocenciaMenuTitle();
   }
 
@@ -3756,7 +3675,6 @@
   }
 
   resetToHome();
-  loadState();
   toggleContentCard(true);
   toggleDocenciaMenu(false);
   updateUpdatesIndicator({ nudge: false });
@@ -3797,9 +3715,7 @@
         tabId: "",
         searchQuery: ""
       };
-      saveState();
       pushAppHistory();
-      armHomeHistoryGuard();
     });
   }
 
@@ -3820,7 +3736,6 @@
         unitId: "",
         tabId: ""
       };
-      saveState();
       pushAppHistory();
     });
   }
@@ -3830,7 +3745,6 @@
       setActiveMenu(aboutBtnEl);
       showAboutSection();
       currentState = { ...currentState, section: "about" };
-      saveState();
       pushAppHistory();
     });
   }
@@ -3840,7 +3754,6 @@
       setActiveMenu(booksBtnEl);
       showBooksSection();
       currentState = { ...currentState, section: "books" };
-      saveState();
       pushAppHistory();
     });
   }
@@ -3850,7 +3763,6 @@
       setActiveMenu(legislacionBtnEl);
       showLegislacionSection();
       currentState = { ...currentState, section: "legislacion" };
-      saveState();
       pushAppHistory();
     });
   }
@@ -3860,7 +3772,6 @@
       setActiveMenu(miscelaneaBtnEl);
       showMiscelaneaSection();
       currentState = { ...currentState, section: "miscelanea" };
-      saveState();
       pushAppHistory();
     });
   }
@@ -3870,7 +3781,6 @@
       setActiveMenu(helpBtnEl);
       showHelpForm();
       currentState = { ...currentState, section: "help" };
-      saveState();
       pushAppHistory();
     });
   }
@@ -3880,7 +3790,6 @@
       setActiveMenu(updatesBtnEl);
       showUpdatesSection();
       currentState = { ...currentState, section: "updates" };
-      saveState();
       pushAppHistory();
     });
   }
@@ -3898,8 +3807,6 @@
     } finally {
       suppressHistoryPush = false;
     }
-    // En INICIO: rearmar guarda para que otro "atrás" no salga del sitio.
-    armHomeHistoryGuard();
   });
 
 
@@ -3968,7 +3875,6 @@
       tabId: "",
       searchQuery: ""
     };
-    saveState();
     setActiveMenu(homeBtnEl);
     toggleDocenciaMenu(false);
     toggleContentCard(true);

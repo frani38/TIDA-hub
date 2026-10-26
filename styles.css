@@ -696,6 +696,10 @@ main {
   display: flex;
 }
 
+/*
+  Media queries “móvil” desactivadas a propósito (and min-width: 10000px):
+  el sitio usa lienzo de escritorio fijo; no deben reflowear al estrechar la ventana.
+*/
 @media (max-width: 980px) and (min-width: 10000px) {
   .app-layout {
     grid-template-columns: 1fr;

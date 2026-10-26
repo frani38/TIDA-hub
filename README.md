@@ -77,7 +77,7 @@ Tras cambios, en la web publicada usa **Ctrl+F5** (caché de CSS/JS).
 
 ## Comportamiento destacado
 
-- **Historial del navegador**: las flechas atrás/adelante restauran secciones (y unidades de docencia) mediante History API + hashes (`#help`, `#miscelanea`, `#levelId/materialId/unitId`, etc.).
+- **Historial del navegador**: tras cada carga/recarga se parte de **INICIO**; atrás/adelante recorren las secciones visitadas en esa sesión (History API + hashes). Desde INICIO, atrás puede salir del sitio (comportamiento normal del navegador).
 - **Lienzo fijo (~1680px)**: media queries de “móvil” desactivadas a efectos prácticos; al estrechar la ventana aparecen barras de scroll, sin reflow agresivo.
 - En **DOCENCIA**, el panel de materiales queda **sticky** en pantallas grandes.
 - Tema visual fijado a **claro** (`theme-light`).
