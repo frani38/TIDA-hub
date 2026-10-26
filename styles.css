@@ -233,7 +233,8 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
-  min-height: 100vh;
+  /* Altura mínima del lienzo: no se aplasta al acortar la ventana. */
+  min-height: max(100vh, calc(var(--site-canvas-main-h) + 12rem));
   min-width: var(--site-min-width);
   width: max(100%, var(--site-min-width));
   display: flex;
@@ -269,10 +270,12 @@ body {
 :root {
   --footer-h: 58px;
   /*
-    Ancho mínimo real del diseño de escritorio (cabecera completa: menús + búsqueda).
-    Si la ventana es más estrecha → scroll horizontal, sin reorganizar ni recortar.
+    Lienzo de escritorio fijo:
+    si la ventana es más pequeña, NO se reorganiza nada → solo scroll.
   */
   --site-min-width: 1680px;
+  --site-canvas-main-h: 780px;
+  --home-title-h: 3.6rem;
 }
 
 header {
@@ -357,7 +360,8 @@ body.theme-light header .brand-logo img {
 
 .brand-title {
   margin: 0;
-  font-size: clamp(2.3rem, 6.2vw, 3.7rem);
+  /* Tamaño fijo (sin vw): no cambia al redimensionar la ventana. */
+  font-size: 3.2rem;
   font-weight: 700;
   font-style: normal;
   letter-spacing: 0.08em;
@@ -389,7 +393,7 @@ body.theme-light header .brand-logo img {
 
 .brand-subtitle {
   margin: 0;
-  font-size: clamp(1.25rem, 2.6vw, 1.85rem);
+  font-size: 1.55rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   font-family: var(--tech-font);
@@ -407,7 +411,7 @@ body.theme-light header .brand-logo img {
   opacity: 0.95;
   font-style: normal;
   font-family: var(--meta-font);
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-size: 1.05rem;
   font-weight: 400;
   text-align: left;
   width: 100%;
@@ -739,6 +743,15 @@ main {
   padding: 0 0.2rem;
   z-index: 2;
   pointer-events: none;
+  line-height: 1.15;
+  /* Evita que el título absoluto crezca/encoga con el viewport. */
+  font-size: 1.85em;
+}
+
+/* Reserva fija bajo el título absoluto para que el texto nunca se meta debajo. */
+.content-card.is-home #tab-panel {
+  padding-top: var(--home-title-h);
+  box-sizing: border-box;
 }
 
 .content-card.is-hidden {
@@ -880,14 +893,21 @@ body:has(.misc-detail--readings) {
   gap: 0; /* reduce espacio entre título y bloque */
 }
 
-/* Centrado vertical del mensaje de bienvenida exactamente entre header y footer */
+/*
+  Bienvenida: sin centrado vertical dependiente de 100vh
+  (ese centrado era lo que metía el texto debajo de BIENVENIDO/A al acortar la ventana).
+*/
 .tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)) {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   flex: 1 1 auto;
   margin-top: 0;
-  min-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+  min-height: max(
+    var(--site-canvas-main-h),
+    calc(100vh - var(--home-news-top, 0px) - var(--footer-h))
+  );
 }
 
 .content-card #tab-panel:has(.unit-materials-pane) {
@@ -1452,16 +1472,17 @@ body.privacy-page .privacy-card-caption {
   margin: 0;
   text-align: justify;
   text-justify: inter-word;
-  padding: 0.6rem 0;
+  padding: 0.6rem 0 0;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   user-select: none;
   cursor: default;
   /* static: .home-news se posiciona respecto a .content-card.is-home */
   position: static;
   top: 0;
+  width: 100%;
 }
 
 .empty-state.welcome:has(.home-split.is-archive) {
@@ -1480,9 +1501,10 @@ body.privacy-page .privacy-card-caption {
 
 .home-split {
   --home-news-w: 400px;
+  --home-news-gap: 2rem;
   display: block;
-  /* Reservar espacio para el bloque fijo de noticias (derecha). */
-  padding-right: calc(var(--home-news-w) + clamp(1.25rem, 3vw, 2.25rem));
+  /* Reservar espacio para el bloque de noticias (derecha), gap fijo sin vw. */
+  padding-right: calc(var(--home-news-w) + var(--home-news-gap));
 }
 
 .home-year-results {
@@ -1620,11 +1642,11 @@ body:has(.home-split.is-archive) {
   min-height: 0;
 }
 
-.tab-panel:has(.home-split.is-archive) .home-split.is-archive {
+  .tab-panel:has(.home-split.is-archive) .home-split.is-archive {
   flex: 1 1 auto;
   min-height: 0;
   --home-news-w: 400px;
-  --home-news-gap: clamp(1.25rem, 3vw, 2.25rem);
+  --home-news-gap: 2rem;
   width: calc(100% - (var(--home-news-w) + var(--home-news-gap)));
   overflow-y: auto;
   overflow-x: hidden;
@@ -2165,8 +2187,12 @@ a.year-result-title-link:hover {
   bottom: auto;
   width: var(--home-news-w);
   max-width: var(--home-news-w);
-  height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
-  max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+  /* Altura del panel: no se encoge por debajo del lienzo al acortar la ventana. */
+  height: max(
+    var(--site-canvas-main-h),
+    calc(100vh - var(--home-news-top, 0px) - var(--footer-h))
+  );
+  max-height: none;
   overflow: auto;
   isolation: isolate;
   background:
