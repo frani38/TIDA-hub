@@ -229,9 +229,9 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
-  /* Altura del lienzo fija: no se aplasta al acortar la ventana. */
+  /* Al menos un viewport; el lienzo mínimo lo imponen las secciones (sin forzar scroll de más). */
   height: auto;
-  min-height: max(100vh, calc(var(--site-canvas-main-h) + 12rem));
+  min-height: 100vh;
   min-width: var(--site-min-width);
   width: max(100%, var(--site-min-width));
   display: flex;
@@ -902,8 +902,8 @@ body:has(.misc-detail--readings) {
 }
 
 /*
-  Bienvenida: sin centrado vertical dependiente de 100vh
-  (ese centrado era lo que metía el texto debajo de BIENVENIDO/A al acortar la ventana).
+  Bienvenida: sin rellenar con 100vh (cabecera + padding del pie + ese min-height
+  provocaban barra vertical aunque el contenido cupiera). Lienzo mínimo = canvas.
 */
 .tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)) {
   display: flex;
@@ -912,10 +912,7 @@ body:has(.misc-detail--readings) {
   justify-content: flex-start;
   flex: 1 1 auto;
   margin-top: 0;
-  min-height: max(
-    var(--site-canvas-main-h),
-    calc(100vh - var(--home-news-top, 0px) - var(--footer-h))
-  );
+  min-height: var(--site-canvas-main-h);
 }
 
 .content-card #tab-panel:has(.unit-materials-pane) {
@@ -2340,12 +2337,12 @@ a.year-result-title-link:hover {
   bottom: auto;
   width: var(--home-news-w);
   max-width: var(--home-news-w);
-  /* Altura del panel: no se encoge por debajo del lienzo al acortar la ventana. */
-  height: max(
-    var(--site-canvas-main-h),
-    calc(100vh - var(--home-news-top, 0px) - var(--footer-h))
-  );
-  max-height: none;
+  /*
+    Altura del panel NOTICIAS: lienzo mínimo; en ventanas altas no fuerza 100vh
+    (evita sensación de “página más alta” / scroll fantasma en INICIO).
+  */
+  height: var(--site-canvas-main-h);
+  max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
   overflow: auto;
   isolation: isolate;
   background:

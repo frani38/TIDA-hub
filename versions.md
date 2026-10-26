@@ -101,6 +101,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 - Nuevo paradigma documentado de **DOCENCIA**: material visual/sintético (infografías, pósters, presentaciones, PDF selectivos; apoyo de IA) en los cuatro apartados, frente al modelo clásico solo de apuntes/ejercicios PDF.
 - README / `content/README.md` / referencias en `github_TIDAhub.md`: el hub se describe como espacio de divulgación amplio (no solo docencia), con el resto de secciones al mismo nivel de importancia.
 
+## 1.1.10
+
+- INICIO: sin barra de scroll vertical cuando el contenido cabe (se eliminó el `min-height` basado en `100vh` del panel de bienvenida y se ajustó la altura del panel NOTICIAS / `body`).
+
 ---
 
 ## Convención (recordatorio)
