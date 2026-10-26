@@ -1788,7 +1788,7 @@
 
     tabPanelEl.innerHTML = `
       <div class="help-form help-privacy-panel">
-        <h3 class="privacy-block-heading">POLÍTICA DE PRIVACIDAD</h3>
+        <h3 class="privacy-block-heading">POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS</h3>
         <div class="privacy-stack">
           <div class="help-privacy privacy-card">
             <div class="privacy-grid" role="presentation">
