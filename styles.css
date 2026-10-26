@@ -1294,6 +1294,60 @@ body.theme-light .unit-material-card__label {
   text-decoration: none;
 }
 
+/*
+  Página de privacidad: cabecera + título fijos;
+  solo hace scroll el texto de la política (.tab-panel).
+*/
+html:has(body.privacy-page) {
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+body.privacy-page {
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 0;
+  overflow-x: visible;
+  overflow-y: hidden;
+}
+
+body.privacy-page header {
+  flex: 0 0 auto;
+  position: relative; /* no sticky: ya no hace falta con layout bloqueado */
+}
+
+body.privacy-page .app,
+body.privacy-page .app-layout,
+body.privacy-page main {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body.privacy-page .content-card {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body.privacy-page #unit-title {
+  position: static;
+  flex: 0 0 auto;
+  top: auto;
+  z-index: 2;
+  background: rgba(244, 246, 249, 0.98);
+  backdrop-filter: none;
+}
+
+body.privacy-page .tab-panel {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: 0.35rem;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
 /* Página de privacidad (privacidad.html): ocupar el ancho del privacy-stack (1800px) */
 body.privacy-page .help-privacy {
   font-size: 0.92rem;
@@ -1325,7 +1379,7 @@ body.privacy-page header .privacy-header-back:hover {
 }
 
 body.privacy-page .privacy-card {
-  margin: 0.55rem auto 1.2rem;
+  margin: 0.35rem auto 0.85rem;
 }
 
 .privacy-block-heading {
