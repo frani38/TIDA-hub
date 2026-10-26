@@ -1,0 +1,16 @@
+---
+description: Temáticas canónicas en lecturas; preguntar si hay ambigüedad
+alwaysApply: true
+---
+
+# Temáticas de libros (lecturas)
+
+## Nombre canónico
+
+Al añadir o editar libros en `data.js` (campo `themes`) o tocar filtros de temática en `app.js`, usa **solo las etiquetas con el nombre canónico** exactamente como aparecen en el desplegable de temática de lecturas (`#readings-theme`, opciones `<option value="…">` en `app.js`).
+
+Si el usuario nombra la temática con una palabra clave o forma abreviada (p. ej. solo «Impresión 3D»), tradúcelo al **valor canónico** del desplegable (p. ej. `Diseño e Impresión 3D`). No inventes etiquetas que no existan en ese listado.
+
+## Ante duda, consultar
+
+Si no queda claro a qué etiqueta canónica se refiere el usuario, o si una expresión podría mapear a **más de una** temática del desplegable, **pregunta y espera su confirmación** antes de asignar `themes` o modificar temáticas en datos o en la UI.
