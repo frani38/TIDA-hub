@@ -128,27 +128,105 @@ No subas secretos privados. La **Access Key de Web3Forms** está pensada para ir
 
 ---
 
-## 7. Formulario AYUDA (Web3Forms)
+## 7. Registro y uso de Web3Forms (mensajería de AYUDA)
 
-El envío ya no usa `mailto:`. Flujo de alta:
+GitHub Pages **no puede enviar correo** por sí solo. En T·I·D·A hub el formulario de **AYUDA** usa el servicio **[Web3Forms](https://web3forms.com/)**: el navegador hace un `POST` a su API y ellos reenvían el mensaje al correo del responsable (p. ej. `franciscojcr@educastur.org`).
 
-1. Crear cuenta / formulario en https://web3forms.com/ (correo de destino, p. ej. `franciscojcr@educastur.org`).  
-2. Crear el formulario (nombre orientativo: `TIDA hub AYUDA`; URL: `frani38.github.io/TIDA-hub`).  
-3. Copiar la **Access Key** en `data.js`:
+Ventajas frente al antiguo `mailto:`: el visitante **no necesita** tener un cliente de correo configurado; tras enviar ve **Enviado** y vuelve a INICIO.
+
+### 7.1. Por qué Web3Forms en este proyecto
+
+| Aspecto | Detalle |
+| --- | --- |
+| Encaja con Pages | Sitio 100 % estático; sin PHP/Node propio |
+| Plan gratuito (orientativo) | ~**250 envíos/mes** (comprobar siempre en su web de precios) |
+| Access Key | Es **pública** (va en el JS del cliente); no es un secreto de servidor |
+| Protección | Restricción de dominio + honeypot antispam en el formulario |
+
+### 7.2. Registro / acceso a la cuenta
+
+1. Abre https://web3forms.com/ (o https://app.web3forms.com/).  
+2. Entra con **Continue with Email** (o Google) usando el correo donde quieres **recibir** las consultas, p. ej. `franciscojcr@educastur.org`.  
+3. Introduce el **código de verificación** que llega a esa bandeja (revisa también spam).  
+4. Quedas logueado: abajo debe verse algo como *Logged in as franciscojcr@educastur.org*.
+
+### 7.3. Crear el formulario y obtener la Access Key
+
+1. Si es la primera vez, aparece **Create Your First Form**.  
+2. Rellena, por ejemplo:  
+   - **Form Name:** `TIDA hub AYUDA`  
+   - **Website URL:** `frani38.github.io/TIDA-hub`  
+     (para pruebas locales puedes usar también `localhost`)  
+3. Pulsa **Create Form**.  
+4. En el siguiente paso copia la **Access Key** (UUID, p. ej. `f8614300-23c6-4018-a6cd-…`).  
+5. Opcional: **Go to Dashboard** para ver envíos, límites y ajustes.
+
+### 7.4. Configurar la clave en el proyecto (`data.js`)
+
+En `data.js`, bloque `helpContact`:
 
 ```js
 helpContact: {
-  web3formsAccessKey: "……-……-……",
+  web3formsAccessKey: "PEGAR-AQUI-LA-ACCESS-KEY",
   notifyEmail: "franciscojcr@educastur.org",
   fromName: "T·I·D·A hub — AYUDA",
 },
 ```
 
-4. En el panel de Web3Forms, restringir el dominio a la web publicada (y `localhost` si pruebas en local).  
-5. Commit + push.  
-6. Probar AYUDA en la web: debe mostrar **Enviado** y volver a INICIO; el mensaje llega al correo configurado.
+- `web3formsAccessKey`: la clave del paso anterior (obligatoria; si está vacía, AYUDA muestra error de configuración).  
+- `notifyEmail`: correo de destino documentado (el de la cuenta Web3Forms).  
+- `fromName`: nombre que aparece como origen en la notificación.
 
-La política de privacidad (`app.js` / `privacidad.html`) documenta Web3Forms como encargado del tratamiento para ese envío.
+Luego:
+
+```bat
+git add data.js
+git commit -m "Configure Web3Forms access key for AYUDA"
+git push origin main
+```
+
+### 7.5. Dominios de confianza (recomendado)
+
+En el panel de Web3Forms del formulario:
+
+1. Autoriza el dominio de producción: `frani38.github.io` (o la URL completa del sitio).  
+2. Si pruebas en local, añade `localhost`.  
+3. Así reduces el abuso de la Access Key desde otras webs.
+
+### 7.6. Cómo lo usa la web (comportamiento)
+
+1. El usuario rellena AYUDA (nombre, email, asunto, descripción + consentimientos RGPD).  
+2. `app.js` envía JSON a `https://api.web3forms.com/submit` con la Access Key, asunto prefijado `[T·I·D·A hub]`, y un honeypot `botcheck`.  
+3. Si la API responde OK: pantalla **Enviado** (~1,6 s) y retorno a **INICIO**.  
+4. El responsable recibe el correo; puede responder al `replyto` (email del visitante).  
+5. En el dashboard de Web3Forms suele quedar un historial temporal de envíos (según plan).
+
+### 7.7. Privacidad (RGPD)
+
+La política en **AYUDA** y en `privacidad.html` indica que:
+
+- El responsable es Francisco Carnero Rodríguez (`franciscojcr@educastur.org`).  
+- **Web3Forms** actúa como encargado para recibir el envío y notificar por correo.  
+- Puede haber tratamiento fuera del EEE según el proveedor; el usuario consiente al marcar las casillas y enviar.
+
+Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el código.
+
+### 7.8. Comprobar que funciona
+
+1. Ctrl+F5 en https://frani38.github.io/TIDA-hub/  
+2. **AYUDA** → envía un mensaje de prueba.  
+3. Debe aparecer **Enviado** y volver al mensaje de bienvenida.  
+4. Revisa la bandeja (y spam) de `franciscojcr@educastur.org`.  
+5. Opcional: mira el envío en el dashboard de Web3Forms.
+
+### 7.9. Problemas frecuentes de Web3Forms
+
+| Síntoma | Qué revisar |
+| --- | --- |
+| “Falta la clave de Web3Forms” | `helpContact.web3formsAccessKey` vacío o no publicado en Pages |
+| Error al enviar / no llega correo | Dominio no autorizado; clave incorrecta; cupo mensual agotado |
+| Correo en spam | Filtros de Educastur / proveedor; revisa carpeta de no deseados |
+| Llega a otro buzón | La cuenta Web3Forms está ligada a otro email; crea formulario con el correo correcto |
 
 ---
 
@@ -168,7 +246,7 @@ La política de privacidad (`app.js` / `privacidad.html`) documenta Web3Forms co
 | La web no cambia tras el push | Actions/Pages; Ctrl+F5; ¿push a `main`? |
 | 404 en `…/TIDA-hub/` | Pages activado en `main` / root; nombre del repo |
 | CSS antiguo | Query `?v=…` en `index.html` o hard refresh |
-| AYUDA no envía | `web3formsAccessKey` vacío o dominio no autorizado |
+| AYUDA no envía | Ver §7.9 (clave, dominio, cupo, spam) |
 | `git` no se reconoce | Reabrir terminal tras instalar Git; comprobar PATH |
 | Login GitHub | `gh auth login` o Credential Manager |
 
@@ -181,8 +259,9 @@ La política de privacidad (`app.js` / `privacidad.html`) documenta Web3Forms co
 3. Crear repo vacío `TIDA-hub`.  
 4. En la carpeta del proyecto: `remote add` + `push` de `main`.  
 5. Activar Pages (`main` / `/`).  
-6. Configurar Web3Forms y pegar la key en `data.js`.  
-7. Push final y probar https://frani38.github.io/TIDA-hub/  
+6. Registrar Web3Forms, crear formulario, pegar Access Key en `data.js` (§7).  
+7. Restringir dominio en el panel Web3Forms.  
+8. Push final y probar AYUDA + https://frani38.github.io/TIDA-hub/  
 
 ---
 
@@ -190,6 +269,8 @@ La política de privacidad (`app.js` / `privacidad.html`) documenta Web3Forms co
 
 - GitHub Pages: https://docs.github.com/en/pages  
 - Git for Windows: https://git-scm.com/download/win  
-- Web3Forms: https://web3forms.com/  
+- Web3Forms (producto): https://web3forms.com/  
+- Web3Forms (panel / login): https://app.web3forms.com/  
+- Web3Forms (documentación): https://docs.web3forms.com/  
 - README del proyecto: `README.md`  
 - PDF por unidad: `content/README.md`
