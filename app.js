@@ -1353,6 +1353,20 @@
   /* Historial del navegador (atrás / adelante) */
   let suppressHistoryPush = false;
 
+  function homeHistoryState() {
+    return {
+      myweb: 1,
+      section: "home",
+      stageId: "",
+      levelId: "",
+      materialId: "",
+      unitId: "",
+      tabId: "",
+      searchQuery: "",
+      docenciaCollapsed: false
+    };
+  }
+
   function snapshotHistoryState() {
     return {
       myweb: 1,
@@ -1365,6 +1379,22 @@
       searchQuery: currentState.searchQuery || "",
       docenciaCollapsed: !!currentState.docenciaCollapsed
     };
+  }
+
+  function historyStateKey(st) {
+    if (!st) return "";
+    return [
+      st.section || "home",
+      st.levelId || "",
+      st.materialId || "",
+      st.unitId || "",
+      st.tabId || "",
+      st.searchQuery || ""
+    ].join("|");
+  }
+
+  function sameHistoryState(a, b) {
+    return historyStateKey(a) === historyStateKey(b);
   }
 
   function urlFromHistoryState(st) {
@@ -1394,12 +1424,32 @@
   function pushAppHistory() {
     if (suppressHistoryPush) return;
     const st = snapshotHistoryState();
+    // No duplicar la misma vista (evita inflar el historial y romper atrás/adelante).
+    if (history.state && history.state.myweb === 1 && sameHistoryState(history.state, st)) {
+      return;
+    }
     history.pushState(st, "", urlFromHistoryState(st));
   }
 
   function replaceAppHistory() {
     const st = snapshotHistoryState();
     history.replaceState(st, "", urlFromHistoryState(st));
+  }
+
+  /**
+   * Deja INICIO como base del historial de esta visita.
+   * - Si la vista no es inicio: […, INICIO, vista] → atrás vuelve a INICIO (no sale del sitio).
+   * - Si es inicio: apila una segunda entrada INICIO → el primer atrás no abandona TIDA-hub.
+   */
+  function seedAppHistory() {
+    const current = snapshotHistoryState();
+    const home = homeHistoryState();
+    history.replaceState(home, "", urlFromHistoryState(home));
+    if (!sameHistoryState(current, home)) {
+      history.pushState(current, "", urlFromHistoryState(current));
+    } else {
+      history.pushState(home, "", urlFromHistoryState(home));
+    }
   }
 
   function openDocenciaUnitFromIds(levelId, materialId, unitId, tabId = "") {
@@ -3836,8 +3886,11 @@
     try {
       if (event.state && event.state.myweb === 1) {
         restoreHistorySnapshot(event.state);
-      } else {
+      } else if (location.hash && location.hash !== "#" && location.hash !== "#home") {
         applyRouteFromLocationHash();
+      } else {
+        // Entrada sin estado propio: quedarse en INICIO dentro de TIDA-hub.
+        restoreHistorySnapshot(homeHistoryState());
       }
     } finally {
       suppressHistoryPush = false;
@@ -3961,7 +4014,8 @@
   } finally {
     suppressHistoryPush = false;
   }
-  replaceAppHistory();
+  // Base = INICIO; la vista restaurada (si no es inicio) queda encima en el historial.
+  seedAppHistory();
 
   // Tooltips en iconos de cabecera.
   for (const btn of navButtons) {
