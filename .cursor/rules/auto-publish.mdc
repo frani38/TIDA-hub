@@ -1,0 +1,27 @@
+---
+description: Publicar automáticamente en GitHub Pages (commit + push a main) tras cambios del sitio
+alwaysApply: true
+---
+
+# Publicación automática (T·I·D·A hub)
+
+## Política
+
+Tras completar una tarea que **modifique archivos del sitio** (código, datos, estilos, docs del repo, reglas versionadas, etc.):
+
+1. Aplicar el bump de versión según `version-semver.mdc`.
+2. Hacer **commit** de los cambios relevantes (mensaje claro, estilo del repo).
+3. Hacer **push** a `origin main` (GitHub Pages se actualiza desde ahí).
+4. Confirmar al usuario en una frase (versión + que está publicado). **No preguntar** «¿lo publico?».
+
+## Excepciones (no commit/push)
+
+- Solo lectura, explicación, diagnóstico o revisión sin editar el proyecto.
+- El usuario pide explícitamente **no** publicar, no hacer commit, o dejar los cambios solo en local.
+- El cambio es deliberadamente un borrador/WIP y el usuario lo indica.
+
+## Notas
+
+- No usar `--force` en `main` salvo petición explícita del usuario.
+- No actualizar `git config`.
+- Si el push falla, informar del error y del siguiente paso; no insistir en silencio.
