@@ -126,27 +126,21 @@ git push origin main
 
 No subas secretos privados. La **Access Key de Web3Forms** está pensada para ir en el cliente (pública); la protección real es restringir dominios en el panel de Web3Forms.
 
-### 6.1. Versión del pie (`vX.Y`)
+### 6.1. Versión del pie (`vMAJOR.MINOR.PATCH`)
 
-La versión del footprint **no se incrementa sola** en cada commit (haría ruido y perdería significado). Sí se **muestra sola** desde una única fuente:
+Formato de **tres dígitos** (ej. `1.1.0` → se muestra `v1.1.0`):
 
-- Archivo: `data.js` → `siteMeta.version` (y opcional `siteMeta.updated`)
-- Al cargar, `app.js` / `privacidad.html` escriben `#site-version` en el pie
+| Dígito | Significado |
+| --- | --- |
+| **MAJOR** | Cambios considerables |
+| **MINOR** | Cambios menores de funcionalidad |
+| **PATCH** | Cambios pequeños |
 
-**Cuándo subirla (criterio):**
+- Fuente: `data.js` → `siteMeta.version` + `siteMeta.updated`
+- El pie se rellena solo al cargar la página
+- **Regla fija del agente:** `.cursor/rules/version-semver.mdc` — en cada cambio del proyecto se incrementa la versión automáticamente según el tipo de cambio
 
-- Cambio **importante** del día (varias features o un hito): subir **MINOR** (`1.0` → `1.1`).  
-- Solo un arreglo puntual: **PATCH** (`1.1` → `1.1.1`) o dejarla si es trivial.  
-- Rediseño mayor: **MAJOR** (`1.x` → `2.0`).
-
-**Cómo:**
-
-1. Edita `siteMeta.version` en `data.js` (p. ej. `"1.1"`).  
-2. Actualiza `siteMeta.updated` con la fecha (`YYYY-MM-DD`).  
-3. `git commit` + `git push`.  
-4. Ctrl+F5 → el pie muestra `v1.1`.
-
-Hoy (publicación Pages, Web3Forms, lienzo fijo, historial, privacidad en pie, etc.) quedó en **v1.1**.
+Versión actual de referencia tras el hito de publicación online: **1.1.0**.
 
 ---
 

@@ -13,15 +13,12 @@
 
 window.MYWEB_DATA = {
   /*
-    Versión mostrada en el pie (vX.Y). Única fuente de verdad.
-    Cuándo subirla (manual, no es automática):
-      - MAJOR (2.0): cambio incompatible o rediseño total.
-      - MINOR (1.1, 1.2…): funcionalidad relevante (p. ej. Web3Forms, Pages, historial, lienzo fijo).
-      - PATCH (1.1.1): corrección menor o texto/estilo sin feature nueva.
-    Tras editar version/updated → commit + push; el pie se actualiza solo al cargar la web.
+    Versión del pie: MAJOR.MINOR.PATCH (tres dígitos). Única fuente de verdad.
+    El agente debe incrementarla en cada cambio (regla .cursor/rules/version-semver.mdc).
+    El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.1",
+    version: "1.1.0",
     updated: "2026-10-26",
   },
 

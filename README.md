@@ -104,15 +104,15 @@ Tras cambios, en la web publicada usa **Ctrl+F5** (caché de CSS/JS).
 
 ### Versión del sitio (`siteMeta` en `data.js`)
 
-El pie lee `MYWEB_DATA.siteMeta.version` al cargar (p. ej. `v1.1`). **No sube sola**: hay que editar ese campo cuando el cambio lo merezca.
+Formato **MAJOR.MINOR.PATCH** (p. ej. `1.1.0` → pie `v1.1.0`). Fuente única: `siteMeta.version`.
 
-| Tipo | Ejemplo | Cuándo |
-| --- | --- | --- |
-| MAJOR | `2.0` | Rediseño o cambio incompatible |
-| MINOR | `1.1`, `1.2` | Funcionalidad relevante (Pages, Web3Forms, historial, etc.) |
-| PATCH | `1.1.1` | Corrección menor / textos |
+| Dígito | Cuándo |
+| --- | --- |
+| MAJOR | Cambios considerables / hito o rediseño |
+| MINOR | Cambios menores de funcionalidad |
+| PATCH | Cambios pequeños (textos, estilos, fixes, docs) |
 
-Tras cambiar `version` (y opcionalmente `updated`): commit + push. El HTML del pie se actualiza solo.
+El agente de Cursor **debe actualizar la versión automáticamente** en cada cambio del sitio (regla `.cursor/rules/version-semver.mdc`), junto con `siteMeta.updated`.
 
 ## Documentación relacionada
 
