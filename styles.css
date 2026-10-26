@@ -902,9 +902,23 @@ body:has(.misc-detail--readings) {
 }
 
 /*
-  Bienvenida: sin rellenar con 100vh (cabecera + padding del pie + ese min-height
-  provocaban barra vertical aunque el contenido cupiera). Lienzo mínimo = canvas.
+  INICIO (bienvenida): sin min-height de lienzo (780px) ni scroll de página.
+  Medición real: ese mínimo sumaba ~118px de overflow con cabecera + pie.
 */
+html:has(.content-card.is-home):not(:has(.home-split.is-archive)) {
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+body:has(.content-card.is-home):not(:has(.home-split.is-archive)) {
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 0;
+  overflow-x: visible;
+  overflow-y: hidden;
+}
+
 .tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)) {
   display: flex;
   flex-direction: column;
@@ -912,7 +926,9 @@ body:has(.misc-detail--readings) {
   justify-content: flex-start;
   flex: 1 1 auto;
   margin-top: 0;
-  min-height: var(--site-canvas-main-h);
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .content-card #tab-panel:has(.unit-materials-pane) {
@@ -2337,11 +2353,8 @@ a.year-result-title-link:hover {
   bottom: auto;
   width: var(--home-news-w);
   max-width: var(--home-news-w);
-  /*
-    Altura del panel NOTICIAS: lienzo mínimo; en ventanas altas no fuerza 100vh
-    (evita sensación de “página más alta” / scroll fantasma en INICIO).
-  */
-  height: var(--site-canvas-main-h);
+  /* Misma franja útil bajo cabecera / sobre pie (no impone 780px al documento). */
+  height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
   max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
   overflow: auto;
   isolation: isolate;

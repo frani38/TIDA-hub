@@ -103,7 +103,11 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ## 1.1.10
 
-- INICIO: sin barra de scroll vertical cuando el contenido cabe (se eliminó el `min-height` basado en `100vh` del panel de bienvenida y se ajustó la altura del panel NOTICIAS / `body`).
+- INICIO: primer intento de quitar scroll vertical fantasma (insuficiente: seguía el mínimo de lienzo 780px).
+
+## 1.1.11
+
+- INICIO (bienvenida): se elimina el `min-height: 780px` del panel; la página queda acotada al viewport (`overflow-y: hidden` en html/body). Solo hace scroll interno el texto si no cabe, y el panel NOTICIAS.
 
 ---
 
