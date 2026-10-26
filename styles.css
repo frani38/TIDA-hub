@@ -2518,19 +2518,17 @@ a.news-title-link:hover {
   color: #2563eb; /* mismo azul que .welcome-brand (T·I·D·A) */
 }
 
-/* Revelado rápido izq→der del bloque de bienvenida (sustituye el tipeo). */
+/* Revelado tipo cortina izq→der del bloque de bienvenida. */
 .welcome-copy.welcome-enter {
-  opacity: 0.35;
+  opacity: 1;
   clip-path: inset(0 100% 0 0);
-  will-change: clip-path, opacity;
+  will-change: clip-path;
 }
 
 .welcome-copy.welcome-enter.welcome-reveal {
   opacity: 1;
   clip-path: inset(0 0 0 0);
-  transition:
-    clip-path 0.78s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.55s ease-out;
+  transition: clip-path 2.4s ease-in-out;
 }
 
 .welcome-copy.welcome-reveal:not(.welcome-enter) {

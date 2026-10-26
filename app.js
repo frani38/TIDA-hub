@@ -520,7 +520,7 @@
     document.documentElement.style.setProperty("--home-news-top", `${rect.bottom}px`);
   }
 
-  /** Bienvenida: revelado rápido de izquierda a derecha (sin tipeo carácter a carácter). */
+  /** Bienvenida: revelado tipo cortina de izquierda a derecha. */
   function animateWelcomeText() {
     if (!tabPanelEl) return;
     stopWelcomeAnimation();
@@ -542,7 +542,7 @@
       welcomeEl.classList.remove("welcome-enter");
       welcomeEl.classList.add("welcome-reveal");
       welcomeRevealTimer = null;
-    }, 820);
+    }, 2500);
   }
 
   function toggleDocenciaMenu(show) {
