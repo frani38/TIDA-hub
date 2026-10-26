@@ -12,6 +12,19 @@
 //   keywords?, subSection? } se indexa solo; al crear MISCELÁNEA → misc, PROYECTOS → books, etc.
 
 window.MYWEB_DATA = {
+  /*
+    Formulario AYUDA → Web3Forms (https://web3forms.com/).
+    1) Crea una Access Key con el correo de destino (p. ej. franciscojcr@educastur.org).
+    2) Pega la clave en web3formsAccessKey.
+    3) En el panel de Web3Forms, restringe el dominio a frani38.github.io (y localhost si pruebas en local).
+    La clave es pública en el cliente; la seguridad real es la restricción de dominio + antispam.
+  */
+  helpContact: {
+    web3formsAccessKey: "f8614300-23c6-4018-a6cd-f493de766271",
+    notifyEmail: "franciscojcr@educastur.org",
+    fromName: "T·I·D·A hub — AYUDA",
+  },
+
   legislation: {
     national: {
       title: "Nacional",

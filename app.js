@@ -1424,25 +1424,27 @@
     progressIndicatorEl.textContent = "";
     stopWelcomeAnimation();
     tabPanelEl.innerHTML = `
-      <form id="help-form" class="help-form">
+      <form id="help-form" class="help-form" novalidate>
         <div class="help-row">
           <label class="help-field">
             <span>NOMBRE Y APELLIDOS <span class="req-asterisk" aria-hidden="true">*</span></span>
-            <input id="help-name" type="text" maxlength="120" autocomplete="name" required />
+            <input id="help-name" name="name" type="text" maxlength="120" autocomplete="name" required />
           </label>
           <label class="help-field">
             <span>CORREO ELECTRÓNICO <span class="req-asterisk" aria-hidden="true">*</span></span>
-            <input id="help-email" type="email" maxlength="180" autocomplete="email" required />
+            <input id="help-email" name="email" type="email" maxlength="180" autocomplete="email" required />
           </label>
         </div>
         <label class="help-field">
           <span>ASUNTO <span class="req-asterisk" aria-hidden="true">*</span></span>
-          <input id="help-subject" type="text" maxlength="180" required />
+          <input id="help-subject" name="subject" type="text" maxlength="180" required />
         </label>
         <label class="help-field">
           <span>DESCRIPCIÓN <span class="req-asterisk" aria-hidden="true">*</span></span>
-          <textarea id="help-description" rows="8" required></textarea>
+          <textarea id="help-description" name="message" rows="8" required></textarea>
         </label>
+        <!-- Honeypot antispam (Web3Forms): debe permanecer vacío / sin marcar -->
+        <input type="checkbox" name="botcheck" class="help-botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="help-consent-group" role="group" aria-label="Consentimientos">
           <label class="help-consent">
             <input id="help-read" type="checkbox" required />
@@ -1461,7 +1463,8 @@
         <div class="help-required-legend" aria-label="Campos obligatorios">
           <span class="req-asterisk" aria-hidden="true">*</span> Campo obligatorio
         </div>
-        <button type="submit" class="help-submit">Enviar mensaje</button>
+        <button type="submit" class="help-submit" id="help-submit-btn">Enviar mensaje</button>
+        <p id="help-form-status" class="help-form-status" role="status" aria-live="polite" hidden></p>
       </form>
     `;
 
@@ -1472,7 +1475,10 @@
     const descriptionEl = document.getElementById("help-description");
     const readEl = document.getElementById("help-read");
     const consentEl = document.getElementById("help-consent");
-    if (!formEl || !nameEl || !emailEl || !subjectEl || !descriptionEl || !readEl || !consentEl) return;
+    const submitBtnEl = document.getElementById("help-submit-btn");
+    const statusEl = document.getElementById("help-form-status");
+    const botcheckEl = formEl?.querySelector?.('input[name="botcheck"]');
+    if (!formEl || !nameEl || !emailEl || !subjectEl || !descriptionEl || !readEl || !consentEl || !submitBtnEl || !statusEl) return;
 
     // Restablecer borrador (si venimos de leer privacidad)
     if (draft && typeof draft === "object") {
@@ -1502,23 +1508,48 @@
       });
     }
 
-    formEl.addEventListener("submit", (event) => {
+    const setHelpStatus = (kind, text) => {
+      statusEl.hidden = !text;
+      statusEl.textContent = text || "";
+      statusEl.classList.remove("is-ok", "is-error");
+      if (kind === "ok") statusEl.classList.add("is-ok");
+      if (kind === "error") statusEl.classList.add("is-error");
+    };
+
+    formEl.addEventListener("submit", async (event) => {
       event.preventDefault();
+      setHelpStatus("", "");
       if (!formEl.checkValidity()) {
         formEl.reportValidity();
         return;
       }
       const fullName = String(nameEl.value || "").trim();
       const fromEmail = String(emailEl.value || "").trim();
-      const subject = subjectEl.value.trim();
-      const description = descriptionEl.value.trim();
+      const subject = String(subjectEl.value || "").trim();
+      const description = String(descriptionEl.value || "").trim();
       if (!fullName || !fromEmail || !subject || !description || !readEl.checked || !consentEl.checked) return;
 
-      const to = "franciscojcr@educastur.org";
+      // Honeypot: si un bot lo marca, abortar en silencio.
+      if (botcheckEl?.checked) return;
+
+      const helpCfg = DATA.helpContact && typeof DATA.helpContact === "object" ? DATA.helpContact : {};
+      const accessKey = String(helpCfg.web3formsAccessKey || "").trim();
+      const notifyEmail = String(helpCfg.notifyEmail || "franciscojcr@educastur.org").trim();
+      const fromName = String(helpCfg.fromName || "T·I·D·A hub — AYUDA").trim();
+
+      if (!accessKey) {
+        setHelpStatus(
+          "error",
+          "El envío aún no está configurado (falta la clave de Web3Forms). Contacta con el responsable del sitio."
+        );
+        return;
+      }
+
       const now = new Date();
-      const body = [
+      const message = [
         `Nombre y apellidos: ${fullName}`,
         `Email de contacto: ${fromEmail}`,
+        `Destino de notificación: ${notifyEmail}`,
         ``,
         `Descripción:`,
         description,
@@ -1527,8 +1558,50 @@
         `Consentimiento RGPD: Sí (marcado)`,
         `Enviado: ${now.toISOString()}`,
       ].join("\n");
-      const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
+
+      submitBtnEl.disabled = true;
+      const prevLabel = submitBtnEl.textContent;
+      submitBtnEl.textContent = "Enviando…";
+      setHelpStatus("", "Enviando el mensaje…");
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: `[T·I·D·A hub] ${subject}`,
+            from_name: fromName,
+            name: fullName,
+            email: fromEmail,
+            replyto: fromEmail,
+            message,
+            botcheck: "",
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data?.success) {
+          const detail = typeof data?.message === "string" && data.message ? ` (${data.message})` : "";
+          throw new Error(`No se pudo enviar${detail}`);
+        }
+        formEl.reset();
+        readEl.checked = false;
+        consentEl.checked = false;
+        setHelpStatus("ok", "Mensaje enviado correctamente. Recibirás respuesta en el correo que has indicado si procede.");
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error(err);
+        setHelpStatus(
+          "error",
+          "No se pudo enviar el mensaje. Inténtalo de nuevo más tarde o escribe directamente a " + notifyEmail + "."
+        );
+      } finally {
+        submitBtnEl.disabled = false;
+        submitBtnEl.textContent = prevLabel || "Enviar mensaje";
+      }
     });
     animateContentSwitch();
   }
@@ -1598,18 +1671,31 @@
 
                 <div class="privacy-section">
                   <strong>6) Destinatarios</strong>
-                  <div class="privacy-section-body">No se cederán datos a terceros, salvo obligación legal.</div>
+                  <div class="privacy-section-body">
+                    Los datos del formulario se comunican a <strong>Web3Forms</strong>
+                    (<span> (</span><a href="https://web3forms.com/" target="_blank" rel="noopener noreferrer">web3forms.com</a><span>)</span>,
+                    que actúa como encargado del tratamiento solo para recibir el envío y notificarlo por correo electrónico al responsable
+                    (<a href="mailto:franciscojcr@educastur.org">franciscojcr@educastur.org</a>).
+                    No se cederán a otros terceros, salvo obligación legal.
+                  </div>
                 </div>
 
                 <div class="privacy-section">
                   <strong>7) Proveedores y transferencias</strong>
                   <div class="privacy-section-body">
-                    La consulta se envía mediante correo electrónico (función “mailto”), lo que implica la intervención del proveedor/cliente de correo que utilice el
-                    usuario y del proveedor/cliente de correo del responsable para su recepción y gestión. Dichos servicios pueden tratar los datos conforme a sus
-                    propias condiciones y ubicaciones. Si existieran transferencias internacionales, se regirán por las garantías que correspondan según el proveedor.
+                    El formulario de AYUDA se envía a través del servicio <strong>Web3Forms</strong>
+                    (<span> (</span><a href="https://web3forms.com/" target="_blank" rel="noopener noreferrer">https://web3forms.com/</a><span>)</span>,
+                    que procesa la solicitud en sus servidores y reenvía una notificación por correo electrónico al responsable.
+                    Puedes consultar su política de privacidad en
+                    <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer">web3forms.com/privacy</a>.
                     <br />
-                    En particular, algunos proveedores de correo pueden tratar datos fuera del Espacio Económico Europeo. Cuando proceda, se aplicarán las garantías
-                    exigidas por el RGPD (por ejemplo, decisiones de adecuación o cláusulas contractuales tipo).
+                    Web3Forms puede tratar datos fuera del Espacio Económico Europeo. Cuando proceda, se aplicarán las garantías exigidas por el RGPD
+                    (por ejemplo, decisión de adecuación o cláusulas contractuales tipo) conforme a lo indicado por el proveedor.
+                    <br />
+                    La bandeja de destino del responsable está asociada a <a href="mailto:franciscojcr@educastur.org">franciscojcr@educastur.org</a>
+                    (servicio de correo de Educastur / administración educativa), que tratará el mensaje conforme a sus propias condiciones.
+                    El plan gratuito de Web3Forms puede conservar un historial temporal de envíos en su panel (p. ej. unos 30 días); el responsable
+                    conservará los datos el tiempo necesario para gestionar la consulta.
                   </div>
                 </div>
               </div>
@@ -1648,8 +1734,9 @@
                 <div class="privacy-section">
                   <strong>12) Seguridad y recomendaciones</strong>
                   <div class="privacy-section-body">
-                    Se aplican medidas razonables para proteger la información. Aun así, el correo electrónico no es un canal totalmente exento de riesgos; evita incluir
-                    datos especialmente sensibles (por ejemplo, salud, ideología, datos de terceros) en la descripción.
+                    Se aplican medidas razonables para proteger la información (incluye controles del proveedor Web3Forms, como filtrado antispam básico).
+                    Aun así, el correo electrónico y los intermediarios de envío no son canales totalmente exentos de riesgos; evita incluir datos
+                    especialmente sensibles (por ejemplo, salud, ideología, datos de terceros) en la descripción.
                     <br />
                     Recuerda el principio de minimización: aporta únicamente la información necesaria para gestionar tu consulta.
                   </div>

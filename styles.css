@@ -1459,6 +1459,46 @@ body.privacy-page .privacy-card-caption {
   background: rgba(122, 162, 255, 0.2);
 }
 
+.help-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* Honeypot antispam: oculto visualmente, fuera del flujo */
+.help-botcheck {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.help-form-status {
+  margin: 0.35rem 0 0;
+  text-align: center;
+  font-family: var(--tech-font);
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: var(--text-soft);
+}
+
+.help-form-status.is-ok {
+  color: #166534;
+}
+
+.help-form-status.is-error {
+  color: #b91c1c;
+}
+
+body.theme-light .help-form-status.is-ok {
+  color: #166534;
+}
+
+body.theme-light .help-form-status.is-error {
+  color: #b91c1c;
+}
+
 .empty-state {
   color: var(--text-soft);
   background: transparent;
