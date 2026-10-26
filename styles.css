@@ -2480,19 +2480,33 @@ a.news-title-link:hover {
   color: #2563eb; /* mismo azul que .welcome-brand (T·I·D·A) */
 }
 
-.welcome-char {
-  opacity: 0;
-  filter: none;
+/* Revelado rápido izq→der del bloque de bienvenida (sustituye el tipeo). */
+.welcome-copy.welcome-enter {
+  opacity: 0.35;
+  clip-path: inset(0 100% 0 0);
+  will-change: clip-path, opacity;
 }
 
-.welcome-char.is-visible {
+.welcome-copy.welcome-enter.welcome-reveal {
   opacity: 1;
-  filter: none;
-  transition: opacity 70ms linear;
+  clip-path: inset(0 0 0 0);
+  transition:
+    clip-path 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease-out;
 }
 
-.empty-state.welcome.welcome-typing {
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.12);
+.welcome-copy.welcome-reveal:not(.welcome-enter) {
+  opacity: 1;
+  clip-path: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-copy.welcome-enter,
+  .welcome-copy.welcome-enter.welcome-reveal {
+    opacity: 1;
+    clip-path: none;
+    transition: none;
+  }
 }
 
 /* SOBRE MÍ — foto + texto biográfico */

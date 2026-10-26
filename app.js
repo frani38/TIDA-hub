@@ -76,23 +76,14 @@
     searchQuery: ""
   };
 
-  let welcomeTypingTimer = null;
-  let tabPanelWelcomeSkip = null;
+  let welcomeRevealTimer = null;
 
-  function detachWelcomeTabPanelListener() {
-    if (tabPanelEl && tabPanelWelcomeSkip) {
-      tabPanelEl.removeEventListener("pointerdown", tabPanelWelcomeSkip, { capture: true });
-      tabPanelWelcomeSkip = null;
-    }
-  }
-
-  /** Detiene la animación de bienvenida y el listener global en el panel (evita fugas al cambiar de vista). */
+  /** Detiene la animación de bienvenida (evita fugas al cambiar de vista). */
   function stopWelcomeAnimation() {
-    if (welcomeTypingTimer) {
-      clearInterval(welcomeTypingTimer);
-      welcomeTypingTimer = null;
+    if (welcomeRevealTimer) {
+      clearTimeout(welcomeRevealTimer);
+      welcomeRevealTimer = null;
     }
-    detachWelcomeTabPanelListener();
   }
 
   function resetToHome() {
@@ -529,87 +520,29 @@
     document.documentElement.style.setProperty("--home-news-top", `${rect.bottom}px`);
   }
 
+  /** Bienvenida: revelado rápido de izquierda a derecha (sin tipeo carácter a carácter). */
   function animateWelcomeText() {
     if (!tabPanelEl) return;
     stopWelcomeAnimation();
-    const welcomeEl = tabPanelEl.querySelector(".welcome-copy") || tabPanelEl.querySelector(".empty-state.welcome");
+    const welcomeEl = tabPanelEl.querySelector(".welcome-copy");
     if (!welcomeEl) return;
 
-    const textNodes = [];
-    const walker = document.createTreeWalker(welcomeEl, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        if (!node || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-        const parent = node.parentElement;
-        if (!parent) return NodeFilter.FILTER_REJECT;
-        const tag = parent.tagName;
-        if (tag === "SCRIPT" || tag === "STYLE") return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
+    welcomeEl.classList.remove("welcome-reveal", "welcome-enter");
+    // Forzar reflow para reiniciar la transición al volver a INICIO.
+    void welcomeEl.offsetWidth;
+    welcomeEl.classList.add("welcome-enter");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        welcomeEl.classList.add("welcome-reveal");
+      });
     });
 
-    let n = walker.nextNode();
-    while (n) {
-      textNodes.push(n);
-      n = walker.nextNode();
-    }
-
-    const chars = [];
-    for (const node of textNodes) {
-      const frag = document.createDocumentFragment();
-      const parts = Array.from(node.nodeValue);
-
-      for (const part of parts) {
-        if (!part) continue;
-        if (/\s/.test(part)) {
-          frag.appendChild(document.createTextNode(part));
-          continue;
-        }
-        const span = document.createElement("span");
-        span.className = "welcome-char";
-        span.textContent = part;
-        frag.appendChild(span);
-        chars.push(span);
-      }
-
-      node.parentNode.replaceChild(frag, node);
-    }
-
-    if (!chars.length) return;
-    welcomeEl.classList.add("welcome-typing");
-
-    let i = 0;
-    const finishTyping = () => {
-      if (welcomeTypingTimer) {
-        clearInterval(welcomeTypingTimer);
-        welcomeTypingTimer = null;
-      }
-      for (const el of chars) el.classList.add("is-visible");
-      welcomeEl.classList.remove("welcome-typing");
-      welcomeEl.removeEventListener("pointerdown", onSkip, { capture: true });
-      detachWelcomeTabPanelListener();
-    };
-
-    const onSkip = (event) => {
-      // Solo botón principal (izquierdo).
-      if (typeof event.button === "number" && event.button !== 0) return;
-      if (!welcomeEl.classList.contains("welcome-typing")) return;
-      event.preventDefault();
-      finishTyping();
-    };
-
-    // Permite saltar la animación haciendo clic encima del texto o en el área de trabajo.
-    welcomeEl.addEventListener("pointerdown", onSkip, { capture: true });
-    tabPanelWelcomeSkip = onSkip;
-    tabPanelEl.addEventListener("pointerdown", onSkip, { capture: true });
-
-    welcomeTypingTimer = setInterval(() => {
-      const c = chars[i];
-      if (c) c.classList.add("is-visible");
-      i += 1;
-      if (i >= chars.length) {
-        finishTyping();
-      }
-    }, 28);
+    welcomeRevealTimer = setTimeout(() => {
+      welcomeEl.classList.remove("welcome-enter");
+      welcomeEl.classList.add("welcome-reveal");
+      welcomeRevealTimer = null;
+    }, 520);
   }
 
   function toggleDocenciaMenu(show) {
