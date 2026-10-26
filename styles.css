@@ -268,8 +268,11 @@ body {
 
 :root {
   --footer-h: 58px;
-  /* Ancho mínimo del diseño de escritorio: al estrechar la ventana se hace scroll, no se recorta. */
-  --site-min-width: 1280px;
+  /*
+    Ancho mínimo real del diseño de escritorio (cabecera completa: menús + búsqueda).
+    Si la ventana es más estrecha → scroll horizontal, sin reorganizar ni recortar.
+  */
+  --site-min-width: 1680px;
 }
 
 header {
@@ -437,6 +440,9 @@ body.theme-light header .brand-logo img {
   gap: 0.9rem;
   margin-top: 0.34rem;
   width: 100%;
+  /* Evita que menú+búsqueda se salgan del ancho de diseño y dejen “flecos” laterales. */
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .header-search {
@@ -3309,7 +3315,7 @@ body.theme-light .theme-switch-btn.active {
   los paneles position:fixed se anclan al documento (no al viewport)
   para que el scroll horizontal mueva toda la UI junta, sin reorganizarla.
 */
-@media (max-width: 1279.98px) {
+@media (max-width: 1679.98px) {
   body {
     position: relative;
   }
