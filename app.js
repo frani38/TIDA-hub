@@ -1832,8 +1832,8 @@
                 <div class="privacy-section">
                   <strong>5) Carácter obligatorio de los datos</strong>
                   <div class="privacy-section-body">
-                    El correo electrónico, el asunto, la descripción y los consentimientos son necesarios para poder gestionar la consulta. Si no se facilitan, no se
-                    podrá tramitar el envío.
+                    El nombre y apellidos, el correo electrónico, el asunto, la descripción y los consentimientos son necesarios para poder gestionar la consulta. Si
+                    no se facilitan, no se podrá tramitar el envío.
                   </div>
                 </div>
 
@@ -1862,8 +1862,10 @@
                     <br />
                     La bandeja de destino del responsable está asociada a <a href="mailto:franciscojcr@educastur.org">franciscojcr@educastur.org</a>
                     (servicio de correo de Educastur / administración educativa), que tratará el mensaje conforme a sus propias condiciones.
-                    El plan gratuito de Web3Forms puede conservar un historial temporal de envíos en su panel (p. ej. unos 30 días); el responsable
-                    conservará los datos el tiempo necesario para gestionar la consulta.
+                    El plan gratuito de Web3Forms puede conservar un historial temporal de envíos en su panel (p. ej. unos 30 días).
+                    <br />
+                    El sitio se aloja en <strong>GitHub Pages</strong> (GitHub, Inc.), que puede generar registros técnicos de acceso (por ejemplo, dirección IP y
+                    datos del navegador) conforme a sus condiciones de servicio.
                   </div>
                 </div>
               </div>
@@ -1872,8 +1874,8 @@
                 <div class="privacy-section">
                   <strong>8) Conservación</strong>
                   <div class="privacy-section-body">
-                    Los datos se conservarán el tiempo necesario para gestionar la consulta y, en su caso, durante los plazos legalmente aplicables (por ejemplo, para
-                    atender posibles responsabilidades).
+                    Los datos de la consulta se conservarán mientras se gestiona y, como máximo orientativo, hasta 12 meses después de su cierre, salvo que un plazo
+                    legal exija o permita una conservación distinta. El historial temporal en Web3Forms suele limitarse a unos 30 días según el plan.
                   </div>
                 </div>
 
@@ -1896,7 +1898,10 @@
 
                 <div class="privacy-section">
                   <strong>11) Menores</strong>
-                  <div class="privacy-section-body">Si eres menor de edad, consulta con tu tutor/a legal antes de facilitar datos personales.</div>
+                  <div class="privacy-section-body">
+                    Si tienes menos de 14 años, solo podrás enviar el formulario con el consentimiento de tu padre, madre o tutor/a legal (art. 7 LOPDGDD). Si eres
+                    menor de edad con 14 años o más, se recomienda consultar con tu tutor/a antes de facilitar datos personales.
+                  </div>
                 </div>
 
                 <div class="privacy-section">
@@ -1907,6 +1912,9 @@
                     especialmente sensibles (por ejemplo, salud, ideología, datos de terceros) en la descripción.
                     <br />
                     Recuerda el principio de minimización: aporta únicamente la información necesaria para gestionar tu consulta.
+                    <br />
+                    Este sitio no utiliza cookies de publicidad ni de analítica. Solo se usa almacenamiento local del navegador (localStorage) para recordar si
+                    has visto las novedades, sin identificar personalmente a la persona usuaria.
                   </div>
                 </div>
 
