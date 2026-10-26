@@ -1,103 +1,118 @@
-# MyWeb (T·I·D·Ahub)
+# T·I·D·A hub (MyWeb)
 
-Sitio web estático para organizar y publicar materiales de **Tecnología, Ingeniería y Digitalización Aplicada** (ESO y Bachillerato), con navegación **etapa → nivel → materia → unidad** y secciones de apoyo (noticias, legislación, ayuda, etc.).
+Sitio web **estático** para organizar y publicar materiales de **Tecnología, Ingeniería y Digitalización Aplicada** (ESO y Bachillerato), con navegación **etapa → nivel → materia → unidad** y secciones de apoyo (noticias, legislación, ayuda, miscelánea, etc.).
+
+- **Repositorio:** [github.com/frani38/TIDA-hub](https://github.com/frani38/TIDA-hub)
+- **Web publicada (GitHub Pages):** [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/)
+- Guía de puesta en marcha online: **`github_TIDAhub.md`**
 
 ## Objetivo del proyecto
 
-- **DOCENCIA**: selectores de etapa, nivel, materia y unidad; en cada unidad, pestañas **Teoría**, **Actividades**, **Prácticas** y **Recursos** enlazadas a PDF en `/content/<unitId>/`.
-- **INICIO**: bienvenida y bloque de **noticias** (datos en `data.js` → `news`).
-- **NOVEDADES**: listado de avisos/mejoras de la web (datos en `data.js` → `updates`), accesible desde la cabecera.
-- **Búsqueda rápida** (cabecera): formulario **BUSCAR** o **Enter**; resultados globales (docencia, noticias, legislación, entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
-- **LEGISLACIÓN**, **PROYECTOS**, **MISCELÁNEA**: vistas según `data.js` (p. ej. `legislation`, `contentIndex`).
-- **SOBRE MÍ**: texto biográfico e imagen en `./image/` (p. ej. `yo.png`), definidos en `app.js`.
-- **AYUDA**: formulario de contacto y acceso integrado a la política de privacidad; envío mediante `mailto:`.
-- **privacidad.html**: política en página autónoma (misma hoja de estilos).
-- Tipografía **Orbitron / Oxanium** y cabecera tipo banner.
+- **INICIO**: mensaje de bienvenida (revelado tipo cortina) y panel de **últimas noticias** (`data.js` → `news`). Lienzo de escritorio fijo: al reducir la ventana no se reorganiza el diseño; se usa scroll horizontal/vertical.
+- **NOVEDADES**: avisos y mejoras de la web (`data.js` → `updates`).
+- **DOCENCIA**: selectores de etapa, nivel, materia y unidad; en cada unidad, accesos a **Teoría**, **Actividades**, **Prácticas** y **Recursos** (PDF en `/content/<unitId>/`).
+- **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación, entradas indexadas en `data.js`).
+- **LEGISLACIÓN**, **PROYECTOS**, **MISCELÁNEA**: vistas según `data.js` (p. ej. `legislation`, lecturas, juegos, media, **Hacking ético**, etc.).
+- **SOBRE MÍ**: texto biográfico e imagen en `./image/`.
+- **AYUDA**: formulario de contacto con envío real vía **Web3Forms** (sin abrir el cliente de correo del visitante); tras enviar, mensaje **Enviado** y retorno a INICIO. Política de privacidad integrada y en `privacidad.html`.
+- Tipografías **Orbitron / Oxanium** embebidas en `./fonts/` (no dependen de Google Fonts).
 
-No usa framework ni paso de compilación.
+No usa framework ni paso de compilación: HTML + CSS + JS en el navegador.
 
 ## Tecnologías
 
-- HTML5 (`index.html`, `privacidad.html`)
-- CSS3 (`styles.css`)
-- JavaScript en el cliente (`app.js`, `data.js` expuesto como `window.MYWEB_DATA`)
+| Pieza | Archivo / servicio |
+| --- | --- |
+| Marcado | `index.html`, `privacidad.html` |
+| Estilos | `styles.css` |
+| Lógica | `app.js` |
+| Datos | `data.js` → `window.MYWEB_DATA` |
+| Contacto | [Web3Forms](https://web3forms.com/) (`helpContact` en `data.js`) |
+| Hosting | GitHub Pages (rama `main`) |
 
 ## Estructura de carpetas (resumen)
 
 ```text
-MyWeb/
+MyWeb/   (repo TIDA-hub)
 ├── index.html
 ├── privacidad.html
 ├── styles.css
 ├── app.js
 ├── data.js
 ├── README.md
-├── image/           # p. ej. retrato SOBRE MÍ
+├── github_TIDAhub.md
+├── fonts/             # Orbitron, Oxanium (woff2)
+├── image/             # p. ej. retrato SOBRE MÍ
 ├── banners/
 ├── icons/
 ├── logo/
-├── assets/
-└── content/
-    └── <unitId>/
-        ├── teoria.pdf
-        ├── actividades.pdf
-        ├── practicas.pdf
-        └── recursos.pdf
+├── content/
+│   └── <unitId>/
+│       ├── teoria.pdf
+│       ├── actividades.pdf
+│       ├── practicas.pdf
+│       └── recursos.pdf
+└── #_Informe/         # documentación LaTeX del proyecto (opcional)
 ```
 
 Detalle de PDF por unidad: `content/README.md`.
 
 ## Ejecución en local
 
-Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP local (caché y rutas más coherentes):
+Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP local:
 
 - Extensión Live Server (VS Code / Cursor)
-- `python -m http.server 8000` y luego `http://localhost:8000`
+- `python -m http.server 8000` → `http://localhost:8000`
+
+Tras cambios, en la web publicada usa **Ctrl+F5** (caché de CSS/JS).
 
 ## Configuración en `data.js`
 
+- **`helpContact`**: `web3formsAccessKey`, `notifyEmail`, `fromName` (formulario AYUDA).
 - **`levels`**: etapa → niveles → materias → unidades (`id`, `label`, `code`, opcional `intro`, `pdfs`).
 - **`sectionTabs`**: id de pestaña, etiqueta y `pdfFile` por defecto.
-- **`news`**: noticias de portada (`publishedAt`, `title`, `text`, `url` opcional).
-- **`updates`**: avisos/mejoras (`publishedAt`, `title`, `text` opcional).
-- **`legislation`**: bloques nacional / Asturias con ítems enlazados.
-- **`siteSearchEntries`**: filas manuales para la búsqueda rápida (`haystack`, `navTarget`, etc.).
-- **`contentIndex`** (+ opcional **`contentIndexZones`**): ítems por zona (`misc`, `books`, `about`, `help`).
+- **`news`**, **`updates`**, **`legislation`**.
+- **`readings`**, **`games`**, **`media`** (Miscelánea).
+- **`siteSearchEntries`**, **`contentIndex`** (+ opcional **`contentIndexZones`**).
 
 ## Comportamiento destacado
 
-- En **DOCENCIA**, al abrir una unidad se actualiza el **hash** de la URL: `#levelId/materialId/unitId` para compartir o restaurar la vista (junto con estado en `localStorage`).
-- En **DOCENCIA**, el panel izquierdo con **Teoría / Actividades / Prácticas / Recursos** queda **fijo** al hacer scroll (sticky) en pantallas grandes.
-- La búsqueda en barra de DOCENCIA filtra unidades cuando el menú está visible; la búsqueda global usa el formulario de cabecera.
-- Tema visual fijado a **claro** (`theme-light` en el HTML).
-- Fechas mostradas con puntos: `YYYY.MM.DD` (y `YYYY.MM.DD [HH:mm]` cuando aplica).
-- En **INICIO** y **NOVEDADES**, los listados se agrupan por **mes** en bloques plegables/desplegables.
+- **Historial del navegador**: las flechas atrás/adelante restauran secciones (y unidades de docencia) mediante History API + hashes (`#help`, `#miscelanea`, `#levelId/materialId/unitId`, etc.).
+- **Lienzo fijo (~1680px)**: media queries de “móvil” desactivadas a efectos prácticos; al estrechar la ventana aparecen barras de scroll, sin reflow agresivo.
+- En **DOCENCIA**, el panel de materiales queda **sticky** en pantallas grandes.
+- Tema visual fijado a **claro** (`theme-light`).
+- Fechas: `YYYY.MM.DD` (y hora cuando aplica). Listados de novedades/histórico agrupados por **mes**.
 
 ## Indicador de novedades nuevas
 
-- Si hay una entrada nueva en `updates` (se compara un **hash del último elemento**), el botón **NOVEDADES** muestra un **resplandor azul**.
-- Al volver a **INICIO** con novedades sin leer, el botón hace un **parpadeo** durante ~10s.
-- Al entrar en **NOVEDADES**, se marca como visto y el indicador se apaga.
-- Caducidad: si la última novedad tiene más de 14 días, no se muestra el aviso.
+- Hash del último ítem de `updates` → resplandor en **NOVEDADES** si hay algo sin ver.
+- Al volver a **INICIO**, nudge ~10 s; al entrar en **NOVEDADES** se marca como visto.
+- Caducidad: más de 14 días desde la última novedad → no se avisa.
 
 ## AYUDA y privacidad
 
-- Formulario con nombre, correo, asunto, descripción y dos consentimientos obligatorios.
-- Enlace a privacidad abre el panel en la misma ventana sin perder el borrador del formulario.
-- Política completa también en **`privacidad.html`**.
-
-## Miscelánea
-
-- Animación de transición del icono del menú a la vista detalle (icono fijo a la izquierda).
-- Alineación del icono fijo con el título de la sección y ajuste para evitar parpadeos durante la animación.
+- Campos: nombre, correo, asunto, descripción y dos consentimientos obligatorios.
+- Envío por API de Web3Forms al correo configurado (p. ej. Educastur); la política describe ese encargado del tratamiento.
+- Cupo orientativo del plan gratuito de Web3Forms: del orden de **250 envíos/mes** (revisar siempre en su web).
+- Tras un envío correcto: pantalla **Enviado** y retorno a INICIO.
 
 ## Pie de página e identidad
 
-- Licencia **Creative Commons BY-NC-SA 4.0** (enlace en el pie).
-- Copyright: **PhD.Eng. Francisco Carnero Rodríguez**, año dinámico y versión mostrada en el pie.
+- Licencia **Creative Commons BY-NC-SA 4.0**.
+- Copyright: **PhD.Eng. Francisco Carnero Rodríguez**, año dinámico y versión en el pie.
+- Badge de accesibilidad WCAG (referencia declarada en el pie).
+
+## Documentación relacionada
+
+| Archivo | Contenido |
+| --- | --- |
+| `github_TIDAhub.md` | Puesta en marcha con Git for Windows, GitHub y Pages |
+| `content/README.md` | PDF por unidad didáctica |
+| `#_Informe/Informe_MyWeb.tex` | Informe técnico / docente (LaTeX) |
 
 ## Próximos pasos habituales
 
 - Completar unidades y PDF en `content/<unitId>/`.
-- Añadir entradas en `siteSearchEntries` o `contentIndex` cuando haya nuevas páginas indexables.
-- Mantener `news` y `legislation` al día según necesidad.
+- Ampliar Miscelánea / `contentIndex` / `siteSearchEntries`.
+- Mantener `news`, `updates` y `legislation` al día.
+- Tras editar, `git add` → `git commit` → `git push` a `main` (Pages se actualiza solo).
