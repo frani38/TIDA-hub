@@ -1769,20 +1769,24 @@ body.theme-light .help-form-status.is-error {
 }
 
 .updates-archive a.updates-item-link {
-  color: inherit;
+  color: var(--accent);
+  font-weight: 800;
   text-decoration: none;
   cursor: pointer;
 }
 
 .updates-archive a.updates-item-link:hover {
-  color: inherit;
-}
-
-.updates-archive a.updates-item-link:hover .updates-book-title,
-.updates-archive a.updates-item-link:hover .updates-game-title,
-.updates-archive a.updates-item-link:hover .updates-media-title {
   text-decoration: underline;
   text-underline-offset: 0.12em;
+}
+
+.updates-archive a.updates-manual-title {
+  font-weight: 650;
+  color: #0f172a;
+}
+
+.updates-archive a.updates-manual-title:hover {
+  color: #1d4ed8;
 }
 
 .updates-archive .year-result.is-latest-update {

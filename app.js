@@ -460,37 +460,48 @@
                   .map((u, idx) => {
                     const safeTitle = escapeHtml(u.title);
                     const safeText = u.text ? escapeHtml(u.text) : "";
+                    const linkAttrs = (() => {
+                      const externalUrl = String(u.__url || "").trim();
+                      if (externalUrl) {
+                        return `href="${escapeHtml(externalUrl)}" target="_blank" rel="noopener noreferrer"`;
+                      }
+                      const canLinkMisc =
+                        Boolean(u.__miscId) &&
+                        (Boolean(u.__readingId) || Boolean(u.__gameId) || Boolean(u.__mediaId) || u.__kind === "manual");
+                      if (canLinkMisc) {
+                        return `href="#" data-misc-id="${escapeHtml(u.__miscId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}"`;
+                      }
+                      if (u.__navTarget) {
+                        return `href="#" data-nav-target="${escapeHtml(u.__navTarget)}"`;
+                      }
+                      return "";
+                    })();
+                    const linkedName = (labelClass, name) =>
+                      linkAttrs
+                        ? `<a class="updates-item-link ${labelClass}" ${linkAttrs}>${escapeHtml(name)}</a>`
+                        : `<span class="${labelClass}">${escapeHtml(name)}</span>`;
                     const oneLine = (() => {
                       if (u.__kind === "reading") {
-                        return `LIBRO: <span class="updates-book-title">${escapeHtml(u.__bookTitle || "")}</span>`;
+                        return `LIBRO: ${linkedName("updates-book-title", u.__bookTitle || "")}`;
                       }
                       if (u.__kind === "game") {
-                        return `JUEGO: <span class="updates-game-title">${escapeHtml(u.__gameTitle || "")}</span>`;
+                        return `JUEGO: ${linkedName("updates-game-title", u.__gameTitle || "")}`;
                       }
                       if (u.__kind === "media") {
-                        return `MEDIA: <span class="updates-media-title">${escapeHtml(u.__mediaTitle || "")}</span>`;
+                        return `MEDIA: ${linkedName("updates-media-title", u.__mediaTitle || "")}`;
                       }
-                      return safeText ? `${safeTitle} — ${safeText}` : safeTitle;
+                      // Avisos manuales: el hipervínculo es el título (no el texto de detalle).
+                      const titlePart = linkAttrs
+                        ? `<a class="updates-item-link updates-manual-title" ${linkAttrs}>${safeTitle}</a>`
+                        : safeTitle;
+                      return safeText ? `${titlePart} — ${safeText}` : titlePart;
                     })();
-                    const canLinkMisc =
-                      Boolean(u.__miscId) &&
-                      (Boolean(u.__readingId) || Boolean(u.__gameId) || Boolean(u.__mediaId) || u.__kind === "manual");
-                    const externalUrl = String(u.__url || "").trim();
-                    const canLinkNav = Boolean(u.__navTarget) && !canLinkMisc && !externalUrl;
-                    let titleHtml = `<span class="year-result-title">${oneLine}</span>`;
-                    if (externalUrl) {
-                      titleHtml = `<a class="year-result-title year-result-title-link updates-item-link" href="${escapeHtml(externalUrl)}" target="_blank" rel="noopener noreferrer">${oneLine}</a>`;
-                    } else if (canLinkMisc) {
-                      titleHtml = `<a class="year-result-title year-result-title-link updates-item-link" href="#" data-misc-id="${escapeHtml(u.__miscId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}">${oneLine}</a>`;
-                    } else if (canLinkNav) {
-                      titleHtml = `<a class="year-result-title year-result-title-link updates-item-link" href="#" data-nav-target="${escapeHtml(u.__navTarget)}">${oneLine}</a>`;
-                    }
                     // La primera fila de la primera sección es "la última novedad".
                     const isLatest = monthIdx === 0 && idx === 0;
                     return `
                       <li class="year-result year-result--update${isLatest ? " is-latest-update" : ""}">
                         <span class="year-result-date">${escapeHtml(formatDateOnly(u.publishedAt))}</span>
-                        ${titleHtml}
+                        <span class="year-result-title">${oneLine}</span>
                       </li>
                     `;
                   })

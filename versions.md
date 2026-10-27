@@ -117,6 +117,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - NOVEDADES: el título de cada entrada (LIBRO / JUEGO / MEDIA, y avisos manuales con `navTarget`/`miscId`/`url`) es hipervínculo al elemento en su sección (p. ej. ficha en Miscelánea).
 
+## 1.1.14
+
+- NOVEDADES: el hipervínculo queda solo en el nombre del elemento (no en el prefijo LIBRO:/JUEGO:/MEDIA:).
+
 ---
 
 ## Convención (recordatorio)
