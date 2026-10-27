@@ -142,6 +142,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - NOVEDADES: orden corregido para que lo más reciente quede siempre arriba (desempate alineado con catálogos antepuestos).
 
+## 1.1.20
+
+- Miscelánea (Lecturas, Juegos, Media): mismo criterio de orden — lo más reciente arriba al anteponer entradas en `data.js`.
+
 ---
 
 ## Convención (recordatorio)
@@ -182,3 +186,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.17** | Año de Chernóbil 01:23:40 corregido a 2019 |
 | **1.1.18** | Versión solo en cambios técnicos (no en contenido) |
 | **1.1.19** | NOVEDADES: más reciente siempre arriba |
+| **1.1.20** | Lecturas/Juegos/Media: más reciente arriba |

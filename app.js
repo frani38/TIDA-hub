@@ -2713,8 +2713,8 @@
           })
           .filter(Boolean);
 
-        // Por defecto: descendente (más nuevo primero); si empatan, el último añadido primero.
-        readings.sort((a, b) => (a.ms !== b.ms ? b.ms - a.ms : b.__idx - a.__idx));
+        // Catálogo antepuesto (idx 0 = más reciente): por fecha desc; a igualdad, menor idx primero.
+        readings.sort((a, b) => (a.ms !== b.ms ? b.ms - a.ms : a.__idx - b.__idx));
 
         const themeEl = document.getElementById("readings-theme");
         const orderEl = document.getElementById("readings-order");
@@ -2779,10 +2779,11 @@
           if (order === "oldest") {
             // Si no hay temática (Todas), ordenar por entrada en la sección (addedAt).
             // Si hay temática concreta, ordenar por fecha del libro (`year`).
+            // Empate: mayor idx primero (entrada más antigua en el catálogo antepuesto).
             rows.sort((a, b) => {
               const ka = theme ? a.bookMs : a.ms;
               const kb = theme ? b.bookMs : b.ms;
-              return ka !== kb ? ka - kb : a.__idx - b.__idx;
+              return ka !== kb ? ka - kb : b.__idx - a.__idx;
             });
           } else if (order === "title") {
             rows.sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
@@ -2792,10 +2793,11 @@
             // "newest" (por defecto):
             // - TEMÁTICA = Todas → por entrada en la sección (addedAt)
             // - TEMÁTICA concreta → por fecha del libro (`year`)
+            // Empate: menor idx primero (más reciente antepuesto en data.js).
             rows.sort((a, b) => {
               const ka = theme ? a.bookMs : a.ms;
               const kb = theme ? b.bookMs : b.ms;
-              return ka !== kb ? kb - ka : b.__idx - a.__idx;
+              return ka !== kb ? kb - ka : a.__idx - b.__idx;
             });
           }
 
@@ -2928,8 +2930,8 @@
           })
           .filter(Boolean);
 
-        // Por defecto: descendente (más nuevo primero); si empatan, el último añadido primero.
-        games.sort((a, b) => (a.ms !== b.ms ? b.ms - a.ms : b.__idx - a.__idx));
+        // Catálogo antepuesto (idx 0 = más reciente): por fecha desc; a igualdad, menor idx primero.
+        games.sort((a, b) => (a.ms !== b.ms ? b.ms - a.ms : a.__idx - b.__idx));
 
         const themeEl = document.getElementById("games-theme");
         const orderEl = document.getElementById("games-order");
@@ -3029,13 +3031,13 @@
 
           if (order === "oldest") {
             // Criterio igual que lecturas: si TODAS -> por entrada (addedAt). Si temática concreta -> por "fecha" del ítem (aquí coincide).
-            rows.sort((a, b) => (a.ms !== b.ms ? a.ms - b.ms : a.__idx - b.__idx));
+            rows.sort((a, b) => (a.ms !== b.ms ? a.ms - b.ms : b.__idx - a.__idx));
           } else if (order === "title") {
             rows.sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
           } else if (order === "title_desc") {
             rows.sort((a, b) => b.title.localeCompare(a.title, "es", { sensitivity: "base" }));
           } else {
-            rows.sort((a, b) => (a.ms !== b.ms ? b.ms - a.ms : b.__idx - a.__idx));
+            rows.sort((a, b) => (a.ms !== b.ms ? b.ms - a.ms : a.__idx - b.__idx));
           }
 
           if (!rows.length) {
@@ -3170,8 +3172,8 @@
           })
           .filter(Boolean);
 
-        // Por defecto: descendente (más nuevo primero); si empatan, el último añadido primero.
-        media.sort((a, b) => (a.ms !== b.ms ? b.ms - a.ms : b.__idx - a.__idx));
+        // Catálogo antepuesto (idx 0 = más reciente): por fecha desc; a igualdad, menor idx primero.
+        media.sort((a, b) => (a.ms !== b.ms ? b.ms - a.ms : a.__idx - b.__idx));
 
         const themeEl = document.getElementById("media-theme");
         const orderEl = document.getElementById("media-order");
@@ -3234,7 +3236,7 @@
             rows.sort((a, b) => {
               const ka = theme ? a.itemMs : a.ms;
               const kb = theme ? b.itemMs : b.ms;
-              return ka !== kb ? ka - kb : a.__idx - b.__idx;
+              return ka !== kb ? ka - kb : b.__idx - a.__idx;
             });
           } else if (order === "title") {
             rows.sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
@@ -3244,7 +3246,7 @@
             rows.sort((a, b) => {
               const ka = theme ? a.itemMs : a.ms;
               const kb = theme ? b.itemMs : b.ms;
-              return ka !== kb ? kb - ka : b.__idx - a.__idx;
+              return ka !== kb ? kb - ka : a.__idx - b.__idx;
             });
           }
 
