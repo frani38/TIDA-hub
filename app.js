@@ -245,9 +245,15 @@
     const k = String(key || "").trim();
     if (!k) return;
     const seen = loadSeenNewsIds();
-    if (seen.has(k)) return;
-    seen.add(k);
-    saveSeenNewsIds(seen);
+    if (!seen.has(k)) {
+      seen.add(k);
+      saveSeenNewsIds(seen);
+    }
+    // Quitar resalte en panel NOTICIAS e HISTÓRICO a la vez (misma clave).
+    const root = tabPanelEl || document;
+    root.querySelectorAll(`li.is-unseen-news[data-news-key="${CSS.escape(k)}"]`).forEach((row) => {
+      row.classList.remove("is-unseen-news");
+    });
   }
 
   function renderHomeNews(rawNews) {
@@ -294,8 +300,6 @@
           const key = String(a.getAttribute("data-news-key") || "").trim();
           if (!key) return;
           markNewsItemSeen(key);
-          const row = a.closest("li.news-item, li.year-result");
-          if (row) row.classList.remove("is-unseen-news");
         });
       });
     };
@@ -404,10 +408,11 @@
                 const openMonthKey = orderedMonthKeys.includes(currentMonthKey) ? currentMonthKey : orderedMonthKeys[0] || "";
                 const m = Number(String(monthKey).slice(5, 7));
                 const monthLabel = m >= 1 && m <= 12 ? monthNames[m - 1] : monthKey;
+                const seenNow = loadSeenNewsIds();
                 const rows = (buckets.get(monthKey) || [])
                   .map((n) => {
                     const newsKey = getNewsItemKey(n);
-                    const isUnseen = !seenNewsIds.has(newsKey);
+                    const isUnseen = !seenNow.has(newsKey);
                     const titleEl = n.url
                       ? `<a class="year-result-title year-result-title-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer" data-news-key="${escapeHtml(newsKey)}">${escapeHtml(n.title)}</a>`
                       : `<span class="year-result-title">${escapeHtml(n.title)}</span>`;
