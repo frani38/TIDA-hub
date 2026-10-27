@@ -181,6 +181,12 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-10-27T09:45",
+      title: "Apocalipsis en PHP: dos vulnerabilidades críticas sin corregir ponen en peligro cualquier web",
+      text: "Dos fallos críticos en PHP (PHP2Shell, CVSS 9.2) permiten ejecución remota de código sin autenticación en instalaciones web (PHP-FPM, mod_php, cgi y similares). Ya hay parches en las ramas 8.5.12, 8.4.27, 8.3.36 y 8.2.35; conviene actualizar cuanto antes.",
+      url: "https://www.redeszone.net/noticias/seguridad/dos-vulnerabilidades-criticas-php-peligro-web/"
+    },
+    {
       publishedAt: "2026-05-01T14:00",
       title: "Crean los primeros \"neurobots\" de células vivas que fabrican su propio cerebro",
       text: "Ingeniería de sistemas vivos: células de rana se autoorganizan e integran precursores neuronales para crear biobots autónomos con redes neuronales funcionales, explorando la frontera entre robótica y biología.",
