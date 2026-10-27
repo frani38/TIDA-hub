@@ -301,6 +301,18 @@ window.MYWEB_DATA = {
   // cover: ruta local recomendada (por ejemplo: "./assets/books/<id>.jpg")
   readings: [
     {
+      id: "fundamentos_de_linux_para_hackers",
+      addedAt: "2026-10-27",
+      themes: ["Programación y Robótica"],
+      cover: "./books/0102.jpg",
+      title: "Fundamentos de Linux para Hackers",
+      authors: "OccupyTheWeb",
+      year: 2026,
+      isbn: "978-8426740618",
+      description:
+        "Fundamentos de Linux para Hackers ofrece una base sólida y práctica para iniciarse en el hacking ético, la ciberseguridad y las pruebas de intrusión. Enseña a dominar Kali Linux —el sistema operativo de referencia para análisis forense digital y pruebas de intrusión— desde la instalación en máquina virtual hasta la manipulación de texto, gestión de permisos y uso de variables de entorno. Mediante explicaciones claras, ejercicios y simulaciones reales, el lector adquiere competencias clave en seguridad informática, anonimato en red y automatización con scripts en Bash y Python. Los temas cubiertos incluyen: ocultar rastros modificando configuraciones de red, escribir utilidades propias para escanear conexiones y monitorizar redes inalámbricas, navegación anónima mediante Tor, VPNs, proxies y correo cifrado, creación de scripts de Bash para identificar objetivos en rangos de IP, explotación de servicios como MySQL, Apache y OpenSSH, y desarrollo de herramientas propias como cámaras espía remotas o descifradores de contraseñas. Esta edición incluye actualizaciones para nuevas versiones de Kali y Linux, un enfoque más seguro sobre privilegios de superusuario, mejoras en registro de Bluetooth y un nuevo capítulo sobre inteligencia artificial en ciberseguridad."
+    },
+    {
       id: "inteligencia_artificial_para_investigadores",
       addedAt: "2026-10-27",
       themes: ["IA & IoT"],
