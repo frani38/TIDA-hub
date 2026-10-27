@@ -2544,6 +2544,24 @@ a.year-result-title-link:hover {
   font-family: var(--tech-font);
 }
 
+.home-news .news-item.is-unseen-news {
+  border: 2px solid rgba(212, 175, 55, 0.9);
+  background: rgba(212, 175, 55, 0.14);
+  box-shadow:
+    0 0 0 3px rgba(212, 175, 55, 0.28),
+    0 0 22px rgba(255, 200, 60, 0.38),
+    0 0 52px rgba(212, 175, 55, 0.22);
+}
+
+body:has(.home-split.is-archive) .year-result.is-unseen-news {
+  border: 2px solid rgba(184, 134, 11, 0.85);
+  background: rgba(212, 175, 55, 0.12);
+  box-shadow:
+    0 0 0 3px rgba(212, 175, 55, 0.22),
+    0 0 18px rgba(212, 175, 55, 0.28),
+    0 0 46px rgba(184, 134, 11, 0.16);
+}
+
 .news-meta {
   display: flex;
   align-items: baseline;

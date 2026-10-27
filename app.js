@@ -49,6 +49,8 @@
   const UPDATES_LAST_SEEN_HASH_KEY = "myweb_updates_last_seen_hash_v1"; // legado (migración)
   const UPDATES_SEEN_IDS_KEY = "myweb_updates_seen_ids_v1";
   const UPDATES_SEEN_BOOTSTRAP_KEY = "myweb_updates_seen_bootstrapped_v1";
+  const NEWS_SEEN_IDS_KEY = "myweb_news_seen_ids_v1";
+  const NEWS_SEEN_BOOTSTRAP_KEY = "myweb_news_seen_bootstrapped_v1";
   const UPDATES_NUDGE_DURATION_MS = 10000;
   const UPDATES_BADGE_EXPIRE_MS = 14 * 24 * 60 * 60 * 1000; // solo para seed inicial del archivo
 
@@ -198,6 +200,56 @@
     return v;
   }
 
+  function getNewsItemKey(n) {
+    const sig = `${String(n?.publishedAt || "").trim()}|${String(n?.title || "").trim()}|${String(n?.url || "").trim()}`;
+    return `news:${hashStringFNV1a(sig)}`;
+  }
+
+  function loadSeenNewsIds() {
+    try {
+      const raw = localStorage.getItem(NEWS_SEEN_IDS_KEY);
+      const arr = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(arr)) return new Set();
+      return new Set(arr.map((x) => String(x)));
+    } catch {
+      return new Set();
+    }
+  }
+
+  function saveSeenNewsIds(seen) {
+    try {
+      localStorage.setItem(NEWS_SEEN_IDS_KEY, JSON.stringify([...seen]));
+    } catch {}
+  }
+
+  function bootstrapSeenNewsIdsIfNeeded(newsItems) {
+    try {
+      if (localStorage.getItem(NEWS_SEEN_BOOTSTRAP_KEY) === "1") return;
+    } catch {
+      return;
+    }
+    const seen = loadSeenNewsIds();
+    const now = Date.now();
+    for (const n of newsItems || []) {
+      if (Number(n.__ms) > 0 && now - Number(n.__ms) > UPDATES_BADGE_EXPIRE_MS) {
+        seen.add(getNewsItemKey(n));
+      }
+    }
+    saveSeenNewsIds(seen);
+    try {
+      localStorage.setItem(NEWS_SEEN_BOOTSTRAP_KEY, "1");
+    } catch {}
+  }
+
+  function markNewsItemSeen(key) {
+    const k = String(key || "").trim();
+    if (!k) return;
+    const seen = loadSeenNewsIds();
+    if (seen.has(k)) return;
+    seen.add(k);
+    saveSeenNewsIds(seen);
+  }
+
   function renderHomeNews(rawNews) {
     const recentEl = tabPanelEl?.querySelector(".home-news__recent");
     const historyEl = tabPanelEl?.querySelector(".home-news__history");
@@ -213,6 +265,9 @@
       .filter(Boolean);
     // Orden descendente: más reciente → más antiguo. Si empatan por fecha, la última añadida va primero.
     items.sort((a, b) => (a.__ms !== b.__ms ? b.__ms - a.__ms : b.__idx - a.__idx));
+
+    bootstrapSeenNewsIdsIfNeeded(items);
+    const seenNewsIds = loadSeenNewsIds();
 
     const years = Array.from(new Set(items.map((n) => n.year))).sort((a, b) => (a < b ? 1 : -1));
 
@@ -232,19 +287,34 @@
       return;
     }
 
+    const bindNewsSeenClicks = (rootEl) => {
+      if (!rootEl) return;
+      rootEl.querySelectorAll("a.news-title-link[data-news-key], a.year-result-title-link[data-news-key]").forEach((a) => {
+        a.addEventListener("click", () => {
+          const key = String(a.getAttribute("data-news-key") || "").trim();
+          if (!key) return;
+          markNewsItemSeen(key);
+          const row = a.closest("li.news-item, li.year-result");
+          if (row) row.classList.remove("is-unseen-news");
+        });
+      });
+    };
+
     // Mostrar como máximo 10 recientes; el resto queda accesible en el histórico.
     const top = items.slice(0, 10);
     recentEl.innerHTML = `
       <ul class="news-list">
         ${top
           .map((n) => {
+            const newsKey = getNewsItemKey(n);
+            const isUnseen = !seenNewsIds.has(newsKey);
             const safeTitle = escapeHtml(n.title);
             const safeText = n.text ? escapeHtml(n.text) : "";
             const titleEl = n.url
-              ? `<a class="news-title news-title-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">${safeTitle}</a>`
+              ? `<a class="news-title news-title-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer" data-news-key="${escapeHtml(newsKey)}">${safeTitle}</a>`
               : `<div class="news-title">${safeTitle}</div>`;
             return `
-              <li class="news-item">
+              <li class="news-item${isUnseen ? " is-unseen-news" : ""}" data-news-key="${escapeHtml(newsKey)}">
                 <div class="news-meta">
                   <span class="news-date">${escapeHtml(formatPublishedAt(n.publishedAt))}</span>
                 </div>
@@ -256,6 +326,7 @@
           .join("")}
       </ul>
     `;
+    bindNewsSeenClicks(recentEl);
 
     // 1/3 inferior: años
     historyEl.innerHTML = `
@@ -335,11 +406,13 @@
                 const monthLabel = m >= 1 && m <= 12 ? monthNames[m - 1] : monthKey;
                 const rows = (buckets.get(monthKey) || [])
                   .map((n) => {
+                    const newsKey = getNewsItemKey(n);
+                    const isUnseen = !seenNewsIds.has(newsKey);
                     const titleEl = n.url
-                      ? `<a class="year-result-title year-result-title-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(n.title)}</a>`
+                      ? `<a class="year-result-title year-result-title-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer" data-news-key="${escapeHtml(newsKey)}">${escapeHtml(n.title)}</a>`
                       : `<span class="year-result-title">${escapeHtml(n.title)}</span>`;
                     return `
-                      <li class="year-result">
+                      <li class="year-result${isUnseen ? " is-unseen-news" : ""}" data-news-key="${escapeHtml(newsKey)}">
                         <span class="year-result-date">${escapeHtml(formatPublishedAt(n.publishedAt))}</span>
                         ${titleEl}
                       </li>
@@ -359,6 +432,7 @@
           })()}
         </div>
       `;
+      bindNewsSeenClicks(yearResultsEl);
     };
 
     for (const btn of historyEl.querySelectorAll(".year-btn")) {

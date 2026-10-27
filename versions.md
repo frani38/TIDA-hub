@@ -170,6 +170,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Scroll con rueda global: si hay barra activa, la rueda mueve el contenedor principal aunque el puntero esté en cabecera u otras zonas (también en `privacidad.html`). Paneles anidados (p. ej. NOTICIAS) siguen con scroll propio.
 
+## 1.1.27
+
+- NOTICIAS: resalte dorado en cada noticia no visitada; se quita al hacer clic en el título con enlace.
+
 ---
 
 ## Convención (recordatorio)
@@ -217,3 +221,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.24** | CSS anti-caché; resalte de entradas no vistas visible |
 | **1.1.25** | NOVEDADES: rueda del ratón en todo el contenido |
 | **1.1.26** | Rueda → scroll principal en todas las secciones |
+| **1.1.27** | NOTICIAS: resalte dorado hasta abrir el enlace |
