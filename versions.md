@@ -162,6 +162,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Anti-caché de `styles.css` y resalte de entradas no vistas más visible (evita que el navegador conserve la regla antigua `is-latest-update`).
 
+## 1.1.25
+
+- NOVEDADES: la rueda del ratón hace scroll en todo el contenido (ya no hace falta apuntar a la barra).
+
 ---
 
 ## Convención (recordatorio)
@@ -207,3 +211,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.22** | `data.js` sin caché fija (versión del pie fiable) |
 | **1.1.23** | NOVEDADES: resalte por ítem hasta visitarlo |
 | **1.1.24** | CSS anti-caché; resalte de entradas no vistas visible |
+| **1.1.25** | NOVEDADES: rueda del ratón en todo el contenido |

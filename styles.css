@@ -1814,13 +1814,27 @@ body.theme-light .help-form-status.is-error {
   margin: 0.35rem auto 0;
 }
 
-/* NOVEDADES: permitir scroll vertical dentro del panel de contenido */
+/* NOVEDADES: scroll de página (lienzo), no panel interno.
+   Un overflow interno + overscroll-behavior:contain atrapaba la rueda del ratón
+   y solo respondía al pasar por la barra; la rueda debe funcionar en todo el contenido. */
+html.updates-archive {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+html.updates-archive body {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
 html.updates-archive #tab-panel {
   flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: scroll; /* mostrar barra siempre */
-  scrollbar-gutter: stable;
-  overscroll-behavior: contain;
+  min-height: max(
+    var(--site-canvas-main-h),
+    calc(100vh - var(--home-news-top, 0px) - var(--footer-h))
+  );
+  height: auto;
+  overflow: visible;
 }
 
 /* HISTÓRICO: el scroll es de página (lienzo), no un panel interno que se aplasta. */
