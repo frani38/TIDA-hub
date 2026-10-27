@@ -174,6 +174,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - NOTICIAS: resalte dorado en cada noticia no visitada; se quita al hacer clic en el título con enlace.
 
+## 1.1.28
+
+- INICIO: texto de cierre de bienvenida actualizado («experiencia de navegación»).
+
 ---
 
 ## Convención (recordatorio)
@@ -222,3 +226,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.25** | NOVEDADES: rueda del ratón en todo el contenido |
 | **1.1.26** | Rueda → scroll principal en todas las secciones |
 | **1.1.27** | NOTICIAS: resalte dorado hasta abrir el enlace |
+| **1.1.28** | Texto de cierre de bienvenida en INICIO |

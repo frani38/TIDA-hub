@@ -135,7 +135,7 @@
               Además, en <strong>MISCELÁNEA</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hardware y Software, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
             </p>
             <p class="welcome-intro">
-              ¡Que tengas buena navegación por este espacio vivo y en constante mejora y actualización!
+              ¡Qué tengas buena experiencia de navegación por este espacio vivo y en constante mejora y actualización!
             </p>
           </div>
           <aside class="home-news" aria-label="Últimas noticias">
