@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.1.16",
+    version: "1.1.17",
     updated: "2026-10-27",
   },
 
@@ -307,7 +307,7 @@ window.MYWEB_DATA = {
       cover: "./books/0099.jpg",
       title: "Chernóbil 01:23:40",
       authors: "Andrew Leatherbarrow",
-      year: 2025,
+      year: 2019,
       isbn: "978-8417761752",
       description:
         "Esta obra reconstruye el accidente de la central nuclear de Chernóbil —desencadenado a la 01:23:40 del 26 de abril de 1986 durante una prueba nocturna mal ejecutada— combinando dos hilos narrativos. Por un lado, una exposición cronológica y muy documentada (fruto, según el propio autor, de unos cinco años de investigación) que arranca con una breve historia de la energía nuclear y los accidentes previos, explica cómo el diseño del reactor RBMK y una cadena de errores humanos, presiones de producción y ocultación soviética hicieron posible la explosión, y sigue después con la lucha por contener el núcleo, la evacuación, la limpieza y el juicio posterior. Por otro, el relato en primera persona de sus propios viajes a la Zona de Exclusión, con las gestiones burocráticas, los desplazamientos y lo que encontró sobre el terreno décadas después. El resultado es una obra divulgativa y accesible, pensada explícitamente para cubrir el hueco de un relato riguroso pero relativamente breve, que insiste en repartir responsabilidades entre los fabricantes del reactor, los operadores y el sistema político."

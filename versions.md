@@ -128,7 +128,11 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ## 1.1.16
 
-- Lecturas: alta de **Chernóbil 01:23:40** (Andrew Leatherbarrow, 2025; temática Histórico; portada `books/0099.jpg`).
+- Lecturas: alta de **Chernóbil 01:23:40** (Andrew Leatherbarrow; temática Histórico; portada `books/0099.jpg`).
+
+## 1.1.17
+
+- Lecturas: corrección del año de *Chernóbil 01:23:40* → **2019**.
 
 ---
 
@@ -165,3 +169,4 @@ Actualizar siempre `siteMeta.version` y `siteMeta.updated` en `data.js` al publi
 | **1.1.14** | Enlace solo en el nombre (no en LIBRO:/JUEGO:/MEDIA:) |
 | **1.1.15** | Tabla resumen de versiones; `content/README` de Docencia visual |
 | **1.1.16** | Lectura nueva: Chernóbil 01:23:40 (Leatherbarrow) |
+| **1.1.17** | Año de Chernóbil 01:23:40 corregido a 2019 |
