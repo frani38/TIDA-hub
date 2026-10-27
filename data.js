@@ -301,6 +301,18 @@ window.MYWEB_DATA = {
   // cover: ruta local recomendada (por ejemplo: "./assets/books/<id>.jpg")
   readings: [
     {
+      id: "ia_para_la_vida_cotidiana",
+      addedAt: "2026-10-27",
+      themes: ["IA & IoT"],
+      cover: "./books/0100.jpg",
+      title: "IA para la vida cotidiana",
+      authors: "Marisa Tormo",
+      year: 2026,
+      isbn: "979-1399082722",
+      description:
+        "Este libro nace para desmontar la creencia de que «la inteligencia artificial no es para mí»: aunque sientas que todo avanza demasiado rápido o que se habla en otro idioma, ya la usas diariamente sin darte cuenta —en tu móvil, correo, recomendaciones y herramientas cotidianas—. Su propósito es ayudarte a incorporarla a tu vida de forma sencilla, práctica y sin tecnicismos. A través de ejemplos reales, ejercicios, talleres y prompts listos para usar, junto a AiTina, tu asistente virtual, aprenderás a organizar tu hogar y planificar viajes, crear hábitos adaptados a tu estilo de vida, gestionar tus finanzas, ahorrar tiempo en el trabajo, mantener bajo control correos y archivos. La clave no está en saber más tecnología, sino en aprender a utilizarla a tu favor: tú llevas el manillar y la IA te ayuda a pedalear."
+    },
+    {
       id: "chernobil_01_23_40",
       addedAt: "2026-10-27",
       themes: ["Histórico"],
