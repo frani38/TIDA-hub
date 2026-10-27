@@ -15,7 +15,7 @@ En **DOCENCIA** la navegación sigue siendo **etapa → nivel → materia → un
 
 Referencia en datos: `data.js` → `sectionTabs` y, si aplica, rutas por unidad (`pdfs` / ficheros). Criterio editorial: del autor del sitio.
 
-Sitio estático (GitHub Pages): los ficheros viven en el repositorio; no hace falta backend.
+Sitio estático (GitHub Pages): los ficheros viven en el repositorio; no hace falta backend. Alta o cambio de material de unidad = **contenido editorial** (commit/push **sin** bumpear `siteMeta.version`, salvo que el mismo cambio toque código/UI).
 
 ## Ruta en disco
 
@@ -41,13 +41,23 @@ Si falta un fichero, el enlace puede abrir una URL inexistente hasta que exista.
 ## Buenas prácticas
 
 - Prioriza **claridad visual** e ideas clave frente a documentos densos.
-- Evita ficheros enormes (Pages y el navegador lo notan).
+- Evita ficheros enormes (Pages y el navegador lo notan); comprime imágenes antes de subirlas.
 - Respeta derechos de terceros; el sitio declara **CC BY-NC-SA 4.0**.
-- Tras publicar, comprueba la unidad en DOCENCIA con **Ctrl+F5**.
+- Tras publicar, comprueba la unidad en DOCENCIA con **Ctrl+F5** (la primera vez tras un bump de assets).
 
 ## Nota sobre la interfaz
 
 - Panel **Teoría / Actividades / Prácticas / Recursos**: sticky en pantallas grandes.
 - URL de unidad: `#levelId/materialId/unitId` (historial atrás/adelante).
+- Iconos de apartados: `icons/` (caché ligada a la versión del sitio).
+
+## Relación con otras carpetas de medios
+
+| Carpeta | Uso |
+| --- | --- |
+| `content/<unitId>/` | Materiales DOCENCIA por unidad |
+| `books/` | Portadas de **Lecturas** (Miscelánea) |
+| `icons/` | Iconos de hub Miscelánea / DOCENCIA |
+| `banners/`, `image/`, `logo/` | Identidad y decoración |
 
 Visión general: `README.md`. Publicación: `github_TIDAhub.md`. Historial: `versions.md`.

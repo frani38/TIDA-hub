@@ -186,6 +186,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Rendimiento: anti-caché de assets por versión del sitio (no `Date.now()` en cada visita); iconos y portadas grandes comprimidos/reescalados.
 
+## 1.1.31
+
+- Documentación actualizada (`README.md`, `github_TIDAhub.md`, `content/README.md`, `versions.md`) e informe LaTeX local alineados con el estado **1.1.30+** (avisos no leídos, caché por versión, política de bump, scroll, etc.).
+
 ---
 
 ## Convención (recordatorio)
@@ -237,3 +241,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.28** | Texto de cierre de bienvenida en INICIO |
 | **1.1.29** | NOTICIAS: resalte sincronizado con HISTÓRICO |
 | **1.1.30** | Caché de assets + compresión de iconos/portadas |
+| **1.1.31** | Docs e informe alineados con el sitio actual |

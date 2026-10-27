@@ -122,25 +122,29 @@ git push origin main
 ```
 
 1. Espera a que Pages despliegue (pestaña **Actions** del repo, si está visible).  
-2. Abre la web y fuerza recarga: **Ctrl+F5** (CSS/JS versionados o con `Date.now()` en `app.js`).
+2. Abre la web y fuerza recarga: **Ctrl+F5** la primera vez tras un bump (CSS/JS/iconos usan `MYWEB_ASSET_V` / `siteMeta.version`, no `Date.now()` en cada visita).
 
 No subas secretos privados. La **Access Key de Web3Forms** está pensada para ir en el cliente (pública); la protección real es restringir dominios en el panel de Web3Forms.
 
 ### 6.1. Versión del pie (`vMAJOR.MINOR.PATCH`)
 
-Formato de **tres dígitos** (ej. `1.1.0` → se muestra `v1.1.0`):
+Formato de **tres dígitos** (ej. `1.1.31` → se muestra `v1.1.31`):
 
 | Dígito | Significado |
 | --- | --- |
 | **MAJOR** | Cambios considerables |
 | **MINOR** | Cambios menores de funcionalidad |
-| **PATCH** | Cambios pequeños |
+| **PATCH** | Cambios técnicos pequeños |
 
 - Fuente: `data.js` → `siteMeta.version` + `siteMeta.updated`
 - El pie se rellena solo al cargar la página
-- **Regla fija del agente:** `.cursor/rules/version-semver.mdc` — en cada cambio del proyecto se incrementa la versión automáticamente según el tipo de cambio
+- Anti-caché de assets: `window.MYWEB_ASSET_V` en `index.html` / `privacidad.html` (misma cadena que la versión)
+- **Regla fija del agente:** `.cursor/rules/version-semver.mdc`
+  - **Sí bumpear** en cambios técnicos (código, estilos, docs de ingeniería, reglas)
+  - **No bumpear** en altas/ediciones solo de contenido editorial (libros, juegos, media, noticias, legislación, materiales de `content/`/`books/`, …)
+- Publicación automática a `main`: `.cursor/rules/auto-publish.mdc`
 
-Versión actual de referencia: ver `siteMeta.version` en `data.js`.
+Versión actual de referencia: ver `siteMeta.version` en `data.js` e historial en `versions.md`.
 
 ---
 
@@ -261,7 +265,9 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 | --- | --- |
 | La web no cambia tras el push | Actions/Pages; Ctrl+F5; ¿push a `main`? |
 | 404 en `…/TIDA-hub/` | Pages activado en `main` / root; nombre del repo |
-| CSS antiguo | Query `?v=…` en `index.html` o hard refresh |
+| CSS/JS/iconos antiguos | Comprobar que `MYWEB_ASSET_V` / `siteMeta.version` se bumpeó; Ctrl+F5 |
+| Iconos o portadas muy lentos | Tamaño de ficheros en `icons/` / `books/`; preferir PNG/JPG ligeros |
+| Pie con versión antigua | Caché de `data.js`; forzar recarga tras publicar |
 | AYUDA no envía | Ver §7.9 (clave, dominio, cupo, spam) |
 | `git` no se reconoce | Reabrir terminal tras instalar Git; comprobar PATH |
 | Login GitHub | `gh auth login` o Credential Manager |
