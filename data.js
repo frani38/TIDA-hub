@@ -301,6 +301,18 @@ window.MYWEB_DATA = {
   // cover: ruta local recomendada (por ejemplo: "./assets/books/<id>.jpg")
   readings: [
     {
+      id: "inteligencia_artificial_para_investigadores",
+      addedAt: "2026-10-27",
+      themes: ["IA & IoT"],
+      cover: "./books/0101.jpg",
+      title: "Inteligencia Artificial para investigadores",
+      authors: "José Manuel Ortega Candel",
+      year: 2026,
+      isbn: "979-1399082708",
+      description:
+        "La inteligencia artificial ya no pertenece al futuro de la ciencia: forma parte de su presente. Con estrategias concretas y herramientas reales, este libro te muestra cómo integrarla en todas las fases de tu investigación —del análisis de datos a la redacción de artículos— manteniendo intactos el rigor y la profundidad de tu trabajo. Investigar más rápido, publicar con mayor impacto y ampliar tu influencia empiezan aquí."
+    },
+    {
       id: "ia_para_la_vida_cotidiana",
       addedAt: "2026-10-27",
       themes: ["IA & IoT"],
