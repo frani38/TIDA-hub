@@ -146,6 +146,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Miscelánea (Lecturas, Juegos, Media): mismo criterio de orden — lo más reciente arriba al anteponer entradas en `data.js`.
 
+## 1.1.21
+
+- NOVEDADES: el aviso del botón (brillo) usa huella de **todas** las entradas; una alta nueva vuelve a activarlo aunque compartan fecha.
+
 ---
 
 ## Convención (recordatorio)
@@ -187,3 +191,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.18** | Versión solo en cambios técnicos (no en contenido) |
 | **1.1.19** | NOVEDADES: más reciente siempre arriba |
 | **1.1.20** | Lecturas/Juegos/Media: más reciente arriba |
+| **1.1.21** | Aviso NOVEDADES: hash del conjunto completo |

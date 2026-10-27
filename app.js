@@ -810,8 +810,14 @@
   function getLastUpdateHash() {
     const items = collectAllUpdates();
     if (!items.length) return "";
-    const last = items[0];
-    const sig = `${String(last?.publishedAt || "").trim()}|${String(last?.title || "").trim()}|${String(last?.text || "").trim()}`;
+    // Huella del conjunto completo: si solo se hasheaba el 1.º ítem, altas del mismo día
+    // (sobre todo con orden invertido) no cambiaban el hash y el brillo no se reactivaba.
+    const sig = items
+      .map(
+        (u) =>
+          `${String(u?.publishedAt || "").trim()}|${String(u?.title || "").trim()}|${String(u?.text || "").trim()}|${String(u?.__kind || "")}|${String(u?.__readingId || u?.__gameId || u?.__mediaId || "")}`
+      )
+      .join("\n");
     if (!sig.trim()) return "";
     return hashStringFNV1a(sig);
   }
