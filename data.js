@@ -268,33 +268,7 @@ window.MYWEB_DATA = {
   //   navTarget?: "misc"|"docencia"|..., miscId?: "misc_lr", readingId?/gameId?/mediaId?, url? }
   // Los libros/juegos/media con `addedAt` generan entradas automáticas LIBRO:/JUEGO:/MEDIA:
   // cuyo título enlaza al elemento en Miscelánea.
-  updates: [
-    {
-      publishedAt: "2026-04-14",
-      title: "Sección NOVEDADES en la portada",
-      text: "Nuevo panel en INICIO para publicar mejoras y avisos de la web, ordenados por fecha."
-    },
-    {
-      publishedAt: "2026-04-14",
-      title: "Aviso visual de novedades",
-      text: "El botón NOVEDADES muestra un brillo intermitente cuando hay avisos nuevos."
-    },
-    {
-      publishedAt: "2026-04-14",
-      title: "Entrada de prueba",
-      text: "Ejemplo para comprobar el brillo intermitente del botón NOVEDADES desde INICIO."
-    },
-    {
-      publishedAt: "2026-04-14",
-      title: "Otra entrada de prueba",
-      text: "Segundo aviso de ejemplo para comprobar el orden descendente y el indicador de novedades."
-    },
-    {
-      publishedAt: "2026-04-15",
-      title: "Entrada de ejemplo (NOVEDADES)",
-      text: "Aviso de prueba para verificar que el panel de NOVEDADES se actualiza correctamente."
-    }
-  ],
+  updates: [],
 
   // Lecturas recomendadas (Miscelánea → LECTURAS RECOMENDADAS)
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.
