@@ -150,6 +150,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - NOVEDADES: el aviso del botón (brillo) usa huella de **todas** las entradas; una alta nueva vuelve a activarlo aunque compartan fecha.
 
+## 1.1.22
+
+- Carga de `data.js` con anti-caché (`Date.now()`), como `app.js`, para que el pie muestre la versión publicada tras recargar.
+
 ---
 
 ## Convención (recordatorio)
@@ -192,3 +196,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.19** | NOVEDADES: más reciente siempre arriba |
 | **1.1.20** | Lecturas/Juegos/Media: más reciente arriba |
 | **1.1.21** | Aviso NOVEDADES: hash del conjunto completo |
+| **1.1.22** | `data.js` sin caché fija (versión del pie fiable) |

@@ -198,21 +198,30 @@
       <div class="site-footer-inner">
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.1.21</span> |
+          <span id="site-version">v1.1.22</span> |
           <a href="./privacidad.html" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
     </footer>
 
-    <script src="./data.js?v=20261027-linux-hackers"></script>
     <script>
       (function () {
-        var y = document.getElementById("year-current");
-        if (y) y.textContent = String(new Date().getFullYear());
-        var vEl = document.getElementById("site-version");
-        var ver = (window.MYWEB_DATA && window.MYWEB_DATA.siteMeta && window.MYWEB_DATA.siteMeta.version) || "";
-        ver = String(ver).trim();
-        if (vEl && ver) vEl.textContent = ver.indexOf("v") === 0 ? ver : "v" + ver;
+        var applyMeta = function () {
+          var y = document.getElementById("year-current");
+          if (y) y.textContent = String(new Date().getFullYear());
+          var vEl = document.getElementById("site-version");
+          var ver = (window.MYWEB_DATA && window.MYWEB_DATA.siteMeta && window.MYWEB_DATA.siteMeta.version) || "";
+          ver = String(ver).trim();
+          if (vEl && ver) vEl.textContent = ver.indexOf("v") === 0 ? ver : "v" + ver;
+        };
+        var data = document.createElement("script");
+        data.src = "./data.js?v=" + Date.now();
+        data.onload = applyMeta;
+        data.onerror = function () {
+          console.error("No se pudo cargar data.js");
+          applyMeta();
+        };
+        document.body.appendChild(data);
       })();
     </script>
   </body>

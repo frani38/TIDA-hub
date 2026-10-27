@@ -218,18 +218,26 @@
         </a>
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.1.21</span> |
+          <span id="site-version">v1.1.22</span> |
           <a href="./privacidad.html" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
     </footer>
 
-    <script src="./data.js?v=20261027-linux-hackers"></script>
     <script>
       (function () {
-        var s = document.createElement("script");
-        s.src = "./app.js?v=" + Date.now();
-        document.body.appendChild(s);
+        var bust = String(Date.now());
+        var data = document.createElement("script");
+        data.src = "./data.js?v=" + bust;
+        data.onload = function () {
+          var app = document.createElement("script");
+          app.src = "./app.js?v=" + bust;
+          document.body.appendChild(app);
+        };
+        data.onerror = function () {
+          console.error("No se pudo cargar data.js");
+        };
+        document.body.appendChild(data);
       })();
     </script>
   </body>
