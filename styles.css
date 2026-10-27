@@ -1768,6 +1768,23 @@ body.theme-light .help-form-status.is-error {
   font-weight: 800;
 }
 
+.updates-archive a.updates-item-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.updates-archive a.updates-item-link:hover {
+  color: inherit;
+}
+
+.updates-archive a.updates-item-link:hover .updates-book-title,
+.updates-archive a.updates-item-link:hover .updates-game-title,
+.updates-archive a.updates-item-link:hover .updates-media-title {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 .updates-archive .year-result.is-latest-update {
   border-color: rgba(0, 120, 220, 0.55);
   box-shadow:

@@ -472,12 +472,25 @@
                       }
                       return safeText ? `${safeTitle} — ${safeText}` : safeTitle;
                     })();
+                    const canLinkMisc =
+                      Boolean(u.__miscId) &&
+                      (Boolean(u.__readingId) || Boolean(u.__gameId) || Boolean(u.__mediaId) || u.__kind === "manual");
+                    const externalUrl = String(u.__url || "").trim();
+                    const canLinkNav = Boolean(u.__navTarget) && !canLinkMisc && !externalUrl;
+                    let titleHtml = `<span class="year-result-title">${oneLine}</span>`;
+                    if (externalUrl) {
+                      titleHtml = `<a class="year-result-title year-result-title-link updates-item-link" href="${escapeHtml(externalUrl)}" target="_blank" rel="noopener noreferrer">${oneLine}</a>`;
+                    } else if (canLinkMisc) {
+                      titleHtml = `<a class="year-result-title year-result-title-link updates-item-link" href="#" data-misc-id="${escapeHtml(u.__miscId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}">${oneLine}</a>`;
+                    } else if (canLinkNav) {
+                      titleHtml = `<a class="year-result-title year-result-title-link updates-item-link" href="#" data-nav-target="${escapeHtml(u.__navTarget)}">${oneLine}</a>`;
+                    }
                     // La primera fila de la primera sección es "la última novedad".
                     const isLatest = monthIdx === 0 && idx === 0;
                     return `
                       <li class="year-result year-result--update${isLatest ? " is-latest-update" : ""}">
                         <span class="year-result-date">${escapeHtml(formatDateOnly(u.publishedAt))}</span>
-                        <span class="year-result-title">${oneLine}</span>
+                        ${titleHtml}
                       </li>
                     `;
                   })
@@ -496,6 +509,27 @@
         </div>
       </div>
     `;
+
+    tabPanelEl.querySelectorAll("a.updates-item-link").forEach((a) => {
+      a.addEventListener("click", (e) => {
+        const href = String(a.getAttribute("href") || "");
+        if (href && href !== "#" && !href.startsWith("#")) {
+          // Enlace externo: dejar el comportamiento por defecto (target=_blank).
+          return;
+        }
+        e.preventDefault();
+        const miscId = String(a.getAttribute("data-misc-id") || "").trim();
+        const readingId = String(a.getAttribute("data-reading-id") || "").trim();
+        const gameId = String(a.getAttribute("data-game-id") || "").trim();
+        const mediaId = String(a.getAttribute("data-media-id") || "").trim();
+        const navTarget = String(a.getAttribute("data-nav-target") || "").trim();
+        if (miscId) {
+          navigateToMiscContent({ miscId, readingId, gameId, mediaId });
+          return;
+        }
+        if (navTarget) applySearchNavTarget(navTarget);
+      });
+    });
 
     animateContentSwitch();
   }
@@ -631,11 +665,26 @@
       return { publishedAt, year, title, text };
     };
 
+    const pickNavFields = (it) => ({
+      __navTarget: String(it?.navTarget || "").trim(),
+      __miscId: String(it?.miscId || "").trim(),
+      __readingId: String(it?.readingId || "").trim(),
+      __gameId: String(it?.gameId || "").trim(),
+      __mediaId: String(it?.mediaId || "").trim(),
+      __url: String(it?.url || it?.href || "").trim()
+    });
+
     const baseUpdates = (Array.isArray(DATA.updates) ? DATA.updates : [])
       .map((it, idx) => {
         const n = normalizeUpdateItem(it);
         if (!n) return null;
-        return { ...n, __idx: idx, __ms: parsePublishedAtToMs(n.publishedAt) };
+        return {
+          ...n,
+          ...pickNavFields(it),
+          __idx: idx,
+          __ms: parsePublishedAtToMs(n.publishedAt),
+          __kind: "manual"
+        };
       })
       .filter(Boolean);
 
@@ -644,6 +693,7 @@
       .map((r, idx) => {
         const publishedAt = String(r?.addedAt || "").trim();
         const title = String(r?.title || "").trim();
+        const id = String(r?.id || "").trim();
         if (!publishedAt || !title) return null;
         const n = normalizeUpdateItem({
           publishedAt,
@@ -651,7 +701,15 @@
           text: ""
         });
         if (!n) return null;
-        return { ...n, __idx: baseUpdates.length + idx, __ms: parsePublishedAtToMs(n.publishedAt), __kind: "reading", __bookTitle: title };
+        return {
+          ...n,
+          __idx: baseUpdates.length + idx,
+          __ms: parsePublishedAtToMs(n.publishedAt),
+          __kind: "reading",
+          __bookTitle: title,
+          __miscId: "misc_lr",
+          __readingId: id
+        };
       })
       .filter(Boolean);
 
@@ -660,6 +718,7 @@
       .map((g, idx) => {
         const publishedAt = String(g?.addedAt || "").trim();
         const title = String(g?.title || "").trim();
+        const id = String(g?.id || "").trim();
         if (!publishedAt || !title) return null;
         const n = normalizeUpdateItem({
           publishedAt,
@@ -672,7 +731,9 @@
           __idx: baseUpdates.length + readingUpdates.length + idx,
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "game",
-          __gameTitle: title
+          __gameTitle: title,
+          __miscId: "misc_jt",
+          __gameId: id
         };
       })
       .filter(Boolean);
@@ -682,6 +743,7 @@
       .map((m, idx) => {
         const publishedAt = String(m?.addedAt || "").trim();
         const title = String(m?.title || "").trim();
+        const id = String(m?.id || "").trim();
         if (!publishedAt || !title) return null;
         const n = normalizeUpdateItem({
           publishedAt,
@@ -694,7 +756,9 @@
           __idx: baseUpdates.length + readingUpdates.length + gameUpdates.length + idx,
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "media",
-          __mediaTitle: title
+          __mediaTitle: title,
+          __miscId: "misc_av",
+          __mediaId: id
         };
       })
       .filter(Boolean);
@@ -1093,6 +1157,44 @@
     showGlobalSearchPage(raw, { dataJsHits, docenciaHits, newsHits, lawHits });
   }
 
+  /** Abre Miscelánea → subapartado y, si hay id, hace scroll hasta la ficha. */
+  function navigateToMiscContent({ miscId, readingId, gameId, mediaId } = {}) {
+    const mid = String(miscId || "").trim();
+    if (!mid) {
+      applySearchNavTarget("misc");
+      return;
+    }
+    applySearchNavTarget("misc");
+    const openAndScroll = () => {
+      const b = document.querySelector(`button.misc-card[data-misc-id="${CSS.escape(mid)}"]`);
+      if (b instanceof HTMLButtonElement) b.click();
+
+      const rid = String(readingId || "").trim();
+      const gid = String(gameId || "").trim();
+      const avid = String(mediaId || "").trim();
+      const selector = rid
+        ? `.reading-card[data-reading-id="${CSS.escape(rid)}"]`
+        : gid
+          ? `.reading-card[data-game-id="${CSS.escape(gid)}"]`
+          : avid
+            ? `.reading-card[data-media-id="${CSS.escape(avid)}"]`
+            : "";
+      if (!selector) return;
+
+      const tryScroll = (triesLeft) => {
+        const card = document.querySelector(selector);
+        if (card instanceof HTMLElement) {
+          card.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
+          return;
+        }
+        if (triesLeft <= 0) return;
+        setTimeout(() => tryScroll(triesLeft - 1), 60);
+      };
+      setTimeout(() => tryScroll(16), 140);
+    };
+    requestAnimationFrame(() => requestAnimationFrame(openAndScroll));
+  }
+
   function applySearchNavTarget(target) {
     const t = String(target || "").trim();
     if (t === "home") {
@@ -1262,45 +1364,15 @@
       btn.addEventListener("click", () => {
         if (row.kind === "nav") {
           const hit = row.hit;
-          if (hit?.navTarget) applySearchNavTarget(hit.navTarget);
           if (hit?.navTarget === "misc" && hit?.miscId) {
-            // Abrir el subapartado de Miscelánea tras renderizar el menú.
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                const miscId = String(hit.miscId || "");
-                if (!miscId) return;
-                const b = document.querySelector(`button.misc-card[data-misc-id="${CSS.escape(miscId)}"]`);
-                if (b instanceof HTMLButtonElement) b.click();
-              });
+            navigateToMiscContent({
+              miscId: hit.miscId,
+              readingId: hit.readingId,
+              gameId: hit.gameId,
+              mediaId: hit.mediaId
             });
-          }
-          if (hit?.navTarget === "misc" && hit?.miscId === "misc_lr" && hit?.readingId) {
-            const rid = String(hit.readingId);
-            // Tras abrir LECTURAS RECOMENDADAS, llevar al libro.
-            const tryScroll = (triesLeft) => {
-              const card = document.querySelector(`.reading-card[data-reading-id="${CSS.escape(rid)}"]`);
-              if (card instanceof HTMLElement) {
-                card.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
-                return;
-              }
-              if (triesLeft <= 0) return;
-              setTimeout(() => tryScroll(triesLeft - 1), 60);
-            };
-            setTimeout(() => tryScroll(12), 120);
-          }
-          if (hit?.navTarget === "misc" && hit?.miscId === "misc_jt" && hit?.gameId) {
-            const gid = String(hit.gameId);
-            // Tras abrir JUEGOS, llevar al juego.
-            const tryScroll = (triesLeft) => {
-              const card = document.querySelector(`.reading-card[data-game-id="${CSS.escape(gid)}"]`);
-              if (card instanceof HTMLElement) {
-                card.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
-                return;
-              }
-              if (triesLeft <= 0) return;
-              setTimeout(() => tryScroll(triesLeft - 1), 60);
-            };
-            setTimeout(() => tryScroll(12), 120);
+          } else if (hit?.navTarget) {
+            applySearchNavTarget(hit.navTarget);
           }
         } else if (row.kind === "doc") {
           const hit = row.hit;

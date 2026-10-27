@@ -113,6 +113,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - MISCELÁNEA (hub de iconos) y SOBRE MÍ: mismo acote al viewport que INICIO (sin barra de scroll de página cuando el contenido cabe). En SOBRE MÍ se quita el padding inferior duplicado del pie.
 
+## 1.1.13
+
+- NOVEDADES: el título de cada entrada (LIBRO / JUEGO / MEDIA, y avisos manuales con `navTarget`/`miscId`/`url`) es hipervínculo al elemento en su sección (p. ej. ficha en Miscelánea).
+
 ---
 
 ## Convención (recordatorio)

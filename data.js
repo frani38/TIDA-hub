@@ -18,8 +18,8 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.1.12",
-    updated: "2026-10-26",
+    version: "1.1.13",
+    updated: "2026-10-27",
   },
 
   /*
@@ -262,9 +262,12 @@ window.MYWEB_DATA = {
     }
   ],
 
-  // Novedades/mejoras de la web (para el panel NOVEDADES en INICIO).
-  // Formato recomendado:
-  // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título breve", text: "Detalle (opcional)" }
+  // Novedades/mejoras de la web (panel NOVEDADES).
+  // Formato:
+  // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título breve", text: "Detalle (opcional)",
+  //   navTarget?: "misc"|"docencia"|..., miscId?: "misc_lr", readingId?/gameId?/mediaId?, url? }
+  // Los libros/juegos/media con `addedAt` generan entradas automáticas LIBRO:/JUEGO:/MEDIA:
+  // cuyo título enlaza al elemento en Miscelánea.
   updates: [
     {
       publishedAt: "2026-04-14",
