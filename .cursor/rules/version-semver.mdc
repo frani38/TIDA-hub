@@ -1,5 +1,5 @@
 ---
-description: Versionado semántico obligatorio MAJOR.MINOR.PATCH del pie (siteMeta) en cada cambio
+description: Versionado MAJOR.MINOR.PATCH solo en cambios técnicos (no en altas de contenido)
 alwaysApply: true
 ---
 
@@ -19,28 +19,41 @@ alwaysApply: true
 | --- | --- | --- |
 | **MAJOR** (1.º) | Cambio considerable: rediseño, arquitectura, salto incompatible o hito grande del producto | MINOR y PATCH → `0` |
 | **MINOR** (2.º) | Cambio menor de funcionalidad: feature nueva acotada, mejora relevante de UX/flujo | PATCH → `0` |
-| **PATCH** (3.º) | Cambio pequeño: textos, estilos puntuales, bugfix, docs, reglas, retoques | — |
+| **PATCH** (3.º) | Cambio técnico pequeño: bugfix, estilos, reglas, docs de ingeniería, retoques de código | — |
 
-## Obligación del agente (automático)
+## Qué SÍ versiona (cambios técnicos)
 
-En **toda** tarea que modifique el proyecto y genere commit (o cambios que el usuario vaya a publicar):
+Código, estilos, HTML estructural, reglas del agente, documentación de producto/repo, política de privacidad, formularios, navegación, layout, etc.
 
-1. Clasificar el cambio (MAJOR / MINOR / PATCH) con la tabla anterior.
-2. Actualizar `siteMeta.version` en `data.js` **en el mismo conjunto de cambios**.
-3. Actualizar `siteMeta.updated` a la fecha del cambio (`YYYY-MM-DD`, zona del proyecto).
-4. Si hay placeholders `vX.Y.Z` en HTML como fallback visible, alinearlos con la nueva versión.
-5. Incluir el bump de versión en el commit (no dejar la versión obsoleta).
+En esas tareas:
 
-No preguntar si hay que versionar: **siempre versionar** salvo que el usuario diga explícitamente que no toque la versión.
+1. Clasificar MAJOR / MINOR / PATCH.
+2. Actualizar `siteMeta.version` y `siteMeta.updated` en el mismo conjunto de cambios.
+3. Alinear fallbacks HTML `vX.Y.Z` si existen.
+4. Incluir el bump en el commit.
+5. No preguntar: versionar automáticamente (salvo que el usuario diga lo contrario).
 
-## Excepciones (no bumpear)
+## Qué NO versiona (contenido editorial)
 
-- Solo lectura, explicación o diagnóstico sin editar archivos del sitio.
+**No** incrementar `siteMeta.version` ni tocar placeholders de versión cuando el cambio sea solo:
+
+- Alta, edición o borrado de **libros** (`readings`), **juegos**, **media**, **noticias** (`news`), entradas manuales de **novedades** (`updates`), **legislación**, unidades/PDF/imágenes de **DOCENCIA** en `content/` o `books/`, u otro catálogo de datos equivalente.
+- Corrección de metadatos de ese contenido (título, año, ISBN, descripción, portada, `addedAt`, etc.).
+
+Sí se puede (y debe) **commit + push** del contenido; solo se omite el bump de versión.
+Opcional: anotar el alta en `versions.md` como nota de contenido **sin** crear número de versión nuevo, o dejarlo solo en el mensaje de commit / Novedades automáticas.
+
+Si un mismo commit mezcla **contenido + cambio técnico**, sí se versiona (por la parte técnica).
+
+## Excepciones adicionales (no bumpear)
+
+- Solo lectura, explicación o diagnóstico sin editar el sitio.
 - El usuario pide explícitamente no cambiar la versión.
 
 ## Ejemplos
 
-- Web3Forms + Pages + historial en un mismo hito → subir **MINOR** o **MAJOR** según alcance (no solo PATCH).
-- Corregir un solape CSS → **PATCH** (`1.1.0` → `1.1.1`).
-- Nueva sección completa de Miscelánea → **MINOR** (`1.1.1` → `1.2.0`).
-- Rediseño total del layout → **MAJOR** (`1.2.0` → `2.0.0`).
+- Añadir un libro en `readings` → commit/push, **sin** subir versión.
+- Corregir el año de un libro → commit/push, **sin** subir versión.
+- Corregir un solape CSS → **PATCH**.
+- Nueva sección completa de Miscelánea (código/UI) → **MINOR**.
+- Rediseño total del layout → **MAJOR**.

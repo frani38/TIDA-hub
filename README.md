@@ -106,15 +106,15 @@ Tras cambios, en la web publicada usa **Ctrl+F5** (caché de CSS/JS).
 
 ### Versión del sitio (`siteMeta` en `data.js`)
 
-Formato **MAJOR.MINOR.PATCH** (p. ej. `1.1.9` → pie `v1.1.9`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`.
+Formato **MAJOR.MINOR.PATCH** (p. ej. `1.1.18` → pie `v1.1.18`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`.
 
 | Dígito | Cuándo |
 | --- | --- |
 | MAJOR | Cambios considerables / hito o rediseño |
 | MINOR | Cambios menores de funcionalidad |
-| PATCH | Cambios pequeños (textos, estilos, fixes, docs) |
+| PATCH | Cambios técnicos pequeños (código, estilos, fixes, docs de ingeniería) |
 
-El agente de Cursor actualiza la versión automáticamente (`.cursor/rules/version-semver.mdc`) y **publica** (commit + push a `main`) sin preguntar (`.cursor/rules/auto-publish.mdc`), salvo indicación contraria.
+La versión **solo** se incrementa en cambios técnicos. Altas o correcciones de contenido editorial (libros, juegos, media, noticias, etc.) se publican **sin** bumpear. El agente versiona y publica automáticamente cuando aplica (`.cursor/rules/version-semver.mdc`, `.cursor/rules/auto-publish.mdc`).
 
 ## Documentación relacionada
 

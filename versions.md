@@ -134,6 +134,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Lecturas: corrección del año de *Chernóbil 01:23:40* → **2019**.
 
+## 1.1.18
+
+- Política de versión: bumpear solo en **cambios técnicos**; altas/ediciones de contenido editorial no cambian `siteMeta.version` (regla `version-semver.mdc`).
+
 ---
 
 ## Convención (recordatorio)
@@ -142,9 +146,11 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 | --- | --- |
 | **MAJOR** | Cambios considerables / hitos grandes |
 | **MINOR** | Funcionalidad nueva acotada o mejora relevante de UX |
-| **PATCH** | Textos, estilos puntuales, correcciones, docs, reglas |
+| **PATCH** | Cambios técnicos pequeños (código, estilos, docs de ingeniería, reglas) |
 
-Actualizar siempre `siteMeta.version` y `siteMeta.updated` en `data.js` al publicar cambios.
+**Versionar solo cambios técnicos.** Altas o correcciones de contenido editorial (libros, juegos, media, noticias, legislación, materiales de `content/`/`books/`, etc.) se publican **sin** incrementar `siteMeta.version`.
+
+Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la política actual esos casos ya no generan número nuevo.
 
 ---
 
@@ -170,3 +176,4 @@ Actualizar siempre `siteMeta.version` y `siteMeta.updated` en `data.js` al publi
 | **1.1.15** | Tabla resumen de versiones; `content/README` de Docencia visual |
 | **1.1.16** | Lectura nueva: Chernóbil 01:23:40 (Leatherbarrow) |
 | **1.1.17** | Año de Chernóbil 01:23:40 corregido a 2019 |
+| **1.1.18** | Versión solo en cambios técnicos (no en contenido) |
