@@ -154,6 +154,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Carga de `data.js` con anti-caché (`Date.now()`), como `app.js`, para que el pie muestre la versión publicada tras recargar.
 
+## 1.1.23
+
+- NOVEDADES: resalte azul por **cada** entrada no visitada (no solo la última); se quita al abrir la ficha o al acusar recibo en avisos sin enlace. El botón NOVEDADES brilla mientras quede alguna pendiente.
+
 ---
 
 ## Convención (recordatorio)
@@ -197,3 +201,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.20** | Lecturas/Juegos/Media: más reciente arriba |
 | **1.1.21** | Aviso NOVEDADES: hash del conjunto completo |
 | **1.1.22** | `data.js` sin caché fija (versión del pie fiable) |
+| **1.1.23** | NOVEDADES: resalte por ítem hasta visitarlo |

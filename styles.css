@@ -1789,7 +1789,7 @@ body.theme-light .help-form-status.is-error {
   color: #1d4ed8;
 }
 
-.updates-archive .year-result.is-latest-update {
+.updates-archive .year-result.is-unseen-update {
   border-color: rgba(0, 120, 220, 0.55);
   box-shadow:
     0 0 0 2px rgba(0, 120, 220, 0.22),

@@ -46,9 +46,11 @@
   const navButtons = [homeBtnEl, updatesBtnEl, docenciaBtnEl, legislacionBtnEl, booksBtnEl, miscelaneaBtnEl, aboutBtnEl, helpBtnEl].filter(Boolean);
   const levels = Array.isArray(DATA.levels) ? DATA.levels : [];
 
-  const UPDATES_LAST_SEEN_HASH_KEY = "myweb_updates_last_seen_hash_v1";
+  const UPDATES_LAST_SEEN_HASH_KEY = "myweb_updates_last_seen_hash_v1"; // legado (migración)
+  const UPDATES_SEEN_IDS_KEY = "myweb_updates_seen_ids_v1";
+  const UPDATES_SEEN_BOOTSTRAP_KEY = "myweb_updates_seen_bootstrapped_v1";
   const UPDATES_NUDGE_DURATION_MS = 10000;
-  const UPDATES_BADGE_EXPIRE_MS = 14 * 24 * 60 * 60 * 1000; // 14 días
+  const UPDATES_BADGE_EXPIRE_MS = 14 * 24 * 60 * 60 * 1000; // solo para seed inicial del archivo
 
   // Evita caché agresiva del navegador al sustituir iconos PNG.
   const ICONS_VERSION = Date.now();
@@ -380,14 +382,8 @@
     stopWelcomeAnimation();
 
     const updates = collectAllUpdates();
-
-    // Marcar como visto (hash del último elemento) para apagar el aviso.
-    const lastHash = getLastUpdateHash();
-    if (lastHash) {
-      try {
-        localStorage.setItem(UPDATES_LAST_SEEN_HASH_KEY, lastHash);
-      } catch {}
-    }
+    bootstrapSeenUpdateIdsIfNeeded();
+    const seenUpdateIds = loadSeenUpdateIds();
     updateUpdatesIndicator({ nudge: false });
 
     const formatDateOnly = (value) => {
@@ -447,7 +443,7 @@
               .sort((a, b) => String(b).localeCompare(String(a)));
 
             return orderedMonthKeys
-              .map((monthKey, monthIdx) => {
+              .map((monthKey) => {
                 const openMonthKey = orderedMonthKeys.includes(currentMonthKey) ? currentMonthKey : orderedMonthKeys[0] || "";
                 const m = Number(String(monthKey).slice(5, 7));
                 const y = String(monthKey).slice(0, 4);
@@ -459,7 +455,7 @@
                     a.__ms !== b.__ms ? b.__ms - a.__ms : a.__priority - b.__priority
                   );
                 const rows = list
-                  .map((u, idx) => {
+                  .map((u) => {
                     const safeTitle = escapeHtml(u.title);
                     const safeText = u.text ? escapeHtml(u.text) : "";
                     const linkAttrs = (() => {
@@ -478,9 +474,13 @@
                       }
                       return "";
                     })();
+                    const updateKey = getUpdateItemKey(u);
+                    const linkAttrsWithKey = linkAttrs
+                      ? `${linkAttrs} data-update-key="${escapeHtml(updateKey)}"`
+                      : "";
                     const linkedName = (labelClass, name) =>
-                      linkAttrs
-                        ? `<a class="updates-item-link ${labelClass}" ${linkAttrs}>${escapeHtml(name)}</a>`
+                      linkAttrsWithKey
+                        ? `<a class="updates-item-link ${labelClass}" ${linkAttrsWithKey}>${escapeHtml(name)}</a>`
                         : `<span class="${labelClass}">${escapeHtml(name)}</span>`;
                     const oneLine = (() => {
                       if (u.__kind === "reading") {
@@ -493,15 +493,14 @@
                         return `MEDIA: ${linkedName("updates-media-title", u.__mediaTitle || "")}`;
                       }
                       // Avisos manuales: el hipervínculo es el título (no el texto de detalle).
-                      const titlePart = linkAttrs
-                        ? `<a class="updates-item-link updates-manual-title" ${linkAttrs}>${safeTitle}</a>`
+                      const titlePart = linkAttrsWithKey
+                        ? `<a class="updates-item-link updates-manual-title" ${linkAttrsWithKey}>${safeTitle}</a>`
                         : safeTitle;
                       return safeText ? `${titlePart} — ${safeText}` : titlePart;
                     })();
-                    // La primera fila de la primera sección es "la última novedad".
-                    const isLatest = monthIdx === 0 && idx === 0;
+                    const isUnseen = !seenUpdateIds.has(updateKey);
                     return `
-                      <li class="year-result year-result--update${isLatest ? " is-latest-update" : ""}">
+                      <li class="year-result year-result--update${isUnseen ? " is-unseen-update" : ""}" data-update-key="${escapeHtml(updateKey)}"${isUnseen && !linkAttrs ? ' title="Clic para marcar como vista"' : ""}>
                         <span class="year-result-date">${escapeHtml(formatDateOnly(u.publishedAt))}</span>
                         <span class="year-result-title">${oneLine}</span>
                       </li>
@@ -523,14 +522,31 @@
       </div>
     `;
 
+    const clearUnseenClass = (key) => {
+      if (!key) return;
+      tabPanelEl.querySelectorAll(`li.year-result[data-update-key="${CSS.escape(key)}"]`).forEach((li) => {
+        li.classList.remove("is-unseen-update");
+        li.removeAttribute("title");
+      });
+    };
+
     tabPanelEl.querySelectorAll("a.updates-item-link").forEach((a) => {
       a.addEventListener("click", (e) => {
+        const key = String(a.getAttribute("data-update-key") || "").trim();
         const href = String(a.getAttribute("href") || "");
         if (href && href !== "#" && !href.startsWith("#")) {
-          // Enlace externo: dejar el comportamiento por defecto (target=_blank).
+          // Enlace externo: marcar como vista y dejar el comportamiento por defecto.
+          if (key) {
+            markUpdateItemSeen(key);
+            clearUnseenClass(key);
+          }
           return;
         }
         e.preventDefault();
+        if (key) {
+          markUpdateItemSeen(key);
+          clearUnseenClass(key);
+        }
         const miscId = String(a.getAttribute("data-misc-id") || "").trim();
         const readingId = String(a.getAttribute("data-reading-id") || "").trim();
         const gameId = String(a.getAttribute("data-game-id") || "").trim();
@@ -541,6 +557,18 @@
           return;
         }
         if (navTarget) applySearchNavTarget(navTarget);
+      });
+    });
+
+    // Avisos sin enlace: un clic en la fila marca la novedad como vista.
+    tabPanelEl.querySelectorAll("li.year-result.is-unseen-update").forEach((li) => {
+      if (li.querySelector("a.updates-item-link")) return;
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => {
+        const key = String(li.getAttribute("data-update-key") || "").trim();
+        if (!key) return;
+        markUpdateItemSeen(key);
+        clearUnseenClass(key);
       });
     });
 
@@ -792,11 +820,6 @@
     return merged;
   }
 
-  function getLatestUpdatesMs() {
-    const items = collectAllUpdates();
-    return items.length ? items[0].__ms : 0;
-  }
-
   function hashStringFNV1a(str) {
     // FNV-1a 32-bit
     let h = 0x811c9dc5;
@@ -807,43 +830,75 @@
     return (h >>> 0).toString(16).padStart(8, "0");
   }
 
-  function getLastUpdateHash() {
+  function getUpdateItemKey(u) {
+    const kind = String(u?.__kind || "manual");
+    if (kind === "reading" && u.__readingId) return `reading:${String(u.__readingId).trim()}`;
+    if (kind === "game" && u.__gameId) return `game:${String(u.__gameId).trim()}`;
+    if (kind === "media" && u.__mediaId) return `media:${String(u.__mediaId).trim()}`;
+    const sig = `${String(u?.publishedAt || "").trim()}|${String(u?.title || "").trim()}|${String(u?.text || "").trim()}`;
+    return `manual:${hashStringFNV1a(sig)}`;
+  }
+
+  function loadSeenUpdateIds() {
+    try {
+      const raw = localStorage.getItem(UPDATES_SEEN_IDS_KEY);
+      const arr = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(arr)) return new Set();
+      return new Set(arr.map((x) => String(x)));
+    } catch {
+      return new Set();
+    }
+  }
+
+  function saveSeenUpdateIds(seen) {
+    try {
+      localStorage.setItem(UPDATES_SEEN_IDS_KEY, JSON.stringify([...seen]));
+    } catch {}
+  }
+
+  function bootstrapSeenUpdateIdsIfNeeded() {
+    try {
+      if (localStorage.getItem(UPDATES_SEEN_BOOTSTRAP_KEY) === "1") return;
+    } catch {
+      return;
+    }
     const items = collectAllUpdates();
-    if (!items.length) return "";
-    // Huella del conjunto completo: si solo se hasheaba el 1.º ítem, altas del mismo día
-    // (sobre todo con orden invertido) no cambiaban el hash y el brillo no se reactivaba.
-    const sig = items
-      .map(
-        (u) =>
-          `${String(u?.publishedAt || "").trim()}|${String(u?.title || "").trim()}|${String(u?.text || "").trim()}|${String(u?.__kind || "")}|${String(u?.__readingId || u?.__gameId || u?.__mediaId || "")}`
-      )
-      .join("\n");
-    if (!sig.trim()) return "";
-    return hashStringFNV1a(sig);
+    const seen = loadSeenUpdateIds();
+    const now = Date.now();
+    // Evitar resaltar todo el histórico: seed de vistas solo para entradas con más de 14 días.
+    // Las recientes quedan pendientes hasta que el usuario abra cada una.
+    for (const u of items) {
+      if (Number(u.__ms) > 0 && now - Number(u.__ms) > UPDATES_BADGE_EXPIRE_MS) {
+        seen.add(getUpdateItemKey(u));
+      }
+    }
+    saveSeenUpdateIds(seen);
+    try {
+      localStorage.setItem(UPDATES_SEEN_BOOTSTRAP_KEY, "1");
+      localStorage.removeItem(UPDATES_LAST_SEEN_HASH_KEY);
+    } catch {}
+  }
+
+  function markUpdateItemSeen(key) {
+    const k = String(key || "").trim();
+    if (!k) return;
+    bootstrapSeenUpdateIdsIfNeeded();
+    const seen = loadSeenUpdateIds();
+    if (seen.has(k)) return;
+    seen.add(k);
+    saveSeenUpdateIds(seen);
+    updateUpdatesIndicator({ nudge: false });
+  }
+
+  function hasUnseenUpdates() {
+    bootstrapSeenUpdateIdsIfNeeded();
+    const seen = loadSeenUpdateIds();
+    return collectAllUpdates().some((u) => !seen.has(getUpdateItemKey(u)));
   }
 
   function updateUpdatesIndicator({ nudge } = { nudge: false }) {
     if (!updatesBtnEl) return;
-    const latestMs = getLatestUpdatesMs();
-    const lastHash = getLastUpdateHash();
-    if (!latestMs || !lastHash) {
-      updatesBtnEl.classList.remove("has-updates-new", "updates-nudge");
-      return;
-    }
-
-    const now = Date.now();
-    // Si la última novedad es muy antigua, no mostramos aviso aunque no se haya leído.
-    if (now - latestMs > UPDATES_BADGE_EXPIRE_MS) {
-      updatesBtnEl.classList.remove("has-updates-new", "updates-nudge");
-      return;
-    }
-
-    let lastSeenHash = "";
-    try {
-      lastSeenHash = String(localStorage.getItem(UPDATES_LAST_SEEN_HASH_KEY) || "");
-    } catch {}
-
-    const hasNew = !lastSeenHash || lastSeenHash !== lastHash;
+    const hasNew = hasUnseenUpdates();
     updatesBtnEl.classList.toggle("has-updates-new", hasNew);
 
     if (!hasNew) {
@@ -853,9 +908,7 @@
 
     if (!nudge) return;
     // Nudge temporal cada vez que entramos en INICIO (si hay novedades sin ver).
-    // Para evitar acumulaciones si se llama varias veces seguidas, reiniciamos la animación.
     updatesBtnEl.classList.remove("updates-nudge");
-    // Forzar reflow para reiniciar la animación CSS.
     // eslint-disable-next-line no-unused-expressions
     updatesBtnEl.offsetWidth;
     updatesBtnEl.classList.add("updates-nudge");
