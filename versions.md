@@ -138,6 +138,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Política de versión: bumpear solo en **cambios técnicos**; altas/ediciones de contenido editorial no cambian `siteMeta.version` (regla `version-semver.mdc`).
 
+## 1.1.19
+
+- NOVEDADES: orden corregido para que lo más reciente quede siempre arriba (desempate alineado con catálogos antepuestos).
+
 ---
 
 ## Convención (recordatorio)
@@ -177,3 +181,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.16** | Lectura nueva: Chernóbil 01:23:40 (Leatherbarrow) |
 | **1.1.17** | Año de Chernóbil 01:23:40 corregido a 2019 |
 | **1.1.18** | Versión solo en cambios técnicos (no en contenido) |
+| **1.1.19** | NOVEDADES: más reciente siempre arriba |

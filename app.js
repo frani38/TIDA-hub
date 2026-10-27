@@ -455,7 +455,9 @@
                 const monthLabel = /^\d{4}$/.test(y) ? `${y}_${monthLabelBase}` : monthLabelBase;
                 const list = (buckets.get(monthKey) || [])
                   .slice()
-                  .sort((a, b) => parsePublishedAtToMs(b.publishedAt) - parsePublishedAtToMs(a.publishedAt));
+                  .sort((a, b) =>
+                    a.__ms !== b.__ms ? b.__ms - a.__ms : a.__priority - b.__priority
+                  );
                 const rows = list
                   .map((u, idx) => {
                     const safeTitle = escapeHtml(u.title);
@@ -685,6 +687,8 @@
       __url: String(it?.url || it?.href || "").trim()
     });
 
+    // Prioridad de desempate (menor = más arriba): updates manuales se añaden al final del array;
+    // lecturas/juegos/media se anteponen (índice 0 = más reciente).
     const baseUpdates = (Array.isArray(DATA.updates) ? DATA.updates : [])
       .map((it, idx) => {
         const n = normalizeUpdateItem(it);
@@ -692,7 +696,7 @@
         return {
           ...n,
           ...pickNavFields(it),
-          __idx: idx,
+          __priority: -idx,
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "manual"
         };
@@ -714,7 +718,7 @@
         if (!n) return null;
         return {
           ...n,
-          __idx: baseUpdates.length + idx,
+          __priority: idx,
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "reading",
           __bookTitle: title,
@@ -739,7 +743,7 @@
         if (!n) return null;
         return {
           ...n,
-          __idx: baseUpdates.length + readingUpdates.length + idx,
+          __priority: idx,
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "game",
           __gameTitle: title,
@@ -764,7 +768,7 @@
         if (!n) return null;
         return {
           ...n,
-          __idx: baseUpdates.length + readingUpdates.length + gameUpdates.length + idx,
+          __priority: idx,
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "media",
           __mediaTitle: title,
@@ -783,8 +787,8 @@
       merged.push(u);
     }
 
-    // Orden descendente: más nuevo → más antiguo. Si empatan por fecha, el último añadido va primero.
-    merged.sort((a, b) => (a.__ms !== b.__ms ? b.__ms - a.__ms : b.__idx - a.__idx));
+    // Orden descendente por fecha; a igualdad, menor __priority primero (más reciente en el catálogo).
+    merged.sort((a, b) => (a.__ms !== b.__ms ? b.__ms - a.__ms : a.__priority - b.__priority));
     return merged;
   }
 
