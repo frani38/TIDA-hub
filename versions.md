@@ -182,6 +182,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - NOTICIAS: el resalte dorado se sincroniza entre el bloque lateral y el HISTÓRICO al abrir el enlace.
 
+## 1.1.30
+
+- Rendimiento: anti-caché de assets por versión del sitio (no `Date.now()` en cada visita); iconos y portadas grandes comprimidos/reescalados.
+
 ---
 
 ## Convención (recordatorio)
@@ -232,3 +236,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.27** | NOTICIAS: resalte dorado hasta abrir el enlace |
 | **1.1.28** | Texto de cierre de bienvenida en INICIO |
 | **1.1.29** | NOTICIAS: resalte sincronizado con HISTÓRICO |
+| **1.1.30** | Caché de assets + compresión de iconos/portadas |

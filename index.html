@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub</title>
-    <link rel="stylesheet" href="./styles.css?v=20261027-v1-1-27" />
+    <link rel="stylesheet" href="./styles.css?v=1.1.30" />
+    <script>
+      window.MYWEB_ASSET_V = "1.1.30";
+    </script>
   </head>
   <body class="theme-light">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
@@ -218,7 +221,7 @@
         </a>
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.1.29</span> |
+          <span id="site-version">v1.1.30</span> |
           <a href="./privacidad.html" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
@@ -226,7 +229,7 @@
 
     <script>
       (function () {
-        var bust = String(Date.now());
+        var bust = String(window.MYWEB_ASSET_V || "1.1.30");
         var data = document.createElement("script");
         data.src = "./data.js?v=" + bust;
         data.onload = function () {

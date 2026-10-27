@@ -54,8 +54,8 @@
   const UPDATES_NUDGE_DURATION_MS = 10000;
   const UPDATES_BADGE_EXPIRE_MS = 14 * 24 * 60 * 60 * 1000; // solo para seed inicial del archivo
 
-  // Evita caché agresiva del navegador al sustituir iconos PNG.
-  const ICONS_VERSION = Date.now();
+  // Anti-caché de iconos solo al publicar (versión del sitio), no en cada recarga.
+  const ICONS_VERSION = String(DATA?.siteMeta?.version || "1").trim().replace(/^v/i, "") || "1";
 
   const SECTION_ICONS = {
     teoria: `<img src="./icons/teoria.png?v=${ICONS_VERSION}" alt="" decoding="async" loading="lazy" />`,
