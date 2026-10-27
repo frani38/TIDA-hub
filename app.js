@@ -4051,5 +4051,69 @@
   for (const btn of navButtons) {
     if (!btn.title) btn.title = btn.textContent?.trim() || "";
   }
+
+  /**
+   * Rueda del ratón → scroll del contenedor activo aunque el puntero esté
+   * en cabecera, márgenes o zonas sin overflow propio (p. ej. body bloqueado
+   * y scroll solo en #tab-panel). No interfiere con paneles anidados
+   * (.home-news, modales, etc.): ahí manda el scroll nativo.
+   */
+  function isVerticallyScrollable(el) {
+    if (!(el instanceof Element)) return false;
+    const st = window.getComputedStyle(el);
+    const oy = st.overflowY;
+    if (oy !== "auto" && oy !== "scroll" && oy !== "overlay") return false;
+    return el.scrollHeight > el.clientHeight + 1;
+  }
+
+  function normalizeWheelDeltaY(e) {
+    if (e.deltaMode === 1) return e.deltaY * 16;
+    if (e.deltaMode === 2) return e.deltaY * Math.max(window.innerHeight || 800, 1);
+    return e.deltaY;
+  }
+
+  function canScrollVertically(el, deltaY) {
+    if (!isVerticallyScrollable(el)) return false;
+    const max = el.scrollHeight - el.clientHeight;
+    if (deltaY > 0) return el.scrollTop < max - 1;
+    if (deltaY < 0) return el.scrollTop > 1;
+    return max > 0;
+  }
+
+  function getMainVerticalScroller() {
+    if (tabPanelEl && isVerticallyScrollable(tabPanelEl)) return tabPanelEl;
+    const root = document.scrollingElement || document.documentElement;
+    if (root && root.scrollHeight > root.clientHeight + 1) return root;
+    return null;
+  }
+
+  window.addEventListener(
+    "wheel",
+    (e) => {
+      if (e.ctrlKey || e.defaultPrevented) return;
+      const deltaY = normalizeWheelDeltaY(e);
+      if (!deltaY) return;
+
+      let node = e.target;
+      if (node && node.nodeType === Node.TEXT_NODE) node = node.parentElement;
+
+      let nestedScroller = null;
+      while (node && node !== document.documentElement) {
+        if (node instanceof HTMLElement && isVerticallyScrollable(node)) {
+          nestedScroller = node;
+          break;
+        }
+        node = node.parentElement;
+      }
+
+      const main = getMainVerticalScroller();
+      // Paneles anidados (NOTICIAS, thumbs de modal…): scroll nativo propio.
+      if (nestedScroller && (!main || nestedScroller !== main)) return;
+      if (!main || !canScrollVertically(main, deltaY)) return;
+      e.preventDefault();
+      main.scrollTop += deltaY;
+    },
+    { passive: false }
+  );
 })();
 

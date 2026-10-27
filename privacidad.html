@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub · Privacidad</title>
-    <link rel="stylesheet" href="./styles.css?v=20261027-v1-1-25" />
+    <link rel="stylesheet" href="./styles.css?v=20261027-v1-1-26" />
   </head>
   <body class="theme-light privacy-page">
     <header>
@@ -198,7 +198,7 @@
       <div class="site-footer-inner">
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.1.25</span> |
+          <span id="site-version">v1.1.26</span> |
           <a href="./privacidad.html" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
@@ -222,6 +222,57 @@
           applyMeta();
         };
         document.body.appendChild(data);
+
+        function isVerticallyScrollable(el) {
+          if (!el || el.nodeType !== 1) return false;
+          var st = window.getComputedStyle(el);
+          var oy = st.overflowY;
+          if (oy !== "auto" && oy !== "scroll" && oy !== "overlay") return false;
+          return el.scrollHeight > el.clientHeight + 1;
+        }
+        function normalizeWheelDeltaY(e) {
+          if (e.deltaMode === 1) return e.deltaY * 16;
+          if (e.deltaMode === 2) return e.deltaY * Math.max(window.innerHeight || 800, 1);
+          return e.deltaY;
+        }
+        function canScrollVertically(el, deltaY) {
+          if (!isVerticallyScrollable(el)) return false;
+          var max = el.scrollHeight - el.clientHeight;
+          if (deltaY > 0) return el.scrollTop < max - 1;
+          if (deltaY < 0) return el.scrollTop > 1;
+          return max > 0;
+        }
+        function getMainVerticalScroller() {
+          var tab = document.getElementById("tab-panel");
+          if (tab && isVerticallyScrollable(tab)) return tab;
+          var root = document.scrollingElement || document.documentElement;
+          if (root && root.scrollHeight > root.clientHeight + 1) return root;
+          return null;
+        }
+        window.addEventListener(
+          "wheel",
+          function (e) {
+            if (e.ctrlKey || e.defaultPrevented) return;
+            var deltaY = normalizeWheelDeltaY(e);
+            if (!deltaY) return;
+            var node = e.target;
+            if (node && node.nodeType === 3) node = node.parentElement;
+            var nestedScroller = null;
+            while (node && node !== document.documentElement) {
+              if (isVerticallyScrollable(node)) {
+                nestedScroller = node;
+                break;
+              }
+              node = node.parentElement;
+            }
+            var main = getMainVerticalScroller();
+            if (nestedScroller && (!main || nestedScroller !== main)) return;
+            if (!main || !canScrollVertically(main, deltaY)) return;
+            e.preventDefault();
+            main.scrollTop += deltaY;
+          },
+          { passive: false }
+        );
       })();
     </script>
   </body>

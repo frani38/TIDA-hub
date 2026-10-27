@@ -936,6 +936,7 @@ body:has(.misc-grid):not(:has(.misc-detail)) {
   min-height: 0;
   overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: auto; /* no atrapar la rueda si no hay overflow real */
 }
 
 .content-card #tab-panel:has(.unit-materials-pane) {
@@ -1370,6 +1371,7 @@ body.privacy-page .tab-panel {
   margin-top: 0.35rem;
   overflow-x: auto;
   overflow-y: auto;
+  overscroll-behavior: auto;
 }
 
 /* Página de privacidad (privacidad.html): ocupar el ancho del privacy-stack (1800px) */
