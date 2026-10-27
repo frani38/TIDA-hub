@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.1.31",
+    version: "1.1.32",
     updated: "2026-10-27",
   },
 
@@ -292,6 +292,18 @@ window.MYWEB_DATA = {
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.
   // cover: ruta local recomendada (por ejemplo: "./assets/books/<id>.jpg")
   readings: [
+    {
+      id: "pentesting_con_kali",
+      addedAt: "2026-10-27",
+      themes: ["Programación y Robótica"],
+      cover: "./books/0103.jpg",
+      title: "Pentesting con Kali",
+      authors: "Pablo González Pérez, Germán Sánchez Garcés y Jose Miguel Soriano de la Cámara",
+      year: 2020,
+      isbn: "978-8409221042",
+      description:
+        "Este libro explora Kali Linux, la distribución de ciberseguridad que renovó completamente el legado de BackTrack, ofreciendo en siete años mejoras sustanciales en estabilidad, optimización, actualización de herramientas y adaptación a tecnologías emergentes como arquitecturas ARM, Docker y NetHunter. A través de sus capítulos, se examinan las principales facetas de auditoría de sistemas: recogida de información, análisis de vulnerabilidades y su explotación, abordando tanto aspectos teóricos como prácticos en auditoría web, wireless y redes. El texto también dedica especial atención al análisis forense guiado por Kali Linux, permitiendo visualizar y estudiar casos relevantes para profesionales del sector."
+    },
     {
       id: "fundamentos_de_linux_para_hackers",
       addedAt: "2026-10-27",

@@ -190,6 +190,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Documentación actualizada (`README.md`, `github_TIDAhub.md`, `content/README.md`, `versions.md`) e informe LaTeX local alineados con el estado **1.1.30+** (avisos no leídos, caché por versión, política de bump, scroll, etc.).
 
+## 1.1.32
+
+- Lecturas: alta de **Pentesting con Kali** (portada `books/0103.jpg`); bump de assets para invalidar caché de `data.js`.
+
 ---
 
 ## Convención (recordatorio)
@@ -242,3 +246,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.29** | NOTICIAS: resalte sincronizado con HISTÓRICO |
 | **1.1.30** | Caché de assets + compresión de iconos/portadas |
 | **1.1.31** | Docs e informe alineados con el sitio actual |
+| **1.1.32** | Lectura Pentesting con Kali + caché data.js |
