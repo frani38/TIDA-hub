@@ -181,6 +181,12 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-10-27T09:56",
+      title: "Eslovaquia conecta un nuevo reactor nuclear a su red eléctrica",
+      text: "La central de Mochovce ha conectado su cuarto reactor VVER-440 (471 MW) a la red eslovaca, con una puesta en marcha gradual desde el 15 de octubre. Con cinco reactores en operación, el país prevé que la nuclear aporte cerca del 77% de su electricidad y poder exportar energía desde 2027.",
+      url: "https://www.foronuclear.org/actualidad/noticias/eslovaquia-conecta-un-nuevo-reactor-nuclear-a-su-red-electrica/"
+    },
+    {
       publishedAt: "2026-10-27T09:50",
       title: "La IA y la computación cuántica aceleran el diseño de nuevos materiales",
       text: "Un equipo de la Universidad de Washington combina inteligencia artificial y ordenadores cuánticos para simular sistemas atómicos a gran escala y estudiar estados exóticos de la materia, abriendo vías hacia nuevos dispositivos de computación y electrónica más eficientes.",
