@@ -181,6 +181,12 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-10-27T09:50",
+      title: "La IA y la computación cuántica aceleran el diseño de nuevos materiales",
+      text: "Un equipo de la Universidad de Washington combina inteligencia artificial y ordenadores cuánticos para simular sistemas atómicos a gran escala y estudiar estados exóticos de la materia, abriendo vías hacia nuevos dispositivos de computación y electrónica más eficientes.",
+      url: "https://www.agenciasinc.es/Noticias/La-IA-y-la-computacion-cuantica-aceleran-el-diseno-de-nuevos-materiales"
+    },
+    {
       publishedAt: "2026-10-27T09:45",
       title: "Apocalipsis en PHP: dos vulnerabilidades críticas sin corregir ponen en peligro cualquier web",
       text: "Dos fallos críticos en PHP (PHP2Shell, CVSS 9.2) permiten ejecución remota de código sin autenticación en instalaciones web (PHP-FPM, mod_php, cgi y similares). Ya hay parches en las ramas 8.5.12, 8.4.27, 8.3.36 y 8.2.35; conviene actualizar cuanto antes.",
