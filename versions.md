@@ -126,6 +126,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 - `versions.md`: tabla resumen final (versión + descripción breve).
 - `content/README.md`: documentación alineada con el paradigma visual/sintético de DOCENCIA.
 
+## 1.1.16
+
+- Lecturas: alta de **Chernóbil 01:23:40** (Andrew Leatherbarrow, 2025; temática Histórico; portada `books/0099.jpg`).
+
 ---
 
 ## Convención (recordatorio)
@@ -160,3 +164,4 @@ Actualizar siempre `siteMeta.version` y `siteMeta.updated` en `data.js` al publi
 | **1.1.13** | Novedades: títulos enlazan a fichas en Miscelánea |
 | **1.1.14** | Enlace solo en el nombre (no en LIBRO:/JUEGO:/MEDIA:) |
 | **1.1.15** | Tabla resumen de versiones; `content/README` de Docencia visual |
+| **1.1.16** | Lectura nueva: Chernóbil 01:23:40 (Leatherbarrow) |
