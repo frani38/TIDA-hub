@@ -75,6 +75,7 @@
     materialId: "",
     unitId: "",
     tabId: "",
+    miscId: "",
     docenciaCollapsed: false,
     searchQuery: ""
   };
@@ -1563,6 +1564,7 @@
       materialId: "",
       unitId: "",
       tabId: "",
+      miscId: "",
       searchQuery: "",
       docenciaCollapsed: false
     };
@@ -1577,6 +1579,7 @@
       materialId: currentState.materialId || "",
       unitId: currentState.unitId || "",
       tabId: currentState.tabId || "",
+      miscId: (currentState.section || "") === "miscelanea" ? currentState.miscId || "" : "",
       searchQuery: currentState.searchQuery || "",
       docenciaCollapsed: !!currentState.docenciaCollapsed
     };
@@ -1590,6 +1593,7 @@
       st.materialId || "",
       st.unitId || "",
       st.tabId || "",
+      st.miscId || "",
       st.searchQuery || ""
     ].join("|");
   }
@@ -1607,7 +1611,10 @@
     if (section === "about") return `${base}#about`;
     if (section === "books") return `${base}#books`;
     if (section === "legislacion") return `${base}#legislacion`;
-    if (section === "miscelanea") return `${base}#miscelanea`;
+    if (section === "miscelanea") {
+      const mid = String(st.miscId || "").trim();
+      return mid ? `${base}#miscelanea/${encodeURIComponent(mid)}` : `${base}#miscelanea`;
+    }
     if (section === "updates") return `${base}#updates`;
     if (section === "search") {
       const q = encodeURIComponent(st.searchQuery || "");
@@ -1677,6 +1684,7 @@
       materialId: st.materialId || "",
       unitId: st.unitId || "",
       tabId: st.tabId || "",
+      miscId: st.miscId || "",
       searchQuery: st.searchQuery || "",
       docenciaCollapsed: !!st.docenciaCollapsed
     };
@@ -1718,7 +1726,7 @@
     }
     if (section === "miscelanea") {
       setActiveMenu(miscelaneaBtnEl);
-      showMiscelaneaSection();
+      showMiscelaneaSection({ openMiscId: currentState.miscId || "" });
       return;
     }
     if (section === "updates") {
@@ -1760,7 +1768,23 @@
       restoreHistorySnapshot({ ...snapshotHistoryState(), section: "home", levelId: "", materialId: "", unitId: "", tabId: "", searchQuery: "" });
       return;
     }
-    if (raw === "help" || raw === "privacy" || raw === "about" || raw === "books" || raw === "legislacion" || raw === "miscelanea" || raw === "updates" || raw === "docencia") {
+    if (raw === "miscelanea" || raw.startsWith("miscelanea/")) {
+      const miscId = raw === "miscelanea" ? "" : decodeURIComponent(raw.slice("miscelanea/".length));
+      restoreHistorySnapshot({
+        myweb: 1,
+        section: "miscelanea",
+        stageId: "",
+        levelId: "",
+        materialId: "",
+        unitId: "",
+        tabId: "",
+        miscId,
+        searchQuery: "",
+        docenciaCollapsed: false
+      });
+      return;
+    }
+    if (raw === "help" || raw === "privacy" || raw === "about" || raw === "books" || raw === "legislacion" || raw === "updates" || raw === "docencia") {
       restoreHistorySnapshot({
         myweb: 1,
         section: raw,
@@ -1769,6 +1793,7 @@
         materialId: "",
         unitId: "",
         tabId: "",
+        miscId: "",
         searchQuery: "",
         docenciaCollapsed: false
       });
@@ -2166,6 +2191,12 @@
 
     const titleBackBtn = unitTitleEl.querySelector(".help-title-back");
     titleBackBtn?.addEventListener("click", () => {
+      try {
+        if (history.state?.myweb === 1 && history.state.section === "privacy") {
+          history.back();
+          return;
+        }
+      } catch {}
       unitTitleEl.textContent = "AYUDA";
       showHelpForm(draft);
       currentState = { ...currentState, section: "help" };
@@ -2400,7 +2431,8 @@
     animateContentSwitch();
   }
 
-  function showMiscelaneaSection() {
+  function showMiscelaneaSection(opts = {}) {
+    const openMiscId = String(opts?.openMiscId || "").trim();
     contentCardEl?.classList.remove("is-home");
     toggleDocenciaMenu(false);
     toggleContentCard(true);
@@ -2433,8 +2465,17 @@
         <button type="button" class="help-title-back misc-title-back" aria-label="Volver">← VOLVER</button>`;
       const backBtn = unitTitleEl.querySelector(".misc-title-back");
       backBtn?.addEventListener("click", () => {
+        // Preferir historial del navegador (misma ruta que la flecha atrás).
+        try {
+          if (history.state?.myweb === 1 && String(history.state.miscId || "").trim()) {
+            history.back();
+            return;
+          }
+        } catch {}
+        currentState = { ...currentState, section: "miscelanea", miscId: "" };
         unitTitleEl.textContent = "MISCELÁNEA";
-        showMiscelaneaSection();
+        renderMenu();
+        pushAppHistory();
       });
     };
 
@@ -2645,15 +2686,17 @@
           const fromIconHtml = fromIconWrapEl ? fromIconWrapEl.outerHTML : "";
           const fromRadius = fromIconWrapEl ? getComputedStyle(fromIconWrapEl).borderRadius : "";
 
-          await renderDetail(it);
+          await renderDetail(it, { recordHistory: true });
           const toIconWrapEl = tabPanelEl.querySelector(".misc-detail__aside .unit-material-card__icon");
           flyIconTo({ fromRect, fromIconHtml, fromRadius, toIconWrapEl });
         });
       }
     };
 
-    const renderDetail = async (it) => {
+    const renderDetail = async (it, { recordHistory = true } = {}) => {
       setMiscTitle(it.label);
+      currentState = { ...currentState, section: "miscelanea", miscId: String(it.id || "").trim() };
+      if (recordHistory) pushAppHistory();
       const isReadings = it.id === "misc_lr";
       const isGames = it.id === "misc_jt";
       const isMedia = it.id === "misc_av";
@@ -3486,7 +3529,16 @@
       }
     };
 
-    // Vista inicial: menú general de Miscelánea
+    // Vista inicial: hub o subapartado (p. ej. al restaurar historial / hash).
+    if (openMiscId) {
+      const it = items.find((x) => x.id === openMiscId);
+      if (it) {
+        void renderDetail(it, { recordHistory: false });
+        animateContentSwitch();
+        return;
+      }
+    }
+    currentState = { ...currentState, section: "miscelanea", miscId: "" };
     renderMenu();
     animateContentSwitch();
   }
@@ -4009,8 +4061,8 @@
   if (miscelaneaBtnEl) {
     miscelaneaBtnEl.addEventListener("click", () => {
       setActiveMenu(miscelaneaBtnEl);
+      currentState = { ...currentState, section: "miscelanea", miscId: "" };
       showMiscelaneaSection();
-      currentState = { ...currentState, section: "miscelanea" };
       pushAppHistory();
     });
   }
@@ -4112,6 +4164,7 @@
       materialId: "",
       unitId: "",
       tabId: "",
+      miscId: "",
       searchQuery: ""
     };
     setActiveMenu(homeBtnEl);

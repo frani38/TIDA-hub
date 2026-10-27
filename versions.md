@@ -194,6 +194,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Lecturas: alta de **Pentesting con Kali** (portada `books/0103.jpg`); bump de assets para invalidar caché de `data.js`.
 
+## 1.1.33
+
+- Historial del navegador: al abrir un subapartado de Miscelánea (p. ej. Lecturas) se registra `miscId` en `history`/`#miscelanea/…`, así atrás vuelve al hub de Miscelánea (no salta a INICIO). Misma lógica en restaurar hash/popstate; ← VOLVER de privacidad usa `history.back()` cuando corresponde.
+
 ---
 
 ## Convención (recordatorio)
@@ -247,3 +251,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.30** | Caché de assets + compresión de iconos/portadas |
 | **1.1.31** | Docs e informe alineados con el sitio actual |
 | **1.1.32** | Lectura Pentesting con Kali + caché data.js |
+| **1.1.33** | Historial: atrás desde Miscelánea/subapartados vuelve al hub |
