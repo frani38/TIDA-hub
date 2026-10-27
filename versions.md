@@ -121,6 +121,11 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - NOVEDADES: el hipervínculo queda solo en el nombre del elemento (no en el prefijo LIBRO:/JUEGO:/MEDIA:).
 
+## 1.1.15
+
+- `versions.md`: tabla resumen final (versión + descripción breve).
+- `content/README.md`: documentación alineada con el paradigma visual/sintético de DOCENCIA.
+
 ---
 
 ## Convención (recordatorio)
@@ -132,3 +137,26 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 | **PATCH** | Textos, estilos puntuales, correcciones, docs, reglas |
 
 Actualizar siempre `siteMeta.version` y `siteMeta.updated` en `data.js` al publicar cambios.
+
+---
+
+## Resumen de versiones
+
+| Versión | Descripción breve |
+| --- | --- |
+| **1.0** | Publicación inicial del hub en GitHub Pages |
+| **→ 1.1** | Tipografías locales, lienzo fijo, Web3Forms, historial, privacidad, Hacking ético |
+| **1.1.0** | Versionado semántico MAJOR.MINOR.PATCH |
+| **1.1.1** | Reglas Cursor versionadas en el repo |
+| **1.1.2–1.1.3** | Privacidad a ancho completo; botón ← VOLVER |
+| **1.1.4** | Título fijo en `privacidad.html` (scroll solo del texto) |
+| **1.1.5–1.1.6** | Enlace WCAG oficial; política reforzada (menores, cookies, Pages) |
+| **1.1.7** | Sin texto entrecortado bajo cabecera en AYUDA |
+| **1.1.8** | Historial `versions.md` y publicación automática |
+| **1.1.9** | Paradigma DOCENCIA visual; README de hub amplio |
+| **1.1.10** | Primer ajuste de scroll fantasma en INICIO |
+| **1.1.11** | INICIO acotado al viewport (sin scroll de página) |
+| **1.1.12** | Misma acotación en Miscelánea (hub) y Sobre mí |
+| **1.1.13** | Novedades: títulos enlazan a fichas en Miscelánea |
+| **1.1.14** | Enlace solo en el nombre (no en LIBRO:/JUEGO:/MEDIA:) |
+| **1.1.15** | Tabla resumen de versiones; `content/README` de Docencia visual |

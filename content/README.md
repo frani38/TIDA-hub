@@ -1,43 +1,53 @@
 # Contenido por unidad (DOCENCIA)
 
-Los materiales de cada unidad didáctica se organizan en los cuatro apartados **Teoría**, **Actividades**, **Prácticas** y **Recursos**, referenciados desde `data.js` (`sectionTabs` y, si aplica, el mapa opcional `unit.pdfs` / rutas de fichero).
+## Idea de la sección
 
-**Paradigma actual:** no se trata de subir “apuntes y ejercicios” clásicos en bloque. El material es **más visual y sintético**, centrado en los puntos importantes de cada tema: infografías, pósters, láminas o imágenes de presentación, esquemas y, cuando convenga, PDF. Gran parte puede elaborarse con **aplicaciones de IA**; el criterio editorial sigue siendo del autor del sitio.
+En **DOCENCIA** la navegación sigue siendo **etapa → nivel → materia → unidad**, con los cuatro apartados fijos:
 
-Este sitio es estático (GitHub Pages): los ficheros se sirven desde el repositorio. No hace falta backend para descargarlos o abrirlos.
+| Apartado | Rol (enfoque actual) |
+| --- | --- |
+| **Teoría** | Ideas clave del tema en formato visual/sintético |
+| **Actividades** | Piezas para trabajar/aplicar lo esencial (no “cuadernillo” clásico) |
+| **Prácticas** | Guías o láminas de taller / procedimiento / reto |
+| **Recursos** | Material de apoyo (esquemas, pósters, enlaces empaquetados, etc.) |
+
+**Cambio de paradigma:** ya no se plantea subir de forma sistemática apuntes y ejercicios en PDF “al uso”. El material es **recursivo y visual**, centrado en los **puntos más importantes** de cada tema. Puede elaborarse con **aplicaciones de IA** (infografías, pósters, láminas o capturas de presentación, esquemas). El PDF sigue siendo válido cuando aporte, pero no es el formato por defecto obligatorio.
+
+Referencia en datos: `data.js` → `sectionTabs` y, si aplica, rutas por unidad (`pdfs` / ficheros). Criterio editorial: del autor del sitio.
+
+Sitio estático (GitHub Pages): los ficheros viven en el repositorio; no hace falta backend.
 
 ## Ruta en disco
 
-Para una unidad con `id` igual a `unitId`, la carpeta base es:
+Para una unidad con `id` = `unitId`:
 
 ```text
 content/<unitId>/
 ```
 
-Los nombres por defecto siguen alineados con `pdfFile` / fichero de cada entrada en `sectionTabs` (p. ej. `teoria.pdf`, `actividades.pdf`, …), salvo que la unidad defina rutas propias. En la práctica esos ficheros pueden ser PDF **o** otros formatos servibles (p. ej. PNG/JPG/WebP de una infografía o póster), según lo que referencie `data.js` y acepte la interfaz.
+Los nombres por defecto se alinean con `sectionTabs` (p. ej. `teoria.pdf`, `actividades.pdf`, …), salvo rutas propias en la unidad. En la práctica pueden ser **PDF** u otros formatos servibles (**PNG / JPG / WebP**, etc.) según lo que referencie `data.js` y acepte la interfaz.
 
-Ejemplo de ruta: `./content/<unitId>/teoria.pdf` (relativo a la raíz del sitio publicado).
+Ejemplo: `./content/<unitId>/teoria.pdf` (relativo a la raíz del sitio).
 
 ## Añadir una unidad nueva
 
-1. Crea el `unitId` (por ejemplo `tei1_up01`) y regístralo en `data.js` dentro de la materia correspondiente.
-2. Crea la carpeta `content/<unitId>/`.
-3. Añade los materiales de los cuatro apartados (visuales y/o PDF) con los nombres esperados, o configura las rutas en la unidad.
-4. Haz commit y `git push` a `main` para que aparezcan en [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/).
+1. Crea el `unitId` (p. ej. `tei1_up01`) y regístralo en `data.js` dentro de la materia.
+2. Crea `content/<unitId>/`.
+3. Añade piezas de los cuatro apartados (preferible visual/sintético; PDF si aporta) o configura rutas en la unidad.
+4. `git commit` + `git push` a `main` → [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/).
 
-Si falta un fichero, el enlace en la interfaz puede abrir una URL inexistente hasta que exista el archivo.
+Si falta un fichero, el enlace puede abrir una URL inexistente hasta que exista.
 
 ## Buenas prácticas
 
-- Prioriza claridad visual y foco en ideas clave frente a documentos densos.
-- Evita ficheros enormes si no es necesario (Pages y la carga en el navegador lo notan).
-- No subas material con derechos de terceros sin licencia adecuada (el sitio declara uso **CC BY-NC-SA 4.0** en el pie).
+- Prioriza **claridad visual** e ideas clave frente a documentos densos.
+- Evita ficheros enormes (Pages y el navegador lo notan).
+- Respeta derechos de terceros; el sitio declara **CC BY-NC-SA 4.0**.
 - Tras publicar, comprueba la unidad en DOCENCIA con **Ctrl+F5**.
 
 ## Nota sobre la interfaz
 
-- En **DOCENCIA**, el panel izquierdo (**Teoría / Actividades / Prácticas / Recursos**) queda fijo al hacer scroll (sticky) en pantallas grandes.
-- La URL de una unidad abierta usa hash `#levelId/materialId/unitId` (compatible con el historial atrás/adelante del navegador).
+- Panel **Teoría / Actividades / Prácticas / Recursos**: sticky en pantallas grandes.
+- URL de unidad: `#levelId/materialId/unitId` (historial atrás/adelante).
 
-Para la visión general del sitio: `README.md` en la raíz.  
-Para publicar en GitHub: `github_TIDAhub.md`.
+Visión general: `README.md`. Publicación: `github_TIDAhub.md`. Historial: `versions.md`.
