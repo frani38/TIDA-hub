@@ -81,7 +81,11 @@
   };
 
   let welcomeRevealTimer = null;
-  /** Solo la primera entrada a la web (esta carga); al volver a INICIO el texto queda fijo. */
+  /**
+   * false = aún no se ha salido de INICIO en esta carga → cortina al (re)montar bienvenida.
+   * true = el usuario ya navegó a otra sección → al volver a INICIO el texto queda fijo.
+   * (Recarga / ventana nueva reinicia el flag; no se guarda en sessionStorage.)
+   */
   let welcomeRevealPlayed = false;
 
   /** Detiene la animación de bienvenida (evita fugas al cambiar de vista). */
@@ -90,6 +94,12 @@
       clearTimeout(welcomeRevealTimer);
       welcomeRevealTimer = null;
     }
+  }
+
+  /** Al abandonar INICIO: las próximas visitas a home en esta carga no repiten la cortina. */
+  function consumeWelcomeReveal() {
+    welcomeRevealPlayed = true;
+    stopWelcomeAnimation();
   }
 
   function resetToHome() {
@@ -499,7 +509,7 @@
     unitTitleEl.textContent = "NOVEDADES";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
 
     const updates = collectAllUpdates();
     bootstrapSeenUpdateIdsIfNeeded();
@@ -720,16 +730,15 @@
     const welcomeEl = tabPanelEl.querySelector(".welcome-copy");
     if (!welcomeEl) return;
 
-    // Reentradas a INICIO: texto ya visible, sin cortina.
+    // Tras haber salido a otra sección: texto fijo, sin cortina.
     if (welcomeRevealPlayed) {
       welcomeEl.classList.remove("welcome-enter");
       welcomeEl.classList.add("welcome-reveal");
       return;
     }
-    welcomeRevealPlayed = true;
 
     welcomeEl.classList.remove("welcome-reveal", "welcome-enter");
-    // Forzar reflow para arrancar la transición en la primera entrada.
+    // Forzar reflow para arrancar la transición (carga / recarga / ventana nueva).
     void welcomeEl.offsetWidth;
     welcomeEl.classList.add("welcome-enter");
 
@@ -1462,7 +1471,7 @@
   }
 
   function showGlobalSearchPage(rawQuery, bundle) {
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     contentCardEl?.classList.remove("is-home");
     toggleDocenciaMenu(false);
     toggleContentCard(true);
@@ -1897,7 +1906,7 @@
     unitTitleEl.textContent = "AYUDA";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     tabPanelEl.innerHTML = `
       <form id="help-form" class="help-form" novalidate>
         <div class="help-row">
@@ -2104,7 +2113,7 @@
       'AYUDA <button type="button" class="help-title-back" aria-label="Volver">← VOLVER</button>';
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
 
     tabPanelEl.innerHTML = `
       <div class="help-form help-privacy-panel">
@@ -2287,7 +2296,7 @@
     unitTitleEl.textContent = "SOBRE MÍ";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     tabPanelEl.innerHTML = `
       <div class="empty-state about-section" lang="es">
         <div class="about-section__layout">
@@ -2331,7 +2340,7 @@
     unitTitleEl.textContent = "PROYECTOS";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     tabPanelEl.innerHTML = `
       <div class="empty-state construction-notice">
         <strong>EN CONSTRUCCIÓN</strong>
@@ -2351,7 +2360,7 @@
     unitTitleEl.textContent = "LEGISLACIÓN";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     const data = window.MYWEB_DATA || {};
     const law = data.legislation || {};
 
@@ -2504,7 +2513,7 @@
     unitTitleEl.textContent = "MISCELÁNEA";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     // Alinear el icono lateral de detalle con la "M" del título (se recalcula al entrar en detalle).
     document.documentElement.style.removeProperty("--misc-aside-top");
     document.documentElement.style.removeProperty("--misc-aside-left");
@@ -3897,7 +3906,7 @@
 
   function renderUnitMaterials(unit, activeTabId) {
     if (!unit?.id || !Array.isArray(DATA.sectionTabs) || DATA.sectionTabs.length === 0) return;
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     tabPanelEl.dataset.unitId = unit.id;
 
     tabPanelEl.innerHTML = "";
@@ -3915,7 +3924,7 @@
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
     updateDocenciaMenuTitle();
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     tabPanelEl.innerHTML = `
       <div class="empty-state construction-notice">
         <strong>EN CONSTRUCCIÓN</strong>
@@ -3928,7 +3937,7 @@
   function onUnitSelected({ level, material, unit, tabId = "" }) {
     contentCardEl?.classList.remove("is-home");
     toggleContentCard(true);
-    stopWelcomeAnimation();
+    consumeWelcomeReveal();
     unitTagEl.textContent = "";
     setUnitTitleCompact(true);
     unitTitleEl.textContent = unit.label;
@@ -3981,6 +3990,7 @@
       return;
     }
 
+    consumeWelcomeReveal();
     toggleContentCard(false);
     currentState = { ...currentState, section: "docencia", stageId, levelId: "", materialId: "", unitId: "" };
     updateDocenciaMenuTitle();
@@ -4100,6 +4110,7 @@
   if (docenciaBtnEl) {
     docenciaBtnEl.addEventListener("click", () => {
       setActiveMenu(docenciaBtnEl);
+      consumeWelcomeReveal();
       toggleDocenciaMenu(true);
       toggleContentCard(false);
       setDocenciaCollapsed(false);
