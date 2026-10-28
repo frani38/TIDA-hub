@@ -336,6 +336,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Noticias, histórico y novedades: fechas visibles en formato `DD.MM.YYYY` (antes `YYYY.MM.DD`).
 
+## 1.2.31
+
+- Bienvenida: la cortina de revelado solo en la primera entrada a la web; al volver a INICIO el texto aparece fijo.
+
 ---
 
 ## Convención (recordatorio)
@@ -424,3 +428,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.28** | HISTÓRICO móvil: sin bloque NOTICIAS; fondo contenido |
 | **1.2.29** | Bienvenida: revelado un poco más rápido |
 | **1.2.30** | Fechas UI: DD.MM.YYYY en noticias/novedades |
+| **1.2.31** | Bienvenida: cortina solo en la 1.ª entrada |

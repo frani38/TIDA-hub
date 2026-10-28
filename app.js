@@ -81,6 +81,8 @@
   };
 
   let welcomeRevealTimer = null;
+  /** Solo la primera entrada a la web (esta carga); al volver a INICIO el texto queda fijo. */
+  let welcomeRevealPlayed = false;
 
   /** Detiene la animación de bienvenida (evita fugas al cambiar de vista). */
   function stopWelcomeAnimation() {
@@ -718,8 +720,16 @@
     const welcomeEl = tabPanelEl.querySelector(".welcome-copy");
     if (!welcomeEl) return;
 
+    // Reentradas a INICIO: texto ya visible, sin cortina.
+    if (welcomeRevealPlayed) {
+      welcomeEl.classList.remove("welcome-enter");
+      welcomeEl.classList.add("welcome-reveal");
+      return;
+    }
+    welcomeRevealPlayed = true;
+
     welcomeEl.classList.remove("welcome-reveal", "welcome-enter");
-    // Forzar reflow para reiniciar la transición al volver a INICIO.
+    // Forzar reflow para arrancar la transición en la primera entrada.
     void welcomeEl.offsetWidth;
     welcomeEl.classList.add("welcome-enter");
 
