@@ -3735,13 +3735,28 @@ body.theme-light .theme-switch-btn.active {
 
   .content-card.is-home #unit-title {
     max-width: 100%;
-    font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
     pointer-events: auto;
   }
 
   .welcome-copy {
     max-width: 100%;
     padding: 0 0.35rem;
+  }
+
+  .welcome-intro {
+    font-size: clamp(0.88rem, 2.85vw, 1.02rem);
+    line-height: 1.48;
+    margin-bottom: 0.65rem;
+  }
+
+  .welcome-brand {
+    font-size: 1.45em;
+  }
+
+  .welcome-copy > .welcome-intro:last-child {
+    margin-top: 1.15rem;
+    font-size: clamp(0.88rem, 2.85vw, 1.02rem);
   }
 
   .home-news {
