@@ -6,7 +6,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **Web publicada (GitHub Pages):** [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/)
 - Guía de puesta en marcha online: **`github_TIDAhub.md`**
 - Historial de versiones: **`versions.md`**
-- Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.2.14**)
+- Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.2.22**)
 
 ## Objetivo del proyecto
 
@@ -16,7 +16,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación y entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
 - **PROYECTOS**: evidencias y trabajos que muestran aplicación real de los contenidos.
 - **LEGISLACIÓN**: normativa de referencia para el marco curricular (`data.js` → `legislation`); en móvil, columnas **Nacional** → **Asturias**.
-- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, etc.) según `data.js`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial).
+- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, etc.) según `data.js`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial). En móvil: título + ← VOLVER en la misma línea; al abrir un subapartado el scroll vuelve arriba (logo + filtros).
 - **SOBRE MÍ**: contexto del autor/proyecto e imagen en `./image/`.
 - **AYUDA**: formulario de contacto con envío real vía **Web3Forms**; tras enviar, **Enviado** y retorno a INICIO. Política de privacidad en la propia sección y en **`privacidad.html`**.
 - Tipografías **Orbitron / Oxanium** embebidas en `./fonts/` (sin depender de Google Fonts).
@@ -83,7 +83,9 @@ Tras publicar un cambio de versión, en la web usa **Ctrl+F5** la primera vez; C
 
 - **Historial del navegador**: tras cada carga/recarga se parte de **INICIO**; atrás/adelante recorren las secciones visitadas en esa sesión (History API + hashes). Desde un subapartado de Miscelánea, atrás vuelve al **hub** de Miscelánea. Desde INICIO, atrás puede salir del sitio (comportamiento normal del navegador).
 - **Layout híbrido**: en escritorio ancho (**≥1680px**) se conserva el lienzo fijo histórico. Por debajo (tablet/móvil/zoom) hay **reflow** (WCAG 1.4.10): cabecera adaptable, noticias apiladas, Miscelánea/legislación/privacidad en una columna, tipografía de bienvenida y lema ajustadas, pie **static** y compacto, objetivos táctiles ≥44px.
-- **Scroll con rueda**: si hay barra de scroll activa, la rueda mueve el contenedor principal aunque el puntero no esté sobre la barra (también en `privacidad.html`). Paneles anidados (p. ej. NOTICIAS) conservan su scroll propio.
+- **Títulos de sección (móvil)**: mismo tamaño reducido que Bienvenido/a; en Miscelánea (títulos largos) título + ← VOLVER en una sola fila.
+- **Placeholders** EN CONSTRUCCIÓN / PRÓXIMAMENTE: tipografía contenida (`clamp`), sin desborde en pantallas estrechas.
+- **Scroll**: al cambiar de vista en Miscelánea (y al abrir PROYECTOS vacío) se resetea al tope; `history.scrollRestoration = "manual"`. Rueda del ratón: si hay barra activa, mueve el contenedor principal (también en `privacidad.html`). Paneles anidados (p. ej. NOTICIAS) conservan scroll propio.
 - En **DOCENCIA**, el panel de materiales queda **sticky** en pantallas grandes.
 - Tema visual fijado a **claro** (`theme-light`).
 - Fechas: `YYYY.MM.DD` (y hora cuando aplica). Listados de novedades/histórico agrupados por **mes**. Catálogos de lecturas/juegos/media y NOVEDADES: lo más reciente arriba (entradas antepuestas en `data.js`).
@@ -120,7 +122,7 @@ Tras publicar un cambio de versión, en la web usa **Ctrl+F5** la primera vez; C
 
 ### Versión del sitio (`siteMeta` en `data.js`)
 
-Formato **MAJOR.MINOR.PATCH** (p. ej. `1.2.14` → pie `v1.2.14`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`. Anti-caché de CSS/JS/iconos: `window.MYWEB_ASSET_V` en HTML alineado con esa versión.
+Formato **MAJOR.MINOR.PATCH** (p. ej. `1.2.22` → pie `v1.2.22`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`. Anti-caché de CSS/JS/iconos: `window.MYWEB_ASSET_V` en HTML alineado con esa versión.
 
 | Dígito | Cuándo |
 | --- | --- |

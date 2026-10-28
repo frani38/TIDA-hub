@@ -51,6 +51,7 @@ Si falta un fichero, el enlace puede abrir una URL inexistente hasta que exista.
 - URL de unidad: `#levelId/materialId/unitId` (historial atrás/adelante).
 - Iconos de apartados: `icons/` (caché ligada a la versión del sitio).
 - Selector etapa/nivel/materia/unidad: grid 4 → 2 → 1 columnas según el ancho (WCAG reflow).
+- Placeholders **EN CONSTRUCCIÓN** / **PRÓXIMAMENTE** (materia sin unidades, apartados sin ficheros, etc.): tipografía adaptativa, sin desborde en móvil.
 
 ## Relación con otras carpetas de medios
 

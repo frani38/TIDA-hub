@@ -300,6 +300,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE: tipografía contenida (`clamp`), sin desborde en móvil; caja con padding y márgenes.
 
+## 1.2.22
+
+- Documentación e informe alineados con **1.2.15–1.2.21**: `README.md`, `github_TIDAhub.md`, `content/README.md`, `versions.md` e `#_Informe/Informe_MyWeb.tex` (Miscelánea móvil, scroll al tope, títulos, placeholders, layout híbrido).
+
 ---
 
 ## Convención (recordatorio)
@@ -379,3 +383,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.19** | Miscelánea móvil: icono mayor; VOLVER en la línea del título |
 | **1.2.20** | Miscelánea: scroll al tope al abrir subapartado |
 | **1.2.21** | Avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE adaptados a móvil |
+| **1.2.22** | Docs e informe alineados con pulido móvil 1.2.15–21 |
