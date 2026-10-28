@@ -2274,6 +2274,10 @@ body.theme-light .global-search-empty {
   color: rgba(15, 23, 42, 0.8);
 }
 
+body.theme-light .home-split.is-archive .year-result-date {
+  color: rgba(15, 23, 42, 0.8);
+}
+
 .home-split.is-archive .year-result-title,
 .home-split.is-archive a.year-result-title-link {
   color: #0f172a;
@@ -2325,6 +2329,16 @@ body.theme-light .global-search-empty {
   line-height: 1.35;
   padding-top: 0.06em;
   justify-self: start;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: 0.35rem;
+  row-gap: 0.05rem;
+}
+
+.year-result-date__day,
+.year-result-date__time {
+  white-space: nowrap;
 }
 
 .year-result-title {
@@ -3897,6 +3911,22 @@ body.theme-light .theme-switch-btn.active {
 
   .home-split.is-archive .year-results-list {
     max-width: 100%;
+    /* Columna más estrecha: solo ancho de YYYY.MM.DD (hora debajo) */
+    --year-result-date-col: 6.75rem;
+  }
+
+  .home-split.is-archive .year-result-date {
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+    column-gap: 0;
+    row-gap: 0.08rem;
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .home-split.is-archive .year-result {
+    column-gap: 0.45rem;
   }
 
   /* Miscelánea hub */

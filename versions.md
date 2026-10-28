@@ -316,6 +316,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - INICIO móvil/tablet: histórico de noticias — al pulsar un año el listado aparece debajo del panel NOTICIAS y se hace scroll hasta él (antes quedaba arriba, fuera de vista).
 
+## 1.2.26
+
+- Histórico de noticias (móvil/tablet): fecha y hora en dos líneas a la izquierda (`YYYY.MM.DD` / `[HH:MM]`) para dar más ancho al titular.
+
 ---
 
 ## Convención (recordatorio)
@@ -399,3 +403,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.23** | DOCENCIA móvil: título de materia en una línea |
 | **1.2.24** | Títulos de sección = tamaño Bienvenido/a |
 | **1.2.25** | Histórico noticias móvil: listado visible tras pulsar año |
+| **1.2.26** | Histórico móvil: fecha y hora apiladas a la izquierda |

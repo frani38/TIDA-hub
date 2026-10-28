@@ -184,22 +184,36 @@
 
   /** Fecha/hora de publicación en la web (tal como está en `publishedAt`). Formato: YYYY-MM-DD [HH:mm] */
   function formatPublishedAt(value) {
+    const parts = splitPublishedAt(value);
+    if (!parts.date) return "";
+    return parts.time ? `${parts.date} ${parts.time}` : parts.date;
+  }
+
+  /** Fecha `YYYY.MM.DD` y hora `[HH:MM]` por separado (histórico móvil apila la hora). */
+  function splitPublishedAt(value) {
     const toDots = (dateStr) => {
       const d = String(dateStr || "").slice(0, 10);
       if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return d;
       return `${d.slice(0, 4)}.${d.slice(5, 7)}.${d.slice(8, 10)}`;
     };
     const v = String(value || "").trim();
-    if (!v) return "";
+    if (!v) return { date: "", time: "" };
     const m = v.match(/^(\d{4}-\d{2}-\d{2})[T ](\d{1,2}):(\d{2})/);
     if (m) {
       const hh = m[2].padStart(2, "0");
-      return `${toDots(m[1])} [${hh}:${m[3]}]`;
+      return { date: toDots(m[1]), time: `[${hh}:${m[3]}]` };
     }
-    if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return toDots(v);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return { date: toDots(v), time: "" };
     const d = v.slice(0, 10);
-    if (/^\d{4}-\d{2}-\d{2}$/.test(d)) return toDots(d);
-    return v;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(d)) return { date: toDots(d), time: "" };
+    return { date: v, time: "" };
+  }
+
+  function renderPublishedAtMarkup(value, escape) {
+    const parts = splitPublishedAt(value);
+    if (!parts.date) return "";
+    if (!parts.time) return `<span class="year-result-date">${escape(parts.date)}</span>`;
+    return `<span class="year-result-date"><span class="year-result-date__day">${escape(parts.date)}</span><span class="year-result-date__time">${escape(parts.time)}</span></span>`;
   }
 
   function getNewsItemKey(n) {
@@ -421,7 +435,7 @@
                       : `<span class="year-result-title">${escapeHtml(n.title)}</span>`;
                     return `
                       <li class="year-result${isUnseen ? " is-unseen-news" : ""}" data-news-key="${escapeHtml(newsKey)}">
-                        <span class="year-result-date">${escapeHtml(formatPublishedAt(n.publishedAt))}</span>
+                        ${renderPublishedAtMarkup(n.publishedAt, escapeHtml)}
                         ${titleEl}
                       </li>
                     `;
