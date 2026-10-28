@@ -2496,8 +2496,23 @@
     let flyEl = null;
     let flyAnim = null;
 
+    const isCompactViewport = () => {
+      try {
+        return !!window.matchMedia && window.matchMedia("(max-width: 1679.98px)").matches;
+      } catch {
+        return false;
+      }
+    };
+
     const syncMiscAsideAlignment = () =>
       new Promise((resolve) => {
+        // En tablet/móvil el aside va en flujo estático: no medir ni desplazar.
+        if (isCompactViewport()) {
+          document.documentElement.style.removeProperty("--misc-aside-top");
+          document.documentElement.style.removeProperty("--misc-aside-left");
+          resolve();
+          return;
+        }
         // Esperar a que el DOM pinte y el layout se estabilice antes de medir.
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
@@ -2554,7 +2569,7 @@
     const flyIconTo = async ({ fromRect, fromIconHtml, fromRadius, toIconWrapEl }) => {
       cleanupFly();
       if (!fromRect || !fromIconHtml || !toIconWrapEl) return;
-      if (prefersReducedMotion()) {
+      if (prefersReducedMotion() || isCompactViewport()) {
         document.documentElement.classList.remove("misc-fly-target-hidden");
         return;
       }
@@ -2666,14 +2681,14 @@
       const topRow = items.filter((x) => ["misc_3d", "misc_pr", "misc_iot", "misc_ia", "misc_sw", "misc_bc"].includes(x.id));
       const bottomRow = items.filter((x) => ["misc_ss", "misc_lr", "misc_av", "misc_jt", "misc_ei"].includes(x.id));
       tabPanelEl.innerHTML = `
-        <div class="misc-grid" role="list" aria-label="Accesos de Miscelánea">
-          <div class="misc-row misc-row--top" role="presentation">
+        <nav class="misc-grid" aria-label="Accesos de Miscelánea">
+          <div class="misc-row misc-row--top">
             ${topRow.map(renderCard).join("")}
           </div>
-          <div class="misc-row misc-row--bottom" role="presentation">
+          <div class="misc-row misc-row--bottom">
             ${bottomRow.map(renderCard).join("")}
           </div>
-        </div>
+        </nav>
       `;
 
       for (const btn of tabPanelEl.querySelectorAll(".misc-card")) {

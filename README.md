@@ -11,7 +11,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 ## Objetivo del proyecto
 
 - **DOCENCIA**: navegación **etapa → nivel → materia → unidad**. En cada unidad se mantienen los cuatro apartados **Teoría**, **Actividades**, **Prácticas** y **Recursos**, pero el material deja de ser el PDF clásico de apuntes/ejercicios “al uso”. El enfoque es **visual y sintético**: piezas centradas en los puntos clave de cada tema (infografías, pósters, láminas o capturas de presentación, esquemas, y también PDF cuando aporte), a menudo elaboradas con **aplicaciones de IA**, alojadas bajo `/content/<unitId>/`.
-- **INICIO**: bienvenida (revelado tipo cortina) y panel de **últimas noticias** (`data.js` → `news`), con histórico por años/meses. Lienzo de escritorio fijo: al reducir la ventana no se reorganiza el diseño; se usa scroll horizontal/vertical.
+- **INICIO**: bienvenida (revelado tipo cortina) y panel de **últimas noticias** (`data.js` → `news`), con histórico por años/meses. En escritorio ancho (≥1680px) se mantiene el lienzo fijo; en tablet/móvil el layout hace **reflow** (WCAG 2.2 AA).
 - **NOVEDADES**: avisos manuales (`updates`) y altas automáticas de **LIBRO / JUEGO / MEDIA**; títulos enlazan a la ficha en Miscelánea; resalte azul por entrada no visitada.
 - **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación y entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
 - **PROYECTOS**: evidencias y trabajos que muestran aplicación real de los contenidos.

@@ -210,6 +210,12 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Docs: **Restrict to Domains** de Web3Forms es plan Pro; en free no aplica (honeypot + antispam). Guía `github_TIDAhub.md` alineada en el resto de menciones.
 
+## 1.2.0
+
+- **Responsive + WCAG 2.2 AA:** bajo 1680px el lienzo deja de ser fijo (reflow 1.4.10) para tablet/móvil/zoom; cabecera, INICIO (noticias apiladas), Miscelánea, formularios y pie se adaptan; objetivos táctiles ≥44px.
+- ARIA: hub Miscelánea como `<nav>` (sin `role="list"` inválido); `aria-label` de PROYECTOS / Miscelánea alineados con el texto visible.
+- Media queries “fantasma” (`min-width: 10000px`) activadas o sustituidas por breakpoints reales.
+
 ---
 
 ## Convención (recordatorio)
@@ -267,3 +273,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.34** | Bienvenida: Hacking ético en la lista de Miscelánea |
 | **1.1.35** | `.gitignore`: secretos de cuenta / recovery codes |
 | **1.1.36** | Docs: Restrict to Domains Web3Forms = Pro |
+| **1.2.0** | Responsive tablet/móvil + correcciones WCAG 2.2 AA |
