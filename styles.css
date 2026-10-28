@@ -1927,17 +1927,18 @@ body:has(.home-split.is-archive) .home-year-results {
 }
 
 .law-page {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.35rem;
+  align-items: start;
   padding-bottom: calc(var(--footer-h) + 1.25rem);
 }
 
-.law-page__row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.law-page__col {
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
-  align-items: stretch;
+  min-width: 0;
 }
 
 .law-block {
@@ -3751,8 +3752,9 @@ body.theme-light .theme-switch-btn.active {
     width: 100%;
   }
 
-  .law-page__row {
+  .law-page {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
 
   .help-form {

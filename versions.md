@@ -216,6 +216,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 - ARIA: hub Miscelánea como `<nav>` (sin `role="list"` inválido); `aria-label` de PROYECTOS / Miscelánea alineados con el texto visible.
 - Media queries “fantasma” (`min-width: 10000px`) activadas o sustituidas por breakpoints reales.
 
+## 1.2.1
+
+- LEGISLACIÓN en móvil: columnas reales (Nacional completo → Asturias completo); corrige el orden al apilar filas emparejadas del PC.
+
 ---
 
 ## Convención (recordatorio)
@@ -274,3 +278,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.35** | `.gitignore`: secretos de cuenta / recovery codes |
 | **1.1.36** | Docs: Restrict to Domains Web3Forms = Pro |
 | **1.2.0** | Responsive tablet/móvil + correcciones WCAG 2.2 AA |
+| **1.2.1** | LEGISLACIÓN móvil: orden Nacional → Asturias |

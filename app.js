@@ -2386,46 +2386,32 @@
       `;
     };
 
+    // Dos columnas reales (nacional | asturias): en móvil se apilan en ese orden
+    // (no filas emparejadas, que intercalaban el título de Asturias entre bloques).
+    const renderLawColumn = (titleHtml, flagHtml, bucket) => `
+      <section class="law-page__col" aria-label="${escapeHtml(titleHtml)}">
+        <div class="law-block law-block--title-only">
+          <h3 class="law-block__title">${flagHtml}<span class="law-block__title-text">${escapeHtml(titleHtml)}</span></h3>
+        </div>
+        <div class="law-block law-block--section">
+          <h4 class="law-subtitle law-subtitle--general">GENERAL</h4>
+          ${renderLawList(bucket?.general)}
+        </div>
+        <div class="law-block law-block--section">
+          <h4 class="law-subtitle law-subtitle--eso">ESO</h4>
+          ${renderLawList(bucket?.eso)}
+        </div>
+        <div class="law-block law-block--section">
+          <h4 class="law-subtitle law-subtitle--bach">BACHILLERATO</h4>
+          ${renderLawList(bucket?.bach)}
+        </div>
+      </section>
+    `;
+
     tabPanelEl.innerHTML = `
       <div class="law-page">
-        <div class="law-page__row law-page__row--titles">
-          <div class="law-block law-block--title-only">
-            <h3 class="law-block__title">${lawFlagEs}<span class="law-block__title-text">${escapeHtml(law?.national?.title || "Nacional")}</span></h3>
-          </div>
-          <div class="law-block law-block--title-only">
-            <h3 class="law-block__title">${lawFlagAs}<span class="law-block__title-text">${escapeHtml(law?.asturias?.title || "Asturias")}</span></h3>
-          </div>
-        </div>
-        <div class="law-page__row">
-          <div class="law-block law-block--section">
-            <h4 class="law-subtitle law-subtitle--general">GENERAL</h4>
-            ${renderLawList(law?.national?.general)}
-          </div>
-          <div class="law-block law-block--section">
-            <h4 class="law-subtitle law-subtitle--general">GENERAL</h4>
-            ${renderLawList(law?.asturias?.general)}
-          </div>
-        </div>
-        <div class="law-page__row">
-          <div class="law-block law-block--section">
-            <h4 class="law-subtitle law-subtitle--eso">ESO</h4>
-            ${renderLawList(law?.national?.eso)}
-          </div>
-          <div class="law-block law-block--section">
-            <h4 class="law-subtitle law-subtitle--eso">ESO</h4>
-            ${renderLawList(law?.asturias?.eso)}
-          </div>
-        </div>
-        <div class="law-page__row">
-          <div class="law-block law-block--section">
-            <h4 class="law-subtitle law-subtitle--bach">BACHILLERATO</h4>
-            ${renderLawList(law?.national?.bach)}
-          </div>
-          <div class="law-block law-block--section">
-            <h4 class="law-subtitle law-subtitle--bach">BACHILLERATO</h4>
-            ${renderLawList(law?.asturias?.bach)}
-          </div>
-        </div>
+        ${renderLawColumn(law?.national?.title || "Nacional", lawFlagEs, law?.national)}
+        ${renderLawColumn(law?.asturias?.title || "Asturias", lawFlagAs, law?.asturias)}
       </div>
     `;
     animateContentSwitch();
