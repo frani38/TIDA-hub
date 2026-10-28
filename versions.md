@@ -364,3 +364,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.16** | Miscelánea móvil: título/icono y fichas sin desborde |
 | **1.2.17** | Móvil: títulos de sección al tamaño de Bienvenido/a |
 | **1.2.18** | Restaura tamaño Bienvenido/a; VOLVER en proporción |
+| **1.2.18** | Restaura tamaño Bienvenido/a; VOLVER en proporción |
