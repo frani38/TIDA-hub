@@ -398,6 +398,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - INICIO: lazo negro temporal como marca de agua detrás del texto de bienvenida (`siteMeta.mourningRibbon`; opacidad baja para no dificultar la lectura).
 
+## 1.2.46
+
+- Cache-bust: lazo negro más grande / menos transparente (el CSS no se veía con `styles.css?v=1.2.45` cacheado).
+
 ---
 
 ## Convención (recordatorio)
