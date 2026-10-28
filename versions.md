@@ -324,6 +324,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - HISTÓRICO (escritorio): el panel NOTICIAS permanece anclado bajo la cabecera (como en INICIO), sin solaparse ni perder el scroll; se resetea al tope al elegir un año.
 
+## 1.2.28
+
+- HISTÓRICO móvil/tablet: se oculta el bloque NOTICIAS (solo título + desplegables por mes); el patrón de fondo del panel queda contenido y no se derrama.
+
 ---
 
 ## Convención (recordatorio)
@@ -409,3 +413,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.25** | Histórico noticias móvil: listado visible tras pulsar año |
 | **1.2.26** | Histórico móvil: fecha y hora apiladas a la izquierda |
 | **1.2.27** | HISTÓRICO escritorio: panel NOTICIAS anclado como en INICIO |
+| **1.2.28** | HISTÓRICO móvil: sin bloque NOTICIAS; fondo contenido |

@@ -3865,6 +3865,16 @@ body.theme-light .theme-switch-btn.active {
     max-height: none !important;
     min-height: 0 !important;
     flex: 0 0 auto;
+    overflow: hidden; /* contiene ::before (pcb) dentro del bloque */
+    isolation: isolate;
+  }
+
+  .home-news::before {
+    /* Refuerzo: el patrón no debe pintarse fuera del panel */
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
   }
 
   /* HISTÓRICO: sin min-height de viewport ni hueco reservado a panel 400px */
@@ -3886,29 +3896,28 @@ body.theme-light .theme-switch-btn.active {
     padding-right: 0;
   }
 
-  /* Listado del año debajo de NOTICIAS (donde se pulsa el año), no arriba fuera de vista */
+  /*
+    HISTÓRICO móvil/tablet: ocultar el bloque NOTICIAS (evita fondo pcb/gradiente
+    fuera de sitio y el panel intermedio entre título y desplegables).
+  */
   .home-split.is-archive .home-news,
   .content-card.is-home:has(.home-split.is-archive) .home-news {
-    position: static;
-    top: auto;
-    right: auto;
-    width: 100%;
-    max-width: none;
-    height: auto !important;
-    max-height: none !important;
-    order: 1;
-    z-index: auto;
+    display: none !important;
   }
 
   .home-split.is-archive .home-year-results {
-    order: 2;
+    order: 1;
     width: 100%;
     max-width: 100%;
-    margin-top: 0.35rem;
+    margin-top: 0.15rem;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: inherit;
   }
 
   .home-split.is-archive .welcome-copy {
-    order: 0;
+    display: none;
   }
 
   body:has(.home-split.is-archive) #unit-title,
