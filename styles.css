@@ -1341,6 +1341,8 @@ body.privacy-page .content-card {
   flex: 1 1 auto;
   min-height: 0;
   overflow: hidden;
+  /* Aire bajo cabecera (en AYUDA lo aporta el título «AYUDA»). */
+  padding-top: 0.7rem;
 }
 
 /* Mismo título/cita que AYUDA (.privacy-block-heading + lede centrados). */
@@ -1453,7 +1455,7 @@ body.privacy-page .privacy-block-heading {
 
 /* Cita legal RGPD/LOPDGDD bajo el título (privacidad.html y AYUDA) */
 .privacy-legal-lede {
-  margin: 0.05rem 0 0.35rem;
+  margin: 0.12rem 0 0.4rem;
   padding: 0 0.25rem;
   font-size: 0.98rem;
   line-height: 1.3;
@@ -1466,19 +1468,23 @@ body.privacy-page .privacy-block-heading {
 }
 
 .privacy-legal-lede--centered,
-.help-privacy-panel .privacy-legal-lede {
+.help-privacy-panel .privacy-legal-lede,
+body.privacy-page .privacy-legal-lede {
   text-align: center;
   max-width: 1800px;
   width: 100%;
-  margin: 0.02rem auto 0.4rem;
+  margin: 0.12rem auto 0.4rem;
+}
+
+/* Misma separación título → RGPD en AYUDA y en privacidad.html */
+.help-privacy-panel .privacy-block-heading + .privacy-legal-lede,
+body.privacy-page #unit-title + .privacy-legal-lede {
+  margin-top: 0.12rem;
+  margin-bottom: 0.4rem;
 }
 
 body.privacy-page .privacy-legal-lede {
   flex: 0 0 auto;
-  text-align: center;
-  max-width: 1800px;
-  width: 100%;
-  margin: 0.02rem auto 0.4rem;
   color: #475569;
 }
 

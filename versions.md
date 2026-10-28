@@ -368,6 +368,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - INICIO: título BIENVENIDO/A con el mismo padding/margen superior que el resto de secciones.
 
+## 1.2.39
+
+- `privacidad.html`: más aire entre cabecera y título; separación título→RGPD unificada con AYUDA.
+
 ---
 
 ## Convención (recordatorio)
@@ -464,3 +468,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.36** | Privacidad: título y cita más juntos |
 | **1.2.37** | privacidad.html: título/cita como en AYUDA |
 | **1.2.38** | INICIO: título alineado con otras secciones |
+| **1.2.39** | Privacidad: aire cabecera + gap RGPD = AYUDA |
