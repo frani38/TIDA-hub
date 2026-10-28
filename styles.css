@@ -3648,20 +3648,22 @@ body.theme-light .theme-switch-btn.active {
     margin-left: auto;
   }
 
-  /* Una sola línea en móvil/tablet: escala con el ancho del viewport */
-  .brand-subtitle {
+  /* Lema + subtítulo: misma escala tipográfica en una línea */
+  .brand-subtitle,
+  .header-right .subtle.subtle-right {
     white-space: nowrap;
     font-size: clamp(0.55rem, 2.75vw, 0.98rem);
     letter-spacing: 0.02em;
     line-height: 1.2;
-    margin-top: 0;
     overflow: hidden;
-    text-overflow: ellipsis; /* solo si el viewport es extremo */
+    text-overflow: ellipsis;
+  }
+
+  .brand-subtitle {
+    margin-top: 0;
   }
 
   .subtle.subtle-right {
-    white-space: normal;
-    font-size: clamp(0.72rem, 2.8vw, 0.9rem);
     margin-top: 0.12rem;
   }
 
@@ -4012,13 +4014,10 @@ body.theme-light .theme-switch-btn.active {
     margin-top: 0.6rem;
   }
 
-  .header-right .brand-subtitle {
+  .header-right .brand-subtitle,
+  .header-right .subtle.subtle-right {
     font-size: clamp(0.52rem, 3.35vw, 0.72rem);
     letter-spacing: 0.015em;
-  }
-
-  .header-right .subtle {
-    font-size: 0.68rem;
   }
 
   .header-nav-buttons .header-home-btn {

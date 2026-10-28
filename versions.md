@@ -248,6 +248,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Lema de cabecera en móvil/tablet: una sola línea, tamaño tipográfico adaptado al ancho.
 
+## 1.2.9
+
+- Cabecera móvil: «EDUCACIÓN SECUNDARIA Y BACHILLERATO» con el mismo tamaño tipográfico que el lema superior.
+
 ---
 
 ## Convención (recordatorio)
