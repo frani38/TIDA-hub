@@ -3744,9 +3744,14 @@ body.theme-light .theme-switch-btn.active {
     gap: 1.15rem;
   }
 
+  /* Títulos de sección (Bienvenido/a, NOVEDADES, DOCENCIA, Miscelánea, …) */
+  .content-card h2,
+  #unit-title {
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+  }
+
   .content-card.is-home #unit-title {
     max-width: 100%;
-    font-size: clamp(1.15rem, 4vw, 1.45rem);
     pointer-events: auto;
   }
 
@@ -4195,6 +4200,12 @@ body.theme-light .theme-switch-btn.active {
     letter-spacing: 0.008em;
   }
 
+  .content-card h2,
+  #unit-title {
+    font-size: clamp(1.05rem, 4.2vw, 1.28rem);
+  }
+
+  /* Títulos largos Miscelánea / …: seguir cabiendo en una línea */
   body:has(.misc-detail) #unit-title {
     font-size: clamp(0.54rem, 3.05vw, 0.82rem);
   }

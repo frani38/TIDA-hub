@@ -280,6 +280,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Miscelánea (móvil/tablet): título de sección en una línea, icono más pequeño; fichas de lecturas/media/juegos sin desborde (autores y textos con wrap).
 
+## 1.2.17
+
+- Móvil/tablet: todos los títulos de sección (`#unit-title`) con el mismo tamaño reducido que Bienvenido/a; Miscelánea larga sigue más compacta para una línea.
+
 ---
 
 ## Convención (recordatorio)
@@ -354,3 +358,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.14** | Docs e informe alineados con responsive 1.2.x |
 | **1.2.15** | Cabecera móvil: lema/etapa más contenidos y alineados |
 | **1.2.16** | Miscelánea móvil: título/icono y fichas sin desborde |
+| **1.2.17** | Móvil: títulos de sección al tamaño de Bienvenido/a |
