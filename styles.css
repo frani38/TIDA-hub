@@ -1273,10 +1273,13 @@ body.theme-light .unit-material-card__label {
   text-align: justify;
   text-justify: inter-word;
   align-self: center;
-  width: 980px;
+  width: 100%;
   max-width: 980px;
   margin: 0.2rem auto 0.75rem;
   user-select: none;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .help-privacy strong {
@@ -1389,13 +1392,15 @@ body.privacy-page .privacy-card {
 .privacy-block-heading {
   margin: 0 auto 0.1rem;
   max-width: 1800px;
-  width: 1800px;
+  width: 100%;
   font-family: var(--tech-font);
-  font-size: 1.48rem;
+  font-size: clamp(1.05rem, 3.5vw, 1.48rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #0f172a;
   text-align: center;
+  box-sizing: border-box;
+  padding-inline: 0.35rem;
 }
 
 .help-privacy-panel .privacy-block-heading {
@@ -1420,9 +1425,11 @@ body.privacy-page .privacy-block-heading {
 }
 
 .privacy-stack {
-  width: 1800px;
+  width: 100%;
   max-width: 1800px;
   margin: 0 auto;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .privacy-card-caption {
@@ -1479,9 +1486,10 @@ body.privacy-page .privacy-card-caption {
   padding-top: 0.65rem;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1100px) {
   .privacy-grid {
     grid-template-columns: 1fr;
+    gap: 1.1rem;
   }
 }
 
@@ -3763,6 +3771,30 @@ body.theme-light .theme-switch-btn.active {
 
   .help-row {
     grid-template-columns: 1fr;
+  }
+
+  /* Privacidad (AYUDA y privacidad.html): una columna, sin recorte horizontal */
+  .help-privacy-panel,
+  .privacy-stack,
+  .help-privacy-panel .privacy-card,
+  .help-privacy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .privacy-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .privacy-section > .privacy-section-body {
+    padding-left: 1rem;
+  }
+
+  .tab-panel:has(.help-privacy-panel) {
+    overflow-x: hidden;
+    min-width: 0;
   }
 
   .help-field input,

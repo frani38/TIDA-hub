@@ -220,6 +220,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - LEGISLACIÓN en móvil: columnas reales (Nacional completo → Asturias completo); corrige el orden al apilar filas emparejadas del PC.
 
+## 1.2.2
+
+- Privacidad en móvil (AYUDA / `privacidad.html`): deja el ancho fijo 1800px; una columna y texto sin recorte horizontal.
+
 ---
 
 ## Convención (recordatorio)
@@ -279,3 +283,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.36** | Docs: Restrict to Domains Web3Forms = Pro |
 | **1.2.0** | Responsive tablet/móvil + correcciones WCAG 2.2 AA |
 | **1.2.1** | LEGISLACIÓN móvil: orden Nacional → Asturias |
+| **1.2.2** | Privacidad móvil: una columna, sin recorte |
