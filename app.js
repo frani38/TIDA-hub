@@ -4262,7 +4262,15 @@
     } else if (hist && hist.section && hist.section !== "home") {
       restoreHistorySnapshot(hist);
     } else {
-      welcomeCurtainOnNextHome = true;
+      // Cortina solo en entrada/recarga real de INICIO; no si venimos de privacidad.html (VOLVER).
+      let skipCurtain = false;
+      try {
+        skipCurtain = sessionStorage.getItem("myweb_skip_welcome_curtain") === "1";
+        if (skipCurtain) sessionStorage.removeItem("myweb_skip_welcome_curtain");
+      } catch {
+        skipCurtain = false;
+      }
+      welcomeCurtainOnNextHome = !skipCurtain;
       currentState = {
         ...currentState,
         section: "home",

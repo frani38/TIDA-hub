@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub · Privacidad</title>
-    <link rel="stylesheet" href="./styles.css?v=1.2.42" />
+    <link rel="stylesheet" href="./styles.css?v=1.2.43" />
     <script>
-      window.MYWEB_ASSET_V = "1.2.42";
+      window.MYWEB_ASSET_V = "1.2.43";
     </script>
   </head>
   <body class="theme-light privacy-page">
@@ -26,7 +26,12 @@
         </div>
         <div class="header-meta-row">
           <div class="header-nav-buttons">
-            <a class="home-btn header-home-btn privacy-header-back" href="./index.html" aria-label="Volver a inicio">← VOLVER</a>
+            <a
+              class="home-btn header-home-btn privacy-header-back"
+              href="./index.html"
+              aria-label="Volver a inicio"
+              id="privacy-back-home"
+            >← VOLVER</a>
           </div>
         </div>
       </div>
@@ -200,7 +205,7 @@
       <div class="site-footer-inner">
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.2.42</span> |
+          <span id="site-version">v1.2.43</span> |
           <a href="./privacidad.html" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
@@ -208,6 +213,18 @@
 
     <script>
       (function () {
+        /* VOLVER → INICIO sin cortina de bienvenida (misma sesión). */
+        var backHome = document.getElementById("privacy-back-home");
+        if (backHome) {
+          backHome.addEventListener("click", function () {
+            try {
+              sessionStorage.setItem("myweb_skip_welcome_curtain", "1");
+            } catch (e) {
+              /* ignore */
+            }
+          });
+        }
+
         var applyMeta = function () {
           var y = document.getElementById("year-current");
           if (y) y.textContent = String(new Date().getFullYear());
@@ -217,7 +234,7 @@
           if (vEl && ver) vEl.textContent = ver.indexOf("v") === 0 ? ver : "v" + ver;
         };
         var data = document.createElement("script");
-        data.src = "./data.js?v=" + String(window.MYWEB_ASSET_V || "1.2.42");
+        data.src = "./data.js?v=" + String(window.MYWEB_ASSET_V || "1.2.43");
         data.onload = applyMeta;
         data.onerror = function () {
           console.error("No se pudo cargar data.js");

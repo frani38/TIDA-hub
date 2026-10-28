@@ -386,6 +386,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Privacidad: un poco más de espacio entre el título y la cita RGPD/LOPDGDD (pie y AYUDA).
 
+## 1.2.43
+
+- `privacidad.html` → VOLVER a INICIO: bienvenida fija, sin cortina (como al navegar desde otra sección).
+
 ---
 
 ## Convención (recordatorio)
@@ -486,3 +490,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.40** | Privacidad AYUDA: sin gap flex; más aire cabecera |
 | **1.2.41** | Foto SOBRE MÍ; restore al recargar; cortina solo en load |
 | **1.2.42** | Privacidad: más espacio título ↔ RGPD |
+| **1.2.43** | VOLVER desde privacidad.html: INICIO sin cortina |
