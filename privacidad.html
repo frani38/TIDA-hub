@@ -4,9 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub · Privacidad</title>
-    <link rel="stylesheet" href="./styles.css?v=1.2.43" />
+    <link rel="stylesheet" href="./styles.css?v=1.2.44" />
     <script>
-      window.MYWEB_ASSET_V = "1.2.43";
+      window.MYWEB_ASSET_V = "1.2.44";
+    </script>
+    <script>
+      (function () {
+        var s = document.createElement("script");
+        s.src = "./version-boot.js?_=" + Date.now();
+        document.head.appendChild(s);
+      })();
     </script>
   </head>
   <body class="theme-light privacy-page">
@@ -28,7 +35,7 @@
           <div class="header-nav-buttons">
             <a
               class="home-btn header-home-btn privacy-header-back"
-              href="./index.html"
+              href="./index.html?v=1.2.44"
               aria-label="Volver a inicio"
               id="privacy-back-home"
             >← VOLVER</a>
@@ -205,8 +212,8 @@
       <div class="site-footer-inner">
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.2.43</span> |
-          <a href="./privacidad.html" class="footer-privacy-link">Privacidad y protección de datos</a>
+          <span id="site-version">v1.2.44</span> |
+          <a href="./privacidad.html?v=1.2.44" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
     </footer>
@@ -233,14 +240,33 @@
           ver = String(ver).trim();
           if (vEl && ver) vEl.textContent = ver.indexOf("v") === 0 ? ver : "v" + ver;
         };
-        var data = document.createElement("script");
-        data.src = "./data.js?v=" + String(window.MYWEB_ASSET_V || "1.2.43");
-        data.onload = applyMeta;
-        data.onerror = function () {
-          console.error("No se pudo cargar data.js");
-          applyMeta();
-        };
-        document.body.appendChild(data);
+        function loadData(bust) {
+          bust = String(bust || window.MYWEB_ASSET_V || "1.2.44");
+          window.MYWEB_ASSET_V = bust;
+          if (typeof window.MYWEB_wireVersionedLinks === "function") {
+            window.MYWEB_wireVersionedLinks(bust);
+          }
+          var data = document.createElement("script");
+          data.src = "./data.js?v=" + encodeURIComponent(bust);
+          data.onload = applyMeta;
+          data.onerror = function () {
+            console.error("No se pudo cargar data.js");
+            applyMeta();
+          };
+          document.body.appendChild(data);
+        }
+        var started = false;
+        function start(bust) {
+          if (started) return;
+          started = true;
+          loadData(bust);
+        }
+        window.addEventListener("myweb:version-ready", function (ev) {
+          start((ev && ev.detail && ev.detail.version) || window.MYWEB_ASSET_V);
+        });
+        setTimeout(function () {
+          start(window.MYWEB_ASSET_V || "1.2.44");
+        }, 2500);
 
         function isVerticallyScrollable(el) {
           if (!el || el.nodeType !== 1) return false;

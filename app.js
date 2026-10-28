@@ -1934,7 +1934,7 @@
             <input id="help-read" type="checkbox" required />
             <span>
               He leído la información de
-              <a class="help-privacy-link" href="./privacidad.html" rel="noopener noreferrer"
+              <a class="help-privacy-link" href="./privacidad.html?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" rel="noopener noreferrer"
                 ><strong>privacidad y protección de datos</strong></a
               >. <span class="req-asterisk" aria-hidden="true">*</span>
             </span>
@@ -1987,11 +1987,14 @@
     const privacyLinkEl = formEl.querySelector(".help-privacy-link");
     if (privacyLinkEl) {
       privacyLinkEl.addEventListener("click", (e) => {
-              e.preventDefault();
+        e.preventDefault();
         showPrivacyPolicyPanel(getDraft());
         currentState = { ...currentState, section: "privacy" };
         pushAppHistory();
       });
+    }
+    if (typeof window.MYWEB_wireVersionedLinks === "function") {
+      window.MYWEB_wireVersionedLinks(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim());
     }
 
     const setHelpStatus = (kind, text) => {

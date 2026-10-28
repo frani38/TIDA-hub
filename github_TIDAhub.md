@@ -122,7 +122,7 @@ git push origin main
 ```
 
 1. Espera a que Pages despliegue (pestaña **Actions** del repo, si está visible).  
-2. Abre la web y fuerza recarga: **Ctrl+F5** la primera vez tras un bump (CSS/JS/iconos usan `MYWEB_ASSET_V` / `siteMeta.version`, no `Date.now()` en cada visita).
+2. Abre la web: `version-boot.js` detecta si el HTML cacheado está detrás de `data.js` y recarga con `?v=`; CSS/JS/iconos usan `MYWEB_ASSET_V` / `siteMeta.version`. Si hace falta, **Ctrl+F5**.
 
 No subas secretos privados. La **Access Key de Web3Forms** está pensada para ir en el cliente (pública). En plan free la protección es antispam del proveedor + honeypot; **Restrict to Domains** solo existe en Pro (§7.5).
 
@@ -138,7 +138,7 @@ Formato de **tres dígitos** (ej. `1.2.22` → se muestra `v1.2.22`):
 
 - Fuente: `data.js` → `siteMeta.version` + `siteMeta.updated`
 - El pie se rellena solo al cargar la página
-- Anti-caché de assets: `window.MYWEB_ASSET_V` en `index.html` / `privacidad.html` (misma cadena que la versión)
+- Anti-caché de assets: `window.MYWEB_ASSET_V` + `version-boot.js` (comprueba `data.js` sin caché y fuerza recarga HTML con `?v=` si hace falta)
 - **Regla fija del agente:** `.cursor/rules/version-semver.mdc`
   - **Sí bumpear** en cambios técnicos (código, estilos, docs de ingeniería, reglas)
   - **No bumpear** en altas/ediciones solo de contenido editorial (libros, juegos, media, noticias, legislación, materiales de `content/`/`books/`, …)
