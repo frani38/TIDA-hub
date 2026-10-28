@@ -47,9 +47,10 @@ Si falta un fichero, el enlace puede abrir una URL inexistente hasta que exista.
 
 ## Nota sobre la interfaz
 
-- Panel **Teoría / Actividades / Prácticas / Recursos**: sticky en pantallas grandes.
+- Panel **Teoría / Actividades / Prácticas / Recursos**: sticky en pantallas grandes; en anchos estrechos (&lt;1680px) el layout hace reflow junto al resto del sitio.
 - URL de unidad: `#levelId/materialId/unitId` (historial atrás/adelante).
 - Iconos de apartados: `icons/` (caché ligada a la versión del sitio).
+- Selector etapa/nivel/materia/unidad: grid 4 → 2 → 1 columnas según el ancho (WCAG reflow).
 
 ## Relación con otras carpetas de medios
 

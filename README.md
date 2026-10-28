@@ -6,7 +6,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **Web publicada (GitHub Pages):** [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/)
 - Guía de puesta en marcha online: **`github_TIDAhub.md`**
 - Historial de versiones: **`versions.md`**
-- Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.1.31**)
+- Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.2.14**)
 
 ## Objetivo del proyecto
 
@@ -15,8 +15,8 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **NOVEDADES**: avisos manuales (`updates`) y altas automáticas de **LIBRO / JUEGO / MEDIA**; títulos enlazan a la ficha en Miscelánea; resalte azul por entrada no visitada.
 - **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación y entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
 - **PROYECTOS**: evidencias y trabajos que muestran aplicación real de los contenidos.
-- **LEGISLACIÓN**: normativa de referencia para el marco curricular (`data.js` → `legislation`).
-- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, etc.) según `data.js`.
+- **LEGISLACIÓN**: normativa de referencia para el marco curricular (`data.js` → `legislation`); en móvil, columnas **Nacional** → **Asturias**.
+- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, etc.) según `data.js`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial).
 - **SOBRE MÍ**: contexto del autor/proyecto e imagen en `./image/`.
 - **AYUDA**: formulario de contacto con envío real vía **Web3Forms**; tras enviar, **Enviado** y retorno a INICIO. Política de privacidad en la propia sección y en **`privacidad.html`**.
 - Tipografías **Orbitron / Oxanium** embebidas en `./fonts/` (sin depender de Google Fonts).
@@ -81,8 +81,8 @@ Tras publicar un cambio de versión, en la web usa **Ctrl+F5** la primera vez; C
 
 ## Comportamiento destacado
 
-- **Historial del navegador**: tras cada carga/recarga se parte de **INICIO**; atrás/adelante recorren las secciones visitadas en esa sesión (History API + hashes). Desde INICIO, atrás puede salir del sitio (comportamiento normal del navegador).
-- **Lienzo fijo (~1680px)**: media queries de “móvil” desactivadas a efectos prácticos; al estrechar la ventana aparecen barras de scroll, sin reflow agresivo.
+- **Historial del navegador**: tras cada carga/recarga se parte de **INICIO**; atrás/adelante recorren las secciones visitadas en esa sesión (History API + hashes). Desde un subapartado de Miscelánea, atrás vuelve al **hub** de Miscelánea. Desde INICIO, atrás puede salir del sitio (comportamiento normal del navegador).
+- **Layout híbrido**: en escritorio ancho (**≥1680px**) se conserva el lienzo fijo histórico. Por debajo (tablet/móvil/zoom) hay **reflow** (WCAG 1.4.10): cabecera adaptable, noticias apiladas, Miscelánea/legislación/privacidad en una columna, tipografía de bienvenida y lema ajustadas, pie **static** y compacto, objetivos táctiles ≥44px.
 - **Scroll con rueda**: si hay barra de scroll activa, la rueda mueve el contenedor principal aunque el puntero no esté sobre la barra (también en `privacidad.html`). Paneles anidados (p. ej. NOTICIAS) conservan su scroll propio.
 - En **DOCENCIA**, el panel de materiales queda **sticky** en pantallas grandes.
 - Tema visual fijado a **claro** (`theme-light`).
@@ -108,6 +108,7 @@ Tras publicar un cambio de versión, en la web usa **Ctrl+F5** la primera vez; C
 - Campos: nombre, correo, asunto, descripción y dos consentimientos obligatorios.
 - Envío por API de Web3Forms al correo configurado (p. ej. Educastur); la política describe ese encargado del tratamiento.
 - Cupo orientativo del plan gratuito de Web3Forms: del orden de **250 envíos/mes** (revisar siempre en su web).
+- **Restrict to Domains** solo existe en plan **Pro**; en free bastan honeypot + antispam del proveedor.
 - Tras un envío correcto: pantalla **Enviado** y retorno a INICIO.
 - Política reforzada (menores &lt;14, cookies/`localStorage`, GitHub Pages, plazos de conservación): ver `privacidad.html`.
 
@@ -115,11 +116,11 @@ Tras publicar un cambio de versión, en la web usa **Ctrl+F5** la primera vez; C
 
 - Licencia **Creative Commons BY-NC-SA 4.0**.
 - Copyright: **PhD.Eng. Francisco Carnero Rodríguez**, año dinámico y **versión** en el pie.
-- Badge WCAG 2.2 AA enlazado a la página oficial de conformidad W3C.
+- Badge WCAG 2.2 AA enlazado a la página oficial de conformidad W3C (objetivo declarado; no auditoría externa).
 
 ### Versión del sitio (`siteMeta` en `data.js`)
 
-Formato **MAJOR.MINOR.PATCH** (p. ej. `1.1.31` → pie `v1.1.31`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`. Anti-caché de CSS/JS/iconos: `window.MYWEB_ASSET_V` en HTML alineado con esa versión.
+Formato **MAJOR.MINOR.PATCH** (p. ej. `1.2.14` → pie `v1.2.14`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`. Anti-caché de CSS/JS/iconos: `window.MYWEB_ASSET_V` en HTML alineado con esa versión.
 
 | Dígito | Cuándo |
 | --- | --- |

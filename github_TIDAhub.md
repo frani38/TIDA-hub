@@ -128,7 +128,7 @@ No subas secretos privados. La **Access Key de Web3Forms** está pensada para ir
 
 ### 6.1. Versión del pie (`vMAJOR.MINOR.PATCH`)
 
-Formato de **tres dígitos** (ej. `1.1.31` → se muestra `v1.1.31`):
+Formato de **tres dígitos** (ej. `1.2.14` → se muestra `v1.2.14`):
 
 | Dígito | Significado |
 | --- | --- |
@@ -257,9 +257,10 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 ## 8. Decisiones de diseño ligadas al hosting
 
 - **Sin backend:** ideal para Pages; contacto externalizado (Web3Forms).  
-- **Lienzo de escritorio fijo:** la web no se “adapta” a móvil reorganizando el layout; al estrechar la ventana se hace scroll como si estuviera maximizada.  
+- **Layout híbrido:** en escritorio ancho (≥1680px) se conserva el lienzo fijo histórico; bajo ese umbral hay reflow (tablet/móvil/zoom, WCAG 1.4.10).  
 - **Fuentes locales** en `fonts/`: no dependen de CDNs bloqueados.  
-- **Historial del navegador:** hashes + `history.pushState` para que funcionen atrás/adelante entre secciones.
+- **Historial del navegador:** hashes + `history.pushState` para atrás/adelante entre secciones; subapartados de Miscelánea registran `miscId` (atrás → hub).  
+- **Web3Forms free:** honeypot + antispam; Restrict to Domains solo en Pro.
 
 ---
 
