@@ -236,6 +236,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Cabecera móvil: lema alineado a la derecha (como en escritorio).
 
+## 1.2.6
+
+- Pie en móvil/tablet: deja de ser `fixed` (ya no ocupa ~1/3 del viewport); badges más pequeños y meta compacta al final del scroll.
+
 ---
 
 ## Convención (recordatorio)
@@ -299,3 +303,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.3** | NOVEDADES móvil: scroll + avisos legibles |
 | **1.2.4** | Cabecera móvil: espaciado logo / lema / menú |
 | **1.2.5** | Cabecera móvil: lema a la derecha |
+| **1.2.6** | Pie móvil: no fijo; más compacto |
