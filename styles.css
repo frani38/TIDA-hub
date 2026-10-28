@@ -1348,6 +1348,7 @@ body.privacy-page #unit-title {
   flex: 0 0 auto;
   top: auto;
   z-index: 2;
+  margin-bottom: 0;
   background: rgba(244, 246, 249, 0.98);
   backdrop-filter: none;
 }
@@ -1410,7 +1411,7 @@ body.privacy-page .privacy-card {
 }
 
 .help-privacy-panel .privacy-block-heading {
-  margin-bottom: 0.15rem;
+  margin-bottom: 0;
   margin-top: 0;
   line-height: 1;
   padding: 0;
@@ -1440,10 +1441,10 @@ body.privacy-page .privacy-block-heading {
 
 /* Cita legal RGPD/LOPDGDD bajo el título (privacidad.html y AYUDA) */
 .privacy-legal-lede {
-  margin: 0.2rem 0 0.35rem;
+  margin: 0.05rem 0 0.35rem;
   padding: 0 0.25rem;
   font-size: 0.98rem;
-  line-height: 1.35;
+  line-height: 1.3;
   text-align: left;
   font-family: var(--meta-font);
   font-style: italic;
@@ -1457,13 +1458,12 @@ body.privacy-page .privacy-block-heading {
   text-align: center;
   max-width: 1800px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0.45rem;
+  margin: 0.02rem auto 0.4rem;
 }
 
 body.privacy-page .privacy-legal-lede {
   flex: 0 0 auto;
+  margin-top: 0.02rem;
   color: #475569;
 }
 

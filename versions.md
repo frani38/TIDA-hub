@@ -356,6 +356,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Política de privacidad: cita RGPD/LOPDGDD bajo el título (negrita + cursiva, un poco mayor); centrada en AYUDA.
 
+## 1.2.36
+
+- Privacidad: menos espacio entre el título y la cita RGPD/LOPDGDD (pie y AYUDA).
+
 ---
 
 ## Convención (recordatorio)
@@ -449,3 +453,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.33** | Cache-bust: SOBRE MÍ (texto en app.js) |
 | **1.2.34** | SOBRE MÍ: entorno Linux (singular) |
 | **1.2.35** | Privacidad: cita legal bajo el título |
+| **1.2.36** | Privacidad: título y cita más juntos |
