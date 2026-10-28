@@ -252,6 +252,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Cabecera móvil: «EDUCACIÓN SECUNDARIA Y BACHILLERATO» con el mismo tamaño tipográfico que el lema superior.
 
+## 1.2.10
+
+- HISTÓRICO de noticias en móvil/tablet: elimina el `min-height` de viewport que dejaba un hueco enorme hasta el pie.
+
 ---
 
 ## Convención (recordatorio)
@@ -319,3 +323,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.7** | Lema: DIGITALIZACIÓN APLICADA sin partir |
 | **1.2.8** | Lema móvil: una línea con tamaño adaptativo |
 | **1.2.9** | Cabecera móvil: lema y etapa al mismo tamaño |
+| **1.2.10** | HISTÓRICO móvil: sin hueco vacío hasta el pie |
