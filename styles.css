@@ -1343,20 +1343,32 @@ body.privacy-page .content-card {
   overflow: hidden;
 }
 
-body.privacy-page #unit-title {
+/* Mismo título/cita que AYUDA (.privacy-block-heading + lede centrados). */
+body.privacy-page #unit-title,
+body.privacy-page #unit-title.privacy-block-heading {
   position: static;
   flex: 0 0 auto;
   top: auto;
   z-index: 2;
-  margin-bottom: 0;
-  background: rgba(244, 246, 249, 0.98);
+  margin: 0 auto;
+  max-width: 1800px;
+  width: 100%;
+  font-size: clamp(1.05rem, 3.5vw, 1.48rem);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-align: center;
+  color: #0f172a;
+  background: transparent;
+  box-shadow: none;
   backdrop-filter: none;
+  padding: 0 0.35rem;
+  box-sizing: border-box;
 }
 
 body.privacy-page .tab-panel {
   flex: 1 1 auto;
   min-height: 0;
-  margin-top: 0.35rem;
+  margin-top: 0.15rem;
   overflow-x: auto;
   overflow-y: auto;
   overscroll-behavior: auto;
@@ -1463,7 +1475,10 @@ body.privacy-page .privacy-block-heading {
 
 body.privacy-page .privacy-legal-lede {
   flex: 0 0 auto;
-  margin-top: 0.02rem;
+  text-align: center;
+  max-width: 1800px;
+  width: 100%;
+  margin: 0.02rem auto 0.4rem;
   color: #475569;
 }
 

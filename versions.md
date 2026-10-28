@@ -360,6 +360,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Privacidad: menos espacio entre el título y la cita RGPD/LOPDGDD (pie y AYUDA).
 
+## 1.2.37
+
+- `privacidad.html`: título y cita RGPD/LOPDGDD centrados, mismo estilo que en AYUDA.
+
 ---
 
 ## Convención (recordatorio)
@@ -454,3 +458,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.34** | SOBRE MÍ: entorno Linux (singular) |
 | **1.2.35** | Privacidad: cita legal bajo el título |
 | **1.2.36** | Privacidad: título y cita más juntos |
+| **1.2.37** | privacidad.html: título/cita como en AYUDA |
