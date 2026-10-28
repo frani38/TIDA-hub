@@ -2314,7 +2314,7 @@
               Ingeniero de Minas (especialista en metalurgia y energía), comencé mi carrera profesional en el ámbito empresarial como ingeniero de I+D+i, jefe de taller y proyectos y dirección de producción en el sector del metal; trayectoria que fui compatibilizando con estudios de máster y doctorado, manteniendo siempre el contacto y el interés por el mundo académico, al cual me dedico actualmente, con más de 7 años de experiencia. He sido docente de Formación Profesional en Organización y Proyectos de Fabricación Mecánica y, en la actualidad, soy profesor de Tecnología, Ingeniería y Digitalización Aplicada en Educación Secundaria y Bachillerato, además de desempeñar el cargo de Coordinador TIC.
             </p>
             <p>
-              Entre mis inquietudes están el entorno maker aplicado al diseño y la impresión 3D, la programación (Python) y la robótica, tecnología Blockchain y el uso de nuevas tecnologías basadas en IA, además de ser un apasionado de la ciberseguridad en entornos Linux.
+              Entre mis inquietudes están el entorno maker aplicado al diseño y la impresión 3D, la programación (Python) y la robótica, tecnología Blockchain y el uso de nuevas tecnologías basadas en IA, además de ser un apasionado de la ciberseguridad en entorno Linux.
             </p>
             <p>
               En esta web pretendo reunir todo aquello que considero fundamental para el desempeño de mi labor docente y para facilitar el aprendizaje y el estudio del alumnado, además de servir como espacio de divulgación personal y profesional orientado al desarrollo de las habilidades técnicas, digitales y personales para la sociedad actual y futura. Espero que los contenidos te resulten útiles.

@@ -348,6 +348,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Cache-bust tras cambios editoriales en SOBRE MÍ (forzar recarga de `app.js`).
 
+## 1.2.34
+
+- SOBRE MÍ: «entorno Linux» (singular).
+
 ---
 
 ## Convención (recordatorio)
@@ -439,3 +443,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.31** | Bienvenida: cortina solo en la 1.ª entrada |
 | **1.2.32** | Bienvenida: cortina en cada carga; fija solo al volver |
 | **1.2.33** | Cache-bust: SOBRE MÍ (texto en app.js) |
+| **1.2.34** | SOBRE MÍ: entorno Linux (singular) |
