@@ -133,7 +133,7 @@
               nacional y de la comunidad autónoma donde actualmente imparto docencia, Principado de Asturias.
             </p>
             <p class="welcome-intro">
-              Además, en <strong>MISCELÁNEA</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hardware y Software, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
+              Además, en <strong>MISCELÁNEA</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hacking ético, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
             </p>
             <p class="welcome-intro">
               ¡Qué tengas buena experiencia de navegación por este espacio vivo y en constante mejora y actualización!
@@ -1908,7 +1908,7 @@
     const privacyLinkEl = formEl.querySelector(".help-privacy-link");
     if (privacyLinkEl) {
       privacyLinkEl.addEventListener("click", (e) => {
-        e.preventDefault();
+              e.preventDefault();
         showPrivacyPolicyPanel(getDraft());
         currentState = { ...currentState, section: "privacy" };
         pushAppHistory();
@@ -2717,18 +2717,18 @@
               isReadings
                 ? `
                   <div class="readings-aside-filters" role="group" aria-label="Filtros de lecturas recomendadas">
-                    <label class="readings-filter">
-                      <span>TEMÁTICA</span>
-                      <select id="readings-theme">
-                        <option value="">Todas</option>
+                      <label class="readings-filter">
+                        <span>TEMÁTICA</span>
+                        <select id="readings-theme">
+                          <option value="">Todas</option>
                         <option value="Biografías">Biografías</option>
                         <option value="Blockchain & Big Data">Blockchain &amp; Big Data</option>
-                        <option value="Ciencia">Ciencia</option>
+                          <option value="Ciencia">Ciencia</option>
                         <option value="Diseño e Impresión 3D">Diseño e Impresión 3D</option>
                         <option value="Economía & Finanzas">Economía &amp; Finanzas</option>
-                        <option value="Educación">Educación</option>
+                          <option value="Educación">Educación</option>
                         <option value="Electrónica">Electrónica</option>
-                        <option value="Energía">Energía</option>
+                          <option value="Energía">Energía</option>
                         <option value="Gestión & Producción">Gestión &amp; Producción</option>
                         <option value="Histórico">Histórico</option>
                         <option value="IA & IoT">IA &amp; IoT</option>
@@ -2736,19 +2736,19 @@
                         <option value="Matemáticas">Matemáticas</option>
                         <option value="Pensamiento">Pensamiento</option>
                         <option value="Programación y Robótica">Programación y Robótica</option>
-                        <option value="Tecnología">Tecnología</option>
-                      </select>
-                    </label>
-                    <label class="readings-filter">
-                      <span>ORDEN</span>
-                      <select id="readings-order">
-                        <option value="newest" selected>Más nuevo → más antiguo</option>
-                        <option value="oldest">Más antiguo → más nuevo</option>
-                        <option value="title">Título (A–Z)</option>
-                        <option value="title_desc">Título (Z–A)</option>
-                      </select>
-                    </label>
-                  </div>
+                          <option value="Tecnología">Tecnología</option>
+                        </select>
+                      </label>
+                      <label class="readings-filter">
+                        <span>ORDEN</span>
+                        <select id="readings-order">
+                          <option value="newest" selected>Más nuevo → más antiguo</option>
+                          <option value="oldest">Más antiguo → más nuevo</option>
+                          <option value="title">Título (A–Z)</option>
+                          <option value="title_desc">Título (Z–A)</option>
+                        </select>
+                      </label>
+                    </div>
                 `
                 : isGames
                   ? `
@@ -2841,8 +2841,8 @@
                             <img class="readings-cover-modal__img" alt="" />
                           </div>
                         </div>
-                      </div>
-                    `
+                  </div>
+                `
                 : `
                   <div class="empty-state construction-notice">
                     <strong>PRÓXIMAMENTE</strong>
@@ -3013,7 +3013,7 @@
                     </div>
                     <div class="reading-sub">
                       <div class="reading-sub-row">
-                        ${r.authors ? `<span class="reading-authors">${escape(r.authors)}</span>` : ""}
+                      ${r.authors ? `<span class="reading-authors">${escape(r.authors)}</span>` : ""}
                         ${
                           r.authors && r.year
                             ? `<span class="reading-year">(${escape(String(r.year))})</span>`
@@ -4167,13 +4167,13 @@
       miscId: "",
       searchQuery: ""
     };
-    setActiveMenu(homeBtnEl);
+      setActiveMenu(homeBtnEl);
     toggleDocenciaMenu(false);
     toggleContentCard(true);
     if (unitSearchEl) unitSearchEl.value = "";
     if (searchResultsEl) searchResultsEl.innerHTML = "";
     resetToHome();
-    updateUpdatesIndicator({ nudge: true });
+      updateUpdatesIndicator({ nudge: true });
   } finally {
     suppressHistoryPush = false;
   }

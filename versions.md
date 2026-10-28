@@ -198,6 +198,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Historial del navegador: al abrir un subapartado de Miscelánea (p. ej. Lecturas) se registra `miscId` en `history`/`#miscelanea/…`, así atrás vuelve al hub de Miscelánea (no salta a INICIO). Misma lógica en restaurar hash/popstate; ← VOLVER de privacidad usa `history.back()` cuando corresponde.
 
+## 1.1.34
+
+- Bienvenida (INICIO): la lista de apartados de Miscelánea menciona **Hacking ético** en lugar de Hardware y Software.
+
 ---
 
 ## Convención (recordatorio)
@@ -252,3 +256,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.31** | Docs e informe alineados con el sitio actual |
 | **1.1.32** | Lectura Pentesting con Kali + caché data.js |
 | **1.1.33** | Historial: atrás desde Miscelánea/subapartados vuelve al hub |
+| **1.1.34** | Bienvenida: Hacking ético en la lista de Miscelánea |
