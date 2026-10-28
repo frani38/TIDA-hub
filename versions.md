@@ -272,6 +272,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Documentación alineada con la línea **1.2.x**: `README.md`, `github_TIDAhub.md`, `content/README.md`, `versions.md` e informe LaTeX local (`#_Informe/Informe_MyWeb.tex`) — layout híbrido, WCAG/reflow, historial `miscId`, Web3Forms Pro/free.
 
+## 1.2.15
+
+- Cabecera móvil/tablet: lema y línea de etapa un poco más pequeños (misma proporción) y `width: max-content` para alinear el borde derecho del lema con `< EDUCACIÓN… >`.
+
 ---
 
 ## Convención (recordatorio)
@@ -344,3 +348,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.12** | Bienvenida móvil: tipografía más contenida |
 | **1.2.13** | Cabecera móvil: lema completo; etapa más pequeña |
 | **1.2.14** | Docs e informe alineados con responsive 1.2.x |
+| **1.2.15** | Cabecera móvil: lema/etapa más contenidos y alineados |
