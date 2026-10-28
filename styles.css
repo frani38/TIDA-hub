@@ -2451,12 +2451,12 @@ a.year-result-title-link:hover {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: min(48%, 340px);
-  max-width: 340px;
+  width: min(58%, 408px);
+  max-width: 408px;
   height: auto;
-  max-height: 74%;
+  max-height: 89%;
   object-fit: contain;
-  opacity: 0.22;
+  opacity: 0.28;
   pointer-events: none;
   user-select: none;
   z-index: 0;
