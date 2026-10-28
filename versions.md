@@ -501,3 +501,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.43** | VOLVER desde privacidad.html: INICIO sin cortina |
 | **1.2.44** | version-boot: forzar HTML/assets a la versión publicada |
 | **1.2.45** | INICIO: lazo negro marca de agua (temporal) |
+| **1.2.46** | Cache-bust CSS lazo negro (tamaño/opacidad) |
