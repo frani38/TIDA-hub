@@ -82,11 +82,10 @@
 
   let welcomeRevealTimer = null;
   /**
-   * false = aún no se ha salido de INICIO en esta carga → cortina al (re)montar bienvenida.
-   * true = el usuario ya navegó a otra sección → al volver a INICIO el texto queda fijo.
-   * (Recarga / ventana nueva reinicia el flag; no se guarda en sessionStorage.)
+   * Solo true en la carga/recarga que aterriza en INICIO (ventana nueva o F5 en home).
+   * El botón INICIO y volver desde otras secciones NUNCA la activan.
    */
-  let welcomeRevealPlayed = false;
+  let welcomeCurtainOnNextHome = false;
 
   /** Detiene la animación de bienvenida (evita fugas al cambiar de vista). */
   function stopWelcomeAnimation() {
@@ -96,9 +95,9 @@
     }
   }
 
-  /** Al abandonar INICIO: las próximas visitas a home en esta carga no repiten la cortina. */
+  /** Al abandonar INICIO o al ir a home por menú: no repetir cortina. */
   function consumeWelcomeReveal() {
-    welcomeRevealPlayed = true;
+    welcomeCurtainOnNextHome = false;
     stopWelcomeAnimation();
   }
 
@@ -730,15 +729,16 @@
     const welcomeEl = tabPanelEl.querySelector(".welcome-copy");
     if (!welcomeEl) return;
 
-    // Tras haber salido a otra sección: texto fijo, sin cortina.
-    if (welcomeRevealPlayed) {
+    // Menú INICIO / reentrada: texto fijo. Cortina solo si el boot la autorizó.
+    if (!welcomeCurtainOnNextHome) {
       welcomeEl.classList.remove("welcome-enter");
       welcomeEl.classList.add("welcome-reveal");
       return;
     }
+    welcomeCurtainOnNextHome = false;
 
     welcomeEl.classList.remove("welcome-reveal", "welcome-enter");
-    // Forzar reflow para arrancar la transición (carga / recarga / ventana nueva).
+    // Forzar reflow para arrancar la transición (carga / recarga en INICIO).
     void welcomeEl.offsetWidth;
     welcomeEl.classList.add("welcome-enter");
 
@@ -1717,10 +1717,10 @@
     history.pushState(st, "", urlFromHistoryState(st));
   }
 
-  /** Tras cargar/recargar: una sola entrada INICIO; el historial interno crece al navegar. */
+  /** Alinea history.state + URL con la vista actual (sin forzar INICIO). */
   function seedAppHistory() {
-    const home = homeHistoryState();
-    history.replaceState(home, "", urlFromHistoryState(home));
+    const st = snapshotHistoryState();
+    history.replaceState(st, "", urlFromHistoryState(st));
   }
 
   function openDocenciaUnitFromIds(levelId, materialId, unitId, tabId = "") {
@@ -2301,7 +2301,7 @@
         <div class="about-section__layout">
           <div class="about-section__photo">
             <img
-              src="./image/yo.png"
+              src="./image/yo.png?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}"
               alt="Fotografía del autor del sitio"
               draggable="false"
               decoding="async"
@@ -4061,7 +4061,6 @@
     if (ver) siteVersionEl.textContent = ver.startsWith("v") ? ver : `v${ver}`;
   }
 
-  resetToHome();
   toggleContentCard(true);
   toggleDocenciaMenu(false);
   updateUpdatesIndicator({ nudge: false });
@@ -4088,6 +4087,7 @@
   if (homeBtnEl) {
     homeBtnEl.addEventListener("click", () => {
       setActiveMenu(homeBtnEl);
+      consumeWelcomeReveal();
       toggleDocenciaMenu(false);
       toggleContentCard(true);
       if (unitSearchEl) unitSearchEl.value = "";
@@ -4250,27 +4250,38 @@
     }
   });
 
-  // Carga/recarga: siempre INICIO y historial nuevo desde la portada (no restaurar sección previa).
+  // Carga/recarga: restaurar la sección de la URL (#hash) o del history.state.
   suppressHistoryPush = true;
   try {
-    currentState = {
-      ...currentState,
-      section: "home",
-      stageId: "",
-      levelId: "",
-      materialId: "",
-      unitId: "",
-      tabId: "",
-      miscId: "",
-      searchQuery: ""
-    };
+    const rawHash = String(location.hash || "").replace(/^#/, "");
+    const hasDeepLink = Boolean(rawHash && rawHash !== "home");
+    const hist = history.state && history.state.myweb === 1 ? history.state : null;
+
+    if (hasDeepLink) {
+      applyRouteFromLocationHash();
+    } else if (hist && hist.section && hist.section !== "home") {
+      restoreHistorySnapshot(hist);
+    } else {
+      welcomeCurtainOnNextHome = true;
+      currentState = {
+        ...currentState,
+        section: "home",
+        stageId: "",
+        levelId: "",
+        materialId: "",
+        unitId: "",
+        tabId: "",
+        miscId: "",
+        searchQuery: ""
+      };
       setActiveMenu(homeBtnEl);
-    toggleDocenciaMenu(false);
-    toggleContentCard(true);
-    if (unitSearchEl) unitSearchEl.value = "";
-    if (searchResultsEl) searchResultsEl.innerHTML = "";
-    resetToHome();
+      toggleDocenciaMenu(false);
+      toggleContentCard(true);
+      if (unitSearchEl) unitSearchEl.value = "";
+      if (searchResultsEl) searchResultsEl.innerHTML = "";
+      resetToHome();
       updateUpdatesIndicator({ nudge: true });
+    }
   } finally {
     suppressHistoryPush = false;
   }

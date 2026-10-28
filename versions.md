@@ -376,6 +376,12 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Privacidad: más aire bajo cabecera; en AYUDA se anula el `gap` de `.help-form` para igualar título↔RGPD a `privacidad.html`.
 
+## 1.2.41
+
+- SOBRE MÍ: foto actualizada (`image/yo.png`).
+- Recarga del navegador: restaura la sección actual (hash / historial) en lugar de forzar INICIO.
+- Bienvenida: cortina solo al cargar/recargar INICIO; el botón INICIO ya no la repite.
+
 ---
 
 ## Convención (recordatorio)
@@ -474,3 +480,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.38** | INICIO: título alineado con otras secciones |
 | **1.2.39** | Privacidad: aire cabecera + gap RGPD = AYUDA |
 | **1.2.40** | Privacidad AYUDA: sin gap flex; más aire cabecera |
+| **1.2.41** | Foto SOBRE MÍ; restore al recargar; cortina solo en load |
