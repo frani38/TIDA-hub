@@ -244,6 +244,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Lema de cabecera: `DIGITALIZACIÓN APLICADA` no se parte (espacio duro); evita que «APLICADA» quede sola en la línea inferior en móvil.
 
+## 1.2.8
+
+- Lema de cabecera en móvil/tablet: una sola línea, tamaño tipográfico adaptado al ancho.
+
 ---
 
 ## Convención (recordatorio)
@@ -309,3 +313,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.5** | Cabecera móvil: lema a la derecha |
 | **1.2.6** | Pie móvil: no fijo; más compacto |
 | **1.2.7** | Lema: DIGITALIZACIÓN APLICADA sin partir |
+| **1.2.8** | Lema móvil: una línea con tamaño adaptativo |
