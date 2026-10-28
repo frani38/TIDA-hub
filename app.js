@@ -441,6 +441,23 @@
         </div>
       `;
       bindNewsSeenClicks(yearResultsEl);
+
+      // Móvil/tablet: el listado queda fuera de vista (año se pulsa abajo en NOTICIAS).
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          try {
+            const compact =
+              !!window.matchMedia && window.matchMedia("(max-width: 1679.98px)").matches;
+            if (compact && yearResultsEl instanceof HTMLElement) {
+              yearResultsEl.scrollIntoView({ block: "start", behavior: "smooth" });
+            } else {
+              scrollToPageTop();
+            }
+          } catch {
+            // ignore
+          }
+        });
+      });
     };
 
     for (const btn of historyEl.querySelectorAll(".year-btn")) {

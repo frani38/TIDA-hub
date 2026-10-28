@@ -312,6 +312,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Móvil/tablet: títulos de sección (NOVEDADES, PROYECTOS, LEGISLACIÓN, MISCELÁNEA, SOBRE MÍ, AYUDA, …) al mismo tamaño que Bienvenido/a; la tipografía compacta queda solo para materias/unidades largas de DOCENCIA.
 
+## 1.2.25
+
+- INICIO móvil/tablet: histórico de noticias — al pulsar un año el listado aparece debajo del panel NOTICIAS y se hace scroll hasta él (antes quedaba arriba, fuera de vista).
+
 ---
 
 ## Convención (recordatorio)
@@ -394,3 +398,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.22** | Docs e informe alineados con pulido móvil 1.2.15–21 |
 | **1.2.23** | DOCENCIA móvil: título de materia en una línea |
 | **1.2.24** | Títulos de sección = tamaño Bienvenido/a |
+| **1.2.25** | Histórico noticias móvil: listado visible tras pulsar año |

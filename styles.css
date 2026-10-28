@@ -3834,11 +3834,30 @@ body.theme-light .theme-switch-btn.active {
   }
 
   .tab-panel:has(.home-split.is-archive) .home-split.is-archive {
+    display: flex;
+    flex-direction: column;
     flex: 0 1 auto;
     width: 100%;
     min-height: 0;
     --home-news-w: 0px;
     --home-news-gap: 0px;
+    padding-right: 0;
+  }
+
+  /* Listado del año debajo de NOTICIAS (donde se pulsa el año), no arriba fuera de vista */
+  .home-split.is-archive .home-news {
+    order: 1;
+  }
+
+  .home-split.is-archive .home-year-results {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0.35rem;
+  }
+
+  .home-split.is-archive .welcome-copy {
+    order: 0;
   }
 
   body:has(.home-split.is-archive) #unit-title,
@@ -3867,6 +3886,13 @@ body.theme-light .theme-switch-btn.active {
   .home-news__recent {
     min-height: 0;
     overflow: visible;
+  }
+
+  .home-news .year-btn {
+    min-height: var(--touch-target-min);
+    min-width: var(--touch-target-min);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
   }
 
   .home-split.is-archive .year-results-list {
