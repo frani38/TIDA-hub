@@ -750,6 +750,21 @@
     });
   }
 
+  /** Lleva el viewport al inicio (SPA: el scroll no se reinicia solo al cambiar de vista). */
+  function scrollToPageTop() {
+    try {
+      const se = document.scrollingElement || document.documentElement;
+      if (se) se.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+      window.scrollTo(0, 0);
+      if (tabPanelEl) tabPanelEl.scrollTop = 0;
+      const appEl = document.querySelector(".app");
+      if (appEl) appEl.scrollTop = 0;
+    } catch {
+      // ignore
+    }
+  }
+
   function setActiveMenu(activeButton) {
     // Reset de modos visuales globales (se activan solo en vistas concretas).
     document.documentElement.classList.remove("updates-archive");
@@ -2390,21 +2405,21 @@
     // (no filas emparejadas, que intercalaban el título de Asturias entre bloques).
     const renderLawColumn = (titleHtml, flagHtml, bucket) => `
       <section class="law-page__col" aria-label="${escapeHtml(titleHtml)}">
-        <div class="law-block law-block--title-only">
+          <div class="law-block law-block--title-only">
           <h3 class="law-block__title">${flagHtml}<span class="law-block__title-text">${escapeHtml(titleHtml)}</span></h3>
-        </div>
-        <div class="law-block law-block--section">
-          <h4 class="law-subtitle law-subtitle--general">GENERAL</h4>
+          </div>
+          <div class="law-block law-block--section">
+            <h4 class="law-subtitle law-subtitle--general">GENERAL</h4>
           ${renderLawList(bucket?.general)}
-        </div>
-        <div class="law-block law-block--section">
-          <h4 class="law-subtitle law-subtitle--eso">ESO</h4>
+          </div>
+          <div class="law-block law-block--section">
+            <h4 class="law-subtitle law-subtitle--eso">ESO</h4>
           ${renderLawList(bucket?.eso)}
-        </div>
-        <div class="law-block law-block--section">
-          <h4 class="law-subtitle law-subtitle--bach">BACHILLERATO</h4>
+          </div>
+          <div class="law-block law-block--section">
+            <h4 class="law-subtitle law-subtitle--bach">BACHILLERATO</h4>
           ${renderLawList(bucket?.bach)}
-        </div>
+          </div>
       </section>
     `;
 
@@ -2676,6 +2691,7 @@
           </div>
         </nav>
       `;
+      scrollToPageTop();
 
       for (const btn of tabPanelEl.querySelectorAll(".misc-card")) {
         btn.addEventListener("click", async () => {
@@ -2855,7 +2871,11 @@
       `;
       // Evitar que el icono final se vea antes de que llegue el clon animado.
       document.documentElement.classList.add("misc-fly-target-hidden");
+      // Si se abrió la tarjeta desde abajo del hub, el scroll residual deja la vista a mitad de lista.
+      scrollToPageTop();
+      requestAnimationFrame(() => scrollToPageTop());
       await syncMiscAsideAlignment();
+      scrollToPageTop();
 
       if (isReadings) {
         const normalizeReading = (item) => {
@@ -4177,6 +4197,11 @@
       updateUpdatesIndicator({ nudge: true });
   } finally {
     suppressHistoryPush = false;
+  }
+  try {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  } catch {
+    // ignore
   }
   seedAppHistory();
 
