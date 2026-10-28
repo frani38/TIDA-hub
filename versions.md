@@ -372,6 +372,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - `privacidad.html`: más aire entre cabecera y título; separación título→RGPD unificada con AYUDA.
 
+## 1.2.40
+
+- Privacidad: más aire bajo cabecera; en AYUDA se anula el `gap` de `.help-form` para igualar título↔RGPD a `privacidad.html`.
+
 ---
 
 ## Convención (recordatorio)
@@ -469,3 +473,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.37** | privacidad.html: título/cita como en AYUDA |
 | **1.2.38** | INICIO: título alineado con otras secciones |
 | **1.2.39** | Privacidad: aire cabecera + gap RGPD = AYUDA |
+| **1.2.40** | Privacidad AYUDA: sin gap flex; más aire cabecera |
