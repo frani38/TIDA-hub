@@ -737,6 +737,12 @@ main {
   max-width: calc(100% - (var(--home-news-w, 400px) + 2rem));
 }
 
+/* HISTÓRICO: mismo anclaje del panel NOTICIAS (is-home), título usable */
+.content-card.is-home:has(.home-split.is-archive) #unit-title {
+  pointer-events: auto;
+  max-width: calc(100% - (var(--home-news-w, 400px) + 2rem));
+}
+
 .content-card.is-home #tab-panel {
   padding-top: 0;
   box-sizing: border-box;
@@ -1666,8 +1672,27 @@ body.theme-light .help-form-status.is-error {
 
 .home-split.is-archive {
   padding-top: 0;
-  /* En modo HISTÓRICO, el panel de noticias (derecha) es fijo; evitamos padding y reservamos ancho real en el bloque izquierdo */
-  padding-right: 0;
+  /* Reservar hueco derecho: el panel NOTICIAS sigue absolute (como en INICIO) */
+  padding-right: calc(var(--home-news-w) + var(--home-news-gap));
+}
+
+/*
+  Panel NOTICIAS en HISTÓRICO (escritorio): fixed bajo la cabecera, como “pegado”
+  en INICIO (ahí no hay scroll de página). Así no sube solapando el header al
+  hacer scroll del listado de meses.
+*/
+.content-card.is-home:has(.home-split.is-archive) .home-news {
+  position: fixed;
+  top: var(--home-news-top, 0px);
+  right: 1rem;
+  left: auto;
+  bottom: auto;
+  width: var(--home-news-w, 400px);
+  max-width: var(--home-news-w, 400px);
+  height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+  max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+  overflow: auto;
+  z-index: 15;
 }
 
 .home-split {
@@ -1855,7 +1880,10 @@ body:has(.home-split.is-archive) {
   min-height: 0;
   --home-news-w: 400px;
   --home-news-gap: 2rem;
-  width: calc(100% - (var(--home-news-w) + var(--home-news-gap)));
+  /* Ancho completo del content-card; el hueco del panel lo da padding-right */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   overflow: visible;
 }
 
@@ -3859,8 +3887,17 @@ body.theme-light .theme-switch-btn.active {
   }
 
   /* Listado del año debajo de NOTICIAS (donde se pulsa el año), no arriba fuera de vista */
-  .home-split.is-archive .home-news {
+  .home-split.is-archive .home-news,
+  .content-card.is-home:has(.home-split.is-archive) .home-news {
+    position: static;
+    top: auto;
+    right: auto;
+    width: 100%;
+    max-width: none;
+    height: auto !important;
+    max-height: none !important;
     order: 1;
+    z-index: auto;
   }
 
   .home-split.is-archive .home-year-results {

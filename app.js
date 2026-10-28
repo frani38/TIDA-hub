@@ -367,14 +367,18 @@
     const renderYear = (year) => {
       const list = items.filter((n) => n.year === year);
       // Modo histórico: ocultar bienvenida y mostrar listado a la izquierda.
+      // Mantener is-home: el panel NOTICIAS es absolute respecto a .content-card.is-home;
+      // si se quita, el bloque se desancla y solapa la cabecera / pierde el scroll.
       const homeSplitEl = tabPanelEl?.querySelector(".home-split");
       if (homeSplitEl) homeSplitEl.classList.add("is-archive");
-      // En modo histórico, el título debe ocupar su espacio (evita solapes).
-      contentCardEl?.classList.remove("is-home");
+      contentCardEl?.classList.add("is-home");
       setUnitTitleCompact(false);
       unitTitleEl.textContent = `HISTÓRICO ${year}`;
       breadcrumbsEl.textContent = "";
       progressIndicatorEl.textContent = "";
+      const newsPanelEl = tabPanelEl?.querySelector(".home-news");
+      if (newsPanelEl instanceof HTMLElement) newsPanelEl.scrollTop = 0;
+      syncHomeNewsDock();
 
       const monthNames = [
         "enero",
