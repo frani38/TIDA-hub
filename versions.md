@@ -288,6 +288,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Corrige especificidad: Bienvenido/a vuelve al tamaño anterior; el resto de títulos usan ese mismo tamaño; botón ← VOLVER en proporción.
 
+## 1.2.19
+
+- Miscelánea móvil/tablet: icono de sección más grande; título + ← VOLVER siempre en la misma línea (VOLVER al margen derecho), también en títulos largos como Lecturas.
+
 ---
 
 ## Convención (recordatorio)
@@ -364,3 +368,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.16** | Miscelánea móvil: título/icono y fichas sin desborde |
 | **1.2.17** | Móvil: títulos de sección al tamaño de Bienvenido/a |
 | **1.2.18** | Restaura tamaño Bienvenido/a; VOLVER en proporción |
+| **1.2.19** | Miscelánea móvil: icono mayor; VOLVER en la línea del título |
