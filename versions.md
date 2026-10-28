@@ -232,6 +232,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Cabecera móvil/tablet: menos hueco entre logo y lema; margen claro antes del menú de secciones.
 
+## 1.2.5
+
+- Cabecera móvil: lema alineado a la derecha (como en escritorio).
+
 ---
 
 ## Convención (recordatorio)
@@ -294,3 +298,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.2** | Privacidad móvil: una columna, sin recorte |
 | **1.2.3** | NOVEDADES móvil: scroll + avisos legibles |
 | **1.2.4** | Cabecera móvil: espaciado logo / lema / menú |
+| **1.2.5** | Cabecera móvil: lema a la derecha |
