@@ -256,6 +256,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - HISTÓRICO de noticias en móvil/tablet: elimina el `min-height` de viewport que dejaba un hueco enorme hasta el pie.
 
+## 1.2.11
+
+- Panel NOTICIAS en móvil: la rejilla interna (`4fr`) ya no estira un vacío hasta el pie; filas `auto`.
+
 ---
 
 ## Convención (recordatorio)
@@ -324,3 +328,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.8** | Lema móvil: una línea con tamaño adaptativo |
 | **1.2.9** | Cabecera móvil: lema y etapa al mismo tamaño |
 | **1.2.10** | HISTÓRICO móvil: sin hueco vacío hasta el pie |
+| **1.2.11** | Panel noticias móvil: sin estirar vacío |

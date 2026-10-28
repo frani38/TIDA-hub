@@ -3788,10 +3788,16 @@ body.theme-light .theme-switch-btn.active {
     min-height: 0;
   }
 
-  .home-news__split,
+  .home-news__split {
+    height: auto;
+    min-height: 0;
+    grid-template-rows: auto auto;
+  }
+
   .home-news__history,
   .home-news__recent {
     min-height: 0;
+    overflow: visible;
   }
 
   .home-split.is-archive .year-results-list {
