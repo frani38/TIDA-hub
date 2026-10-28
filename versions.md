@@ -208,7 +208,7 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ## 1.1.36
 
-- Docs: **Restrict to Domains** de Web3Forms es plan Pro; en free no aplica (honeypot + antispam).
+- Docs: **Restrict to Domains** de Web3Forms es plan Pro; en free no aplica (honeypot + antispam). Guía `github_TIDAhub.md` alineada en el resto de menciones.
 
 ---
 

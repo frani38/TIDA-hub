@@ -124,7 +124,7 @@ git push origin main
 1. Espera a que Pages despliegue (pestaña **Actions** del repo, si está visible).  
 2. Abre la web y fuerza recarga: **Ctrl+F5** la primera vez tras un bump (CSS/JS/iconos usan `MYWEB_ASSET_V` / `siteMeta.version`, no `Date.now()` en cada visita).
 
-No subas secretos privados. La **Access Key de Web3Forms** está pensada para ir en el cliente (pública); la protección real es restringir dominios en el panel de Web3Forms.
+No subas secretos privados. La **Access Key de Web3Forms** está pensada para ir en el cliente (pública). En plan free la protección es antispam del proveedor + honeypot; **Restrict to Domains** solo existe en Pro (§7.5).
 
 ### 6.1. Versión del pie (`vMAJOR.MINOR.PATCH`)
 
@@ -161,7 +161,7 @@ Ventajas frente al antiguo `mailto:`: el visitante **no necesita** tener un clie
 | Encaja con Pages | Sitio 100 % estático; sin PHP/Node propio |
 | Plan gratuito (orientativo) | ~**250 envíos/mes** (comprobar siempre en su web de precios) |
 | Access Key | Es **pública** (va en el JS del cliente); no es un secreto de servidor |
-| Protección | Restricción de dominio + honeypot antispam en el formulario |
+| Protección | Honeypot + antispam del proveedor; Restrict to Domains solo en Pro |
 
 ### 7.2. Registro / acceso a la cuenta
 
@@ -286,7 +286,7 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 4. En la carpeta del proyecto: `remote add` + `push` de `main`.  
 5. Activar Pages (`main` / `/`).  
 6. Registrar Web3Forms, crear formulario, pegar Access Key en `data.js` (§7).  
-7. Restringir dominio en el panel Web3Forms.  
+7. Revisar panel Web3Forms (Restrict to Domains solo si tienes Pro; si no, honeypot basta).  
 8. Push final y probar AYUDA + https://frani38.github.io/TIDA-hub/  
 
 ---
