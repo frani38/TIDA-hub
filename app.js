@@ -2447,7 +2447,7 @@
     ];
 
     const setMiscTitle = (sectionTitle) => {
-      unitTitleEl.innerHTML = `MISCELÁNEA / ${escapeHtml(sectionTitle)}
+      unitTitleEl.innerHTML = `<span class="misc-section-heading">MISCELÁNEA / ${escapeHtml(sectionTitle)}</span>
         <button type="button" class="help-title-back misc-title-back" aria-label="Volver">← VOLVER</button>`;
       const backBtn = unitTitleEl.querySelector(".misc-title-back");
       backBtn?.addEventListener("click", () => {

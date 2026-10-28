@@ -3102,6 +3102,10 @@ body.theme-light .construction-notice strong {
 
 .reading-authors {
   font-weight: 800;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .reading-sep {
@@ -3109,6 +3113,11 @@ body.theme-light .construction-notice strong {
 }
 
 .reading-sub-row > span {
+  min-width: 0;
+}
+
+.reading-year,
+.reading-isbn {
   white-space: nowrap;
 }
 
@@ -3849,7 +3858,42 @@ body.theme-light .theme-switch-btn.active {
   /* Miscelánea detalle: aside arriba, contenido abajo */
   .misc-detail,
   .misc-detail--readings {
-    padding: 0.35rem 0.35rem 1rem;
+    padding: 0.35rem 0.2rem 1rem;
+    --misc-detail-icon-size: clamp(4.75rem, 26vw, 7rem);
+    --misc-aside-w: auto;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body:has(.misc-detail--readings) {
+    overflow-x: hidden;
+  }
+
+  /* Título de sección en una línea; VOLVER puede bajar a la siguiente */
+  body:has(.misc-detail) #unit-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem 0.55rem;
+    font-size: clamp(0.58rem, 2.85vw, 1.05rem);
+    letter-spacing: 0.015em;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  body:has(.misc-detail) #unit-title .misc-section-heading {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  body:has(.misc-detail) #unit-title .help-title-back {
+    margin-left: 0;
+    flex: 0 0 auto;
+    font-size: 0.72rem;
+    padding: 0.28rem 0.58rem;
   }
 
   .misc-detail__aside,
@@ -3860,8 +3904,23 @@ body.theme-light .theme-switch-btn.active {
     left: auto !important;
     top: auto !important;
     margin-bottom: 0.85rem;
+    padding: 0.2rem 0;
     /* Anulan offsets de la animación/medición en escritorio */
     transform: none;
+    align-items: center;
+  }
+
+  .misc-detail__card {
+    margin: 0 auto;
+  }
+
+  .misc-detail .unit-material-card__icon {
+    width: var(--misc-detail-icon-size);
+    height: var(--misc-detail-icon-size);
+  }
+
+  .misc-detail .unit-material-card__label {
+    min-height: 0;
   }
 
   html {
@@ -3871,6 +3930,50 @@ body.theme-light .theme-switch-btn.active {
 
   .misc-detail__content {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .readings-page {
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .readings-filter,
+  .readings-filter--grow {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .readings-aside-filters {
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .reading-card,
+  .game-card {
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .reading-meta {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .reading-title {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .reading-desc {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .law-page {
@@ -4039,14 +4142,20 @@ body.theme-light .theme-switch-btn.active {
   .reading-card,
   .game-card {
     grid-template-columns: 1fr;
+    padding: 0.65rem 0.55rem;
   }
 
   .reading-cover,
   .game-card .reading-cover {
-    width: min(100%, 220px);
+    width: min(100%, 160px);
     height: auto;
     aspect-ratio: 3 / 4;
     margin-inline: auto;
+  }
+
+  .game-card .reading-cover {
+    aspect-ratio: 1 / 1;
+    width: min(100%, 168px);
   }
 }
 
@@ -4084,6 +4193,27 @@ body.theme-light .theme-switch-btn.active {
   .header-right .subtle.subtle-right {
     font-size: clamp(0.32rem, 1.73vw, 0.42rem);
     letter-spacing: 0.008em;
+  }
+
+  body:has(.misc-detail) #unit-title {
+    font-size: clamp(0.54rem, 3.05vw, 0.82rem);
+  }
+
+  .misc-detail,
+  .misc-detail--readings {
+    --misc-detail-icon-size: clamp(4.25rem, 30vw, 5.75rem);
+  }
+
+  .reading-title {
+    font-size: 1.02rem;
+  }
+
+  .reading-sub {
+    font-size: 0.8rem;
+  }
+
+  .reading-desc {
+    font-size: 0.84rem;
   }
 
   .header-nav-buttons .header-home-btn {

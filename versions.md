@@ -276,6 +276,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Cabecera móvil/tablet: lema y línea de etapa un poco más pequeños (misma proporción) y `width: max-content` para alinear el borde derecho del lema con `< EDUCACIÓN… >`.
 
+## 1.2.16
+
+- Miscelánea (móvil/tablet): título de sección en una línea, icono más pequeño; fichas de lecturas/media/juegos sin desborde (autores y textos con wrap).
+
 ---
 
 ## Convención (recordatorio)
@@ -349,3 +353,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.13** | Cabecera móvil: lema completo; etapa más pequeña |
 | **1.2.14** | Docs e informe alineados con responsive 1.2.x |
 | **1.2.15** | Cabecera móvil: lema/etapa más contenidos y alineados |
+| **1.2.16** | Miscelánea móvil: título/icono y fichas sin desborde |
