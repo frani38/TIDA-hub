@@ -206,6 +206,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - `.gitignore`: exclusiones explícitas para códigos de recuperación 2FA, `.env` y material similar (no versionar secretos de cuenta).
 
+## 1.1.36
+
+- Docs: **Restrict to Domains** de Web3Forms es plan Pro; en free no aplica (honeypot + antispam).
+
 ---
 
 ## Convención (recordatorio)
@@ -262,3 +266,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.33** | Historial: atrás desde Miscelánea/subapartados vuelve al hub |
 | **1.1.34** | Bienvenida: Hacking ético en la lista de Miscelánea |
 | **1.1.35** | `.gitignore`: secretos de cuenta / recovery codes |
+| **1.1.36** | Docs: Restrict to Domains Web3Forms = Pro |

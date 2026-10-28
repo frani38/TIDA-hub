@@ -205,13 +205,17 @@ git commit -m "Configure Web3Forms access key for AYUDA"
 git push origin main
 ```
 
-### 7.5. Dominios de confianza (recomendado)
+### 7.5. Dominios de confianza (plan Pro)
 
-En el panel de Web3Forms del formulario:
+En el panel aparece **Restrict to Domains** con etiqueta **Pro**: solo está disponible con suscripción de pago ([docs](https://docs.web3forms.com/getting-started/pro-features/restrict-to-domain)).
 
-1. Autoriza el dominio de producción: `frani38.github.io` (o la URL completa del sitio).  
-2. Si pruebas en local, añade `localhost`.  
-3. Así reduces el abuso de la Access Key desde otras webs.
+Con el **plan gratuito** no hace falta (ni se puede) configurar ese campo. La protección habitual es la Access Key pública + antispam del proveedor + honeypot del formulario AYUDA. Si llega spam real, valorar **hCaptcha** (disponible en free) antes de pagar Pro solo por restringir dominio.
+
+Si tienes Pro:
+
+1. Autoriza el dominio de producción: `frani38.github.io` (sin `https://` ni ruta).  
+2. No añadas `localhost` si activas la restricción (deja de funcionar en local).  
+3. Prueba un envío desde la web publicada.
 
 ### 7.6. Cómo lo usa la web (comportamiento)
 
