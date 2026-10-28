@@ -2619,7 +2619,7 @@ a.news-title-link:hover {
 
 /* Aviso "EN CONSTRUCCIÓN" más discreto solo en Últimas noticias */
 .home-news .construction-notice {
-  padding: 0.7rem 0;
+  padding: 0.55rem 0.65rem;
   color: inherit;
   border-color: rgba(122, 162, 255, 0.18);
   background: rgba(122, 162, 255, 0.08);
@@ -2627,7 +2627,7 @@ a.news-title-link:hover {
 
 .home-news .construction-notice strong {
   color: inherit;
-  font-size: 1.45rem;
+  font-size: clamp(0.95rem, 3.2vw, 1.2rem);
 }
 
 .welcome-intro {
@@ -2777,19 +2777,26 @@ body.theme-light .about-section__photo img {
 
 .construction-notice {
   color: #ffe27a;
-  border-color: rgba(255, 226, 122, 0.55);
+  border: 1px solid rgba(255, 226, 122, 0.55);
   background: rgba(255, 226, 122, 0.1);
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.85rem 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
 }
 
 .construction-notice strong {
   color: #ffeb99;
-  display: inline-block;
-  font-size: 2.4rem;
+  display: block;
+  font-size: clamp(1.05rem, 3.6vw, 1.55rem);
   letter-spacing: 0.04em;
-  line-height: 1.1;
+  line-height: 1.25;
   font-family: var(--tech-font);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 body.theme-light .construction-notice {
@@ -3734,6 +3741,16 @@ body.theme-light .theme-switch-btn.active {
   .menu-field input,
   .docencia-toggle-btn {
     min-height: var(--touch-target-min);
+  }
+
+  .construction-notice {
+    padding: 0.7rem 0.75rem;
+    margin: 0.15rem 0 0.65rem;
+  }
+
+  .construction-notice strong {
+    font-size: clamp(0.92rem, 4.2vw, 1.2rem);
+    letter-spacing: 0.03em;
   }
 
   /* INICIO: noticias debajo del texto (sin panel absolute) */

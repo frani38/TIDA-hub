@@ -2278,6 +2278,7 @@
         <strong>EN CONSTRUCCIÓN</strong>
       </div>
     `;
+    scrollToPageTop();
     animateContentSwitch();
   }
 

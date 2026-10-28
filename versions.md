@@ -296,6 +296,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Miscelánea: al entrar en un subapartado (p. ej. Lecturas) se resetea el scroll arriba (logo + filtros), sin quedar a mitad de la lista por el scroll del hub.
 
+## 1.2.21
+
+- Avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE: tipografía contenida (`clamp`), sin desborde en móvil; caja con padding y márgenes.
+
 ---
 
 ## Convención (recordatorio)
@@ -374,3 +378,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.18** | Restaura tamaño Bienvenido/a; VOLVER en proporción |
 | **1.2.19** | Miscelánea móvil: icono mayor; VOLVER en la línea del título |
 | **1.2.20** | Miscelánea: scroll al tope al abrir subapartado |
+| **1.2.21** | Avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE adaptados a móvil |
