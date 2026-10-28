@@ -382,6 +382,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 - Recarga del navegador: restaura la sección actual (hash / historial) en lugar de forzar INICIO.
 - Bienvenida: cortina solo al cargar/recargar INICIO; el botón INICIO ya no la repite.
 
+## 1.2.42
+
+- Privacidad: un poco más de espacio entre el título y la cita RGPD/LOPDGDD (pie y AYUDA).
+
 ---
 
 ## Convención (recordatorio)
@@ -481,3 +485,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.39** | Privacidad: aire cabecera + gap RGPD = AYUDA |
 | **1.2.40** | Privacidad AYUDA: sin gap flex; más aire cabecera |
 | **1.2.41** | Foto SOBRE MÍ; restore al recargar; cortina solo en load |
+| **1.2.42** | Privacidad: más espacio título ↔ RGPD |
