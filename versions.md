@@ -318,3 +318,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.6** | Pie móvil: no fijo; más compacto |
 | **1.2.7** | Lema: DIGITALIZACIÓN APLICADA sin partir |
 | **1.2.8** | Lema móvil: una línea con tamaño adaptativo |
+| **1.2.9** | Cabecera móvil: lema y etapa al mismo tamaño |
