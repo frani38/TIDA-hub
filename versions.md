@@ -308,6 +308,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - DOCENCIA (móvil/tablet): título de materia/unidad en una sola línea (tipografía más contenida + `nowrap`); Bienvenido/a mantiene el tamaño anterior.
 
+## 1.2.24
+
+- Móvil/tablet: títulos de sección (NOVEDADES, PROYECTOS, LEGISLACIÓN, MISCELÁNEA, SOBRE MÍ, AYUDA, …) al mismo tamaño que Bienvenido/a; la tipografía compacta queda solo para materias/unidades largas de DOCENCIA.
+
 ---
 
 ## Convención (recordatorio)
@@ -389,3 +393,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.21** | Avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE adaptados a móvil |
 | **1.2.22** | Docs e informe alineados con pulido móvil 1.2.15–21 |
 | **1.2.23** | DOCENCIA móvil: título de materia en una línea |
+| **1.2.24** | Títulos de sección = tamaño Bienvenido/a |

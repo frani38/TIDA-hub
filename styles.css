@@ -3762,11 +3762,21 @@ body.theme-light .theme-switch-btn.active {
   }
 
   /*
-    Títulos bajo cabecera (DOCENCIA materia/unidad, etc.): una línea en estrecho.
-    Bienvenido/a conserva el tamaño preferido (más grande).
+    Títulos de sección (Bienvenido/a, NOVEDADES, PROYECTOS, …): mismo tamaño.
+    DOCENCIA materia/unidad largas: .unit-title--compact (una línea).
   */
   .content-card h2#unit-title,
-  .content-card #unit-title {
+  .content-card #unit-title,
+  .content-card.is-home #unit-title {
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+  }
+
+  .content-card.is-home #unit-title {
+    max-width: 100%;
+    pointer-events: auto;
+  }
+
+  #unit-title.unit-title--compact {
     font-size: clamp(0.55rem, 2.65vw, 1.05rem);
     letter-spacing: 0.015em;
     white-space: nowrap;
@@ -3774,15 +3784,6 @@ body.theme-light .theme-switch-btn.active {
     text-overflow: ellipsis;
     max-width: 100%;
     box-sizing: border-box;
-  }
-
-  .content-card.is-home #unit-title {
-    font-size: clamp(1.15rem, 4vw, 1.45rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    max-width: 100%;
-    pointer-events: auto;
   }
 
   /* VOLVER en proporción al título reducido */
@@ -4245,12 +4246,13 @@ body.theme-light .theme-switch-btn.active {
   }
 
   .content-card h2#unit-title,
-  .content-card #unit-title {
-    font-size: clamp(0.5rem, 2.85vw, 0.92rem);
-  }
-
+  .content-card #unit-title,
   .content-card.is-home #unit-title {
     font-size: clamp(1.15rem, 4vw, 1.45rem);
+  }
+
+  #unit-title.unit-title--compact {
+    font-size: clamp(0.5rem, 2.85vw, 0.92rem);
   }
 
   body:has(.misc-detail) .content-card h2#unit-title,

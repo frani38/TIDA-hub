@@ -98,6 +98,7 @@
     tabPanelEl.dataset.unitId = "";
 
     unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
     unitTitleEl.textContent = "Bienvenido/a";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
@@ -356,6 +357,7 @@
       if (homeSplitEl) homeSplitEl.classList.add("is-archive");
       // En modo histórico, el título debe ocupar su espacio (evita solapes).
       contentCardEl?.classList.remove("is-home");
+      setUnitTitleCompact(false);
       unitTitleEl.textContent = `HISTÓRICO ${year}`;
       breadcrumbsEl.textContent = "";
       progressIndicatorEl.textContent = "";
@@ -456,6 +458,7 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
     unitTitleEl.textContent = "NOVEDADES";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
@@ -763,6 +766,11 @@
     } catch {
       // ignore
     }
+  }
+
+  /** Títulos largos de DOCENCIA (materia/unidad): tipografía compacta en móvil. */
+  function setUnitTitleCompact(compact) {
+    unitTitleEl?.classList.toggle("unit-title--compact", Boolean(compact));
   }
 
   function setActiveMenu(activeButton) {
@@ -1415,6 +1423,7 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
     unitTitleEl.textContent = "BÚSQUEDA";
     const safeQ = escapeHtml(rawQuery.trim());
     breadcrumbsEl.innerHTML = rawQuery.trim()
@@ -1839,6 +1848,7 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
     unitTitleEl.textContent = "AYUDA";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
@@ -2011,6 +2021,7 @@
         }
 
         // Confirmación en la propia web y retorno a INICIO (mensaje de bienvenida).
+        setUnitTitleCompact(false);
         unitTitleEl.textContent = "AYUDA";
         breadcrumbsEl.textContent = "";
         progressIndicatorEl.textContent = "";
@@ -2212,13 +2223,14 @@
           return;
         }
       } catch {}
-      unitTitleEl.textContent = "AYUDA";
-      showHelpForm(draft);
-      currentState = { ...currentState, section: "help" };
-      pushAppHistory();
-    });
-    animateContentSwitch();
-  }
+        setUnitTitleCompact(false);
+        unitTitleEl.textContent = "AYUDA";
+        showHelpForm(draft);
+        currentState = { ...currentState, section: "help" };
+        pushAppHistory();
+      });
+      animateContentSwitch();
+    }
 
   function showAboutSection() {
     contentCardEl?.classList.remove("is-home");
@@ -2226,6 +2238,7 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
     unitTitleEl.textContent = "SOBRE MÍ";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
@@ -2269,6 +2282,7 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
     unitTitleEl.textContent = "PROYECTOS";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
@@ -2288,6 +2302,7 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
     unitTitleEl.textContent = "LEGISLACIÓN";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
@@ -2440,6 +2455,7 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
     unitTitleEl.textContent = "MISCELÁNEA";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
@@ -2463,6 +2479,7 @@
     ];
 
     const setMiscTitle = (sectionTitle) => {
+      setUnitTitleCompact(false);
       unitTitleEl.innerHTML = `<span class="misc-section-heading">MISCELÁNEA / ${escapeHtml(sectionTitle)}</span>
         <button type="button" class="help-title-back misc-title-back" aria-label="Volver">← VOLVER</button>`;
       const backBtn = unitTitleEl.querySelector(".misc-title-back");
@@ -2676,6 +2693,7 @@
     };
 
     const renderMenu = () => {
+      setUnitTitleCompact(false);
       unitTitleEl.textContent = "MISCELÁNEA";
       document.documentElement.style.removeProperty("--misc-aside-top");
       document.documentElement.style.removeProperty("--misc-aside-left");
@@ -3846,6 +3864,7 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
+    setUnitTitleCompact(true);
     unitTitleEl.textContent = material.label;
     // Evitar repetir Etapa/Nivel/Materia en la tarjeta central.
     breadcrumbsEl.textContent = "";
@@ -3866,6 +3885,7 @@
     toggleContentCard(true);
     stopWelcomeAnimation();
     unitTagEl.textContent = "";
+    setUnitTitleCompact(true);
     unitTitleEl.textContent = unit.label;
     // Evitar repetir Etapa/Nivel/Materia/Unidad (ya se muestra el título).
     breadcrumbsEl.textContent = "";
