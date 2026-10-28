@@ -2451,10 +2451,10 @@ a.year-result-title-link:hover {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: min(58%, 408px);
-  max-width: 408px;
+  width: min(75%, 530px);
+  max-width: 530px;
   height: auto;
-  max-height: 89%;
+  max-height: 100%;
   object-fit: contain;
   opacity: 0.28;
   pointer-events: none;
