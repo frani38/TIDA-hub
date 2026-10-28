@@ -2118,6 +2118,16 @@
     tabPanelEl.innerHTML = `
       <div class="help-form help-privacy-panel">
         <h3 class="privacy-block-heading">POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS</h3>
+        <p class="privacy-legal-lede privacy-legal-lede--centered" role="note">
+          Según el
+          <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=es" target="_blank" rel="noopener noreferrer"
+            >Reglamento (UE) 2016/679 (RGPD)</a
+          >
+          y
+          <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673" target="_blank" rel="noopener noreferrer"
+            >Ley Orgánica 3/2018 (LOPDGDD)</a
+          >.
+        </p>
         <div class="privacy-stack">
           <div class="help-privacy privacy-card">
             <div class="privacy-grid" role="presentation">
@@ -2251,17 +2261,6 @@
                   <strong>13) Actualizaciones</strong>
                   <div class="privacy-section-body">Esta política puede actualizarse para adaptarse a cambios legales o del funcionamiento del sitio.</div>
                 </div>
-
-                <p class="privacy-card-caption" role="note">
-                  Según el
-                  <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=es" target="_blank" rel="noopener noreferrer"
-                    >Reglamento (UE) 2016/679 (RGPD)</a
-                  >
-                  y
-                  <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673" target="_blank" rel="noopener noreferrer"
-                    >Ley Orgánica 3/2018 (LOPDGDD)</a
-                  >.
-                </p>
               </div>
             </div>
           </div>

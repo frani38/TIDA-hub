@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub · Privacidad</title>
-    <link rel="stylesheet" href="./styles.css?v=1.2.34" />
+    <link rel="stylesheet" href="./styles.css?v=1.2.35" />
     <script>
-      window.MYWEB_ASSET_V = "1.2.34";
+      window.MYWEB_ASSET_V = "1.2.35";
     </script>
   </head>
   <body class="theme-light privacy-page">
@@ -37,6 +37,20 @@
         <main>
           <div class="content-card">
             <h2 id="unit-title">POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS</h2>
+            <p class="privacy-legal-lede" role="note">
+              Según el
+              <a
+                href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=es"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Reglamento (UE) 2016/679 (RGPD)</a>
+              y
+              <a
+                href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Ley Orgánica 3/2018 (LOPDGDD)</a>.
+            </p>
             <div class="tab-panel" aria-live="polite">
               <div class="privacy-stack">
               <div class="help-privacy privacy-card">
@@ -171,21 +185,6 @@
                       <strong>13) Actualizaciones</strong>
                       <div class="privacy-section-body">Esta política puede actualizarse para adaptarse a cambios legales o del funcionamiento del sitio.</div>
                     </div>
-
-                    <p class="privacy-card-caption" role="note">
-                      Según el
-                      <a
-                        href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=es"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >Reglamento (UE) 2016/679 (RGPD)</a>
-                      y
-                      <a
-                        href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >Ley Orgánica 3/2018 (LOPDGDD)</a>.
-                    </p>
                   </div>
                 </div>
 
@@ -201,7 +200,7 @@
       <div class="site-footer-inner">
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.2.34</span> |
+          <span id="site-version">v1.2.35</span> |
           <a href="./privacidad.html" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
@@ -218,7 +217,7 @@
           if (vEl && ver) vEl.textContent = ver.indexOf("v") === 0 ? ver : "v" + ver;
         };
         var data = document.createElement("script");
-        data.src = "./data.js?v=" + String(window.MYWEB_ASSET_V || "1.2.34");
+        data.src = "./data.js?v=" + String(window.MYWEB_ASSET_V || "1.2.35");
         data.onload = applyMeta;
         data.onerror = function () {
           console.error("No se pudo cargar data.js");
