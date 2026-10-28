@@ -2317,7 +2317,7 @@
               Entre mis inquietudes están el entorno maker aplicado al diseño y la impresión 3D, la programación (Python) y la robótica, tecnología Blockchain y el uso de nuevas tecnologías basadas en IA; además, soy un apasionado de la ciberseguridad en entorno Linux, entre muchos otros.
             </p>
             <p>
-              En esta web pretendo reunir todo aquello que considero de interés para el desempeño de mi labor docente y para facilitar el aprendizaje y el estudio del alumnado, además de servir como espacio de divulgación personal y profesional orientado al desarrollo de las habilidades técnicas, digitales y personales para la sociedad actual y futura. Espero que los contenidos te resulten útiles.
+              En esta web pretendo reunir todo aquello que considero fundamental para el desempeño de mi labor docente y para facilitar el aprendizaje y el estudio del alumnado, además de servir como espacio de divulgación personal y profesional orientado al desarrollo de las habilidades técnicas, digitales y personales para la sociedad actual y futura. Espero que los contenidos te resulten útiles.
             </p>
             <p>
               Si necesitas resolver alguna duda o ampliar información, o si consideras que algún material de este sitio vulnera derechos de autor o no se utiliza conforme a la licencia que le corresponde, comunícamelo por el apartado <strong>AYUDA</strong>, así revisaré el caso y corregiré el error a la mayor brevedad posible.
