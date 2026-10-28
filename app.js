@@ -189,12 +189,12 @@
     return parts.time ? `${parts.date} ${parts.time}` : parts.date;
   }
 
-  /** Fecha `YYYY.MM.DD` y hora `[HH:MM]` por separado (histórico móvil apila la hora). */
+  /** Fecha `DD.MM.YYYY` y hora `[HH:MM]` por separado (histórico móvil apila la hora). */
   function splitPublishedAt(value) {
     const toDots = (dateStr) => {
       const d = String(dateStr || "").slice(0, 10);
       if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return d;
-      return `${d.slice(0, 4)}.${d.slice(5, 7)}.${d.slice(8, 10)}`;
+      return `${d.slice(8, 10)}.${d.slice(5, 7)}.${d.slice(0, 4)}`;
     };
     const v = String(value || "").trim();
     if (!v) return { date: "", time: "" };
@@ -508,7 +508,7 @@
       const v = String(value || "").trim();
       if (!v) return "";
       const d = v.slice(0, 10);
-      if (/^\d{4}-\d{2}-\d{2}$/.test(d)) return `${d.slice(0, 4)}.${d.slice(5, 7)}.${d.slice(8, 10)}`;
+      if (/^\d{4}-\d{2}-\d{2}$/.test(d)) return `${d.slice(8, 10)}.${d.slice(5, 7)}.${d.slice(0, 4)}`;
       return v;
     };
 

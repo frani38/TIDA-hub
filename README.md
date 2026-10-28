@@ -88,7 +88,7 @@ Tras publicar un cambio de versión, en la web usa **Ctrl+F5** la primera vez; C
 - **Scroll**: al cambiar de vista en Miscelánea (y al abrir PROYECTOS vacío) se resetea al tope; `history.scrollRestoration = "manual"`. Rueda del ratón: si hay barra activa, mueve el contenedor principal (también en `privacidad.html`). Paneles anidados (p. ej. NOTICIAS) conservan scroll propio.
 - En **DOCENCIA**, el panel de materiales queda **sticky** en pantallas grandes.
 - Tema visual fijado a **claro** (`theme-light`).
-- Fechas: `YYYY.MM.DD` (y hora cuando aplica). Listados de novedades/histórico agrupados por **mes**. Catálogos de lecturas/juegos/media y NOVEDADES: lo más reciente arriba (entradas antepuestas en `data.js`).
+- Fechas: `DD.MM.YYYY` (y hora cuando aplica). Listados de novedades/histórico agrupados por **mes**. Catálogos de lecturas/juegos/media y NOVEDADES: lo más reciente arriba (entradas antepuestas en `data.js`).
 
 ## NOVEDADES y NOTICIAS (avisos de no leído)
 

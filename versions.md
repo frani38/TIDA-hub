@@ -318,7 +318,7 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ## 1.2.26
 
-- Histórico de noticias (móvil/tablet): fecha y hora en dos líneas a la izquierda (`YYYY.MM.DD` / `[HH:MM]`) para dar más ancho al titular.
+- Histórico de noticias (móvil/tablet): fecha y hora en dos líneas a la izquierda (`DD.MM.YYYY` / `[HH:MM]`) para dar más ancho al titular.
 
 ## 1.2.27
 
@@ -331,6 +331,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 ## 1.2.29
 
 - Bienvenida (INICIO): revelado tipo cortina un poco más rápido (~1,55 s).
+
+## 1.2.30
+
+- Noticias, histórico y novedades: fechas visibles en formato `DD.MM.YYYY` (antes `YYYY.MM.DD`).
 
 ---
 
@@ -419,3 +423,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.27** | HISTÓRICO escritorio: panel NOTICIAS anclado como en INICIO |
 | **1.2.28** | HISTÓRICO móvil: sin bloque NOTICIAS; fondo contenido |
 | **1.2.29** | Bienvenida: revelado un poco más rápido |
+| **1.2.30** | Fechas UI: DD.MM.YYYY en noticias/novedades |

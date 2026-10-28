@@ -3957,7 +3957,7 @@ body.theme-light .theme-switch-btn.active {
 
   .home-split.is-archive .year-results-list {
     max-width: 100%;
-    /* Columna más estrecha: solo ancho de YYYY.MM.DD (hora debajo) */
+    /* Columna más estrecha: solo ancho de DD.MM.YYYY (hora debajo) */
     --year-result-date-col: 6.75rem;
   }
 
