@@ -2711,7 +2711,7 @@ a.news-title-link:hover {
 .welcome-copy.welcome-enter.welcome-reveal {
   opacity: 1;
   clip-path: inset(0 0 0 0);
-  transition: clip-path 2.4s ease-in-out;
+  transition: clip-path 1.55s ease-in-out;
 }
 
 .welcome-copy.welcome-reveal:not(.welcome-enter) {
