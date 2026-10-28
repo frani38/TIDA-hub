@@ -224,6 +224,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Privacidad en móvil (AYUDA / `privacidad.html`): deja el ancho fijo 1800px; una columna y texto sin recorte horizontal.
 
+## 1.2.3
+
+- NOVEDADES en móvil: scroll táctil alineado con el resto de secciones (gesto desde cabecera); avisos multilínea sin ellipsis; fecha encima del título.
+
 ---
 
 ## Convención (recordatorio)
@@ -284,3 +288,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.0** | Responsive tablet/móvil + correcciones WCAG 2.2 AA |
 | **1.2.1** | LEGISLACIÓN móvil: orden Nacional → Asturias |
 | **1.2.2** | Privacidad móvil: una columna, sin recorte |
+| **1.2.3** | NOVEDADES móvil: scroll + avisos legibles |

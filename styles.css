@@ -1735,6 +1735,7 @@ body.theme-light .help-form-status.is-error {
 
 .updates-archive .year-result-title {
   color: #0f172a;
+  /* En escritorio elipsis; en <1680px el bloque responsive permite wrap completo (AA 1.4.10). */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -3771,6 +3772,54 @@ body.theme-light .theme-switch-btn.active {
 
   .help-row {
     grid-template-columns: 1fr;
+  }
+
+  /*
+    NOVEDADES: mismo modelo de scroll que el resto (body), para que el gesto
+    táctil desde la cabecera sticky mueva la página (iOS).
+    Textos multilínea; fecha encima del aviso en pantallas estrechas.
+  */
+  html.updates-archive {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  html.updates-archive body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    max-height: none;
+    min-height: 100vh;
+  }
+
+  html.updates-archive #tab-panel {
+    min-height: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  .updates-archive .year-result,
+  .year-result.year-result--update {
+    grid-template-columns: 1fr;
+    row-gap: 0.2rem;
+  }
+
+  .updates-archive .year-result-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .updates-archive .year-results-list,
+  .updates-archive .month-group {
+    max-width: 100%;
+  }
+
+  .year-results-list {
+    --year-result-date-col: min(12.6rem, 38vw);
   }
 
   /* Privacidad (AYUDA y privacidad.html): una columna, sin recorte horizontal */
