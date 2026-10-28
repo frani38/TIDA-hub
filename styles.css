@@ -2438,10 +2438,33 @@ a.year-result-title-link:hover {
 }
 
 .welcome-copy {
+  position: relative;
   min-width: 0;
   max-width: 1260px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+/* Lazo negro temporal (marca de agua detrás del texto; no altera el layout). */
+.welcome-mourning-watermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(38%, 260px);
+  max-width: 260px;
+  height: auto;
+  max-height: 62%;
+  object-fit: contain;
+  opacity: 0.13;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.welcome-copy--mourning > .welcome-intro {
+  position: relative;
+  z-index: 1;
 }
 
 

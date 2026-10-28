@@ -394,6 +394,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Anti-caché global: `version-boot.js` consulta `data.js` sin caché; si el HTML está desfasado, recarga con `?v=`; enlaces a `privacidad.html` / `index.html` llevan bust de versión.
 
+## 1.2.45
+
+- INICIO: lazo negro temporal como marca de agua detrás del texto de bienvenida (`siteMeta.mourningRibbon`; opacidad baja para no dificultar la lectura).
+
 ---
 
 ## Convención (recordatorio)
@@ -496,3 +500,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.42** | Privacidad: más espacio título ↔ RGPD |
 | **1.2.43** | VOLVER desde privacidad.html: INICIO sin cortina |
 | **1.2.44** | version-boot: forzar HTML/assets a la versión publicada |
+| **1.2.45** | INICIO: lazo negro marca de agua (temporal) |

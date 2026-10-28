@@ -119,11 +119,25 @@
 
     stopWelcomeAnimation();
     const news = Array.isArray(DATA.news) ? DATA.news : [];
+    const assetV = escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim());
+    const mourningRibbon = DATA.siteMeta?.mourningRibbon === true;
+    const mourningRibbonHtml = mourningRibbon
+      ? `<img
+            class="welcome-mourning-watermark"
+            src="./image/lazo_negro-remove.png?v=${assetV}"
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+            decoding="async"
+            loading="lazy"
+          />`
+      : "";
     tabPanelEl.innerHTML = `
       <div class="empty-state welcome">
         <div class="home-split">
           <aside class="home-year-results" aria-label="Histórico de noticias"></aside>
-          <div class="welcome-copy">
+          <div class="welcome-copy${mourningRibbon ? " welcome-copy--mourning" : ""}">
+            ${mourningRibbonHtml}
             <p class="welcome-intro">
               <strong class="welcome-brand">T·I·D·A<span class="brand-suffix">hub</span></strong> es un espacio de divulgación educativa dedicado a las materias de Tecnología, Ingeniería y Digitalización en
               Educación Secundaria y Bachillerato.
