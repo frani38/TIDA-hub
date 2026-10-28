@@ -344,6 +344,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Bienvenida: la cortina se reproduce en cada carga/recarga/ventana nueva; solo queda fija al volver a INICIO tras navegar a otra sección (corrige el falso “ya visto” por doble montaje al arrancar).
 
+## 1.2.33
+
+- Cache-bust tras cambios editoriales en SOBRE MÍ (forzar recarga de `app.js`).
+
 ---
 
 ## Convención (recordatorio)
@@ -434,3 +438,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.30** | Fechas UI: DD.MM.YYYY en noticias/novedades |
 | **1.2.31** | Bienvenida: cortina solo en la 1.ª entrada |
 | **1.2.32** | Bienvenida: cortina en cada carga; fija solo al volver |
+| **1.2.33** | Cache-bust: SOBRE MÍ (texto en app.js) |
