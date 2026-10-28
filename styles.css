@@ -728,11 +728,11 @@ main {
   top: auto;
   left: auto;
   right: auto;
-  margin: 0.1rem 0 0.45rem;
-  padding: 0 0.2rem;
+  /* Misma caja vertical que el resto de secciones (#unit-title). */
+  margin: 0 0 0.45rem;
+  padding: 0.12rem 0.25rem;
   z-index: 2;
   pointer-events: none;
-  line-height: 1.15;
   font-size: 1.85em;
   max-width: calc(100% - (var(--home-news-w, 400px) + 2rem));
 }

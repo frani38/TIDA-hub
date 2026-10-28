@@ -364,6 +364,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - `privacidad.html`: título y cita RGPD/LOPDGDD centrados, mismo estilo que en AYUDA.
 
+## 1.2.38
+
+- INICIO: título BIENVENIDO/A con el mismo padding/margen superior que el resto de secciones.
+
 ---
 
 ## Convención (recordatorio)
@@ -459,3 +463,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.35** | Privacidad: cita legal bajo el título |
 | **1.2.36** | Privacidad: título y cita más juntos |
 | **1.2.37** | privacidad.html: título/cita como en AYUDA |
+| **1.2.38** | INICIO: título alineado con otras secciones |
