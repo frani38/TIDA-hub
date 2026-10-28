@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub · Privacidad</title>
-    <link rel="stylesheet" href="./styles.css?v=1.2.3" />
+    <link rel="stylesheet" href="./styles.css?v=1.2.4" />
     <script>
-      window.MYWEB_ASSET_V = "1.2.3";
+      window.MYWEB_ASSET_V = "1.2.4";
     </script>
   </head>
   <body class="theme-light privacy-page">
@@ -201,7 +201,7 @@
       <div class="site-footer-inner">
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.2.3</span> |
+          <span id="site-version">v1.2.4</span> |
           <a href="./privacidad.html" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
@@ -218,7 +218,7 @@
           if (vEl && ver) vEl.textContent = ver.indexOf("v") === 0 ? ver : "v" + ver;
         };
         var data = document.createElement("script");
-        data.src = "./data.js?v=" + String(window.MYWEB_ASSET_V || "1.2.3");
+        data.src = "./data.js?v=" + String(window.MYWEB_ASSET_V || "1.2.4");
         data.onload = applyMeta;
         data.onerror = function () {
           console.error("No se pudo cargar data.js");
