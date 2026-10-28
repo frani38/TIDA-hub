@@ -240,6 +240,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Pie en móvil/tablet: deja de ser `fixed` (ya no ocupa ~1/3 del viewport); badges más pequeños y meta compacta al final del scroll.
 
+## 1.2.7
+
+- Lema de cabecera: `DIGITALIZACIÓN APLICADA` no se parte (espacio duro); evita que «APLICADA» quede sola en la línea inferior en móvil.
+
 ---
 
 ## Convención (recordatorio)
@@ -304,3 +308,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.4** | Cabecera móvil: espaciado logo / lema / menú |
 | **1.2.5** | Cabecera móvil: lema a la derecha |
 | **1.2.6** | Pie móvil: no fijo; más compacto |
+| **1.2.7** | Lema: DIGITALIZACIÓN APLICADA sin partir |
