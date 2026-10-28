@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.2.17",
+    version: "1.2.18",
     updated: "2026-10-28",
   },
 

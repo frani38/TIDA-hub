@@ -284,6 +284,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Móvil/tablet: todos los títulos de sección (`#unit-title`) con el mismo tamaño reducido que Bienvenido/a; Miscelánea larga sigue más compacta para una línea.
 
+## 1.2.18
+
+- Corrige especificidad: Bienvenido/a vuelve al tamaño anterior; el resto de títulos usan ese mismo tamaño; botón ← VOLVER en proporción.
+
 ---
 
 ## Convención (recordatorio)
@@ -359,3 +363,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.15** | Cabecera móvil: lema/etapa más contenidos y alineados |
 | **1.2.16** | Miscelánea móvil: título/icono y fichas sin desborde |
 | **1.2.17** | Móvil: títulos de sección al tamaño de Bienvenido/a |
+| **1.2.18** | Restaura tamaño Bienvenido/a; VOLVER en proporción |
