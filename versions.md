@@ -202,6 +202,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Bienvenida (INICIO): la lista de apartados de Miscelánea menciona **Hacking ético** en lugar de Hardware y Software.
 
+## 1.1.35
+
+- `.gitignore`: exclusiones explícitas para códigos de recuperación 2FA, `.env` y material similar (no versionar secretos de cuenta).
+
 ---
 
 ## Convención (recordatorio)
@@ -257,3 +261,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.1.32** | Lectura Pentesting con Kali + caché data.js |
 | **1.1.33** | Historial: atrás desde Miscelánea/subapartados vuelve al hub |
 | **1.1.34** | Bienvenida: Hacking ético en la lista de Miscelánea |
+| **1.1.35** | `.gitignore`: secretos de cuenta / recovery codes |

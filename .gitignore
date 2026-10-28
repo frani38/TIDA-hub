@@ -17,3 +17,10 @@ TYD_3ºESO/
 *~
 .vscode/
 .idea/
+
+# Secretos de cuenta (NUNCA versionar): códigos 2FA, tokens, etc.
+github/
+*recovery*codes*
+*.pem
+.env
+.env.*
