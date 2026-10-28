@@ -264,6 +264,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Bienvenida en móvil/tablet: tipografía algo menor (párrafos, marca y título BIENVENIDO/A) para no saturar la pantalla.
 
+## 1.2.13
+
+- Cabecera móvil: lema completo sin `…`; la línea de educación un poco más pequeña (proporción similar a escritorio).
+
 ---
 
 ## Convención (recordatorio)
@@ -334,3 +338,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.10** | HISTÓRICO móvil: sin hueco vacío hasta el pie |
 | **1.2.11** | Panel noticias móvil: sin estirar vacío |
 | **1.2.12** | Bienvenida móvil: tipografía más contenida |
+| **1.2.13** | Cabecera móvil: lema completo; etapa más pequeña |
