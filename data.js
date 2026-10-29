@@ -183,6 +183,12 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-10-29T09:03",
+      title: "España notifica el primer ataque con un agente de IA: autonomía en la ejecución, no en la intención",
+      text: "La AEPD recibió la primera notificación de una brecha de datos personales ejecutada mediante un agente de IA conectado a un LLM: buscó vulnerabilidades, inició sesión y exploró la aplicación sin instrucción paso a paso. El debate clave: autonomía operativa frente a un propósito que sigue siendo humano.",
+      url: "https://muyinteresante.okdiario.com/curiosidades/agente-ia-autonomo-ataque-espana.html"
+    },
+    {
       publishedAt: "2026-10-29T08:42",
       title: "Linux para PS5 ya funciona hasta el firmware 13.60 y añade compatibilidad con PS5 Pro",
       text: "PS5 Linux Loader amplía su soporte a firmwares desde 5.00 hasta 13.60, también en PlayStation 5 Pro. Requiere consola compatible y modificaciones no oficiales; el proyecto es experimental y con riesgos para el hardware.",
