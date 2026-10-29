@@ -446,6 +446,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - SOBRE MÍ: «AYUDA» en el último párrafo enlaza a la sección AYUDA del sitio.
 
+## 1.3.4
+
+- SOBRE MÍ / PUBLICACIONES (móvil/tablet): título + ← VOLVER en una sola línea compacta, mismo criterio que MISCELÁNEA / detalle.
+
 ---
 
 ## Convención (recordatorio)
@@ -561,3 +565,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.3.1** | Publicaciones: hipervínculos DOI cuando hay versión online |
 | **1.3.2** | Publicaciones: negrita en título; enlace en venue; ficha GeoEner |
 | **1.3.3** | SOBRE MÍ: enlace AYUDA → sección AYUDA |
+| **1.3.4** | PUBLICACIONES móvil: título y VOLVER en una línea |
