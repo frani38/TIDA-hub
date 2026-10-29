@@ -410,6 +410,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Contenido editorial siempre fresco: `data.js` se inyecta desde descarga sin caché (noticias/libros sin bump de versión ya se ven al recargar).
 
+## 1.2.49
+
+- SOBRE MÍ: elimina la barra de scroll vertical fantasma que desplazaba el texto cuando el contenido ya cabía en pantalla.
+
 ---
 
 ## Convención (recordatorio)
@@ -516,3 +520,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.46** | Cache-bust CSS lazo negro (tamaño/opacidad) |
 | **1.2.47** | Noticias: pulso dorado como nudge de NOVEDADES |
 | **1.2.48** | data.js sin caché: contenido visible sin bump |
+| **1.2.49** | SOBRE MÍ: sin barra de scroll fantasma |
