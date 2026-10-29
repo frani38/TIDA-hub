@@ -2350,13 +2350,16 @@
             const venue = escapeHtml(String(p?.venue || "").trim());
             const url = String(p?.url || "").trim();
             if (!title) return "";
-            const titleHtml = url
-              ? `<a class="about-pub-title about-pub-title-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${title}</a>`
-              : `<span class="about-pub-title">${title}</span>`;
+            const titleHtml = `<strong class="about-pub-title">${title}</strong>`;
+            const venueHtml = venue
+              ? url
+                ? `<a class="about-pub-venue about-pub-venue-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${venue}</a>`
+                : `<span class="about-pub-venue">${venue}</span>`
+              : "";
             return `
               <li class="about-pub-item">
                 ${titleHtml}
-                ${venue ? `<span class="about-pub-venue">${venue}</span>` : ""}
+                ${venueHtml}
               </li>`;
           })
           .filter(Boolean)

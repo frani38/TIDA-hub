@@ -438,6 +438,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Publicaciones académicas: títulos con DOI online enlazan al documento original (Applied Thermal Engineering y Journal of Mathematical Chemistry); el resto sin URL pública localizable queda como texto.
 
+## 1.3.2
+
+- Publicaciones: título en negrita; el hipervínculo pasa a la referencia (venue). GeoEner 2012 apunta a la ficha ISBN detalle (`sidTitul=1932822`); el ISBN del congreso 2011 no tiene ficha en el catálogo del Ministerio.
+
 ---
 
 ## Convención (recordatorio)
@@ -551,3 +555,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.53** | INICIO/DOCENCIA otra vez pegados a la cabecera |
 | **1.3.0** | SOBRE MÍ: enlace a publicaciones académicas |
 | **1.3.1** | Publicaciones: hipervínculos DOI cuando hay versión online |
+| **1.3.2** | Publicaciones: negrita en título; enlace en venue; ficha GeoEner |
