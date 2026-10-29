@@ -238,6 +238,13 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-10-29T15:15",
+      title:
+        "La crisis de la memoria RAM no tiene final a la vista y Samsung avisa de que lo peor llegará en 2027",
+      text: "Samsung advierte de que la escasez de DRAM/SSD se agravará en 2027 (y podría alargarse a 2028): la demanda de IA satura HBM y deja poca capacidad para el mercado de consumo. Micron habla de un cuello de botella estructural; nuevas fábricas no aliviarán la oferta a corto plazo.",
+      url: "https://computerhoy.20minutos.es/tecnologia/crisis-memoria-ram-no-tiene-final-vista-samsung-avisa-que-peor-llegara-2027-esto-supondra-una-limitacion-fisica-para-suministro_7054802_0.html",
+    },
+    {
       publishedAt: "2026-10-29T09:03",
       title: "España notifica el primer ataque con un agente de IA: autonomía en la ejecución, no en la intención",
       text: "La AEPD recibió la primera notificación de una brecha de datos personales ejecutada mediante un agente de IA conectado a un LLM: buscó vulnerabilidades, inició sesión y exploró la aplicación sin instrucción paso a paso. El debate clave: autonomía operativa frente a un propósito que sigue siendo humano.",
