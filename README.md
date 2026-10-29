@@ -67,7 +67,7 @@ Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP 
 - Extensión Live Server (VS Code / Cursor)
 - `python -m http.server 8000` → `http://localhost:8000`
 
-Tras publicar un cambio de versión, `version-boot.js` compara con `data.js` (sin caché) y, si el HTML está viejo, recarga el documento con `?v=`; CSS/JS/iconos usan `MYWEB_ASSET_V` / `siteMeta.version`. Si algo no cuadra, **Ctrl+F5**.
+`version-boot.js` descarga `data.js` sin caché (noticias/libros/etc. se ven sin bumpear versión) y, si el HTML técnico está viejo, recarga con `?v=`. CSS/`app.js` usan `MYWEB_ASSET_V` / `siteMeta.version`. Si algo no cuadra, **Ctrl+F5**.
 
 ## Configuración en `data.js`
 

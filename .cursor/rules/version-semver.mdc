@@ -43,6 +43,8 @@ En esas tareas:
 Sí se puede (y debe) **commit + push** del contenido; solo se omite el bump de versión.
 Opcional: anotar el alta en `versions.md` como nota de contenido **sin** crear número de versión nuevo, o dejarlo solo en el mensaje de commit / Novedades automáticas.
 
+**Caché de contenido:** `data.js` se carga siempre sin caché (`version-boot` + inyección). No hace falta bumpear versión para que noticias/libros/etc. se vean en la web. CSS/JS de código sí dependen de `siteMeta.version` / `MYWEB_ASSET_V`.
+
 Si un mismo commit mezcla **contenido + cambio técnico**, sí se versiona (por la parte técnica).
 
 ## Excepciones adicionales (no bumpear)

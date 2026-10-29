@@ -138,7 +138,7 @@ Formato de **tres dígitos** (ej. `1.2.22` → se muestra `v1.2.22`):
 
 - Fuente: `data.js` → `siteMeta.version` + `siteMeta.updated`
 - El pie se rellena solo al cargar la página
-- Anti-caché de assets: `window.MYWEB_ASSET_V` + `version-boot.js` (comprueba `data.js` sin caché y fuerza recarga HTML con `?v=` si hace falta)
+- Anti-caché: `version-boot.js` descarga `data.js` sin caché (contenido editorial fresco sin bump) y fuerza recarga HTML con `?v=` si la versión técnica está desfasada; CSS/`app.js` usan `MYWEB_ASSET_V`
 - **Regla fija del agente:** `.cursor/rules/version-semver.mdc`
   - **Sí bumpear** en cambios técnicos (código, estilos, docs de ingeniería, reglas)
   - **No bumpear** en altas/ediciones solo de contenido editorial (libros, juegos, media, noticias, legislación, materiales de `content/`/`books/`, …)

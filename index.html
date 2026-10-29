@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub</title>
-    <link rel="stylesheet" href="./styles.css?v=1.2.47" />
+    <link rel="stylesheet" href="./styles.css?v=1.2.48" />
     <script>
-      window.MYWEB_ASSET_V = "1.2.47";
+      window.MYWEB_ASSET_V = "1.2.48";
     </script>
     <script>
       (function () {
@@ -228,44 +228,73 @@
         </a>
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.2.47</span> |
-          <a href="./privacidad.html?v=1.2.47" class="footer-privacy-link">Privacidad y protección de datos</a>
+          <span id="site-version">v1.2.48</span> |
+          <a href="./privacidad.html?v=1.2.48" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
     </footer>
 
     <script>
       (function () {
-        function bootAssets(bust) {
-          bust = String(bust || window.MYWEB_ASSET_V || "1.2.47");
+        function loadApp(bust) {
+          var app = document.createElement("script");
+          app.src = "./app.js?v=" + encodeURIComponent(bust);
+          document.body.appendChild(app);
+        }
+        function loadDataFreshThenApp(bust) {
+          // Contenido editorial: siempre sin caché (noticias/libros sin bump de versión).
+          fetch("./data.js?_=" + Date.now(), { cache: "no-store", credentials: "same-origin" })
+            .then(function (r) {
+              if (!r.ok) throw new Error("data.js " + r.status);
+              return r.text();
+            })
+            .then(function (txt) {
+              if (typeof window.MYWEB_injectDataJs === "function") {
+                window.MYWEB_injectDataJs(txt);
+              } else {
+                var s = document.createElement("script");
+                s.text = txt;
+                document.body.appendChild(s);
+              }
+              loadApp(bust);
+            })
+            .catch(function () {
+              console.error("No se pudo cargar data.js");
+            });
+        }
+        function bootAssets(bust, dataJsText) {
+          bust = String(bust || window.MYWEB_ASSET_V || "1.2.48");
           window.MYWEB_ASSET_V = bust;
           if (typeof window.MYWEB_wireVersionedLinks === "function") {
             window.MYWEB_wireVersionedLinks(bust);
           }
-          var data = document.createElement("script");
-          data.src = "./data.js?v=" + encodeURIComponent(bust);
-          data.onload = function () {
-            var app = document.createElement("script");
-            app.src = "./app.js?v=" + encodeURIComponent(bust);
-            document.body.appendChild(app);
-          };
-          data.onerror = function () {
-            console.error("No se pudo cargar data.js");
-          };
-          document.body.appendChild(data);
+          if (dataJsText && typeof window.MYWEB_injectDataJs === "function") {
+            window.MYWEB_injectDataJs(dataJsText);
+            loadApp(bust);
+            return;
+          }
+          if (dataJsText) {
+            var s = document.createElement("script");
+            s.text = dataJsText;
+            document.body.appendChild(s);
+            loadApp(bust);
+            return;
+          }
+          loadDataFreshThenApp(bust);
         }
         var started = false;
-        function start(bust) {
+        function start(bust, dataJsText) {
           if (started) return;
           started = true;
-          bootAssets(bust);
+          bootAssets(bust, dataJsText);
         }
         window.addEventListener("myweb:version-ready", function (ev) {
-          start((ev && ev.detail && ev.detail.version) || window.MYWEB_ASSET_V);
+          var d = (ev && ev.detail) || {};
+          start(d.version || window.MYWEB_ASSET_V, d.dataJsText || "");
         });
         // Si version-boot falla o tarda, no bloquear la web.
         setTimeout(function () {
-          start(window.MYWEB_ASSET_V || "1.2.47");
+          start(window.MYWEB_ASSET_V || "1.2.48", window.__MYWEB_DATA_JS_TEXT__ || "");
         }, 2500);
       })();
     </script>

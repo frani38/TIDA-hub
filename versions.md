@@ -406,6 +406,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Noticias no vistas: borde dorado con pulso intermitente (misma cadencia que el nudge de NOVEDADES).
 
+## 1.2.48
+
+- Contenido editorial siempre fresco: `data.js` se inyecta desde descarga sin caché (noticias/libros sin bump de versión ya se ven al recargar).
+
 ---
 
 ## Convención (recordatorio)
@@ -511,3 +515,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.45** | INICIO: lazo negro marca de agua (temporal) |
 | **1.2.46** | Cache-bust CSS lazo negro (tamaño/opacidad) |
 | **1.2.47** | Noticias: pulso dorado como nudge de NOVEDADES |
+| **1.2.48** | data.js sin caché: contenido visible sin bump |

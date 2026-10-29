@@ -1,7 +1,8 @@
 /**
- * Comprueba la versión publicada (data.js sin caché) y, si el HTML local está
- * desfasado, recarga el documento con ?v=REMOTA para forzar HTML+CSS+JS nuevos.
- * También reescribe enlaces a privacidad.html / index.html con el bust actual.
+ * 1) Descarga data.js sin caché (contenido editorial siempre fresco).
+ * 2) Si la versión técnica del HTML está desfasada, recarga el documento con ?v=.
+ * 3) Entrega el texto de data.js al boot de la página para inyectarlo (evita un 2.º
+ *    data.js?v=VERSION cacheado que ocultaría noticias/libros sin bump).
  */
 (function (global) {
   var BAKED = String(global.MYWEB_ASSET_V || "").trim();
@@ -64,9 +65,24 @@
     }
   }
 
-  function finish(ver) {
+  /** Inyecta data.js ya descargado (sin segunda petición cacheable). */
+  function injectDataJs(jsText) {
+    if (!jsText || !global.document) return false;
+    try {
+      var s = global.document.createElement("script");
+      s.type = "text/javascript";
+      s.text = jsText;
+      (global.document.body || global.document.head).appendChild(s);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function finish(ver, dataJsText) {
     var v = String(ver || BAKED || "").trim() || BAKED;
     global.MYWEB_ASSET_V = v;
+    global.__MYWEB_DATA_JS_TEXT__ = dataJsText || "";
     try {
       global.localStorage.setItem(LAST_KEY, v);
     } catch (e) {
@@ -75,13 +91,18 @@
     clearBustAttempt(v);
     wireVersionedLinks(v);
     try {
-      global.dispatchEvent(new CustomEvent("myweb:version-ready", { detail: { version: v } }));
+      global.dispatchEvent(
+        new CustomEvent("myweb:version-ready", {
+          detail: { version: v, dataJsText: dataJsText || "" },
+        })
+      );
     } catch (e) {
       /* ignore */
     }
   }
 
   global.MYWEB_wireVersionedLinks = wireVersionedLinks;
+  global.MYWEB_injectDataJs = injectDataJs;
 
   fetch("./data.js?_=" + Date.now(), { cache: "no-store", credentials: "same-origin" })
     .then(function (r) {
@@ -93,9 +114,9 @@
       if (remote && BAKED && remote !== BAKED) {
         if (bustStaleHtml(remote)) return;
       }
-      finish(remote || BAKED);
+      finish(remote || BAKED, txt);
     })
     .catch(function () {
-      finish(BAKED);
+      finish(BAKED, "");
     });
 })(window);
