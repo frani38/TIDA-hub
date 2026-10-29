@@ -69,11 +69,14 @@ window.MYWEB_DATA = {
       title: "Determining the volumetric heat capacity of a geothermal borehole and its use in TRT",
       venue:
         "4th International Congress on Energy and Environment Engineering and Management. 2011, 64-64. (ISBN-13: 978-84-9978-014-6)",
+      /* Buscar ISBN 978-84-9978-014-6 en la base de datos ISBN del Ministerio. */
+      url: "https://www.cultura.gob.es/webISBN/tituloSimpleFilter.do?cache=init&prev_layout=busquedaisbn&layout=busquedaisbn&language=es",
     },
     {
       title: "Determining the volumetric heat capacity of the drill cuttings from a geothermal borehole",
       venue:
         "4th International Congress on Energy and Environment Engineering and Management. 2011, 65-65. (ISBN-13: 978-84-9978-014-6)",
+      url: "https://www.cultura.gob.es/webISBN/tituloSimpleFilter.do?cache=init&prev_layout=busquedaisbn&layout=busquedaisbn&language=es",
     },
   ],
 
