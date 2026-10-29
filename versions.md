@@ -471,6 +471,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Móvil/tablet: en política de privacidad desde AYUDA, ← VOLVER al margen derecho en la misma línea que el título (como Miscelánea/Lecturas), manteniendo el tamaño grande de «AYUDA».
 
+## 1.4.4
+
+- AYUDA → política de privacidad: al entrar se reinicia el scroll al inicio (cabecera), no a mitad del texto.
+
 ---
 
 ## Convención (recordatorio)
@@ -592,3 +596,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.4.1** | PC estrecho: barra vertical fija al borde derecho del viewport |
 | **1.4.2** | PC estrecho: barra V del viewport ya no la anulan las reglas :has |
 | **1.4.3** | AYUDA/privacidad móvil: VOLVER como Miscelánea; título sin reducir |
+| **1.4.4** | AYUDA → privacidad: scroll al top al abrir |

@@ -2327,8 +2327,11 @@
         currentState = { ...currentState, section: "help" };
         pushAppHistory();
       });
-      animateContentSwitch();
-    }
+    // Móvil/tablet: el scroll residual de AYUDA deja la política a mitad; forzar inicio.
+    scrollToPageTop();
+    requestAnimationFrame(() => scrollToPageTop());
+    animateContentSwitch();
+  }
 
   function showAboutPublications() {
     contentCardEl?.classList.remove("is-home");
