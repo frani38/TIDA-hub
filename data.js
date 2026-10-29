@@ -183,6 +183,12 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-10-29T08:42",
+      title: "Linux para PS5 ya funciona hasta el firmware 13.60 y añade compatibilidad con PS5 Pro",
+      text: "PS5 Linux Loader amplía su soporte a firmwares desde 5.00 hasta 13.60, también en PlayStation 5 Pro. Requiere consola compatible y modificaciones no oficiales; el proyecto es experimental y con riesgos para el hardware.",
+      url: "https://computerhoy.20minutos.es/gaming/linux-para-ps5-ya-funciona-hasta-version-firmware-13-60-anade-compatibilidad-con-playstation-5-pro_7053793_0.html"
+    },
+    {
       publishedAt: "2026-10-27T09:56",
       title: "Eslovaquia conecta un nuevo reactor nuclear a su red eléctrica",
       text: "La central de Mochovce ha conectado su cuarto reactor VVER-440 (471 MW) a la red eslovaca, con una puesta en marcha gradual desde el 15 de octubre. Con cinco reactores en operación, el país prevé que la nuclear aporte cerca del 77% de su electricidad y poder exportar energía desde 2027.",
