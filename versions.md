@@ -450,6 +450,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - SOBRE MÍ / PUBLICACIONES (móvil/tablet): título + ← VOLVER en una sola línea compacta, mismo criterio que MISCELÁNEA / detalle.
 
+## 1.3.5
+
+- SOBRE MÍ / PUBLICACIONES: al entrar (y al volver a la biografía) se reinicia el scroll al inicio en móvil/tablet.
+
 ---
 
 ## Convención (recordatorio)
@@ -566,3 +570,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.3.2** | Publicaciones: negrita en título; enlace en venue; ficha GeoEner |
 | **1.3.3** | SOBRE MÍ: enlace AYUDA → sección AYUDA |
 | **1.3.4** | PUBLICACIONES móvil: título y VOLVER en una línea |
+| **1.3.5** | PUBLICACIONES: scroll al top al abrir en móvil |

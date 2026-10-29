@@ -2386,6 +2386,9 @@
       showAboutSection({ view: "" });
       pushAppHistory();
     });
+    // Móvil: el scroll de documento residual deja la lista a mitad; forzar inicio.
+    scrollToPageTop();
+    requestAnimationFrame(() => scrollToPageTop());
     animateContentSwitch();
   }
 
@@ -2453,6 +2456,8 @@
       showHelpForm();
       pushAppHistory();
     });
+    scrollToPageTop();
+    requestAnimationFrame(() => scrollToPageTop());
     animateContentSwitch();
   }
 
