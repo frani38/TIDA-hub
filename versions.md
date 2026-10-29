@@ -430,6 +430,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Quita el `padding-top` de `.app` que separaba NOTICIAS (INICIO) y la barra SELECCIONA… (DOCENCIA) de la cabecera; vuelven pegados como antes.
 
+## 1.3.0
+
+- SOBRE MÍ: «mundo académico» enlaza a un listado de publicaciones académicas (datos en `data.js` / `publications/publications.txt`) con botón ← VOLVER a la biografía.
+
 ---
 
 ## Convención (recordatorio)
@@ -541,3 +545,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.51** | Títulos de sección: sticky correcto con scroll en `.app` |
 | **1.2.52** | Scroll vertical sin atravesar el pie (footer en flex) |
 | **1.2.53** | INICIO/DOCENCIA otra vez pegados a la cabecera |
+| **1.3.0** | SOBRE MÍ: enlace a publicaciones académicas |

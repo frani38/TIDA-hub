@@ -18,11 +18,56 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.2.53",
+    version: "1.3.0",
     updated: "2026-10-29",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
   },
+
+  /*
+    Publicaciones académicas (SOBRE MÍ → enlace «mundo académico»).
+    Fuente editorial paralela: publications/publications.txt (mantener alineado al editar).
+  */
+  academicPublications: [
+    {
+      title:
+        "Determining ground thermal properties using logs and thermal drill cutting analysis. First relationship with thermal response test in principality of Asturias, Spain",
+      venue: "Applied Thermal Engineering 37 (2012). 226-234",
+    },
+    {
+      title:
+        "Design for an asymmetrical cyclic neutron activation process for determining fluorite grade in fluorspar concentrate",
+      venue: "Journal of Mathematical Chemistry, Volume 50, Number 2, 394-409 (2012)",
+    },
+    {
+      title:
+        "Ensayo para la medida de la conductividad térmica y la capacidad calorífica volumétrica del terreno a partir de los detritus de perforación",
+      venue: "GeoEner 2012. p.47-52. (ISBN: 978-84-615-8177-1)",
+    },
+    {
+      title: "Instrumentación de un sondeo geotécnico con fines geotérmicos",
+      venue: "GeoEner 2012. p.191-205. (ISBN: 978-84-615-8177-1)",
+    },
+    {
+      title: "Medición de la conductividad térmica del terreno a partir de testigos de sondeos",
+      venue: "GeoEner 2012. p.63-73. (ISBN: 978-84-615-8177-1)",
+    },
+    {
+      title:
+        "Nuevo procedimiento para la determinación de las propiedades térmicas del terreno a partir de detritus y diagrafías del sondeo. Relación con ensayo TRT",
+      venue: "GeoEner 2012. p.53-62. (ISBN: 978-84-615-8177-1)",
+    },
+    {
+      title: "Determining the volumetric heat capacity of a geothermal borehole and its use in TRT",
+      venue:
+        "4th International Congress on Energy and Environment Engineering and Management. 2011, 64-64. (ISBN-13: 978-84-9978-014-6)",
+    },
+    {
+      title: "Determining the volumetric heat capacity of the drill cuttings from a geothermal borehole",
+      venue:
+        "4th International Congress on Energy and Environment Engineering and Management. 2011, 65-65. (ISBN-13: 978-84-9978-014-6)",
+    },
+  ],
 
   /*
     Formulario AYUDA → Web3Forms (https://web3forms.com/).

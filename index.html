@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub</title>
-    <link rel="stylesheet" href="./styles.css?v=1.2.53" />
+    <link rel="stylesheet" href="./styles.css?v=1.3.0" />
     <script>
-      window.MYWEB_ASSET_V = "1.2.53";
+      window.MYWEB_ASSET_V = "1.3.0";
     </script>
     <script>
       (function () {
@@ -228,8 +228,8 @@
         </a>
         <div class="footer-meta">
           &copy; 2026-<span id="year-current">2026</span>&nbsp;| PhD.Eng. Francisco Carnero Rodríguez |
-          <span id="site-version">v1.2.53</span> |
-          <a href="./privacidad.html?v=1.2.53" class="footer-privacy-link">Privacidad y protección de datos</a>
+          <span id="site-version">v1.3.0</span> |
+          <a href="./privacidad.html?v=1.3.0" class="footer-privacy-link">Privacidad y protección de datos</a>
         </div>
       </div>
     </footer>
@@ -263,7 +263,7 @@
             });
         }
         function bootAssets(bust, dataJsText) {
-          bust = String(bust || window.MYWEB_ASSET_V || "1.2.53");
+          bust = String(bust || window.MYWEB_ASSET_V || "1.3.0");
           window.MYWEB_ASSET_V = bust;
           if (typeof window.MYWEB_wireVersionedLinks === "function") {
             window.MYWEB_wireVersionedLinks(bust);
@@ -294,7 +294,7 @@
         });
         // Si version-boot falla o tarda, no bloquear la web.
         setTimeout(function () {
-          start(window.MYWEB_ASSET_V || "1.2.53", window.__MYWEB_DATA_JS_TEXT__ || "");
+          start(window.MYWEB_ASSET_V || "1.3.0", window.__MYWEB_DATA_JS_TEXT__ || "");
         }, 2500);
       })();
     </script>

@@ -76,6 +76,7 @@
     unitId: "",
     tabId: "",
     miscId: "",
+    aboutView: "",
     docenciaCollapsed: false,
     searchQuery: ""
   };
@@ -1657,6 +1658,7 @@
       unitId: "",
       tabId: "",
       miscId: "",
+      aboutView: "",
       searchQuery: "",
       docenciaCollapsed: false
     };
@@ -1672,6 +1674,7 @@
       unitId: currentState.unitId || "",
       tabId: currentState.tabId || "",
       miscId: (currentState.section || "") === "miscelanea" ? currentState.miscId || "" : "",
+      aboutView: (currentState.section || "") === "about" ? currentState.aboutView || "" : "",
       searchQuery: currentState.searchQuery || "",
       docenciaCollapsed: !!currentState.docenciaCollapsed
     };
@@ -1686,6 +1689,7 @@
       st.unitId || "",
       st.tabId || "",
       st.miscId || "",
+      st.aboutView || "",
       st.searchQuery || ""
     ].join("|");
   }
@@ -1700,7 +1704,10 @@
     if (section === "home") return base;
     if (section === "help") return `${base}#help`;
     if (section === "privacy") return `${base}#privacy`;
-    if (section === "about") return `${base}#about`;
+    if (section === "about") {
+      const av = String(st.aboutView || "").trim();
+      return av === "publicaciones" ? `${base}#about/publicaciones` : `${base}#about`;
+    }
     if (section === "books") return `${base}#books`;
     if (section === "legislacion") return `${base}#legislacion`;
     if (section === "miscelanea") {
@@ -1777,6 +1784,7 @@
       unitId: st.unitId || "",
       tabId: st.tabId || "",
       miscId: st.miscId || "",
+      aboutView: st.aboutView || "",
       searchQuery: st.searchQuery || "",
       docenciaCollapsed: !!st.docenciaCollapsed
     };
@@ -1803,7 +1811,7 @@
     }
     if (section === "about") {
       setActiveMenu(aboutBtnEl);
-      showAboutSection();
+      showAboutSection({ view: currentState.aboutView || "" });
       return;
     }
     if (section === "books") {
@@ -1871,12 +1879,29 @@
         unitId: "",
         tabId: "",
         miscId,
+        aboutView: "",
         searchQuery: "",
         docenciaCollapsed: false
       });
       return;
     }
-    if (raw === "help" || raw === "privacy" || raw === "about" || raw === "books" || raw === "legislacion" || raw === "updates" || raw === "docencia") {
+    if (raw === "about" || raw === "about/publicaciones") {
+      restoreHistorySnapshot({
+        myweb: 1,
+        section: "about",
+        stageId: "",
+        levelId: "",
+        materialId: "",
+        unitId: "",
+        tabId: "",
+        miscId: "",
+        aboutView: raw === "about/publicaciones" ? "publicaciones" : "",
+        searchQuery: "",
+        docenciaCollapsed: false
+      });
+      return;
+    }
+    if (raw === "help" || raw === "privacy" || raw === "books" || raw === "legislacion" || raw === "updates" || raw === "docencia") {
       restoreHistorySnapshot({
         myweb: 1,
         section: raw,
@@ -1886,6 +1911,7 @@
         unitId: "",
         tabId: "",
         miscId: "",
+        aboutView: "",
         searchQuery: "",
         docenciaCollapsed: false
       });
@@ -2302,7 +2328,67 @@
       animateContentSwitch();
     }
 
-  function showAboutSection() {
+  function showAboutPublications() {
+    contentCardEl?.classList.remove("is-home");
+    toggleDocenciaMenu(false);
+    toggleContentCard(true);
+    tabPanelEl.dataset.unitId = "";
+    unitTagEl.textContent = "";
+    setUnitTitleCompact(false);
+    unitTitleEl.innerHTML =
+      `<span class="about-section-heading">SOBRE MÍ / PUBLICACIONES</span>
+        <button type="button" class="help-title-back about-title-back" aria-label="Volver">← VOLVER</button>`;
+    breadcrumbsEl.textContent = "";
+    progressIndicatorEl.textContent = "";
+    consumeWelcomeReveal();
+
+    const pubs = Array.isArray(DATA.academicPublications) ? DATA.academicPublications : [];
+    const listHtml = pubs.length
+      ? pubs
+          .map((p) => {
+            const title = escapeHtml(String(p?.title || "").trim());
+            const venue = escapeHtml(String(p?.venue || "").trim());
+            if (!title) return "";
+            return `
+              <li class="about-pub-item">
+                <span class="about-pub-title">${title}</span>
+                ${venue ? `<span class="about-pub-venue">${venue}</span>` : ""}
+              </li>`;
+          })
+          .filter(Boolean)
+          .join("")
+      : `<li class="about-pub-item about-pub-item--empty">No hay publicaciones disponibles.</li>`;
+
+    tabPanelEl.innerHTML = `
+      <div class="about-publications" lang="es">
+        <ul class="about-pub-list" aria-label="Publicaciones académicas">
+          ${listHtml}
+        </ul>
+      </div>
+    `;
+
+    const backBtn = unitTitleEl.querySelector(".about-title-back");
+    backBtn?.addEventListener("click", () => {
+      try {
+        if (history.state?.myweb === 1 && String(history.state.aboutView || "").trim() === "publicaciones") {
+          history.back();
+          return;
+        }
+      } catch {}
+      currentState = { ...currentState, section: "about", aboutView: "" };
+      showAboutSection({ view: "" });
+      pushAppHistory();
+    });
+    animateContentSwitch();
+  }
+
+  function showAboutSection(opts = {}) {
+    const view = String(opts?.view ?? currentState.aboutView ?? "").trim();
+    if (view === "publicaciones") {
+      showAboutPublications();
+      return;
+    }
+
     contentCardEl?.classList.remove("is-home");
     toggleDocenciaMenu(false);
     toggleContentCard(true);
@@ -2327,7 +2413,7 @@
           </div>
           <div class="about-section__body">
             <p>
-              Ingeniero de Minas (especialista en metalurgia y energía), comencé mi carrera profesional en el ámbito empresarial como ingeniero de I+D+i, jefe de taller y proyectos y dirección de producción en el sector del metal; trayectoria que fui compatibilizando con estudios de máster y doctorado, manteniendo siempre el contacto y el interés por el mundo académico, al cual me dedico actualmente, con más de 7 años de experiencia. He sido docente de Formación Profesional en Organización y Proyectos de Fabricación Mecánica y, en la actualidad, soy profesor de Tecnología, Ingeniería y Digitalización Aplicada en Educación Secundaria y Bachillerato, además de desempeñar el cargo de Coordinador TIC.
+              Ingeniero de Minas (especialista en metalurgia y energía), comencé mi carrera profesional en el ámbito empresarial como ingeniero de I+D+i, jefe de taller y proyectos y dirección de producción en el sector del metal; trayectoria que fui compatibilizando con estudios de máster y doctorado, manteniendo siempre el contacto y el interés por el <a href="#about/publicaciones" class="about-academic-link">mundo académico</a>, al cual me dedico actualmente, con más de 7 años de experiencia. He sido docente de Formación Profesional en Organización y Proyectos de Fabricación Mecánica y, en la actualidad, soy profesor de Tecnología, Ingeniería y Digitalización Aplicada en Educación Secundaria y Bachillerato, además de desempeñar el cargo de Coordinador TIC.
             </p>
             <p>
               Entre mis inquietudes están el entorno maker aplicado al diseño y la impresión 3D, la programación (Python) y la robótica, tecnología Blockchain y el uso de nuevas tecnologías basadas en IA, además de ser un apasionado de la ciberseguridad en entorno Linux.
@@ -2343,6 +2429,14 @@
         </div>
       </div>
     `;
+
+    const academicLink = tabPanelEl.querySelector(".about-academic-link");
+    academicLink?.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentState = { ...currentState, section: "about", aboutView: "publicaciones" };
+      showAboutPublications();
+      pushAppHistory();
+    });
     animateContentSwitch();
   }
 
@@ -4148,8 +4242,8 @@
   if (aboutBtnEl) {
     aboutBtnEl.addEventListener("click", () => {
       setActiveMenu(aboutBtnEl);
-      showAboutSection();
-      currentState = { ...currentState, section: "about" };
+      currentState = { ...currentState, section: "about", aboutView: "" };
+      showAboutSection({ view: "" });
       pushAppHistory();
     });
   }
