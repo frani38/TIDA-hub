@@ -434,6 +434,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - SOBRE MÍ: «mundo académico» enlaza a un listado de publicaciones académicas (datos en `data.js` / `publications/publications.txt`) con botón ← VOLVER a la biografía.
 
+## 1.3.1
+
+- Publicaciones académicas: títulos con DOI online enlazan al documento original (Applied Thermal Engineering y Journal of Mathematical Chemistry); el resto sin URL pública localizable queda como texto.
+
 ---
 
 ## Convención (recordatorio)
@@ -546,3 +550,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.52** | Scroll vertical sin atravesar el pie (footer en flex) |
 | **1.2.53** | INICIO/DOCENCIA otra vez pegados a la cabecera |
 | **1.3.0** | SOBRE MÍ: enlace a publicaciones académicas |
+| **1.3.1** | Publicaciones: hipervínculos DOI cuando hay versión online |

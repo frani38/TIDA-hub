@@ -3003,6 +3003,23 @@ body.theme-light .about-section__photo img {
   line-height: 1.35;
 }
 
+a.about-pub-title-link {
+  color: #1d4ed8;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.about-pub-title-link:hover {
+  color: #1e40af;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+a.about-pub-title-link:focus-visible {
+  outline: 2px solid #9fc0ff;
+  outline-offset: 2px;
+}
+
 .about-pub-venue {
   color: #475569;
   font-size: 0.92rem;

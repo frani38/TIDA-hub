@@ -2348,10 +2348,14 @@
           .map((p) => {
             const title = escapeHtml(String(p?.title || "").trim());
             const venue = escapeHtml(String(p?.venue || "").trim());
+            const url = String(p?.url || "").trim();
             if (!title) return "";
+            const titleHtml = url
+              ? `<a class="about-pub-title about-pub-title-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${title}</a>`
+              : `<span class="about-pub-title">${title}</span>`;
             return `
               <li class="about-pub-item">
-                <span class="about-pub-title">${title}</span>
+                ${titleHtml}
                 ${venue ? `<span class="about-pub-venue">${venue}</span>` : ""}
               </li>`;
           })

@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.3.0",
+    version: "1.3.1",
     updated: "2026-10-29",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -27,17 +27,20 @@ window.MYWEB_DATA = {
   /*
     Publicaciones académicas (SOBRE MÍ → enlace «mundo académico»).
     Fuente editorial paralela: publications/publications.txt (mantener alineado al editar).
+    url opcional: DOI o página del documento original cuando esté online.
   */
   academicPublications: [
     {
       title:
         "Determining ground thermal properties using logs and thermal drill cutting analysis. First relationship with thermal response test in principality of Asturias, Spain",
       venue: "Applied Thermal Engineering 37 (2012). 226-234",
+      url: "https://doi.org/10.1016/j.applthermaleng.2011.11.020",
     },
     {
       title:
         "Design for an asymmetrical cyclic neutron activation process for determining fluorite grade in fluorspar concentrate",
       venue: "Journal of Mathematical Chemistry, Volume 50, Number 2, 394-409 (2012)",
+      url: "https://doi.org/10.1007/s10910-011-9918-0",
     },
     {
       title:

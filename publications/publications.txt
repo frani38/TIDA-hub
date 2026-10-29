@@ -1,12 +1,15 @@
 # Fuente editorial de publicaciones académicas (SOBRE MÍ).
 # La web lee la copia estructurada en data.js → academicPublications.
 # Al añadir o editar entradas, actualiza ambos archivos.
+# URL (si existe online): anotar debajo del venue o en data.js → url.
 
 "Determining ground thermal properties using logs and thermal drill cutting analysis. First relationship with thermal response test in principality of Asturias, Spain"
 Applied Thermal Engineering 37 (2012). 226-234
+https://doi.org/10.1016/j.applthermaleng.2011.11.020
 
 “Design for an asymmetrical cyclic neutron activation process for determining fluorite grade in fluorspar concentrate“
 Journal of Mathematical Chemistry, Volume 50, Number 2, 394-409 (2012)
+https://doi.org/10.1007/s10910-011-9918-0
 
 “Ensayo para la medida de la conductividad térmica y la capacidad calorífica volumétrica del terreno a partir de los detritus de perforación“
 GeoEner 2012. p.47-52. (ISBN: 978-84-615-8177-1)
