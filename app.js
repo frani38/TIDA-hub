@@ -491,7 +491,8 @@
         requestAnimationFrame(() => {
           try {
             const compact =
-              !!window.matchMedia && window.matchMedia("(max-width: 1679.98px)").matches;
+              !!window.matchMedia &&
+              window.matchMedia("(max-width: 1679.98px) and (hover: none) and (pointer: coarse)").matches;
             if (compact && yearResultsEl instanceof HTMLElement) {
               yearResultsEl.scrollIntoView({ block: "start", behavior: "smooth" });
             } else {
@@ -2702,7 +2703,10 @@
 
     const isCompactViewport = () => {
       try {
-        return !!window.matchMedia && window.matchMedia("(max-width: 1679.98px)").matches;
+        return (
+          !!window.matchMedia &&
+          window.matchMedia("(max-width: 1679.98px) and (hover: none) and (pointer: coarse)").matches
+        );
       } catch {
         return false;
       }

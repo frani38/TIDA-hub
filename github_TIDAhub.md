@@ -257,8 +257,8 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 ## 8. Decisiones de diseño ligadas al hosting
 
 - **Sin backend:** ideal para Pages; contacto externalizado (Web3Forms).  
-- **Layout híbrido:** en escritorio ancho (≥1680px) se conserva el lienzo fijo histórico; bajo ese umbral hay reflow (tablet/móvil/zoom, WCAG 1.4.10).  
-- **Móvil/tablet (línea 1.2.x):** cabecera y lema adaptativos; Miscelánea con título+VOLVER en una línea, iconos de sección dimensionados y scroll al tope al abrir subapartados; avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE con tipografía contenida; pie no fijo.  
+- **Layout híbrido (1.4.0+):** en navegador de PC se conserva el lienzo fijo histórico (1680px); al estrechar la ventana hay scroll, no reflow. El layout compacto solo en dispositivos táctiles (`hover: none` + `pointer: coarse`) con viewport estrecho.  
+- **Móvil/tablet:** cabecera y lema adaptativos; Miscelánea con título+VOLVER en una línea, iconos de sección dimensionados y scroll al tope al abrir subapartados; avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE con tipografía contenida; pie no fijo.  
 - **Fuentes locales** en `fonts/`: no dependen de CDNs bloqueados.  
 - **Historial del navegador:** hashes + `history.pushState` para atrás/adelante entre secciones; subapartados de Miscelánea registran `miscId` (atrás → hub); `history.scrollRestoration = "manual"`.  
 - **Web3Forms free:** honeypot + antispam; Restrict to Domains solo en Pro.
