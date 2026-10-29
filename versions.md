@@ -418,6 +418,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Escritorio: la barra de scroll vertical queda en `.app` (zona central), sin solapar cabecera ni pie (NOVEDADES, LEGISLACIÓN, etc.).
 
+## 1.2.51
+
+- Corrige títulos de sección (`#unit-title`) tras el scroll en `.app`: sticky con `top:0` en escritorio (ya no flotan a media altura) y menos recorte de tipografía; en móvil se mantiene el anclaje bajo la cabecera sticky.
+
 ---
 
 ## Convención (recordatorio)
@@ -526,3 +530,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.48** | data.js sin caché: contenido visible sin bump |
 | **1.2.49** | SOBRE MÍ: sin barra de scroll fantasma |
 | **1.2.50** | Scroll vertical solo entre cabecera y pie |
+| **1.2.51** | Títulos de sección: sticky correcto con scroll en `.app` |

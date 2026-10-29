@@ -495,13 +495,14 @@ body.theme-light header .header-search .search-action-btn:hover {
 .app {
   max-width: none;
   margin: 0 auto;
-  /* Sin padding superior para que DOCENCIA pueda ir pegado a la cabecera */
-  padding: 0 1rem calc(1rem + var(--footer-h));
+  /* padding-top: evita que Orbitron en #unit-title se recorte con overflow-y del scroller */
+  padding: 0.45rem 1rem calc(1rem + var(--footer-h));
   width: max(100%, var(--site-min-width));
   min-width: var(--site-min-width);
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   /* Scroll central: entre cabecera y pie fijo (no solapa header/footer). */
   overflow-x: auto;
@@ -797,15 +798,21 @@ main {
   text-transform: uppercase;
 }
 
-/* Mantener visible el título de la sección al hacer scroll (incluye el botón VOLVER).
-   Pegado al borde inferior de la cabecera (sin +0.25rem): ese hueco dejaba ver texto
-   entrecortado de la política al hacer scroll en AYUDA. */
+/* Título de sección sticky respecto al scroller .app (no al viewport).
+   top:0 = pegado al borde superior de la zona central (cabecera ya está fuera de .app).
+   Antes top:var(--home-news-top) dejaba el título flotando a media altura. */
 #unit-title {
   position: sticky;
-  top: var(--home-news-top, 0px);
+  top: 0;
   z-index: 20;
   margin-top: 0;
-  padding: 0.12rem 0.25rem;
+  margin-bottom: 0.45rem;
+  padding: 0.28rem 0.25rem 0.2rem;
+  width: 100%;
+  align-self: stretch;
+  box-sizing: border-box;
+  line-height: 1.2;
+  overflow: visible;
   background: #0a0f1f;
   backdrop-filter: none;
   box-shadow: 0 -2px 0 #0a0f1f;
@@ -3760,6 +3767,11 @@ body.theme-light .theme-switch-btn.active {
 
   .app {
     overflow: visible;
+  }
+
+  /* Móvil: scroll en documento + cabecera sticky → el título debe quedar bajo el header. */
+  #unit-title {
+    top: var(--home-news-top, 0px);
   }
 
   body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
