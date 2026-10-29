@@ -495,8 +495,10 @@ body.theme-light header .header-search .search-action-btn:hover {
 .app {
   max-width: none;
   margin: 0 auto;
-  /* padding-top: evita que Orbitron en #unit-title se recorte con overflow-y del scroller */
-  padding: 0.45rem 1rem calc(1rem + var(--footer-h));
+  /* padding-top: evita que Orbitron en #unit-title se recorte con overflow-y del scroller.
+     Sin reserva de pie: el footer está en el flex de body, no encima de .app;
+     así la barra de scroll no atraviesa el footprint. */
+  padding: 0.45rem 1rem 1rem;
   width: max(100%, var(--site-min-width));
   min-width: var(--site-min-width);
   flex: 1 1 auto;
@@ -504,7 +506,7 @@ body.theme-light header .header-search .search-action-btn:hover {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  /* Scroll central: entre cabecera y pie fijo (no solapa header/footer). */
+  /* Scroll solo en la franja central (entre cabecera y pie del flex). */
   overflow-x: auto;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -1207,7 +1209,7 @@ body.theme-light .unit-material-card__label {
   max-width: 980px;
   width: 980px;
   margin: 0 auto;
-  padding-bottom: calc(var(--footer-h) + 1rem);
+  padding-bottom: 1rem;
 }
 
 /* Política en AYUDA: sin gap flex (si no, título↔RGPD queda a 0.85rem). */
@@ -2037,7 +2039,7 @@ body:has(.home-split.is-archive) .home-year-results {
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem 1.35rem;
   align-items: start;
-  padding-bottom: calc(var(--footer-h) + 1.25rem);
+  padding-bottom: 1.25rem;
 }
 
 .law-page__col {
@@ -2218,7 +2220,7 @@ a.law-title-link:hover {
 /* Búsqueda global (cabecera → área de trabajo) */
 .global-search-page {
   font-family: var(--tech-font);
-  padding: 0.25rem 0.15rem calc(var(--footer-h) + 1rem);
+  padding: 0.25rem 0.15rem 1rem;
   /* Casi todo el ancho útil del panel: menos saltos de línea en títulos largos (p. ej. legislación). */
   max-width: 1360px;
   width: 100%;
@@ -2867,7 +2869,7 @@ a.news-title-link:hover {
   --about-p-lh: 1.62;
   max-width: 1270px;
   margin: 0 auto;
-  /* El pie ya lo reserva .app (padding-bottom); no duplicar aquí. */
+  /* El pie está fuera de .app (flex de body); no hace falta reservarlo aquí. */
   padding: 0.35rem 0.25rem 0.5rem;
   user-select: none;
   cursor: default;
@@ -3098,7 +3100,7 @@ body.theme-light .construction-notice strong {
 .readings-page {
   max-width: 100%;
   margin: 0;
-  padding: 0.4rem 0.5rem calc(var(--footer-h) + 1rem);
+  padding: 0.4rem 0.5rem 1rem;
   box-sizing: border-box;
 }
 
@@ -3660,10 +3662,9 @@ body.theme-light .theme-switch-btn.active {
 }
 
 .site-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  /* En flujo del flex de body (no fixed): .app termina encima y su scrollbar no pasa detrás. */
+  position: relative;
+  flex: 0 0 auto;
   z-index: 50;
   background: #ffffff;
   border-top: 1px solid rgba(15, 23, 42, 0.12);
@@ -3936,7 +3937,7 @@ body.theme-light .theme-switch-btn.active {
   }
 
   .app {
-    padding: 0 0.75rem calc(0.85rem + var(--footer-h));
+    padding: 0 0.75rem 0.85rem;
   }
 
   .top-menu {
