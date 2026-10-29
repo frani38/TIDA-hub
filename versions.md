@@ -459,6 +459,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 - Layout: en PC el lienzo de escritorio (1680px) se mantiene al redimensionar la ventana; aparecen scroll horizontal/vertical en lugar de pasar a layout móvil/tablet.
 - El reflow compacto solo se activa en dispositivos táctiles (`hover: none` + `pointer: coarse`) con viewport estrecho.
 
+## 1.4.1
+
+- PC ventana &lt; 1680px: scroll H+V en el viewport (`html`); la barra vertical queda fija al borde derecho (desde cabecera hasta el pie, contactando con la horizontal) y no se desplaza con el lienzo al hacer scroll horizontal.
+
 ---
 
 ## Convención (recordatorio)
@@ -577,3 +581,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.3.4** | PUBLICACIONES móvil: título y VOLVER en una línea |
 | **1.3.5** | PUBLICACIONES: scroll al top al abrir en móvil |
 | **1.4.0** | PC: escritorio fijo al redimensionar; reflow solo táctil |
+| **1.4.1** | PC estrecho: barra vertical fija al borde derecho del viewport |

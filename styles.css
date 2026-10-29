@@ -3812,6 +3812,65 @@ body.theme-light .theme-switch-btn.active {
 
 /*
   =============================================================================
+  PC con ventana < 1680px (ratón): scroll H+V en el viewport (html).
+  La barra vertical queda fija al borde derecho de la ventana y contacta con la
+  horizontal abajo; no viaja con el lienzo de 1680px al hacer scroll horizontal.
+  (El layout ≥1680 y el táctil compacto no usan este bloque.)
+  =============================================================================
+*/
+
+@media (max-width: 1679.98px) and (hover: hover) and (pointer: fine) {
+  html,
+  html.updates-archive {
+    height: auto;
+    min-height: 100%;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  body,
+  html.updates-archive body {
+    height: auto;
+    max-height: none;
+    min-height: 100%;
+    overflow: visible;
+  }
+
+  .app,
+  html.updates-archive .app,
+  body:has(.home-split.is-archive) .app,
+  body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
+  body:has(.about-section) .app,
+  body:has(.misc-grid):not(:has(.misc-detail)) .app {
+    overflow: visible;
+    flex: 1 0 auto;
+    min-height: 0;
+  }
+
+  /* Evitar barras verticales anidadas que queden “dentro” del lienzo. */
+  .tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)),
+  .tab-panel:has(.misc-grid):not(:has(.misc-detail)),
+  .tab-panel:has(.about-section) {
+    overflow: visible;
+    flex: 0 1 auto;
+  }
+
+  /*
+    NOTICIAS en histórico: absolute al lienzo (no fixed al viewport),
+    para que acompañe el scroll horizontal del diseño de 1680px.
+  */
+  .content-card.is-home:has(.home-split.is-archive) .home-news {
+    position: absolute;
+    top: 0;
+    right: -1rem;
+    left: auto;
+    bottom: auto;
+  }
+}
+
+/*
+  =============================================================================
   RESPONSIVE táctil (móvil / tablet) — no al redimensionar un navegador de PC.
   Condición: viewport estrecho + (hover:none) + (pointer:coarse).
   En PC el lienzo 1680px se mantiene; aparecen scroll horizontal/vertical.
