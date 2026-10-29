@@ -2429,7 +2429,7 @@
               En esta web pretendo reunir todo aquello que considero fundamental para el desempeño de mi labor docente y para facilitar el aprendizaje y el estudio del alumnado, además de servir como espacio de divulgación personal y profesional orientado al desarrollo de las habilidades técnicas, digitales y personales para la sociedad actual y futura. Espero que los contenidos te resulten útiles.
             </p>
             <p>
-              Si necesitas resolver alguna duda o ampliar información, o si consideras que algún material de este sitio vulnera derechos de autor o no se utiliza conforme a la licencia que le corresponde, comunícamelo por el apartado <strong>AYUDA</strong>, así revisaré el caso y corregiré el error a la mayor brevedad posible.
+              Si necesitas resolver alguna duda o ampliar información, o si consideras que algún material de este sitio vulnera derechos de autor o no se utiliza conforme a la licencia que le corresponde, comunícamelo por el apartado <a href="#help" class="about-help-link">AYUDA</a>, así revisaré el caso y corregiré el error a la mayor brevedad posible.
             </p>
             <p class="about-section__signoff">¡Un saludo!<br />Fran.</p>
           </div>
@@ -2442,6 +2442,15 @@
       e.preventDefault();
       currentState = { ...currentState, section: "about", aboutView: "publicaciones" };
       showAboutPublications();
+      pushAppHistory();
+    });
+
+    const helpLink = tabPanelEl.querySelector(".about-help-link");
+    helpLink?.addEventListener("click", (e) => {
+      e.preventDefault();
+      setActiveMenu(helpBtnEl);
+      currentState = { ...currentState, section: "help", aboutView: "" };
+      showHelpForm();
       pushAppHistory();
     });
     animateContentSwitch();

@@ -2951,7 +2951,8 @@ body.theme-light .about-section__photo img {
   border-color: rgba(37, 99, 235, 0.22);
 }
 
-.about-academic-link {
+.about-academic-link,
+.about-help-link {
   color: var(--accent);
   font-weight: 650;
   text-decoration: underline;
@@ -2959,11 +2960,13 @@ body.theme-light .about-section__photo img {
   cursor: pointer;
 }
 
-.about-academic-link:hover {
+.about-academic-link:hover,
+.about-help-link:hover {
   color: var(--accent-2);
 }
 
-.about-academic-link:focus-visible {
+.about-academic-link:focus-visible,
+.about-help-link:focus-visible {
   outline: 2px solid #9fc0ff;
   outline-offset: 2px;
 }
