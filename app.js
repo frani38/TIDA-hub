@@ -2153,8 +2153,9 @@
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
-    unitTitleEl.innerHTML =
-      'AYUDA <button type="button" class="help-title-back" aria-label="Volver">← VOLVER</button>';
+    setUnitTitleCompact(false);
+    unitTitleEl.innerHTML = `<span class="help-section-heading">AYUDA</span>
+      <button type="button" class="help-title-back help-privacy-back" aria-label="Volver">← VOLVER</button>`;
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
     consumeWelcomeReveal();

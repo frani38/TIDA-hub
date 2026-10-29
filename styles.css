@@ -4375,8 +4375,26 @@ body.theme-light .theme-switch-btn.active {
     box-sizing: border-box;
   }
 
+  /*
+    AYUDA / privacidad: mismo layout título+VOLVER que Miscelánea,
+    pero sin reducir el tamaño del título de sección.
+  */
+  body:has(.help-privacy-panel) .content-card h2#unit-title,
+  body:has(.help-privacy-panel) .content-card #unit-title {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem 0.45rem;
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+    letter-spacing: 0.02em;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   body:has(.misc-detail) #unit-title .misc-section-heading,
-  body:has(.about-publications) #unit-title .about-section-heading {
+  body:has(.about-publications) #unit-title .about-section-heading,
+  body:has(.help-privacy-panel) #unit-title .help-section-heading {
     flex: 1 1 auto;
     min-width: 0;
     white-space: nowrap;
@@ -4387,7 +4405,9 @@ body.theme-light .theme-switch-btn.active {
   body:has(.misc-detail) #unit-title .help-title-back,
   body:has(.misc-detail) #unit-title .misc-title-back,
   body:has(.about-publications) #unit-title .help-title-back,
-  body:has(.about-publications) #unit-title .about-title-back {
+  body:has(.about-publications) #unit-title .about-title-back,
+  body:has(.help-privacy-panel) #unit-title .help-title-back,
+  body:has(.help-privacy-panel) #unit-title .help-privacy-back {
     margin-left: auto;
     flex: 0 0 auto;
     font-size: clamp(0.5rem, 1.85vw, 0.6rem);
@@ -4715,10 +4735,19 @@ body.theme-light .theme-switch-btn.active {
     gap: 0.3rem;
   }
 
+  /* Privacidad desde AYUDA: título grande intacto también en pantallas muy estrechas */
+  body:has(.help-privacy-panel) .content-card h2#unit-title,
+  body:has(.help-privacy-panel) .content-card #unit-title {
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+    gap: 0.3rem;
+  }
+
   body:has(.misc-detail) #unit-title .help-title-back,
   body:has(.misc-detail) #unit-title .misc-title-back,
   body:has(.about-publications) #unit-title .help-title-back,
-  body:has(.about-publications) #unit-title .about-title-back {
+  body:has(.about-publications) #unit-title .about-title-back,
+  body:has(.help-privacy-panel) #unit-title .help-title-back,
+  body:has(.help-privacy-panel) #unit-title .help-privacy-back {
     font-size: clamp(0.46rem, 1.75vw, 0.56rem);
     padding: 0.14rem 0.36rem;
     min-height: 0;
