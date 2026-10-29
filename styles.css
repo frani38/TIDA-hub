@@ -215,12 +215,12 @@ body.theme-light .site-footer a:hover {
 }
 
 html {
-  height: auto;
+  height: 100%;
   min-height: 100%;
   min-width: var(--site-min-width);
-  /* Barras cuando la ventana es más estrecha/baja que el lienzo de escritorio. */
+  /* Horizontal: lienzo mínimo. Vertical: scroll en .app (entre cabecera y pie). */
   overflow-x: auto;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 body {
@@ -229,13 +229,14 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
-  /* Al menos un viewport; el lienzo mínimo lo imponen las secciones (sin forzar scroll de más). */
-  height: auto;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 0;
   min-width: var(--site-min-width);
   width: max(100%, var(--site-min-width));
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /* Accesibilidad: salto rápido a contenido (solo visible al enfocar) */
@@ -282,8 +283,9 @@ header {
     radial-gradient(900px 500px at 110% 10%, #1f2f5e 0%, transparent 62%),
     linear-gradient(135deg, #0d1429, #121b37 45%, #0d1429);
   color: var(--title);
-  position: sticky;
-  top: 0;
+  /* Fuera del scroller .app: la barra vertical no atraviesa la cabecera. */
+  position: relative;
+  flex: 0 0 auto;
   z-index: 60;
   min-width: var(--site-min-width);
   width: max(100%, var(--site-min-width));
@@ -501,6 +503,17 @@ body.theme-light header .header-search .search-action-btn:hover {
   min-height: 0;
   display: flex;
   box-sizing: border-box;
+  /* Scroll central: entre cabecera y pie fijo (no solapa header/footer). */
+  overflow-x: auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Secciones de un viewport: el scroll (si hay) sigue en #tab-panel, no en .app. */
+body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
+body:has(.about-section) .app,
+body:has(.misc-grid):not(:has(.misc-detail)) .app {
+  overflow: hidden;
 }
 
 .app-layout {
@@ -1879,47 +1892,45 @@ body.theme-light .help-form-status.is-error {
   margin: 0.35rem auto 0;
 }
 
-/* NOVEDADES: scroll de página (lienzo), no panel interno.
-   Un overflow interno + overscroll-behavior:contain atrapaba la rueda del ratón
-   y solo respondía al pasar por la barra; la rueda debe funcionar en todo el contenido. */
+/* NOVEDADES / HISTÓRICO: scroll en .app (zona central), no en html (evita barra sobre header/pie). */
 html.updates-archive {
   overflow-x: auto;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 html.updates-archive body {
-  overflow-x: visible;
-  overflow-y: visible;
+  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+html.updates-archive .app,
+body:has(.home-split.is-archive) .app {
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 html.updates-archive #tab-panel {
   flex: 1 1 auto;
-  min-height: max(
-    var(--site-canvas-main-h),
-    calc(100vh - var(--home-news-top, 0px) - var(--footer-h))
-  );
+  min-height: 0;
   height: auto;
   overflow: visible;
 }
 
-/* HISTÓRICO: el scroll es de página (lienzo), no un panel interno que se aplasta. */
 body:has(.home-split.is-archive) #tab-panel {
   flex: 1 1 auto;
-  min-height: var(--site-canvas-main-h);
+  min-height: 0;
   overflow: visible;
 }
 
-/* HISTÓRICO: scroll de página (lienzo fijo); sin ocultar overflow-y al acortar. */
 body:has(.home-split.is-archive) {
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
 }
 
 .tab-panel:has(.home-split.is-archive) {
-  min-height: max(
-    var(--site-canvas-main-h),
-    calc(100vh - var(--home-news-top, 0px) - var(--footer-h))
-  );
+  min-height: 0;
   height: auto;
   overflow: visible;
   display: flex;
@@ -3729,15 +3740,34 @@ body.theme-light .theme-switch-btn.active {
   }
 
   html {
+    height: auto;
     overflow-x: hidden;
     overflow-y: auto;
   }
 
   body {
     height: auto;
+    max-height: none;
     min-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  .app {
+    overflow: visible;
+  }
+
+  body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
+  body:has(.about-section) .app,
+  body:has(.misc-grid):not(:has(.misc-detail)) .app,
+  html.updates-archive .app,
+  body:has(.home-split.is-archive) .app {
+    overflow: visible;
   }
 
   /* Desbloquear “viewport único” de INICIO / Miscelánea hub / Sobre mí */
@@ -3755,6 +3785,21 @@ body.theme-light .theme-switch-btn.active {
     height: auto;
     max-height: none;
     min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  html.updates-archive,
+  body:has(.home-split.is-archive) {
+    height: auto;
+    max-height: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  html.updates-archive body {
+    height: auto;
+    max-height: none;
     overflow-x: hidden;
     overflow-y: auto;
   }

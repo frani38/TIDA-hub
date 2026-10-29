@@ -4352,6 +4352,8 @@
 
   function getMainVerticalScroller() {
     if (tabPanelEl && isVerticallyScrollable(tabPanelEl)) return tabPanelEl;
+    const appEl = document.querySelector(".app");
+    if (appEl instanceof HTMLElement && isVerticallyScrollable(appEl)) return appEl;
     const root = document.scrollingElement || document.documentElement;
     if (root && root.scrollHeight > root.clientHeight + 1) return root;
     return null;
