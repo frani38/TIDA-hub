@@ -495,10 +495,10 @@ body.theme-light header .header-search .search-action-btn:hover {
 .app {
   max-width: none;
   margin: 0 auto;
-  /* padding-top: evita que Orbitron en #unit-title se recorte con overflow-y del scroller.
-     Sin reserva de pie: el footer está en el flex de body, no encima de .app;
-     así la barra de scroll no atraviesa el footprint. */
-  padding: 0.45rem 1rem 1rem;
+  /* Sin padding superior: DOCENCIA (.top-menu) e INICIO (.home-news) van pegados a la cabecera.
+     El pie está en el flex de body (no encima de .app), así el scroll no atraviesa el footprint.
+     El aire de tipografía sticky lo aporta el padding de #unit-title, no este contenedor. */
+  padding: 0 1rem 1rem;
   width: max(100%, var(--site-min-width));
   min-width: var(--site-min-width);
   flex: 1 1 auto;

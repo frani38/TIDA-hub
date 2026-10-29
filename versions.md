@@ -426,6 +426,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Pie en flujo del flex de `body` (no `fixed`): `.app` termina encima del footprint y la barra de scroll vertical ya no pasa por detrás en ninguna sección.
 
+## 1.2.53
+
+- Quita el `padding-top` de `.app` que separaba NOTICIAS (INICIO) y la barra SELECCIONA… (DOCENCIA) de la cabecera; vuelven pegados como antes.
+
 ---
 
 ## Convención (recordatorio)
@@ -536,3 +540,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.50** | Scroll vertical solo entre cabecera y pie |
 | **1.2.51** | Títulos de sección: sticky correcto con scroll en `.app` |
 | **1.2.52** | Scroll vertical sin atravesar el pie (footer en flex) |
+| **1.2.53** | INICIO/DOCENCIA otra vez pegados a la cabecera |
