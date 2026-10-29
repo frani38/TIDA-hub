@@ -46,19 +46,24 @@ window.MYWEB_DATA = {
       title:
         "Ensayo para la medida de la conductividad térmica y la capacidad calorífica volumétrica del terreno a partir de los detritus de perforación",
       venue: "GeoEner 2012. p.47-52. (ISBN: 978-84-615-8177-1)",
+      /* Ficha detalle sidTitul=1932822 ya no responde (404); búsqueda ISBN del Ministerio. */
+      url: "https://www.cultura.gob.es/webISBN/tituloSimpleFilter.do?cache=init&prev_layout=busquedaisbn&layout=busquedaisbn&language=es",
     },
     {
       title: "Instrumentación de un sondeo geotécnico con fines geotérmicos",
       venue: "GeoEner 2012. p.191-205. (ISBN: 978-84-615-8177-1)",
+      url: "https://www.cultura.gob.es/webISBN/tituloSimpleFilter.do?cache=init&prev_layout=busquedaisbn&layout=busquedaisbn&language=es",
     },
     {
       title: "Medición de la conductividad térmica del terreno a partir de testigos de sondeos",
       venue: "GeoEner 2012. p.63-73. (ISBN: 978-84-615-8177-1)",
+      url: "https://www.cultura.gob.es/webISBN/tituloSimpleFilter.do?cache=init&prev_layout=busquedaisbn&layout=busquedaisbn&language=es",
     },
     {
       title:
         "Nuevo procedimiento para la determinación de las propiedades térmicas del terreno a partir de detritus y diagrafías del sondeo. Relación con ensayo TRT",
       venue: "GeoEner 2012. p.53-62. (ISBN: 978-84-615-8177-1)",
+      url: "https://www.cultura.gob.es/webISBN/tituloSimpleFilter.do?cache=init&prev_layout=busquedaisbn&layout=busquedaisbn&language=es",
     },
     {
       title: "Determining the volumetric heat capacity of a geothermal borehole and its use in TRT",
