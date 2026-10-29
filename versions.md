@@ -402,6 +402,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Cache-bust: lazo negro más grande / menos transparente (el CSS no se veía con `styles.css?v=1.2.45` cacheado).
 
+## 1.2.47
+
+- Noticias no vistas: borde dorado con pulso intermitente (misma cadencia que el nudge de NOVEDADES).
+
 ---
 
 ## Convención (recordatorio)
@@ -506,3 +510,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.2.44** | version-boot: forzar HTML/assets a la versión publicada |
 | **1.2.45** | INICIO: lazo negro marca de agua (temporal) |
 | **1.2.46** | Cache-bust CSS lazo negro (tamaño/opacidad) |
+| **1.2.47** | Noticias: pulso dorado como nudge de NOVEDADES |
