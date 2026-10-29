@@ -463,6 +463,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - PC ventana &lt; 1680px: scroll H+V en el viewport (`html`); la barra vertical queda fija al borde derecho (desde cabecera hasta el pie, contactando con la horizontal) y no se desplaza con el lienzo al hacer scroll horizontal.
 
+## 1.4.2
+
+- PC estrecho: la barra vertical del viewport vuelve a mostrarse (antes la anulaban las reglas `html:has`/`body:has` de INICIO); se aplica a todo `&lt;1680px` y el táctil lo sobrescribe; `overflow-y: scroll` fija el carril al borde derecho.
+
 ---
 
 ## Convención (recordatorio)
@@ -582,3 +586,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.3.5** | PUBLICACIONES: scroll al top al abrir en móvil |
 | **1.4.0** | PC: escritorio fijo al redimensionar; reflow solo táctil |
 | **1.4.1** | PC estrecho: barra vertical fija al borde derecho del viewport |
+| **1.4.2** | PC estrecho: barra V del viewport ya no la anulan las reglas :has |

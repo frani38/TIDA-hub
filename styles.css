@@ -3812,25 +3812,33 @@ body.theme-light .theme-switch-btn.active {
 
 /*
   =============================================================================
-  PC con ventana < 1680px (ratón): scroll H+V en el viewport (html).
-  La barra vertical queda fija al borde derecho de la ventana y contacta con la
-  horizontal abajo; no viaja con el lienzo de 1680px al hacer scroll horizontal.
-  (El layout ≥1680 y el táctil compacto no usan este bloque.)
+  Ventana < 1680px con lienzo de escritorio (antes del bloque táctil):
+  scroll H+V en el viewport (html). La vertical queda fija al borde derecho
+  y contacta con la horizontal abajo; no viaja con el lienzo al panear en H.
+  Debe ganar a las reglas html:has(...)/body:has(...) que ocultan overflow-y
+  en INICIO / SOBRE MÍ / MISCELÁNEA hub. El bloque táctil (después) lo anula.
   =============================================================================
 */
 
-@media (max-width: 1679.98px) and (hover: hover) and (pointer: fine) {
+@media (max-width: 1679.98px) {
   html,
-  html.updates-archive {
+  html.updates-archive,
+  html:has(.content-card.is-home):not(:has(.home-split.is-archive)),
+  html:has(.about-section),
+  html:has(.misc-grid):not(:has(.misc-detail)) {
     height: auto;
     min-height: 100%;
     max-height: none;
     overflow-x: auto;
-    overflow-y: auto;
+    overflow-y: scroll; /* carril vertical siempre al borde derecho de la ventana */
   }
 
   body,
-  html.updates-archive body {
+  html.updates-archive body,
+  body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
+  body:has(.about-section),
+  body:has(.misc-grid):not(:has(.misc-detail)),
+  body:has(.home-split.is-archive) {
     height: auto;
     max-height: none;
     min-height: 100%;
@@ -3843,29 +3851,41 @@ body.theme-light .theme-switch-btn.active {
   body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
   body:has(.about-section) .app,
   body:has(.misc-grid):not(:has(.misc-detail)) .app {
-    overflow: visible;
+    overflow: visible !important;
     flex: 1 0 auto;
     min-height: 0;
+    height: auto;
   }
 
-  /* Evitar barras verticales anidadas que queden “dentro” del lienzo. */
+  /* Evitar barras verticales anidadas “dentro” del lienzo de 1680px. */
   .tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)),
   .tab-panel:has(.misc-grid):not(:has(.misc-detail)),
-  .tab-panel:has(.about-section) {
+  .tab-panel:has(.about-section),
+  body:has(.home-split.is-archive) #tab-panel,
+  html.updates-archive #tab-panel {
     overflow: visible;
     flex: 0 1 auto;
+    height: auto;
+    max-height: none;
   }
 
   /*
-    NOTICIAS en histórico: absolute al lienzo (no fixed al viewport),
-    para que acompañe el scroll horizontal del diseño de 1680px.
+    INICIO: el panel NOTICIAS no debe anclarse a 100vh del viewport ni ser
+    fixed; el bloque crece con el documento para poder hacer scroll vertical.
   */
+  .content-card.is-home {
+    min-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+  }
+
+  .home-news,
   .content-card.is-home:has(.home-split.is-archive) .home-news {
     position: absolute;
     top: 0;
     right: -1rem;
     left: auto;
-    bottom: auto;
+    bottom: 0;
+    height: auto;
+    max-height: none;
   }
 }
 
@@ -4175,10 +4195,15 @@ body.theme-light .theme-switch-btn.active {
     font-size: clamp(0.88rem, 2.85vw, 1.02rem);
   }
 
+  .content-card.is-home {
+    min-height: 0;
+  }
+
   .home-news {
     position: static;
     top: auto;
     right: auto;
+    bottom: auto;
     width: 100%;
     max-width: none;
     height: auto !important;
