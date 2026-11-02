@@ -1,8 +1,8 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.8.9**).
 
-Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`.
+Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
 ---
 

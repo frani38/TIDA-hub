@@ -140,11 +140,11 @@ Formato de **tres dígitos** (ej. `1.2.22` → se muestra `v1.2.22`):
 - El pie se rellena solo al cargar la página
 - Anti-caché: `version-boot.js` descarga `data.js` sin caché (contenido editorial fresco sin bump) y fuerza recarga HTML con `?v=` si la versión técnica está desfasada; CSS/`app.js` usan `MYWEB_ASSET_V`
 - **Regla fija del agente:** `.cursor/rules/version-semver.mdc`
-  - **Sí bumpear** en cambios técnicos (código, estilos, docs de ingeniería, reglas)
-  - **No bumpear** en altas/ediciones solo de contenido editorial (libros, juegos, media, noticias, legislación, materiales de `content/`/`books/`, …)
+  - **Sí bumpear** en cambios de la web que ve el visitante (código, estilos, HTML de producto, assets de UI)
+  - **No bumpear** en altas/ediciones solo de contenido editorial (libros, juegos, media, noticias, legislación, materiales de `content/`/`books/`/`softskills/` si solo son catálogo, …) ni en documentación/reglas puras (`README`, `versions.md`, informe LaTeX, `.cursor/rules`, …)
 - Publicación automática a `main`: `.cursor/rules/auto-publish.mdc`
 
-Versión actual de referencia: ver `siteMeta.version` en `data.js` e historial en `versions.md`.
+Versión actual de referencia: ver `siteMeta.version` en `data.js` (p. ej. **1.8.9**) e historial en `versions.md`.
 
 ---
 
@@ -259,6 +259,7 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 - **Sin backend:** ideal para Pages; contacto externalizado (Web3Forms).  
 - **Layout híbrido (1.5.0+):** lienzo de diseño 1680px en PC; si el viewport CSS es más estrecho (p. ej. Full HD con escala OS 125%), se encaja con `site-desktop-fit` en lugar de cortar el contenido. El layout compacto solo en dispositivos táctiles (`hover: none` + `pointer: coarse`).  
 - **Móvil/tablet:** cabecera y lema adaptativos; Miscelánea con título+VOLVER en una línea, iconos de sección dimensionados y scroll al tope al abrir subapartados; avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE con tipografía contenida; pie no fijo.  
+- **Soft Skills (1.6.x–1.8.x):** fichas en Miscelánea (`data.js` → `softSkills`, imágenes en `softskills/`), filtro por dominio, tags en la barra del título, colores naturales sin filtros CSS; NOVEDADES de sección vía `changelog`.  
 - **Fuentes locales** en `fonts/`: no dependen de CDNs bloqueados.  
 - **Historial del navegador:** hashes + `history.pushState` para atrás/adelante entre secciones; subapartados de Miscelánea registran `miscId` (atrás → hub); `history.scrollRestoration = "manual"`.  
 - **Web3Forms free:** honeypot + antispam; Restrict to Domains solo en Pro.

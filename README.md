@@ -6,7 +6,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **Web publicada (GitHub Pages):** [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/)
 - Guía de puesta en marcha online: **`github_TIDAhub.md`**
 - Historial de versiones: **`versions.md`**
-- Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.5.1**)
+- Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.8.9**)
 
 ## Objetivo del proyecto
 
@@ -16,7 +16,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación y entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
 - **PROYECTOS**: evidencias y trabajos que muestran aplicación real de los contenidos.
 - **LEGISLACIÓN**: normativa de referencia para el marco curricular (`data.js` → `legislation`); en móvil, columnas **Nacional** → **Asturias**.
-- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, **Soft Skills** para entornos empresariales e industriales del s. XXI —definición, ejemplos e ilustración—, etc.) según `data.js`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial). En móvil: título + ← VOLVER en la misma línea; al abrir un subapartado el scroll vuelve arriba (logo + filtros).
+- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, **Soft Skills**, etc.) según `data.js`. Soft Skills: 11 fichas (`softSkills` + imágenes en `softskills/`) con definición, ejemplos académico/laboral, filtro por dominio (cognición, colaboración, comunicación, autogestión, digital), tag del dominio en la barra del título (sin corchetes) e ilustraciones de colores naturales; avisos de sección en NOVEDADES vía `softSkills.changelog`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial). En móvil: título + ← VOLVER en la misma línea; al abrir un subapartado el scroll vuelve arriba (logo + filtros).
 - **SOBRE MÍ**: contexto del autor/proyecto, imagen en `./image/` y **publicaciones académicas** (DOI/ISBN cuando aplica).
 - **AYUDA**: formulario de contacto con envío real vía **Web3Forms**; tras enviar, **Enviado** y retorno a INICIO. Política de privacidad en la propia sección (título AYUDA + ← VOLVER al margen en móvil; scroll al tope al abrir) y en **`privacidad.html`**.
 - Tipografías **Orbitron / Oxanium** embebidas en `./fonts/` (sin depender de Google Fonts).
@@ -78,6 +78,7 @@ Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP 
 - **`sectionTabs`**: id de pestaña, etiqueta y fichero por defecto de cada apartado.
 - **`news`**, **`updates`**, **`legislation`**.
 - **`readings`**, **`games`**, **`media`** (Miscelánea; `addedAt` y portadas/imágenes locales).
+- **`softSkills`**: intro, `changelog` (NOVEDADES de sección), `items` (dominios, definición, ejemplos, `image` en `./softskills/`).
 - **`siteSearchEntries`**, **`contentIndex`** (+ opcional **`contentIndexZones`**).
 - **`siteMeta`**: `version` y `updated` (pie del sitio y anti-caché de assets).
 
@@ -124,7 +125,7 @@ Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP 
 
 ### Versión del sitio (`siteMeta` en `data.js`)
 
-Formato **MAJOR.MINOR.PATCH** (p. ej. `1.5.1` → pie `v1.5.1`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`. Anti-caché de CSS/JS/iconos: `window.MYWEB_ASSET_V` en HTML alineado con esa versión; `data.js` se refresca vía `version-boot.js` sin exigir bump.
+Formato **MAJOR.MINOR.PATCH** (p. ej. `1.8.9` → pie `v1.8.9`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`. Anti-caché de CSS/JS/iconos: `window.MYWEB_ASSET_V` en HTML alineado con esa versión; `data.js` se refresca vía `version-boot.js` sin exigir bump.
 
 | Dígito | Cuándo |
 | --- | --- |
@@ -146,6 +147,6 @@ La versión **solo** se incrementa cuando cambia la web que ve el visitante (o s
 ## Próximos pasos habituales
 
 - Completar unidades en `content/<unitId>/` con material visual (infografías, pósters, presentaciones, PDF selectivos).
-- Ampliar Miscelánea / `contentIndex` / `siteSearchEntries`.
-- Mantener `news`, `updates` y `legislation` al día.
-- Mantener iconos/portadas razonablemente ligeros al añadir medios nuevos.
+- Ampliar Miscelánea / Soft Skills / `contentIndex` / `siteSearchEntries`.
+- Mantener `news`, `updates`, `legislation` y `softSkills.changelog` al día.
+- Mantener iconos/portadas/fichas (`books/`, `softskills/`) razonablemente ligeros al añadir medios nuevos.

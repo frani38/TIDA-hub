@@ -60,6 +60,7 @@ Si falta un fichero, el enlace puede abrir una URL inexistente hasta que exista.
 | --- | --- |
 | `content/<unitId>/` | Materiales DOCENCIA por unidad |
 | `books/` | Portadas de **Lecturas** (Miscelánea) |
+| `softskills/` | Ilustraciones de fichas **Soft Skills** (Miscelánea) |
 | `icons/` | Iconos de hub Miscelánea / DOCENCIA |
 | `banners/`, `image/`, `logo/` | Identidad y decoración |
 
