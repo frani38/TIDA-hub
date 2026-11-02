@@ -3635,6 +3635,53 @@ body.theme-light .soft-skill-card__examples-col--professional .soft-skill-card__
   }
 }
 
+.soft-skills-refs {
+  margin-top: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(122, 162, 255, 0.22);
+}
+
+.soft-skills-refs__title {
+  margin: 0 0 0.45rem;
+  font-family: var(--tech-font);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent, #7aa2ff);
+}
+
+body.theme-light .soft-skills-refs__title {
+  color: #1d4ed8;
+}
+
+.soft-skills-refs__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--text-soft, #c5d0e8);
+  font-family: var(--tech-font);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.soft-skills-refs__list a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.soft-skills-refs__list a:hover {
+  color: var(--accent, #7aa2ff);
+}
+
+body.theme-light .soft-skills-refs__list {
+  color: #475569;
+}
+
+body.theme-light .soft-skills-refs {
+  border-top-color: rgba(15, 23, 42, 0.12);
+}
+
 .reading-title-row {
   display: flex;
   gap: 0.6rem;

@@ -532,6 +532,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: eliminar filtro/tags de contexto; ejemplos académicos centrados en tareas reales de estudio; texto justificado en ejemplos; imagen de exposición con `contain` (no llena el recuadro).
 
+## 1.7.0
+
+- Soft Skills: definiciones alineadas con WEF Future of Jobs 2025, DigComp 2.2 y UNESCO AI CFS; nuevas fichas (uso ético de IA, adaptabilidad/resiliencia, curiosidad/aprendizaje continuo); bloque de referencias; ilustraciones nuevas.
+
 ---
 
 ## Convención (recordatorio)
@@ -667,3 +671,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.6.8** | Soft Skills: imagen sin tinte, tags arriba-dcha, ejemplos desplegables |
 | **1.6.9** | Soft Skills: ilustraciones con más brillo y contraste |
 | **1.6.10** | Soft Skills: sin contextos; ejemplos estudio real; exposición contain |
+| **1.7.0** | Soft Skills: marcos WEF/DigComp/UNESCO + IA ética y 2 fichas nuevas |
