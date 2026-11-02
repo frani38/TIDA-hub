@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.8.1",
+    version: "1.8.2",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1628,7 +1628,7 @@ window.MYWEB_DATA = {
     changelog: [
       {
         publishedAt: "2026-11-02",
-        text: "Nueva sección con fichas de competencias transversales (estudio y trabajo), filtro por dominio e ilustraciones técnicas."
+        text: "Nueva sección Soft Skills: fichas, filtro por dominio, ejemplos académico/laboral e ilustraciones técnicas."
       }
     ],
     items: [

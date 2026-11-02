@@ -3957,12 +3957,12 @@
 
           listEl.innerHTML = rows
             .map((s) => {
-              const tags = s.domains
+              const tagsInline = s.domains
                 .map((d) => {
                   const label = domainLabel[d] || d;
-                  return `<span class="soft-skill-tag">${escapeHtml(label)}</span>`;
+                  return `<span class="soft-skill-tag">[${escapeHtml(label)}]</span>`;
                 })
-                .join("");
+                .join(" ");
               const imgInner = s.image
                 ? `<img class="soft-skill-card__img" src="${escapeHtml(s.image)}?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" alt="" loading="lazy" decoding="async" />`
                 : `<div class="soft-skill-card__img soft-skill-card__img--fallback" aria-hidden="true">${escapeHtml(s.title.slice(0, 1).toUpperCase())}</div>`;
@@ -4000,8 +4000,11 @@
                   <div class="soft-skill-card__visual" aria-hidden="true">${imgInner}</div>
                   <div class="soft-skill-card__body">
                     <div class="soft-skill-card__header">
-                      <h4 class="soft-skill-card__title">${escapeHtml(s.title).toLocaleUpperCase("es")}</h4>
-                      ${tags ? `<div class="soft-skill-card__tags">${tags}</div>` : ""}
+                      <h4 class="soft-skill-card__title">
+                        <span class="soft-skill-card__title-text">${escapeHtml(s.title).toLocaleUpperCase("es")}</span>${
+                          tagsInline ? ` ${tagsInline}` : ""
+                        }
+                      </h4>
                     </div>
                     ${s.definition ? `<p class="soft-skill-card__definition">${allowSoftHtml(s.definition)}</p>` : ""}
                     ${examplesBlock}

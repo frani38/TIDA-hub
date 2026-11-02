@@ -3396,8 +3396,8 @@ body.theme-light .soft-skill-card__visual {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* Clarifica ilustraciones técnicas sin saturar */
-  filter: saturate(0.85) contrast(1.04) brightness(1.12);
+  /* Paleta cibernética: contraste sin apagar ni blanquear */
+  filter: saturate(0.95) contrast(1.06) brightness(1.02);
 }
 
 .soft-skill-card__img--fallback {
@@ -3432,13 +3432,17 @@ body.theme-light .soft-skill-card__visual {
   padding: 0.28rem 0.55rem;
   font-family: var(--tech-font);
   font-size: 1.16rem;
-  line-height: 1.25;
+  line-height: 1.35;
   color: #ffffff;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   background: #0b2a5c;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+
+.soft-skill-card__title-text {
+  color: #ffffff;
 }
 
 .soft-skills-lede strong {
@@ -3455,35 +3459,26 @@ body.theme-light .soft-skill-card__title {
   background: #0b2a5c;
 }
 
-.soft-skill-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin: 0;
-  justify-content: flex-end;
-  align-content: flex-start;
-  flex: 0 1 auto;
-  max-width: 100%;
-}
-
 .soft-skill-tag {
-  display: inline-block;
-  padding: 0.16rem 0.48rem;
-  border-radius: 999px;
-  border: 1px solid rgba(122, 162, 255, 0.36);
-  background: rgba(122, 162, 255, 0.12);
-  color: #d7e5ff;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #8ec5ff;
   font-family: var(--tech-font);
-  font-size: 0.68rem;
+  font-size: 0.78em;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 body.theme-light .soft-skill-tag {
-  color: #1e3a8a;
-  background: rgba(37, 99, 235, 0.08);
-  border-color: rgba(37, 99, 235, 0.28);
+  color: #8ec5ff;
+  background: transparent;
+  border: 0;
 }
 
 .soft-skill-card__definition {
