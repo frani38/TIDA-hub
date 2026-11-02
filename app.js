@@ -3957,7 +3957,7 @@
 
           listEl.innerHTML = rows
             .map((s) => {
-              const tagsInline = s.domains
+              const tagsHtml = s.domains
                 .map((d) => {
                   const label = domainLabel[d] || d;
                   return `<span class="soft-skill-tag">[${escapeHtml(label)}]</span>`;
@@ -4001,10 +4001,9 @@
                   <div class="soft-skill-card__body">
                     <div class="soft-skill-card__header">
                       <h4 class="soft-skill-card__title">
-                        <span class="soft-skill-card__title-text">${escapeHtml(s.title).toLocaleUpperCase("es")}</span>${
-                          tagsInline ? ` ${tagsInline}` : ""
-                        }
+                        <span class="soft-skill-card__title-text">${escapeHtml(s.title).toLocaleUpperCase("es")}</span>
                       </h4>
+                      ${tagsHtml ? `<div class="soft-skill-card__tags">${tagsHtml}</div>` : ""}
                     </div>
                     ${s.definition ? `<p class="soft-skill-card__definition">${allowSoftHtml(s.definition)}</p>` : ""}
                     ${examplesBlock}

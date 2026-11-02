@@ -564,6 +564,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: dominio entre corchetes en el título (azul claro, sin fondo de tag); paleta de ilustraciones más equilibrada; lupa/anillo de pensamiento crítico corregido.
 
+## 1.8.3
+
+- Soft Skills: tags a la derecha y más pequeños; recuperar ilustraciones 1.8.1 con color reforzado (crítico corregido); más palabras clave en negrita en definiciones.
+
 ---
 
 ## Convención (recordatorio)
@@ -707,3 +711,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.0** | Soft Skills: estilo cibernético + filtro por dominio |
 | **1.8.1** | Soft Skills: imágenes claras, títulos, ejemplos×4, 1 novedad |
 | **1.8.2** | Soft Skills: tags en título, paleta y pensamiento crítico |
+| **1.8.3** | Soft Skills: tags dcha, imágenes 1.8.1+color, más negritas |

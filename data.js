@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.8.2",
+    version: "1.8.3",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1628,7 +1628,7 @@ window.MYWEB_DATA = {
     changelog: [
       {
         publishedAt: "2026-11-02",
-        text: "Nueva sección Soft Skills: fichas, filtro por dominio, ejemplos académico/laboral e ilustraciones técnicas."
+        text: "Nueva sección Soft Skills: fichas con ejemplos académico/laboral, filtro por dominio e ilustraciones técnicas."
       }
     ],
     items: [
@@ -1640,7 +1640,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_comunicacion.jpg",
         definition:
-          "Capacidad de transmitir información precisa, ordenada y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. En marcos como el WEF se asocia a competencias interpersonales (comunicación, escucha activa e influencia social): no es «hablar mucho», sino reducir ambigüedad —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección).",
+          "Capacidad de transmitir información <strong>precisa</strong>, <strong>ordenada</strong> y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. En marcos como el WEF se asocia a competencias interpersonales (<strong>comunicación</strong>, <strong>escucha activa</strong> e influencia social): no es «hablar mucho», sino <strong>reducir ambigüedad</strong> —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección).",
         examplesAcademic: [
           "En un ensayo o comentario, separar qué dice el texto, qué opinas tú y cuál es tu conclusión.",
           "En un problema de Matemáticas o Física, escribir datos, fórmula y pasos; no solo el resultado final.",
@@ -1662,7 +1662,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_equipo.jpg",
         definition:
-          "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. La evidencia de empleabilidad (WEF y marcos de competencias humanas) insiste en colaboración, empatía y escucha activa porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en responsabilidades visibles, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—.",
+          "Coordinación deliberada de personas con <strong>roles</strong>, <strong>interfaces</strong> y plazos compartidos. La evidencia de empleabilidad (WEF y marcos de competencias humanas) insiste en <strong>colaboración</strong>, <strong>empatía</strong> y escucha activa porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en <strong>responsabilidades visibles</strong>, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—.",
         examplesAcademic: [
           "En un trabajo grupal, repartir partes (buscar, redactar, presentar) y fijar una fecha de revisión antes de entregar.",
           "En el laboratorio o taller, rotar quién mide, quién anota y quién limpia, para que todos aprendan.",
@@ -1684,7 +1684,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_critico.jpg",
         definition:
-          "Evaluar afirmaciones y propuestas con criterios de evidencia: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> es la competencia nuclear más citada por empleadores en el Future of Jobs 2025; aquí se concreta como comprobar antes de decidir —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo plausible (alineado también con la literacidad crítica de DigComp).",
+          "Evaluar afirmaciones y propuestas con criterios de <strong>evidencia</strong>: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> es la competencia nuclear más citada por empleadores en el Future of Jobs 2025; aquí se concreta como <strong>comprobar antes de decidir</strong> —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo plausible (alineado también con la literacidad crítica de DigComp).",
         examplesAcademic: [
           "Antes de memorizar una fórmula o una fecha, contrastarla con el libro y con tus apuntes.",
           "Si un resultado de laboratorio parece demasiado «redondo», repetir la medida o revisar las unidades.",
@@ -1706,7 +1706,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_tiempo.jpg",
         definition:
-          "Planificación por hitos realistas y control del alcance cuando aparece el retraso. Se relaciona con fiabilidad, priorización y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. En el estudio evita entregas sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente.",
+          "Planificación por <strong>hitos realistas</strong> y control del alcance cuando aparece el retraso. Se relaciona con <strong>fiabilidad</strong>, <strong>priorización</strong> y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. En el estudio evita entregas sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente.",
         examplesAcademic: [
           "Planificar la semana de exámenes: teoría, ejercicios y un repaso corto; no dejarlo todo para la noche anterior.",
           "En un trabajo largo, reservar el último día solo para revisar formato, citas y erratas.",
@@ -1728,7 +1728,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_conflictos.jpg",
         definition:
-          "Abordar desacuerdos centrándose en hechos observables, impacto en el objetivo común y opciones de acción, no en etiquetas personales. Conecta con influencia social, empatía y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de clase y en una organización con planta, oficina técnica, comercial y dirección.",
+          "Abordar desacuerdos centrándose en <strong>hechos observables</strong>, impacto en el objetivo común y <strong>opciones de acción</strong>, no en etiquetas personales. Conecta con influencia social, <strong>empatía</strong> y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de clase y en una organización con planta, oficina técnica, comercial y dirección.",
         examplesAcademic: [
           "Pasar de «tú no haces nada» a «falta el apartado X para el viernes; yo hago las tablas y tú la conclusión».",
           "Si hay dos formas de hacer el informe, decidir con el enunciado y la rúbrica, no por quién habla más alto.",
@@ -1750,7 +1750,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_feedback.jpg",
         definition:
-          "Intercambio de información orientado a mejorar un entregable o un proceso: concreto, oportuno y accionable. Incorpora escucha activa (competencia destacada en encuestas de empleabilidad): dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización.",
+          "Intercambio de información orientado a mejorar un entregable o un proceso: <strong>concreto</strong>, <strong>oportuno</strong> y <strong>accionable</strong>. Incorpora <strong>escucha activa</strong> (competencia destacada en encuestas de empleabilidad): dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización.",
         examplesAcademic: [
           "Al revisar el trabajo de un compañero: di un acierto concreto y una mejora que se pueda aplicar ya.",
           "Tras una corrección del profesor, anota el tipo de error y cómo lo evitarás en la siguiente entrega.",
@@ -1772,7 +1772,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_autonomia.jpg",
         definition:
-          "Capacidad de avanzar con criterio propio: investigar, contrastar, documentar y pedir ayuda con evidencia. Se acerca a motivación, autoconciencia y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; responsabilidad es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante un profesor, un equipo, un cliente o la organización.",
+          "Capacidad de avanzar con <strong>criterio propio</strong>: investigar, contrastar, documentar y pedir ayuda con evidencia. Se acerca a <strong>motivación</strong>, <strong>autoconciencia</strong> y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; <strong>responsabilidad</strong> es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante un profesor, un equipo, un cliente o la organización.",
         examplesAcademic: [
           "Antes de preguntar, revisa apuntes, libro y ejercicios; llega a clase con el punto exacto donde te bloqueas.",
           "Organiza carpetas por asignatura y tema para encontrar el material sin empezar de cero.",
@@ -1794,7 +1794,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_exponer.jpg",
         definition:
-          "Comunicar en poco tiempo el problema, la propuesta, la evidencia y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y entrena influencia social y claridad argumental. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
+          "Comunicar en poco tiempo el <strong>problema</strong>, la <strong>propuesta</strong>, la <strong>evidencia</strong> y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y entrena <strong>influencia social</strong> y claridad argumental. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
         examplesAcademic: [
           "Estructura la exposición: pregunta o tema → ideas clave → ejemplo o dato → conclusión.",
           "Ensayar en voz alta con el tiempo real marcado, no solo leer mentalmente las diapositivas.",
@@ -1816,7 +1816,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_ia.jpg",
         definition:
-          "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, contrastar salidas, proteger datos y asumir la autoría y las consecuencias del resultado final. DigComp 2.2 (anexo sobre interacción ciudadana con IA) y el marco UNESCO para estudiantes enfatizan ética, supervisión humana, sesgos, privacidad y actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio.",
+          "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, <strong>contrastar salidas</strong>, proteger datos y asumir la <strong>autoría</strong> y las consecuencias del resultado final. DigComp 2.2 (anexo sobre interacción ciudadana con IA) y el marco UNESCO para estudiantes enfatizan <strong>ética</strong>, supervisión humana, sesgos, <strong>privacidad</strong> y actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio.",
         examplesAcademic: [
           "Usa la IA para un esquema o repaso y luego reescribe con tus palabras contrastando el libro.",
           "No pegues datos personales, exámenes ni trabajos ajenos en herramientas externas.",
@@ -1860,7 +1860,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-02",
         image: "./softskills/ss_aprendizaje.jpg",
         definition:
-          "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. En el Future of Jobs 2025, <strong>curiosidad y lifelong learning</strong> figuran entre las competencias nucleares y emergentes, junto con la literacidad tecnológica. Implica formular buenas preguntas, buscar fuentes fiables, practicar y transferir lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—.",
+          "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. En el Future of Jobs 2025, <strong>curiosidad y lifelong learning</strong> figuran entre las competencias nucleares y emergentes, junto con la <strong>literacidad tecnológica</strong>. Implica formular buenas preguntas, buscar <strong>fuentes fiables</strong>, practicar y <strong>transferir</strong> lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—.",
         examplesAcademic: [
           "Al terminar un tema, escribe 3 preguntas propias y búscalas en el libro o en una fuente citada.",
           "Prueba un método de estudio distinto (mapa, ejercicios cronometrados, explicar en voz alta) y quédate con el que mejor te funciona.",
