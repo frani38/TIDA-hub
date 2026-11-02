@@ -3396,8 +3396,8 @@ body.theme-light .soft-skill-card__visual {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* Refuerza cianes/teales sin oscurecer demasiado */
-  filter: saturate(1.12) contrast(1.08) brightness(1.03);
+  /* Misma corrección visual para todas las fichas */
+  filter: saturate(0.92) contrast(1.05) brightness(1.04);
 }
 
 .soft-skill-card__img--fallback {
@@ -3415,20 +3415,17 @@ body.theme-light .soft-skill-card__visual {
 }
 
 .soft-skill-card__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 0.85rem;
-  flex-wrap: nowrap;
+  display: block;
 }
 
 .soft-skill-card__title {
   margin: 0;
-  flex: 1 1 auto;
-  min-width: 0;
-  display: inline-block;
-  width: fit-content;
-  max-width: calc(100% - 7rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.28rem 0.55rem;
   font-family: var(--tech-font);
   font-size: 1.16rem;
@@ -3437,12 +3434,11 @@ body.theme-light .soft-skill-card__visual {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   background: #0b2a5c;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .soft-skill-card__title-text {
   color: #ffffff;
+  min-width: 0;
 }
 
 .soft-skills-lede strong {
@@ -3460,10 +3456,10 @@ body.theme-light .soft-skill-card__title {
 }
 
 .soft-skill-card__tags {
-  margin: 0;
+  margin: 0 0 0 auto;
   flex: 0 0 auto;
   text-align: right;
-  align-self: center;
+  white-space: nowrap;
 }
 
 .soft-skill-tag {
@@ -3483,7 +3479,7 @@ body.theme-light .soft-skill-card__title {
 }
 
 body.theme-light .soft-skill-tag {
-  color: #5ea8ff;
+  color: #8ec5ff;
   background: transparent;
   border: 0;
 }

@@ -4002,8 +4002,8 @@
                     <div class="soft-skill-card__header">
                       <h4 class="soft-skill-card__title">
                         <span class="soft-skill-card__title-text">${escapeHtml(s.title).toLocaleUpperCase("es")}</span>
+                        ${tagsHtml ? `<span class="soft-skill-card__tags">${tagsHtml}</span>` : ""}
                       </h4>
-                      ${tagsHtml ? `<div class="soft-skill-card__tags">${tagsHtml}</div>` : ""}
                     </div>
                     ${s.definition ? `<p class="soft-skill-card__definition">${allowSoftHtml(s.definition)}</p>` : ""}
                     ${examplesBlock}
