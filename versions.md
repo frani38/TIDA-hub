@@ -580,6 +580,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: tags en azul más claro; ilustraciones sin filtros CSS, más luminosas y con color natural (mismo diseño).
 
+## 1.8.7
+
+- Soft Skills: colores más vivos y contraste equilibrado para que todos los elementos se lean bien (sin lavado).
+
 ---
 
 ## Convención (recordatorio)
@@ -727,3 +731,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.4** | Soft Skills: tag en barra azul; ilustraciones homogeneizadas |
 | **1.8.5** | Soft Skills: paleta natural unificada, sin tono azul excesivo |
 | **1.8.6** | Soft Skills: tags azul claro; imágenes naturales sin filtros |
+| **1.8.7** | Soft Skills: colores vivos y contraste legible en fichas |
