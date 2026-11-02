@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.7.3",
+    version: "1.7.4",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -367,9 +367,9 @@ window.MYWEB_DATA = {
   // Formato:
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título breve", text: "Detalle (opcional)",
   //   navTarget?: "misc"|"docencia"|..., miscId?: "misc_lr", readingId?/gameId?/mediaId?, url? }
-  // Los libros/juegos/media/soft skills con `addedAt` generan entradas automáticas
-  // LIBRO:/JUEGO:/MEDIA:/SOFT SKILL: cuyo título enlaza al elemento en Miscelánea.
-  // Soft skills: si cambia el texto (o `updatedAt`), la novedad vuelve a marcarse como no vista.
+  // Los libros/juegos/media con `addedAt` generan entradas automáticas
+  // LIBRO:/JUEGO:/MEDIA: cuyo título enlaza al elemento en Miscelánea.
+  // Soft Skills: avisos de sección vía softSkills.changelog (un aviso por cambio, no por ficha).
   updates: [],
 
   // Lecturas recomendadas (Miscelánea → LECTURAS RECOMENDADAS)
@@ -1620,11 +1620,16 @@ window.MYWEB_DATA = {
   // Soft Skills (Miscelánea → SOFT SKILLS)
   // Referencias: WEF Future of Jobs 2025; DigComp 2.2 (JRC/UE); UNESCO AI CFS.
   // image: ficha visual en ./softskills/
-  // addedAt/updatedAt (YYYY-MM-DD): generan novedades automáticas; al editar una ficha,
-  // subir updatedAt (y el contenido) para que vuelva el aviso luminoso de NOVEDADES.
+  // changelog: avisos de sección en NOVEDADES → «Soft Skills: {text}» (uno por cambio, no por ficha).
   softSkills: {
     intro:
       "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong>, <strong>socioemocionales</strong> o <strong>del siglo XXI</strong>) son capacidades transversales que complementan el conocimiento técnico: <strong>pensar con evidencia</strong>, <strong>colaborar</strong>, <strong>adaptarse</strong> y <strong>aprender de forma continua</strong>. En el <em>Future of Jobs Report 2025</em> del <strong>World Economic Forum</strong>, entre las competencias más demandadas figuran el <strong>pensamiento analítico</strong>, la <strong>resiliencia y agilidad</strong>, el <strong>liderazgo e influencia social</strong>, el <strong>pensamiento creativo</strong> y la <strong>curiosidad / aprendizaje permanente</strong>; en paralelo crecen con fuerza la <strong>literacidad tecnológica</strong> y las competencias en <strong>IA y datos</strong>. El marco europeo <strong>DigComp 2.2</strong> y el <strong>marco UNESCO de competencias en IA para estudiantes</strong> subrayan, además, un uso <strong>crítico, ético y con agencia humana</strong> de las herramientas digitales. Estas fichas traducen ese consenso a prácticas concretas en el <strong>estudio</strong> y en el <strong>trabajo</strong> (empresa, industria, proyectos, operaciones, I+D y servicios).",
+    changelog: [
+      {
+        publishedAt: "2026-11-02",
+        text: "Nueva sección con fichas de competencias transversales (estudio y trabajo), uso ético de la IA e ilustraciones temáticas."
+      }
+    ],
     items: [
       {
         id: "ss_comunicacion",

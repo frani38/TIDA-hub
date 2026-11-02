@@ -1,9 +1,10 @@
 # Soft Skills → NOVEDADES
 
-Al **añadir** o **editar** fichas en `data.js` → `softSkills.items`:
+Al **añadir** o **editar** contenido de Soft Skills (`data.js` → `softSkills`):
 
-1. Si es ficha nueva: pon `addedAt` y `updatedAt` (`YYYY-MM-DD`, hoy).
-2. Si editas definición/ejemplos/título de una existente: actualiza `updatedAt` a la fecha de hoy.
-3. El sitio genera entradas automáticas `SOFT SKILL: …` en NOVEDADES y reactiva el aviso luminoso del botón (la clave incluye una huella del contenido).
+1. Añade una entrada **nueva al inicio** de `softSkills.changelog`:
+   `{ publishedAt: "YYYY-MM-DD", text: "Descripción breve del cambio." }`
+2. En NOVEDADES se muestra como `Soft Skills: {text}` (un aviso de sección, **no** uno por ficha).
+3. Eso reactiva el aviso luminoso del botón NOVEDADES.
 
-No hace falta crear a mano un ítem en `updates: []` salvo un aviso editorial aparte.
+No crear entradas `SOFT SKILL:` por ítem ni duplicar el mismo aviso en `updates: []` salvo otro mensaje editorial aparte.

@@ -614,7 +614,8 @@
                           Boolean(u.__gameId) ||
                           Boolean(u.__mediaId) ||
                           Boolean(u.__softSkillId) ||
-                          u.__kind === "manual");
+                          u.__kind === "manual" ||
+                          u.__kind === "softskills");
                       if (canLinkMisc) {
                         return `href="#" data-misc-id="${escapeHtml(u.__miscId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}" data-soft-skill-id="${escapeHtml(u.__softSkillId || "")}"`;
                       }
@@ -641,8 +642,9 @@
                       if (u.__kind === "media") {
                         return `MEDIA: ${linkedName("updates-media-title", u.__mediaTitle || "")}`;
                       }
-                      if (u.__kind === "softskill") {
-                        return `SOFT SKILL: ${linkedName("updates-softskill-title", u.__softSkillTitle || "")}`;
+                      if (u.__kind === "softskills") {
+                        const blurb = escapeHtml(u.__softSkillsBlurb || u.text || "");
+                        return `${linkedName("updates-softskills-title", "Soft Skills")}: ${blurb}`;
                       }
                       // Avisos manuales: el hipervínculo es el título (no el texto de detalle).
                       const titlePart = linkAttrsWithKey
@@ -988,34 +990,26 @@
       })
       .filter(Boolean);
 
+    // Soft Skills: un aviso de sección por entrada en softSkills.changelog (no una por ficha).
     const softPack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
-    const softRaw = Array.isArray(softPack?.items) ? softPack.items : [];
-    const softSkillUpdates = softRaw
-      .map((s, idx) => {
-        const addedAt = String(s?.addedAt || "").trim();
-        const updatedAt = String(s?.updatedAt || "").trim();
-        const publishedAt = updatedAt || addedAt;
-        const title = String(s?.title || "").trim();
-        const id = String(s?.id || "").trim();
-        if (!publishedAt || !title || !id) return null;
-        const definition = String(s?.definition || "").trim();
-        const exA = Array.isArray(s?.examplesAcademic) ? s.examplesAcademic.join("\n") : "";
-        const exP = Array.isArray(s?.examplesProfessional) ? s.examplesProfessional.join("\n") : "";
-        const contentFp = hashStringFNV1a(`${title}\n${definition}\n${exA}\n${exP}`);
+    const softChangelog = Array.isArray(softPack?.changelog) ? softPack.changelog : [];
+    const softSkillUpdates = softChangelog
+      .map((entry, idx) => {
+        const publishedAt = String(entry?.publishedAt || "").trim();
+        const text = String(entry?.text || "").trim();
+        if (!publishedAt || !text) return null;
         const n = normalizeUpdateItem({
           publishedAt,
-          title: `SOFT SKILL: ${title}`,
-          text: ""
+          title: "Soft Skills",
+          text
         });
         if (!n) return null;
         return {
           ...n,
           __priority: idx,
           __ms: parsePublishedAtToMs(n.publishedAt),
-          __kind: "softskill",
-          __softSkillTitle: title,
-          __softSkillId: id,
-          __softSkillFp: contentFp,
+          __kind: "softskills",
+          __softSkillsBlurb: text,
           __miscId: "misc_ss"
         };
       })
@@ -1050,10 +1044,9 @@
     if (kind === "reading" && u.__readingId) return `reading:${String(u.__readingId).trim()}`;
     if (kind === "game" && u.__gameId) return `game:${String(u.__gameId).trim()}`;
     if (kind === "media" && u.__mediaId) return `media:${String(u.__mediaId).trim()}`;
-    // Soft skills: incluye huella del contenido para que una edición vuelva a marcarse como no vista.
-    if (kind === "softskill" && u.__softSkillId) {
-      const fp = String(u.__softSkillFp || "").trim() || String(u.publishedAt || "").trim();
-      return `softskill:${String(u.__softSkillId).trim()}:${fp}`;
+    if (kind === "softskills") {
+      const sig = `${String(u?.publishedAt || "").trim()}|${String(u?.__softSkillsBlurb || u?.text || "").trim()}`;
+      return `softskills:${hashStringFNV1a(sig)}`;
     }
     const sig = `${String(u?.publishedAt || "").trim()}|${String(u?.title || "").trim()}|${String(u?.text || "").trim()}`;
     return `manual:${hashStringFNV1a(sig)}`;
