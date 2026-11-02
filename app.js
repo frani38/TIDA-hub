@@ -3988,8 +3988,8 @@
               const examplesBlock = hasSplit
                 ? `<div class="soft-skill-card__examples-wrap">
                     <div class="soft-skill-card__examples-cols">
-                      ${colHtml("academic", "Entorno académico", s.examplesAcademic)}
-                      ${colHtml("professional", "Mundo laboral", s.examplesProfessional)}
+                      ${colHtml("academic", "Ejemplos · entorno académico", s.examplesAcademic)}
+                      ${colHtml("professional", "Ejemplos · mundo laboral", s.examplesProfessional)}
                     </div>
                   </div>`
                 : s.examplesLegacy.length

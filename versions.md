@@ -556,6 +556,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: ilustraciones técnicas/cibernéticas (azul/cian/verde); filtro lateral por dominio preciso (cognición, colaboración, comunicación, autogestión, digital) con tags en ficha.
 
+## 1.8.1
+
+- Soft Skills: ilustraciones más claras y simples; título con fondo azul oscuro y texto blanco; columnas «Ejemplos · …»; 4 ejemplos revisados por columna; una sola entrada en NOVEDADES.
+
 ---
 
 ## Convención (recordatorio)
@@ -697,3 +701,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.7.3** | Soft Skills: 11 ilustraciones nuevas, únicas y temáticas |
 | **1.7.4** | Soft Skills: aviso único de sección en NOVEDADES |
 | **1.8.0** | Soft Skills: estilo cibernético + filtro por dominio |
+| **1.8.1** | Soft Skills: imágenes claras, títulos, ejemplos×4, 1 novedad |

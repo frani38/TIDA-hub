@@ -3396,8 +3396,8 @@ body.theme-light .soft-skill-card__visual {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* Suaviza saturación sin apagar brillo/contraste */
-  filter: saturate(0.72) contrast(1.02) brightness(1.05);
+  /* Clarifica ilustraciones técnicas sin saturar */
+  filter: saturate(0.85) contrast(1.04) brightness(1.12);
 }
 
 .soft-skill-card__img--fallback {
@@ -3426,12 +3426,19 @@ body.theme-light .soft-skill-card__visual {
   margin: 0;
   flex: 1 1 12rem;
   min-width: 0;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.28rem 0.55rem;
   font-family: var(--tech-font);
   font-size: 1.16rem;
   line-height: 1.25;
-  color: var(--accent, #7aa2ff);
+  color: #ffffff;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  background: #0b2a5c;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .soft-skills-lede strong {
@@ -3444,7 +3451,8 @@ body.theme-light .soft-skills-lede strong {
 }
 
 body.theme-light .soft-skill-card__title {
-  color: #0f3f9a;
+  color: #ffffff;
+  background: #0b2a5c;
 }
 
 .soft-skill-card__tags {

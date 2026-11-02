@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.8.0",
+    version: "1.8.1",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1628,11 +1628,7 @@ window.MYWEB_DATA = {
     changelog: [
       {
         publishedAt: "2026-11-02",
-        text: "Ilustraciones con estética técnica/cibernética y filtro por dominio (cognición, colaboración, comunicación, autogestión, digital)."
-      },
-      {
-        publishedAt: "2026-11-02",
-        text: "Nueva sección con fichas de competencias transversales (estudio y trabajo), uso ético de la IA e ilustraciones temáticas."
+        text: "Nueva sección con fichas de competencias transversales (estudio y trabajo), filtro por dominio e ilustraciones técnicas."
       }
     ],
     items: [
@@ -1646,14 +1642,16 @@ window.MYWEB_DATA = {
         definition:
           "Capacidad de transmitir información precisa, ordenada y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. En marcos como el WEF se asocia a competencias interpersonales (comunicación, escucha activa e influencia social): no es «hablar mucho», sino reducir ambigüedad —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección).",
         examplesAcademic: [
-          "En un comentario de texto o ensayo, distinguir hechos del texto, interpretación propia y conclusión, para que el profesor sepa qué evalúa.",
-          "En Física o Matemáticas, redactar el desarrollo del problema con datos, fórmula, pasos y unidades, no solo el número final.",
-          "En Tecnología o Biología, explicar oralmente un procedimiento o un esquema con el vocabulario de la unidad, sin rodeos."
+          "En un ensayo o comentario, separar qué dice el texto, qué opinas tú y cuál es tu conclusión.",
+          "En un problema de Matemáticas o Física, escribir datos, fórmula y pasos; no solo el resultado final.",
+          "Explicar en voz alta un esquema de Biología o Tecnología con el vocabulario de la unidad.",
+          "Al pedir ayuda al profesor, decir exactamente qué no entiendes (página, ejercicio o paso)."
         ],
         examplesProfessional: [
-          "Informe o correo de estado que separa hechos (plazo, coste, incidencia) de opiniones o hipótesis.",
-          "Especificación de pedido o de proyecto con criterios medibles para cliente o proveedor.",
-          "Explicar a dirección el impacto de un cambio de alcance en tiempo, presupuesto y riesgo."
+          "Enviar un correo de estado que separe hechos (plazo, coste, incidencia) de opiniones.",
+          "Redactar un pedido o requisito con criterios medibles, sin frases vagas como «urgente» o «como siempre».",
+          "Explicar a dirección qué cambia en tiempo, presupuesto y riesgo si se amplia el alcance.",
+          "En una reunión, resumir al final: decisión tomada, responsable y próxima fecha."
         ]
       },
       {
@@ -1666,14 +1664,16 @@ window.MYWEB_DATA = {
         definition:
           "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. La evidencia de empleabilidad (WEF y marcos de competencias humanas) insiste en colaboración, empatía y escucha activa porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en responsabilidades visibles, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—.",
         examplesAcademic: [
-          "En un trabajo grupal de Historia o Economía, repartir fuentes, redacción y diapositivas con fecha de revisión antes de la entrega.",
-          "En laboratorio (Química, Biología) o taller (Tecnología), rotar roles: medidas, registro, limpieza y conclusión del informe.",
-          "Si un compañero se atrasa en su parte de Lengua o Inglés, replanificar juntos qué se entrega mañana y qué se deja para después."
+          "En un trabajo grupal, repartir partes (buscar, redactar, presentar) y fijar una fecha de revisión antes de entregar.",
+          "En el laboratorio o taller, rotar quién mide, quién anota y quién limpia, para que todos aprendan.",
+          "Si alguien se atrasa, replanificar juntos qué se entrega mañana y qué se deja para después.",
+          "Usar una lista compartida (papel o digital) con el estado real de cada parte del trabajo."
         ],
         examplesProfessional: [
-          "Alinear ingeniería, producción y compras en un hito de lanzamiento con responsable claro por entrega.",
-          "Plan común (Gantt, tablero, actas) donde cada área actualiza el estado real de su parte.",
-          "Solicitar apoyo interdepartamental indicando bloqueo, fecha y consecuencia si no llega."
+          "En un lanzamiento, acordar un responsable claro por entrega entre ingeniería, producción y compras.",
+          "Mantener un plan o tablero común donde cada área actualiza su estado real.",
+          "Pedir apoyo a otro departamento indicando qué falta, para cuándo y qué se bloquea si no llega.",
+          "Hacer una breve reunión de sincronización cuando haya dependencias críticas entre equipos."
         ]
       },
       {
@@ -1686,14 +1686,16 @@ window.MYWEB_DATA = {
         definition:
           "Evaluar afirmaciones y propuestas con criterios de evidencia: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> es la competencia nuclear más citada por empleadores en el Future of Jobs 2025; aquí se concreta como comprobar antes de decidir —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo plausible (alineado también con la literacidad crítica de DigComp).",
         examplesAcademic: [
-          "Al estudiar, contrastar apuntes, libro de texto y una respuesta de IA o un vídeo antes de dar por buena una fórmula o una fecha.",
-          "En un problema de Física o Química, comprobar si el orden de magnitud del resultado tiene sentido; si no, revisar unidades y datos.",
-          "En Filosofía, Historia o Lengua, exigir fuente citada cuando se afirma un dato y separar opinión de evidencia."
+          "Antes de memorizar una fórmula o una fecha, contrastarla con el libro y con tus apuntes.",
+          "Si un resultado de laboratorio parece demasiado «redondo», repetir la medida o revisar las unidades.",
+          "En un trabajo, citar la fuente de cada dato y marcar claramente qué es opinión.",
+          "No dar por buena una respuesta de IA o de un vídeo sin comprobarla con material fiable."
         ],
         examplesProfessional: [
-          "Contrastar la oferta de un proveedor con ensayos, normas o referencias de planta comparables.",
-          "Revisar un KPI atractivo preguntando qué queda fuera del indicador y qué riesgo oculta.",
-          "Distinguir correlación de causalidad en datos de proceso, ventas o calidad."
+          "Comparar la oferta de un proveedor con ensayos, normas o casos reales de planta.",
+          "Ante un KPI muy positivo, preguntar qué queda fuera del indicador y qué riesgo oculta.",
+          "Separar correlación de causalidad al interpretar datos de ventas, calidad o proceso.",
+          "Pedir evidencia (dato, prueba, referencia) antes de aprobar un cambio importante."
         ]
       },
       {
@@ -1706,14 +1708,16 @@ window.MYWEB_DATA = {
         definition:
           "Planificación por hitos realistas y control del alcance cuando aparece el retraso. Se relaciona con fiabilidad, priorización y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. En el estudio evita entregas sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente.",
         examplesAcademic: [
-          "Planificar la semana de exámenes por materia: teoría, ejercicios tipo y un repaso corto el día anterior, no todo la noche previa.",
-          "En un trabajo de varias sesiones (Tecnología, Investigación), dejar el último día solo para revisar formato, citas y erratas.",
-          "Si hay deberes de tres asignaturas el mismo día, hacer primero lo que más pesa en nota o lo que más cuesta, no lo más fácil."
+          "Planificar la semana de exámenes: teoría, ejercicios y un repaso corto; no dejarlo todo para la noche anterior.",
+          "En un trabajo largo, reservar el último día solo para revisar formato, citas y erratas.",
+          "Si hay deberes de varias asignaturas, empezar por lo que más cuenta en nota o lo que más te cuesta.",
+          "Marcar fechas intermedias (borrador, ensayo de exposición) además de la entrega final."
         ],
         examplesProfessional: [
-          "Reservar margen para pruebas, homologación o formación, no solo para ejecutar.",
-          "Recortar funciones no críticas si el hito de arranque, entrega o auditoría está en riesgo.",
-          "Trabajar con entregables parciales revisables en lugar de un único cierre final."
+          "Incluir en el plan tiempo para pruebas, homologación o formación, no solo para «hacer».",
+          "Si el plazo aprieta, recortar extras no críticos antes de saltarse la verificación.",
+          "Entregar avances parciales revisables en lugar de un único cierre a última hora.",
+          "Avisar pronto del retraso con una nueva fecha realista y el impacto concreto."
         ]
       },
       {
@@ -1726,14 +1730,16 @@ window.MYWEB_DATA = {
         definition:
           "Abordar desacuerdos centrándose en hechos observables, impacto en el objetivo común y opciones de acción, no en etiquetas personales. Conecta con influencia social, empatía y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de clase y en una organización con planta, oficina técnica, comercial y dirección.",
         examplesAcademic: [
-          "En un grupo de trabajo, pasar de «tú no haces nada» a «falta el apartado de resultados para el viernes; yo hago tablas y tú la conclusión».",
-          "Si dos enfoques chocan (p. ej. cómo estructurar un informe), decidir con el enunciado y la rúbrica, no por quién insiste más.",
-          "Ante un malentendido con un compañero por notas o turnos, aclarar hechos del calendario de entrega antes de escalar al profesor."
+          "Pasar de «tú no haces nada» a «falta el apartado X para el viernes; yo hago las tablas y tú la conclusión».",
+          "Si hay dos formas de hacer el informe, decidir con el enunciado y la rúbrica, no por quién habla más alto.",
+          "Ante un malentendido por turnos o notas, aclarar fechas y hechos antes de pedir ayuda al profesor.",
+          "Proponer una solución concreta (quién hace qué y cuándo) en lugar de quedarse solo en la queja."
         ],
         examplesProfessional: [
-          "Sustituir acusaciones por hechos y propuesta («sin fecha firme de material no cerramos montaje; reunión de 20 min con proveedor»).",
-          "Elegir entre alternativas con criterios: coste, plazo, riesgo, calidad o servicio.",
-          "Mediar entre áreas con un hecho común (incidencia, dato de proceso, cláusula) antes de escalar."
+          "Sustituir acusaciones por hechos y una propuesta («sin fecha de material no cerramos montaje; reunámonos 20 minutos»).",
+          "Elegir entre opciones con criterios compartidos: coste, plazo, riesgo, calidad o servicio.",
+          "Mediar entre áreas partiendo de un dato común (incidencia, medición, cláusula) antes de escalar.",
+          "Documentar el acuerdo alcanzado para que no se reabra el conflicto al día siguiente."
         ]
       },
       {
@@ -1746,14 +1752,16 @@ window.MYWEB_DATA = {
         definition:
           "Intercambio de información orientado a mejorar un entregable o un proceso: concreto, oportuno y accionable. Incorpora escucha activa (competencia destacada en encuestas de empleabilidad): dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización.",
         examplesAcademic: [
-          "Al revisar el borrador de un compañero: señalar un acierto concreto (estructura, ejemplo, gráfico) y una mejora accionable.",
-          "Tras una corrección del profesor en un examen o trabajo, anotar qué tipo de error se repite y cómo lo evitarás en el siguiente.",
-          "Pedir en clase o tutoría una duda concreta («no entiendo el paso 3 del ejercicio 5»), no un «no lo pillo» genérico."
+          "Al revisar el trabajo de un compañero: di un acierto concreto y una mejora que se pueda aplicar ya.",
+          "Tras una corrección del profesor, anota el tipo de error y cómo lo evitarás en la siguiente entrega.",
+          "Pide dudas concretas («no entiendo el paso 3 del ejercicio 5»), no un «no lo pillo» genérico.",
+          "Cuando te den feedback, resume en una frase qué vas a cambiar para comprobar que lo has entendido."
         ],
         examplesProfessional: [
-          "«Falta el criterio de aceptación en el protocolo» frente a «el documento está mal».",
-          "Pedir aclaración: «¿qué cambio concreto mejoraría el resultado para el cliente o la planta?»",
-          "Revisión de informe, plano o procedimiento con 1 fortaleza y 1 mejora priorizada."
+          "Decir «falta el criterio de aceptación en el protocolo» en lugar de «el documento está mal».",
+          "Preguntar: «¿qué cambio concreto mejoraría el resultado para el cliente o la planta?»",
+          "En una revisión, señalar una fortaleza clara y una mejora priorizada.",
+          "Recibir una crítica pidiendo ejemplo y criterio, sin ponerse a la defensiva de inmediato."
         ]
       },
       {
@@ -1766,14 +1774,16 @@ window.MYWEB_DATA = {
         definition:
           "Capacidad de avanzar con criterio propio: investigar, contrastar, documentar y pedir ayuda con evidencia. Se acerca a motivación, autoconciencia y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; responsabilidad es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante un profesor, un equipo, un cliente o la organización.",
         examplesAcademic: [
-          "Antes de preguntar, revisar apuntes, libro y ejercicios resueltos de la unidad; llegar a clase con el punto exacto donde te bloqueas.",
-          "Organizar carpetas y archivos por asignatura y tema para encontrar el material de estudio sin empezar de cero cada vez.",
-          "Si faltas a una clase, recuperar el contenido (apuntes de un compañero, aula virtual) y comprobar qué tareas hay, sin esperar a que te lo recuerden."
+          "Antes de preguntar, revisa apuntes, libro y ejercicios; llega a clase con el punto exacto donde te bloqueas.",
+          "Organiza carpetas por asignatura y tema para encontrar el material sin empezar de cero.",
+          "Si faltas a clase, recupera apuntes y tareas ese mismo día, sin esperar a que te lo recuerden.",
+          "Entrega el trabajo listo para que otra persona lo entienda: nombres claros, versiones y fuentes."
         ],
         examplesProfessional: [
-          "Expediente de proyecto usable por quien continúe (decisiones, versiones, pendientes).",
-          "Llegar a una reunión de escalado con datos, no solo con la descripción del problema.",
-          "Cerrar una tarea hasta la verificación, no solo hasta «enviarlo»."
+          "Dejar un expediente usable por quien continúe: decisiones, versiones y pendientes visibles.",
+          "Llegar a una reunión de problema con datos, no solo con la descripción del fallo.",
+          "Cerrar una tarea hasta verificar que funciona, no solo hasta «enviarlo».",
+          "Pedir ayuda con el contexto ya preparado: qué probaste, qué falló y qué necesitas."
         ]
       },
       {
@@ -1786,14 +1796,16 @@ window.MYWEB_DATA = {
         definition:
           "Comunicar en poco tiempo el problema, la propuesta, la evidencia y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y entrena influencia social y claridad argumental. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
         examplesAcademic: [
-          "En una exposición de clase: tema o pregunta → ideas clave → ejemplo o dato → conclusión, ensayada en el tiempo marcado.",
-          "Mostrar un gráfico, prototipo o resultado de laboratorio, no solo leer diapositivas de texto.",
-          "Preparar dos preguntas difíciles del tema (definición, comparación, «qué pasaría si…») para responder sin inventar."
+          "Estructura la exposición: pregunta o tema → ideas clave → ejemplo o dato → conclusión.",
+          "Ensayar en voz alta con el tiempo real marcado, no solo leer mentalmente las diapositivas.",
+          "Mostrar un gráfico, prototipo o resultado de laboratorio; no solo texto en pantalla.",
+          "Preparar dos preguntas difíciles del tema y practicar la respuesta sin inventar."
         ],
         examplesProfessional: [
-          "Presentar a comité o cliente: problema → enfoque → evidencia (dato, ensayo, piloto) → riesgos y siguiente paso.",
+          "Presentar a cliente o comité: problema → enfoque → evidencia → riesgos y siguiente paso.",
           "Traducir la solución a impacto en coste, plazo o calidad, no solo a detalle técnico.",
-          "Anticipar «¿qué pasa si falla el proveedor / la demanda / el proceso?» con un plan B realista."
+          "Anticipar «¿qué pasa si falla el proveedor o el proceso?» con un plan B realista.",
+          "Cerrar la presentación con una petición clara: decisión, recurso o fecha de seguimiento."
         ]
       },
       {
@@ -1806,14 +1818,16 @@ window.MYWEB_DATA = {
         definition:
           "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, contrastar salidas, proteger datos y asumir la autoría y las consecuencias del resultado final. DigComp 2.2 (anexo sobre interacción ciudadana con IA) y el marco UNESCO para estudiantes enfatizan ética, supervisión humana, sesgos, privacidad y actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio.",
         examplesAcademic: [
-          "Usar un asistente para esbozar un esquema o repasar definiciones, y después reescribir con palabras propias contrastando el libro y los apuntes.",
-          "No pegar datos personales, exámenes ni trabajos de compañeros en herramientas externas; cumplir las normas del centro sobre IA.",
-          "Declarar el uso de IA cuando lo pida el enunciado o la rúbrica, y revisar alucinaciones (fechas, fórmulas, citas inventadas) antes de entregar."
+          "Usa la IA para un esquema o repaso y luego reescribe con tus palabras contrastando el libro.",
+          "No pegues datos personales, exámenes ni trabajos ajenos en herramientas externas.",
+          "Declara el uso de IA si lo pide el enunciado o la rúbrica.",
+          "Revisa fechas, fórmulas y citas: si la IA inventa algo, corrígelo antes de entregar."
         ],
         examplesProfessional: [
-          "Redactar un borrador con IA y validarlo con normativa, datos de planta o criterio técnico propio antes de enviarlo a cliente o dirección.",
-          "Evitar introducir información confidencial o datos personales en sistemas no autorizados por la organización.",
-          "Documentar qué parte del entregable se apoyó en IA y quién revisó el resultado (trazabilidad y responsabilidad)."
+          "Usa la IA para un borrador y valídalo con normativa, datos reales o criterio técnico propio.",
+          "No introduzcas información confidencial en sistemas no autorizados por la empresa.",
+          "Documenta qué parte se apoyó en IA y quién revisó el resultado final.",
+          "Rechaza una recomendación automática si no puedes explicar por qué es segura o correcta."
         ]
       },
       {
@@ -1826,14 +1840,16 @@ window.MYWEB_DATA = {
         definition:
           "Capacidad de reajustar planes, prioridades y enfoque cuando cambian las condiciones, manteniendo el objetivo y el criterio. El WEF sitúa la tríada <strong>resiliencia, flexibilidad y agilidad</strong> entre las competencias más demandadas y de mayor crecimiento. No es resignación ni improvisación caótica: es detectar el cambio, evaluar impacto, proponer alternativas y seguir entregando valor sin paralizarse ante la incertidumbre.",
         examplesAcademic: [
-          "Si cambia la fecha de un examen o el alcance de un trabajo, rehacer el plan de estudio esa misma tarde (qué se mantiene, qué se recorta).",
-          "Cuando un experimento o prototipo falla, anotar la causa probable y diseñar la siguiente prueba, no abandonar la práctica.",
-          "Si una asignatura se complica a mitad de curso, pedir ayuda pronto y ajustar método (más ejercicios, tutoría), no esperar al suspenso."
+          "Si cambia la fecha de un examen, rehaz el plan de estudio ese mismo día: qué mantienes y qué recortas.",
+          "Si un experimento falla, anota la causa probable y diseña la siguiente prueba; no lo abandones.",
+          "Si una asignatura se complica, pide ayuda pronto y cambia el método (más ejercicios, tutoría).",
+          "Cuando el enunciado de un trabajo se modifica, actualiza tu lista de tareas y avisa al grupo."
         ],
         examplesProfessional: [
-          "Ante un cambio de alcance o de proveedor, actualizar riesgos, plazos y responsables en el plan en lugar de seguir el Gantt obsoleto.",
-          "Tras un incidente en planta o servicio, estabilizar, comunicar hechos y proponer contención, sin buscar culpables primero.",
-          "Cuando una herramienta o proceso nuevo sustituye al habitual, aprender el mínimo viable para no bloquear al equipo."
+          "Si cambia el alcance o el proveedor, actualiza riesgos, plazos y responsables en el plan.",
+          "Tras un incidente, estabiliza, comunica hechos y propone contención antes de buscar culpables.",
+          "Cuando llega una herramienta nueva, aprende el mínimo necesario para no bloquear al equipo.",
+          "Si un plan deja de ser viable, propone una alternativa concreta con impacto y fecha."
         ]
       },
       {
@@ -1846,14 +1862,16 @@ window.MYWEB_DATA = {
         definition:
           "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. En el Future of Jobs 2025, <strong>curiosidad y lifelong learning</strong> figuran entre las competencias nucleares y emergentes, junto con la literacidad tecnológica. Implica formular buenas preguntas, buscar fuentes fiables, practicar y transferir lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—.",
         examplesAcademic: [
-          "Tras un tema, hacer 3 preguntas propias y buscar la respuesta en el libro o en una fuente citada, no solo memorizar el resumen.",
-          "Probar un método de estudio distinto (mapa, ejercicios cronometrados, explicación en voz alta) y quedarte con el que mejora tu resultado.",
-          "Relacionar lo visto en una materia con otra (p. ej. estadística en Economía y en Biología) para reforzar transferencia."
+          "Al terminar un tema, escribe 3 preguntas propias y búscalas en el libro o en una fuente citada.",
+          "Prueba un método de estudio distinto (mapa, ejercicios cronometrados, explicar en voz alta) y quédate con el que mejor te funciona.",
+          "Relaciona lo de una materia con otra (por ejemplo, estadística en Economía y en Biología).",
+          "Después de un examen, revisa los fallos y anota qué vas a practicar la semana siguiente."
         ],
         examplesProfessional: [
-          "Reservar tiempo breve y periódico para normas, herramientas o procedimientos nuevos de tu área, no solo «cuando pete».",
-          "Tras un proyecto, anotar 2 lecciones aprendidas y compartirlas con el equipo para no repetir el mismo fallo.",
-          "Pedir mentoría o formación concreta cuando cambia el stack, la normativa o el proceso de trabajo."
+          "Reserva un rato fijo para normas, herramientas o procedimientos nuevos de tu área.",
+          "Al cerrar un proyecto, anota 2 lecciones aprendidas y compártelas con el equipo.",
+          "Pide formación o mentoría concreta cuando cambie la herramienta, la norma o el proceso.",
+          "Aplica en la siguiente tarea algo que hayas aprendido en un curso, manual o incidencia reciente."
         ]
       }
     ],
