@@ -3328,12 +3328,17 @@ body.theme-light .construction-notice strong {
 /* Soft Skills (Miscelánea) */
 .soft-skills-page {
   max-width: 100%;
+  width: 100%;
+  font-family: var(--tech-font);
 }
 
 .soft-skills-lede {
   margin: 0 0 1rem;
-  max-width: 62rem;
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
   color: var(--text-soft, #c5d0e8);
+  font-family: var(--tech-font);
   font-size: 0.98rem;
   line-height: 1.55;
   text-align: justify;
@@ -3359,6 +3364,7 @@ body.theme-light .soft-skills-lede {
   background: rgba(255, 255, 255, 0.06);
   box-sizing: border-box;
   align-items: start;
+  font-family: var(--tech-font);
 }
 
 body.theme-light .soft-skill-card {
@@ -3385,6 +3391,7 @@ body.theme-light .soft-skill-card__visual {
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: brightness(1.18) contrast(1.04) saturate(1.06);
 }
 
 .soft-skill-card__img--fallback {
@@ -3444,6 +3451,7 @@ body.theme-light .soft-skill-tag {
 .soft-skill-card__definition {
   margin: 0.6rem 0 0;
   color: var(--text, #e9f0ff);
+  font-family: var(--tech-font);
   font-size: 0.95rem;
   line-height: 1.55;
   text-align: justify;
@@ -3479,6 +3487,7 @@ body.theme-light .soft-skill-card__examples-label {
   border-left: 3px solid rgba(122, 162, 255, 0.55);
   background: rgba(10, 18, 40, 0.28);
   color: #dbe7ff;
+  font-family: var(--tech-font);
   font-size: 0.9rem;
   line-height: 1.45;
 }
