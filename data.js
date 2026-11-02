@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.7.4",
+    version: "1.8.0",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1621,10 +1621,15 @@ window.MYWEB_DATA = {
   // Referencias: WEF Future of Jobs 2025; DigComp 2.2 (JRC/UE); UNESCO AI CFS.
   // image: ficha visual en ./softskills/
   // changelog: avisos de sección en NOVEDADES → «Soft Skills: {text}» (uno por cambio, no por ficha).
+  // domains canónicos: cognición | colaboración | comunicación | autogestión | digital
   softSkills: {
     intro:
       "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong>, <strong>socioemocionales</strong> o <strong>del siglo XXI</strong>) son capacidades transversales que complementan el conocimiento técnico: <strong>pensar con evidencia</strong>, <strong>colaborar</strong>, <strong>adaptarse</strong> y <strong>aprender de forma continua</strong>. En el <em>Future of Jobs Report 2025</em> del <strong>World Economic Forum</strong>, entre las competencias más demandadas figuran el <strong>pensamiento analítico</strong>, la <strong>resiliencia y agilidad</strong>, el <strong>liderazgo e influencia social</strong>, el <strong>pensamiento creativo</strong> y la <strong>curiosidad / aprendizaje permanente</strong>; en paralelo crecen con fuerza la <strong>literacidad tecnológica</strong> y las competencias en <strong>IA y datos</strong>. El marco europeo <strong>DigComp 2.2</strong> y el <strong>marco UNESCO de competencias en IA para estudiantes</strong> subrayan, además, un uso <strong>crítico, ético y con agencia humana</strong> de las herramientas digitales. Estas fichas traducen ese consenso a prácticas concretas en el <strong>estudio</strong> y en el <strong>trabajo</strong> (empresa, industria, proyectos, operaciones, I+D y servicios).",
     changelog: [
+      {
+        publishedAt: "2026-11-02",
+        text: "Ilustraciones con estética técnica/cibernética y filtro por dominio (cognición, colaboración, comunicación, autogestión, digital)."
+      },
       {
         publishedAt: "2026-11-02",
         text: "Nueva sección con fichas de competencias transversales (estudio y trabajo), uso ético de la IA e ilustraciones temáticas."
@@ -1634,6 +1639,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_comunicacion",
         title: "Comunicación clara",
+        domains: ["comunicación"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_comunicacion.jpg",
@@ -1653,6 +1659,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_equipo",
         title: "Trabajo en equipo",
+        domains: ["colaboración"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_equipo.jpg",
@@ -1672,6 +1679,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_critico",
         title: "Pensamiento crítico",
+        domains: ["cognición"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_critico.jpg",
@@ -1691,6 +1699,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_tiempo",
         title: "Gestión del tiempo",
+        domains: ["autogestión"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_tiempo.jpg",
@@ -1710,6 +1719,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_conflictos",
         title: "Resolución de conflictos",
+        domains: ["colaboración"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_conflictos.jpg",
@@ -1729,6 +1739,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_feedback",
         title: "Feedback (dar y recibir)",
+        domains: ["comunicación"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_feedback.jpg",
@@ -1748,6 +1759,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_autonomia",
         title: "Autonomía y responsabilidad",
+        domains: ["autogestión"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_autonomia.jpg",
@@ -1767,6 +1779,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_exponer",
         title: "Exposición de proyectos",
+        domains: ["comunicación"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_exponer.jpg",
@@ -1786,6 +1799,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_ia",
         title: "Uso ético y responsable de la IA",
+        domains: ["digital"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_ia.jpg",
@@ -1805,6 +1819,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_adaptabilidad",
         title: "Adaptabilidad y resiliencia",
+        domains: ["autogestión"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_adaptabilidad.jpg",
@@ -1824,6 +1839,7 @@ window.MYWEB_DATA = {
       {
         id: "ss_aprendizaje",
         title: "Curiosidad y aprendizaje continuo",
+        domains: ["cognición"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-02",
         image: "./softskills/ss_aprendizaje.jpg",

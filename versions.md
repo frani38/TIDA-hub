@@ -552,6 +552,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: NOVEDADES pasa a un aviso de sección `Soft Skills: …` vía `changelog` (ya no una entrada por ficha).
 
+## 1.8.0
+
+- Soft Skills: ilustraciones técnicas/cibernéticas (azul/cian/verde); filtro lateral por dominio preciso (cognición, colaboración, comunicación, autogestión, digital) con tags en ficha.
+
 ---
 
 ## Convención (recordatorio)
@@ -692,3 +696,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.7.2** | Soft Skills: exposición full-bleed + 3 ilustraciones estilo unificado |
 | **1.7.3** | Soft Skills: 11 ilustraciones nuevas, únicas y temáticas |
 | **1.7.4** | Soft Skills: aviso único de sección en NOVEDADES |
+| **1.8.0** | Soft Skills: estilo cibernético + filtro por dominio |

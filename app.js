@@ -3032,7 +3032,23 @@
               </div>
             </div>
             ${
-              isReadings
+              isSoftSkills
+                ? `
+                  <div class="readings-aside-filters" role="group" aria-label="Filtros de soft skills">
+                    <label class="readings-filter">
+                      <span>DOMINIO</span>
+                      <select id="soft-skills-domain">
+                        <option value="" selected>Todos</option>
+                        <option value="cognición">Cognición</option>
+                        <option value="colaboración">Colaboración</option>
+                        <option value="comunicación">Comunicación</option>
+                        <option value="autogestión">Autogestión</option>
+                        <option value="digital">Digital / IA</option>
+                      </select>
+                    </label>
+                  </div>
+                `
+                : isReadings
                 ? `
                   <div class="readings-aside-filters" role="group" aria-label="Filtros de lecturas recomendadas">
                       <label class="readings-filter">
@@ -3864,6 +3880,13 @@
         const pack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
         const intro = String(pack?.intro || "").trim();
         const rawItems = Array.isArray(pack?.items) ? pack.items : [];
+        const domainLabel = {
+          cognición: "Cognición",
+          colaboración: "Colaboración",
+          comunicación: "Comunicación",
+          autogestión: "Autogestión",
+          digital: "Digital / IA"
+        };
         const skills = rawItems
           .map((item, idx) => {
             const id = String(item?.id || "").trim();
@@ -3873,11 +3896,15 @@
             const image = String(item?.image || "").trim();
             const mapExamples = (arr) =>
               Array.isArray(arr) ? arr.map((e) => String(e || "").trim()).filter(Boolean) : [];
+            const domains = Array.isArray(item?.domains)
+              ? item.domains.map((d) => String(d || "").trim()).filter(Boolean)
+              : [];
             return {
               id,
               title,
               definition,
               image,
+              domains,
               examplesAcademic: mapExamples(item?.examplesAcademic),
               examplesProfessional: mapExamples(item?.examplesProfessional),
               examplesLegacy: mapExamples(item?.examples),
@@ -3899,33 +3926,55 @@
         const ledeEl = document.getElementById("soft-skills-lede");
         const listEl = document.getElementById("soft-skills-list");
         const refsEl = document.getElementById("soft-skills-refs");
+        const domainEl = document.getElementById("soft-skills-domain");
         if (ledeEl) {
           ledeEl.innerHTML = allowSoftHtml(intro);
           ledeEl.hidden = !intro;
         }
 
-        if (listEl instanceof HTMLElement) {
-          if (!skills.length) {
-            listEl.innerHTML = `
+        const renderSoftSkills = () => {
+          if (!(listEl instanceof HTMLElement)) return;
+          const domain = String(domainEl?.value || "").trim();
+          let rows = skills.slice();
+          if (domain) rows = rows.filter((s) => s.domains.includes(domain));
+
+          if (!rows.length) {
+            listEl.innerHTML = skills.length
+              ? `
+                <div class="empty-state construction-notice">
+                  <strong>SIN RESULTADOS</strong>
+                  <br />
+                  Prueba con otro dominio.
+                </div>
+              `
+              : `
                 <div class="empty-state construction-notice">
                   <strong>PRÓXIMAMENTE</strong>
                 </div>
               `;
-          } else {
-            listEl.innerHTML = skills
-              .map((s) => {
-                const imgInner = s.image
-                  ? `<img class="soft-skill-card__img" src="${escapeHtml(s.image)}?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" alt="" loading="lazy" decoding="async" />`
-                  : `<div class="soft-skill-card__img soft-skill-card__img--fallback" aria-hidden="true">${escapeHtml(s.title.slice(0, 1).toUpperCase())}</div>`;
-                const listHtml = (items) =>
-                  items.length
-                    ? `<ul class="soft-skill-card__examples">${items
-                        .map((ex) => `<li>${escapeHtml(ex)}</li>`)
-                        .join("")}</ul>`
-                    : "";
-                const colHtml = (mod, label, items) => {
-                  if (!items.length) return "";
-                  return `
+            return;
+          }
+
+          listEl.innerHTML = rows
+            .map((s) => {
+              const tags = s.domains
+                .map((d) => {
+                  const label = domainLabel[d] || d;
+                  return `<span class="soft-skill-tag">${escapeHtml(label)}</span>`;
+                })
+                .join("");
+              const imgInner = s.image
+                ? `<img class="soft-skill-card__img" src="${escapeHtml(s.image)}?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" alt="" loading="lazy" decoding="async" />`
+                : `<div class="soft-skill-card__img soft-skill-card__img--fallback" aria-hidden="true">${escapeHtml(s.title.slice(0, 1).toUpperCase())}</div>`;
+              const listHtml = (items) =>
+                items.length
+                  ? `<ul class="soft-skill-card__examples">${items
+                      .map((ex) => `<li>${escapeHtml(ex)}</li>`)
+                      .join("")}</ul>`
+                  : "";
+              const colHtml = (mod, label, items) => {
+                if (!items.length) return "";
+                return `
                   <details class="soft-skill-card__examples-col soft-skill-card__examples-col--${mod}">
                     <summary class="soft-skill-card__examples-col-label">
                       <span class="soft-skill-card__examples-col-text">${escapeHtml(label)}</span>
@@ -3933,35 +3982,38 @@
                     </summary>
                     ${listHtml(items)}
                   </details>`;
-                };
-                const hasSplit =
-                  s.examplesAcademic.length > 0 || s.examplesProfessional.length > 0;
-                const examplesBlock = hasSplit
-                  ? `<div class="soft-skill-card__examples-wrap">
+              };
+              const hasSplit =
+                s.examplesAcademic.length > 0 || s.examplesProfessional.length > 0;
+              const examplesBlock = hasSplit
+                ? `<div class="soft-skill-card__examples-wrap">
                     <div class="soft-skill-card__examples-cols">
                       ${colHtml("academic", "Entorno académico", s.examplesAcademic)}
                       ${colHtml("professional", "Mundo laboral", s.examplesProfessional)}
                     </div>
                   </div>`
-                  : s.examplesLegacy.length
-                    ? `<div class="soft-skill-card__examples-wrap">${listHtml(s.examplesLegacy)}</div>`
-                    : "";
-                return `
+                : s.examplesLegacy.length
+                  ? `<div class="soft-skill-card__examples-wrap">${listHtml(s.examplesLegacy)}</div>`
+                  : "";
+              return `
                 <article class="soft-skill-card" data-soft-skill-id="${escapeHtml(s.id)}">
                   <div class="soft-skill-card__visual" aria-hidden="true">${imgInner}</div>
                   <div class="soft-skill-card__body">
                     <div class="soft-skill-card__header">
                       <h4 class="soft-skill-card__title">${escapeHtml(s.title).toLocaleUpperCase("es")}</h4>
+                      ${tags ? `<div class="soft-skill-card__tags">${tags}</div>` : ""}
                     </div>
                     ${s.definition ? `<p class="soft-skill-card__definition">${allowSoftHtml(s.definition)}</p>` : ""}
                     ${examplesBlock}
                   </div>
                 </article>
               `;
-              })
-              .join("");
-          }
-        }
+            })
+            .join("");
+        };
+
+        domainEl?.addEventListener("change", renderSoftSkills);
+        renderSoftSkills();
 
         if (refsEl instanceof HTMLElement) {
           const refs = Array.isArray(pack?.refs)
