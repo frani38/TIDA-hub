@@ -516,6 +516,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: definiciones más extensas; ejemplos en dos columnas (entorno académico / mundo laboral) con estilos diferenciados.
 
+## 1.6.7
+
+- Soft Skills: quitar frase final de la intro; suavizar saturación/brillo de las ilustraciones para alinearlas con la paleta del sitio.
+
 ---
 
 ## Convención (recordatorio)
@@ -647,3 +651,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.6.4** | Soft Skills: ilustraciones coloridas, títulos MAYÚSCULAS, intro en negrita |
 | **1.6.5** | Soft Skills: presentador hombre en ficha de exposición |
 | **1.6.6** | Soft Skills: definiciones amplias + ejemplos académico/laboral |
+| **1.6.7** | Soft Skills: intro sin cierre meta; ilustraciones más suaves |

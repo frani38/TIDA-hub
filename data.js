@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.6.6",
+    version: "1.6.7",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1621,7 +1621,7 @@ window.MYWEB_DATA = {
   // image: ficha visual en ./softskills/
   softSkills: {
     intro:
-      "Las <strong>soft skills</strong> son <strong>competencias transversales</strong> que complementan el conocimiento técnico o de negocio en el mundo profesional del <strong>siglo XXI</strong>: <strong>empresa</strong>, <strong>industria</strong>, <strong>ingeniería de proyectos</strong>, <strong>operaciones</strong>, <strong>I+D</strong> y <strong>servicios</strong>. También se entrenan en el <strong>entorno académico</strong> (Bachillerato, ciclos, universidad) mediante trabajos, proyectos y defensas. No sustituyen la especialidad; hacen posible <strong>coordinar personas</strong>, <strong>decidir con evidencia</strong> y convertir el trabajo en <strong>resultados fiables</strong>. Cada ficha incluye una <strong>definición ampliada</strong>, ejemplos en <strong>ámbito académico</strong> y en el <strong>mundo laboral</strong>, e ilustración de apoyo.",
+      "Las <strong>soft skills</strong> son <strong>competencias transversales</strong> que complementan el conocimiento técnico o de negocio en el mundo profesional del <strong>siglo XXI</strong>: <strong>empresa</strong>, <strong>industria</strong>, <strong>ingeniería de proyectos</strong>, <strong>operaciones</strong>, <strong>I+D</strong> y <strong>servicios</strong>. También se entrenan en el <strong>entorno académico</strong> (Bachillerato, ciclos, universidad) mediante trabajos, proyectos y defensas. No sustituyen la especialidad; hacen posible <strong>coordinar personas</strong>, <strong>decidir con evidencia</strong> y convertir el trabajo en <strong>resultados fiables</strong>.",
     items: [
       {
         id: "ss_comunicacion",
