@@ -16,7 +16,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación y entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
 - **PROYECTOS**: evidencias y trabajos que muestran aplicación real de los contenidos.
 - **LEGISLACIÓN**: normativa de referencia para el marco curricular (`data.js` → `legislation`); en móvil, columnas **Nacional** → **Asturias**.
-- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, **Soft Skills** con fichas por competencia, etc.) según `data.js`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial). En móvil: título + ← VOLVER en la misma línea; al abrir un subapartado el scroll vuelve arriba (logo + filtros).
+- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, **Soft Skills** para perfiles tech del s. XXI —definición, ejemplos e ilustración—, etc.) según `data.js`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial). En móvil: título + ← VOLVER en la misma línea; al abrir un subapartado el scroll vuelve arriba (logo + filtros).
 - **SOBRE MÍ**: contexto del autor/proyecto, imagen en `./image/` y **publicaciones académicas** (DOI/ISBN cuando aplica).
 - **AYUDA**: formulario de contacto con envío real vía **Web3Forms**; tras enviar, **Enviado** y retorno a INICIO. Política de privacidad en la propia sección (título AYUDA + ← VOLVER al margen en móvil; scroll al tope al abrir) y en **`privacidad.html`**.
 - Tipografías **Orbitron / Oxanium** embebidas en `./fonts/` (sin depender de Google Fonts).
@@ -52,6 +52,7 @@ MyWeb/   (repo TIDA-hub)
 ├── banners/
 ├── icons/             # iconos de Miscelánea / DOCENCIA (optimizados)
 ├── books/             # portadas de lecturas
+├── softskills/        # fichas visuales Soft Skills
 ├── logo/
 ├── content/
 │   └── <unitId>/      # materiales por apartado (PDF, imágenes, infografías, …)

@@ -3352,12 +3352,13 @@ body.theme-light .soft-skills-lede {
 
 .soft-skill-card {
   display: grid;
-  grid-template-columns: 3.25rem 1fr;
-  gap: 0.85rem;
+  grid-template-columns: minmax(140px, 200px) 1fr;
+  gap: 0.95rem;
   padding: 0.85rem 0.95rem;
   border: 1px solid rgba(122, 162, 255, 0.18);
   background: rgba(255, 255, 255, 0.06);
   box-sizing: border-box;
+  align-items: start;
 }
 
 body.theme-light .soft-skill-card {
@@ -3365,16 +3366,35 @@ body.theme-light .soft-skill-card {
   border-color: rgba(15, 23, 42, 0.12);
 }
 
-.soft-skill-card__mark {
+.soft-skill-card__visual {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(122, 162, 255, 0.1);
+}
+
+body.theme-light .soft-skill-card__visual {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.soft-skill-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.soft-skill-card__img--fallback {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding-top: 0.15rem;
   font-family: var(--tech-font);
+  font-size: 2.6rem;
   font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: 0.04em;
-  color: var(--accent, #7aa2ff);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .soft-skill-card__body {
@@ -3384,7 +3404,7 @@ body.theme-light .soft-skill-card {
 .soft-skill-card__title {
   margin: 0;
   font-family: var(--tech-font);
-  font-size: 1.12rem;
+  font-size: 1.16rem;
   line-height: 1.25;
   color: var(--accent, #7aa2ff);
   letter-spacing: 0.02em;
@@ -3421,46 +3441,26 @@ body.theme-light .soft-skill-tag {
   border-color: rgba(37, 99, 235, 0.28);
 }
 
-.soft-skill-card__summary {
-  margin: 0.55rem 0 0;
+.soft-skill-card__definition {
+  margin: 0.6rem 0 0;
   color: var(--text, #e9f0ff);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.55;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
-body.theme-light .soft-skill-card__summary {
+body.theme-light .soft-skill-card__definition {
   color: #1e293b;
 }
 
-.soft-skill-card__tips {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  margin-top: 0.7rem;
+.soft-skill-card__examples-wrap {
+  margin-top: 0.75rem;
 }
 
-.soft-skill-card__tip {
-  margin: 0;
-  padding: 0.45rem 0.55rem;
-  border-left: 3px solid rgba(122, 162, 255, 0.55);
-  background: rgba(10, 18, 40, 0.28);
-  color: #dbe7ff;
-  font-size: 0.88rem;
-  line-height: 1.45;
-}
-
-.soft-skill-card__tip--teacher {
-  border-left-color: rgba(167, 139, 250, 0.65);
-}
-
-body.theme-light .soft-skill-card__tip {
-  background: rgba(37, 99, 235, 0.06);
-  color: #334155;
-}
-
-.soft-skill-card__tip-label {
-  display: inline-block;
-  margin-right: 0.35rem;
+.soft-skill-card__examples-label {
+  display: block;
+  margin-bottom: 0.35rem;
   font-family: var(--tech-font);
   font-weight: 750;
   font-size: 0.72rem;
@@ -3469,8 +3469,28 @@ body.theme-light .soft-skill-card__tip {
   color: var(--accent, #7aa2ff);
 }
 
-body.theme-light .soft-skill-card__tip-label {
+body.theme-light .soft-skill-card__examples-label {
   color: #1d4ed8;
+}
+
+.soft-skill-card__examples {
+  margin: 0;
+  padding: 0.55rem 0.55rem 0.55rem 1.25rem;
+  border-left: 3px solid rgba(122, 162, 255, 0.55);
+  background: rgba(10, 18, 40, 0.28);
+  color: #dbe7ff;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+body.theme-light .soft-skill-card__examples {
+  background: rgba(37, 99, 235, 0.06);
+  color: #334155;
+  border-left-color: rgba(37, 99, 235, 0.45);
+}
+
+.soft-skill-card__examples li + li {
+  margin-top: 0.35rem;
 }
 
 .reading-title-row {
@@ -4711,9 +4731,18 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   }
 
   .soft-skill-card {
-    grid-template-columns: 2.6rem 1fr;
-    gap: 0.65rem;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
     padding: 0.7rem 0.7rem;
+  }
+
+  .soft-skill-card__visual {
+    max-width: min(100%, 220px);
+    margin-inline: auto;
+  }
+
+  .soft-skill-card__definition {
+    text-align: left;
   }
 
   .soft-skills-lede {

@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.6.0",
+    version: "1.6.1",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1618,97 +1618,114 @@ window.MYWEB_DATA = {
 
   // Soft Skills (Miscelánea → SOFT SKILLS)
   // contexts canónicos: equipo | exposición | proyecto | individual
+  // image: ficha visual en ./softskills/
   softSkills: {
     intro:
-      "Competencias transversales para Bachillerato (y también para docentes): no sustituyen la técnica, pero deciden si un proyecto STEM avanza, se comunica bien y se sostiene en equipo. Cada ficha resume la skill, una situación de aula y una pista accionable.",
+      "Las soft skills son competencias transversales que complementan el saber técnico en entornos profesionales del siglo XXI: equipos multidisciplinares, proyectos con incertidumbre, herramientas digitales e IA. No sustituyen la ingeniería ni la programación; hacen posible que el conocimiento se comunique, se coordine y se convierta en resultados fiables. Cada ficha ofrece una definición operativa, ejemplos del mundo tecnológico e ilustración de apoyo.",
     items: [
       {
         id: "ss_comunicacion",
         title: "Comunicación clara",
         contexts: ["equipo", "exposición", "proyecto"],
-        summary:
-          "Decir lo esencial de forma ordenada: objetivo, datos y siguiente paso. En Tecnología, una explicación confusa bloquea el montaje tanto como un error de cableado.",
-        classroomTip:
-          "Antes de pedir ayuda, resume en 30 segundos: qué has intentado, qué observas y qué necesitas decidir.",
-        teacherTip:
-          "Exige un «parte de estado» oral o escrito breve en cada hito del proyecto (qué funciona / qué no / siguiente prueba)."
+        image: "./softskills/ss_comunicacion.jpg",
+        definition:
+          "Capacidad de transmitir información técnica de forma precisa, ordenada y usable: objetivo, evidencia y siguiente acción. En contextos tecnológicos, la claridad reduce errores de integración, malentendidos de requisitos y bucles improductivos de soporte.",
+        examples: [
+          "Un parte de estado de 30 segundos: qué se ha probado, qué falla y qué decisión se necesita.",
+          "Un mensaje a un compañero o cliente que separa hechos (logs, medidas) de hipótesis.",
+          "Una especificación breve que evita ambigüedades del tipo «que quede bonito» o «que vaya rápido»."
+        ]
       },
       {
         id: "ss_equipo",
         title: "Trabajo en equipo",
         contexts: ["equipo", "proyecto"],
-        summary:
-          "Repartir roles, cumplir plazos parciales y hacer visible el trabajo de cada persona. El equipo no es «todos hacen de todo a la vez».",
-        classroomTip:
-          "Acordad roles rotativos (documentación, prototipo, pruebas, presentación) y revisadlos a mitad de tarea.",
-        teacherTip:
-          "Evalúa entregables intermedios por rol, no solo el producto final, para evitar el «free-rider»."
+        image: "./softskills/ss_equipo.jpg",
+        definition:
+          "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. En tecnología no basta «ayudarse»: hace falta ownership visible, sincronización de entregables y respeto por las dependencias (hardware, código, datos, documentación).",
+        examples: [
+          "Reparto de roles en un prototipo: diseño, firmware, pruebas y documentación, con puntos de integración.",
+          "Un tablero o checklist común donde cada persona actualiza el estado real del módulo que le corresponde.",
+          "Pedir y ofrecer ayuda con contexto técnico, no con vaguedades («no me funciona»)."
+        ]
       },
       {
         id: "ss_critico",
         title: "Pensamiento crítico",
         contexts: ["proyecto", "individual", "exposición"],
-        summary:
-          "Contrastar fuentes, dudar del primer resultado y distinguir evidencia de opinión. Imprescindible con IA, tutoriales y datasheets.",
-        classroomTip:
-          "Si usas IA o un vídeo, anota qué afirmaciones puedes verificar tú (medida, prueba, datasheet) y cuáles no.",
-        teacherTip:
-          "Pide citar al menos una fuente técnica primaria (manual, norma, paper o fabricante) junto a cualquier respuesta generada."
+        image: "./softskills/ss_critico.jpg",
+        definition:
+          "Evaluar afirmaciones con criterios de evidencia: fuente, método, límites y reproducibilidad. En el entorno digital actual incluye contrastar tutoriales, respuestas de IA, datasheets y resultados experimentales antes de darlos por válidos.",
+        examples: [
+          "Verificar una sugerencia de IA contra el manual del fabricante o una medida en banco de pruebas.",
+          "Desconfiar de un resultado «demasiado perfecto» y repetir la prueba con otra condición de contorno.",
+          "Distinguir correlación de causalidad al interpretar datos de sensores o métricas de producto."
+        ]
       },
       {
         id: "ss_tiempo",
         title: "Gestión del tiempo",
         contexts: ["proyecto", "individual"],
-        summary:
-          "Planificar por hitos realistas: diseño → prototipo → prueba → mejora. El «ya lo haré el último día» suele romper la calibración o la demo.",
-        classroomTip:
-          "Divide el proyecto en 3 hitos con fecha; si un hito se atrasa, reduce alcance antes de saltarte las pruebas.",
-        teacherTip:
-          "Fija hitos cortos y visibles (checklist en aula). Premia la evidencia de prueba, no solo la estética final."
+        image: "./softskills/ss_tiempo.jpg",
+        definition:
+          "Planificación por hitos realistas (diseño → prototipo → prueba → iteración) y control del alcance cuando aparece el retraso. En proyectos tecnológicos, el tiempo mal gestionado suele castigar la validación: se llega a la demo sin datos.",
+        examples: [
+          "Reservar bloques explícitos para pruebas, no solo para «montar» o «programar».",
+          "Recortar funciones secundarias si el hito crítico (sensor estable, API, calibración) está en riesgo.",
+          "Usar un calendario de entregables parciales en lugar de un único deadline final."
+        ]
       },
       {
         id: "ss_conflictos",
         title: "Resolución de conflictos",
         contexts: ["equipo", "proyecto"],
-        summary:
-          "Separar el problema de la persona: hechos observables, impacto en el proyecto y opciones. Sin eso, el laboratorio se convierte en debate estéril.",
-        classroomTip:
-          "Usa la fórmula: hecho → efecto → propuesta («el sensor no se ha probado; sin datos no podemos presentar; propongo 20 min de banco de pruebas»).",
-        teacherTip:
-          "Intervén con mediación breve centrada en el entregable; evita arbitrar «quién tiene razón» sin criterios técnicos."
+        image: "./softskills/ss_conflictos.jpg",
+        definition:
+          "Abordar desacuerdos centrándose en hechos observables, impacto técnico y opciones, no en atribuciones personales. En equipos de ingeniería, el conflicto bien gestionado acelera decisiones; el mal gestionado paraliza el prototipo.",
+        examples: [
+          "Sustituir «tú nunca documentas» por «sin esquema actualizado no podemos cablear; propongo 20 minutos para dibujarlo».",
+          "Elegir entre dos enfoques (A/B) con un criterio medible: consumo, robustez, tiempo de desarrollo.",
+          "Pedir una prueba rápida compartida cuando hay dos interpretaciones del mismo fallo."
+        ]
       },
       {
         id: "ss_feedback",
         title: "Feedback (dar y recibir)",
         contexts: ["equipo", "exposición", "proyecto"],
-        summary:
-          "Comentarios concretos, oportunos y orientados a mejora. Recibir feedback sin defensividad acelera el prototipo más que repetir el mismo error.",
-        classroomTip:
-          "Al comentar el trabajo de otro: 1 acierto observable + 1 mejora accionable + 1 pregunta.",
-        teacherTip:
-          "Modela feedback técnico en voz alta («el margen de error no está indicado») y pide al alumnado reformularlo."
+        image: "./softskills/ss_feedback.jpg",
+        definition:
+          "Intercambio de información orientada a mejorar un entregable: concreto, oportuno y accionable. Dar feedback es una habilidad técnica de revisión; recibirlo sin defensividad es una ventaja competitiva en ciclos de iteración cortos.",
+        examples: [
+          "«El margen de error no está indicado en la gráfica» frente a «está mal explicado».",
+          "Pedir aclaración ante una crítica: «¿qué cambio concreto mejoraría la demo?»",
+          "Una revisión de código o de esquema con 1 fortaleza observable y 1 mejora priorizada."
+        ]
       },
       {
         id: "ss_autonomia",
         title: "Autonomía y responsabilidad",
         contexts: ["individual", "proyecto"],
-        summary:
-          "Avanzar sin esperar instrucciones constantes: documentar, probar y pedir ayuda con evidencia. Responsabilidad = hacerse cargo del resultado, no solo de la intención.",
-        classroomTip:
-          "Mantén un diario mínimo del proyecto (fecha, cambio, resultado). Si falló, escribe la hipótesis siguiente.",
-        teacherTip:
-          "Valora la trazabilidad (cuaderno/repo/fotos de prueba) como evidencia de autonomía, no solo la pregunta «profe, ¿esto está bien?»."
+        image: "./softskills/ss_autonomia.jpg",
+        definition:
+          "Capacidad de avanzar con criterio propio: investigar, probar, documentar y pedir ayuda con evidencia. Responsabilidad significa hacerse cargo del resultado y de su trazabilidad, no solo de la intención de «haberlo intentado».",
+        examples: [
+          "Mantener un diario breve de ensayos (fecha, cambio, resultado, siguiente hipótesis).",
+          "Llegar a una consulta técnica con logs, fotos o medidas, no solo con la duda.",
+          "Cerrar un módulo dejando instrucciones suficientes para que otra persona pueda continuar."
+        ]
       },
       {
         id: "ss_exponer",
         title: "Exposición de proyectos",
         contexts: ["exposición", "proyecto"],
-        summary:
-          "Contar el problema, la solución, la prueba y los límites en pocos minutos. Una demo sin relato no convence; un relato sin demo no demuestra.",
-        classroomTip:
-          "Estructura 4 bloques: problema → idea → evidencia (medida/foto/vídeo) → qué mejorarías.",
-        teacherTip:
-          "Limita el tiempo y exige una evidencia empírica en la defensa (dato, gráfica o prueba en vivo)."
+        image: "./softskills/ss_exponer.jpg",
+        definition:
+          "Comunicar en poco tiempo el problema, la solución, la evidencia y los límites del trabajo. En entornos profesionales (demo, defensa, pitch técnico) una narrativa sin prueba no convence; una prueba sin relato no se entiende.",
+        examples: [
+          "Estructura 4 bloques: problema → enfoque → evidencia (dato/demo) → limitaciones y siguiente paso.",
+          "Mostrar una medida o prueba en vivo en lugar de solo describir la intención del diseño.",
+          "Anticipar una pregunta difícil («¿qué falla si…?») y responder con un límite conocido del sistema."
+        ]
       }
     ]
   },

@@ -492,6 +492,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Miscelánea → **SOFT SKILLS**: catálogo de 8 fichas (comunicación, equipo, pensamiento crítico, tiempo, conflictos, feedback, autonomía, exposición) con intro, tips alumnado/docente y filtro por contexto; datos en `data.js` → `softSkills`.
 
+## 1.6.1
+
+- Soft Skills reorientado a cualquier perfil tech del s. XXI: definición operativa + ejemplos (sin split alumnado/docente); fichas visuales en `softskills/` e ilustración en cada tarjeta.
+
 ---
 
 ## Convención (recordatorio)
@@ -617,3 +621,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.5.0** | PC: encaje automático del lienzo 1680 al viewport CSS estrecho |
 | **1.5.1** | Docs/informe alineados con layout 1.4.x–1.5.0 (último bump solo-docs) |
 | **1.6.0** | Soft Skills: fichas visuales + filtro por contexto |
+| **1.6.1** | Soft Skills: definición+ejemplos universales e ilustraciones |
