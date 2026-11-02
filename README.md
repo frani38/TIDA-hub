@@ -129,9 +129,9 @@ Formato **MAJOR.MINOR.PATCH** (p. ej. `1.5.1` → pie `v1.5.1`). Fuente única: 
 | --- | --- |
 | MAJOR | Cambios considerables / hito o rediseño |
 | MINOR | Cambios menores de funcionalidad |
-| PATCH | Cambios técnicos pequeños (código, estilos, fixes, docs de ingeniería) |
+| PATCH | Cambios técnicos pequeños de la web (código, estilos, fixes de UI) |
 
-La versión **solo** se incrementa en cambios técnicos. Altas o correcciones de contenido editorial (libros, juegos, media, noticias, etc.) se publican **sin** bumpear. El agente versiona y publica automáticamente cuando aplica (`.cursor/rules/version-semver.mdc`, `.cursor/rules/auto-publish.mdc`).
+La versión **solo** se incrementa cuando cambia la web que ve el visitante (o sus assets). **Sin** bumpear: contenido editorial (libros, noticias, …) y documentación/reglas puras (`README`, informe, `.cursor/rules`, …). El agente publica con commit/push automáticamente; versiona solo cuando aplica (`.cursor/rules/version-semver.mdc`, `.cursor/rules/auto-publish.mdc`).
 
 ## Documentación relacionada
 

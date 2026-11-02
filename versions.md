@@ -482,6 +482,11 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 ## 1.5.1
 
 - Documentación alineada con **1.4.x–1.5.0**: `README.md`, `github_TIDAhub.md`, `content/README.md`, `versions.md` e informe LaTeX local (`#_Informe/Informe_MyWeb.tex`) — layout PC vs táctil, encaje `site-desktop-fit`, privacidad/AYUDA móvil, publicaciones, `version-boot.js`.
+- *(Último bump motivado solo por docs bajo la política anterior; a partir de aquí docs/reglas puras ya no generan número nuevo.)*
+
+### Nota de política (sin versión nueva)
+
+- Documentación del repo e informe, y cambios solo en `.cursor/rules`, se publican con commit/push **sin** incrementar `siteMeta.version`. El pie refleja cambios de la web (código/UI/assets), no de la documentación.
 
 ---
 
@@ -491,11 +496,11 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 | --- | --- |
 | **MAJOR** | Cambios considerables / hitos grandes |
 | **MINOR** | Funcionalidad nueva acotada o mejora relevante de UX |
-| **PATCH** | Cambios técnicos pequeños (código, estilos, docs de ingeniería, reglas) |
+| **PATCH** | Cambios técnicos pequeños de la web (código, estilos, fixes) |
 
-**Versionar solo cambios técnicos.** Altas o correcciones de contenido editorial (libros, juegos, media, noticias, legislación, materiales de `content/`/`books/`, etc.) se publican **sin** incrementar `siteMeta.version`.
+**Versionar solo cambios de la web.** Sin bumpear: contenido editorial (libros, juegos, media, noticias, legislación, materiales de `content/`/`books/`, etc.) y documentación/reglas puras (`README`, `github_TIDAhub`, `versions`, informe, `.cursor/rules`, …).
 
-Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la política actual esos casos ya no generan número nuevo.
+Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el último bump solo por docs. Esos casos ya no generan número nuevo.
 
 ---
 
@@ -606,4 +611,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.4.3** | AYUDA/privacidad móvil: VOLVER como Miscelánea; título sin reducir |
 | **1.4.4** | AYUDA → privacidad: scroll al top al abrir |
 | **1.5.0** | PC: encaje automático del lienzo 1680 al viewport CSS estrecho |
-| **1.5.1** | Docs/informe alineados con layout 1.4.x–1.5.0 |
+| **1.5.1** | Docs/informe alineados con layout 1.4.x–1.5.0 (último bump solo-docs) |

@@ -7,12 +7,12 @@ alwaysApply: true
 
 ## Política
 
-Tras completar una tarea que **modifique archivos del sitio** (código, datos, estilos, docs del repo, reglas versionadas, etc.):
+Tras completar una tarea que **modifique archivos del sitio** (código, datos, estilos, docs del repo, reglas, etc.):
 
-1. Aplicar el bump de versión según `version-semver.mdc`.
+1. Aplicar el bump de versión **solo si aplica** según `version-semver.mdc` (no bumpear contenido editorial ni docs/reglas puras).
 2. Hacer **commit** de los cambios relevantes (mensaje claro, estilo del repo).
 3. Hacer **push** a `origin main` (GitHub Pages se actualiza desde ahí).
-4. Confirmar al usuario en una frase (versión + que está publicado). **No preguntar** «¿lo publico?».
+4. Confirmar al usuario en una frase (si hubo bump: versión; si no: que está publicado sin cambio de versión). **No preguntar** «¿lo publico?».
 
 ## Excepciones (no commit/push)
 
