@@ -104,6 +104,51 @@
   global.MYWEB_wireVersionedLinks = wireVersionedLinks;
   global.MYWEB_injectDataJs = injectDataJs;
 
+  /**
+   * PC: si el ancho CSS del viewport es < 1680 (p. ej. 1920×1080 @ escala OS 125% ≈ 1536px),
+   * encaja el lienzo de escritorio con zoom en lugar de cortarlo o forzar scroll horizontal.
+   * No aplica en móvil/tablet táctil (ahí sigue el reflow compacto).
+   */
+  var SITE_DESKTOP_MIN_W = 1680;
+  function syncDesktopFitScale() {
+    var root = global.document && global.document.documentElement;
+    if (!root) return;
+    var touch = false;
+    try {
+      touch = !!global.matchMedia && global.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    } catch (e) {
+      touch = false;
+    }
+    if (touch) {
+      root.classList.remove("site-desktop-fit");
+      root.style.removeProperty("--site-fit-scale");
+      return;
+    }
+    var vw = Math.max(1, global.innerWidth || root.clientWidth || 1);
+    if (vw >= SITE_DESKTOP_MIN_W) {
+      root.classList.remove("site-desktop-fit");
+      root.style.removeProperty("--site-fit-scale");
+      return;
+    }
+    root.style.setProperty("--site-fit-scale", String(vw / SITE_DESKTOP_MIN_W));
+    root.classList.add("site-desktop-fit");
+  }
+  function armDesktopFitScale() {
+    syncDesktopFitScale();
+    global.addEventListener("resize", syncDesktopFitScale);
+    if (global.visualViewport) {
+      global.visualViewport.addEventListener("resize", syncDesktopFitScale);
+    }
+  }
+  global.MYWEB_syncDesktopFitScale = syncDesktopFitScale;
+  if (global.document.readyState === "loading") {
+    global.document.addEventListener("DOMContentLoaded", armDesktopFitScale);
+  } else {
+    armDesktopFitScale();
+  }
+  // Primera pasada lo antes posible (html ya existe en head).
+  syncDesktopFitScale();
+
   fetch("./data.js?_=" + Date.now(), { cache: "no-store", credentials: "same-origin" })
     .then(function (r) {
       if (!r.ok) throw new Error("data.js " + r.status);

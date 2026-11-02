@@ -257,7 +257,7 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 ## 8. Decisiones de diseño ligadas al hosting
 
 - **Sin backend:** ideal para Pages; contacto externalizado (Web3Forms).  
-- **Layout híbrido (1.4.0+):** en navegador de PC se conserva el lienzo fijo histórico (1680px); al estrechar la ventana hay scroll, no reflow. El layout compacto solo en dispositivos táctiles (`hover: none` + `pointer: coarse`) con viewport estrecho.  
+- **Layout híbrido (1.5.0+):** lienzo de diseño 1680px en PC; si el viewport CSS es más estrecho (p. ej. Full HD con escala OS 125%), se encaja con `site-desktop-fit` en lugar de cortar el contenido. El layout compacto solo en dispositivos táctiles (`hover: none` + `pointer: coarse`).  
 - **Móvil/tablet:** cabecera y lema adaptativos; Miscelánea con título+VOLVER en una línea, iconos de sección dimensionados y scroll al tope al abrir subapartados; avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE con tipografía contenida; pie no fijo.  
 - **Fuentes locales** en `fonts/`: no dependen de CDNs bloqueados.  
 - **Historial del navegador:** hashes + `history.pushState` para atrás/adelante entre secciones; subapartados de Miscelánea registran `miscId` (atrás → hub); `history.scrollRestoration = "manual"`.  

@@ -18,8 +18,8 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.4.4",
-    updated: "2026-10-29",
+    version: "1.5.0",
+    updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
   },

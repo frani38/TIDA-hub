@@ -475,6 +475,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - AYUDA → política de privacidad: al entrar se reinicia el scroll al inicio (cabecera), no a mitad del texto.
 
+## 1.5.0
+
+- PC: si el viewport CSS es &lt; 1680px (p. ej. 1920×1080 con escala del sistema 125% ≈ 1536px), el lienzo de escritorio se encaja automáticamente (`site-desktop-fit` / `zoom`) para verse completo, sin cortar NOTICIAS ni pasar a layout móvil/tablet.
+
 ---
 
 ## Convención (recordatorio)
@@ -597,3 +601,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.4.2** | PC estrecho: barra V del viewport ya no la anulan las reglas :has |
 | **1.4.3** | AYUDA/privacidad móvil: VOLVER como Miscelánea; título sin reducir |
 | **1.4.4** | AYUDA → privacidad: scroll al top al abrir |
+| **1.5.0** | PC: encaje automático del lienzo 1680 al viewport CSS estrecho |
