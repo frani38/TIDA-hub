@@ -3960,7 +3960,7 @@
               const tagsHtml = s.domains
                 .map((d) => {
                   const label = domainLabel[d] || d;
-                  return `<span class="soft-skill-tag">[${escapeHtml(label)}]</span>`;
+                  return `<span class="soft-skill-tag">${escapeHtml(label)}</span>`;
                 })
                 .join(" ");
               const imgInner = s.image

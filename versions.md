@@ -588,6 +588,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: reset de las 11 fichas — misma composición, colores naturales/realistas sin tinte ni filtros (p. ej. bombilla cálida, no verde).
 
+## 1.8.9
+
+- Soft Skills: tags sin corchetes (solo la palabra del dominio).
+
 ---
 
 ## Convención (recordatorio)
@@ -737,3 +741,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.6** | Soft Skills: tags azul claro; imágenes naturales sin filtros |
 | **1.8.7** | Soft Skills: colores vivos y contraste legible en fichas |
 | **1.8.8** | Soft Skills: reset colores naturales realistas sin filtros |
+| **1.8.9** | Soft Skills: tags sin corchetes |
