@@ -3183,8 +3183,8 @@
                       <p class="soft-skills-lede" id="soft-skills-lede"></p>
                       <div id="soft-skills-list" class="soft-skills-grid" aria-live="polite"></div>
                       <footer class="soft-skills-refs" id="soft-skills-refs" hidden></footer>
-                    </div>
-                  `
+                  </div>
+                `
                 : `
                   <div class="empty-state construction-notice">
                     <strong>PRÓXIMAMENTE</strong>

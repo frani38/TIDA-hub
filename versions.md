@@ -572,6 +572,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: tag dentro de la barra azul del título (derecha); homogeneizar brillo/contraste/saturación de todas las ilustraciones.
 
+## 1.8.5
+
+- Soft Skills: misma composición con paleta cálida/natural (sin lavado cian); brillo y contraste unificados en las 11 fichas.
+
 ---
 
 ## Convención (recordatorio)
@@ -717,3 +721,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.2** | Soft Skills: tags en título, paleta y pensamiento crítico |
 | **1.8.3** | Soft Skills: tags dcha, imágenes 1.8.1+color, más negritas |
 | **1.8.4** | Soft Skills: tag en barra azul; ilustraciones homogeneizadas |
+| **1.8.5** | Soft Skills: paleta natural unificada, sin tono azul excesivo |

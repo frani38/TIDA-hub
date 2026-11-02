@@ -3396,8 +3396,8 @@ body.theme-light .soft-skill-card__visual {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* Misma corrección visual para todas las fichas */
-  filter: saturate(0.92) contrast(1.05) brightness(1.04);
+  /* Homogeneidad ligera; el grade fuerte va en los JPG */
+  filter: saturate(1.02) contrast(1.04) brightness(1.0);
 }
 
 .soft-skill-card__img--fallback {
