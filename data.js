@@ -1621,7 +1621,7 @@ window.MYWEB_DATA = {
   // image: ficha visual en ./softskills/
   softSkills: {
     intro:
-      "Las soft skills son competencias transversales que complementan el saber técnico en entornos profesionales del siglo XXI: equipos multidisciplinares, proyectos con incertidumbre, herramientas digitales e IA. No sustituyen la ingeniería ni la programación; hacen posible que el conocimiento se comunique, se coordine y se convierta en resultados fiables. Cada ficha ofrece una definición operativa, ejemplos del mundo tecnológico e ilustración de apoyo.",
+      "Las soft skills son competencias transversales que complementan el conocimiento técnico o de negocio en el mundo profesional del siglo XXI: empresa, industria, ingeniería de proyectos, operaciones, I+D y servicios. No sustituyen la especialidad (producción, diseño, finanzas, calidad, tecnología…); hacen posible coordinar personas, decidir con evidencia y convertir el trabajo en resultados fiables bajo plazos e incertidumbre. Cada ficha ofrece una definición operativa, ejemplos aplicables a entornos empresariales e industriales, e ilustración de apoyo.",
     items: [
       {
         id: "ss_comunicacion",
@@ -1629,11 +1629,11 @@ window.MYWEB_DATA = {
         contexts: ["equipo", "exposición", "proyecto"],
         image: "./softskills/ss_comunicacion.jpg",
         definition:
-          "Capacidad de transmitir información técnica de forma precisa, ordenada y usable: objetivo, evidencia y siguiente acción. En contextos tecnológicos, la claridad reduce errores de integración, malentendidos de requisitos y bucles improductivos de soporte.",
+          "Capacidad de transmitir información de forma precisa, ordenada y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. En empresa e industria reduce malentendidos de requisitos, retrasos entre áreas (diseño, compras, producción, calidad, comercial) y costes por retrabajo.",
         examples: [
-          "Un parte de estado de 30 segundos: qué se ha probado, qué falla y qué decisión se necesita.",
-          "Un mensaje a un compañero o cliente que separa hechos (logs, medidas) de hipótesis.",
-          "Una especificación breve que evita ambigüedades del tipo «que quede bonito» o «que vaya rápido»."
+          "Un informe o correo de estado que separa hechos (plazo, coste, incidencia) de opiniones o hipótesis.",
+          "Una especificación de pedido o de proyecto sin ambigüedades del tipo «urgente» o «como siempre» sin criterios.",
+          "Explicar a dirección o a un cliente el impacto de un cambio de alcance en tiempo, presupuesto y riesgo."
         ]
       },
       {
@@ -1642,11 +1642,11 @@ window.MYWEB_DATA = {
         contexts: ["equipo", "proyecto"],
         image: "./softskills/ss_equipo.jpg",
         definition:
-          "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. En tecnología no basta «ayudarse»: hace falta ownership visible, sincronización de entregables y respeto por las dependencias (hardware, código, datos, documentación).",
+          "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. En proyectos industriales o empresariales no basta «ayudarse»: hace falta responsabilidad visible, sincronización de entregables y respeto por las dependencias entre departamentos, proveedores y fases del proyecto.",
         examples: [
-          "Reparto de roles en un prototipo: diseño, firmware, pruebas y documentación, con puntos de integración.",
-          "Un tablero o checklist común donde cada persona actualiza el estado real del módulo que le corresponde.",
-          "Pedir y ofrecer ayuda con contexto técnico, no con vaguedades («no me funciona»)."
+          "Alinear ingeniería, producción y compras en un hito de lanzamiento con un responsable claro por entrega.",
+          "Usar un plan común (Gantt, tablero, actas) donde cada área actualiza el estado real de su parte.",
+          "Pedir apoyo a otra unidad con contexto suficiente (qué se necesita, para cuándo y qué bloquea)."
         ]
       },
       {
@@ -1655,11 +1655,11 @@ window.MYWEB_DATA = {
         contexts: ["proyecto", "individual", "exposición"],
         image: "./softskills/ss_critico.jpg",
         definition:
-          "Evaluar afirmaciones con criterios de evidencia: fuente, método, límites y reproducibilidad. En el entorno digital actual incluye contrastar tutoriales, respuestas de IA, datasheets y resultados experimentales antes de darlos por válidos.",
+          "Evaluar afirmaciones y propuestas con criterios de evidencia: fuente, método, límites y consecuencias. En entornos empresariales e industriales incluye cuestionar datos de mercado, informes de proveedores, KPIs incompletos o recomendaciones automáticas antes de convertirlas en decisión.",
         examples: [
-          "Verificar una sugerencia de IA contra el manual del fabricante o una medida en banco de pruebas.",
-          "Desconfiar de un resultado «demasiado perfecto» y repetir la prueba con otra condición de contorno.",
-          "Distinguir correlación de causalidad al interpretar datos de sensores o métricas de producto."
+          "Contrastar la oferta de un proveedor con ensayos, normas aplicables o referencias de planta comparables.",
+          "Revisar un KPI atractivo preguntando qué queda fuera del indicador y qué riesgo oculta.",
+          "Distinguir correlación de causalidad al interpretar resultados de proceso, ventas o calidad."
         ]
       },
       {
@@ -1668,11 +1668,11 @@ window.MYWEB_DATA = {
         contexts: ["proyecto", "individual"],
         image: "./softskills/ss_tiempo.jpg",
         definition:
-          "Planificación por hitos realistas (diseño → prototipo → prueba → iteración) y control del alcance cuando aparece el retraso. En proyectos tecnológicos, el tiempo mal gestionado suele castigar la validación: se llega a la demo sin datos.",
+          "Planificación por hitos realistas y control del alcance cuando aparece el retraso. En proyectos industriales y planes de negocio, el tiempo mal gestionado suele castigar la validación, la puesta en marcha o la calidad: se llega a la fecha clave sin evidencia suficiente.",
         examples: [
-          "Reservar bloques explícitos para pruebas, no solo para «montar» o «programar».",
-          "Recortar funciones secundarias si el hito crítico (sensor estable, API, calibración) está en riesgo.",
-          "Usar un calendario de entregables parciales en lugar de un único deadline final."
+          "Reservar margen explícito para pruebas, homologación o formación, no solo para «ejecutar».",
+          "Recortar funciones o extras no críticos si el hito de arranque, entrega o auditoría está en riesgo.",
+          "Trabajar con entregables parciales revisables en lugar de un único cierre final."
         ]
       },
       {
@@ -1681,11 +1681,11 @@ window.MYWEB_DATA = {
         contexts: ["equipo", "proyecto"],
         image: "./softskills/ss_conflictos.jpg",
         definition:
-          "Abordar desacuerdos centrándose en hechos observables, impacto técnico y opciones, no en atribuciones personales. En equipos de ingeniería, el conflicto bien gestionado acelera decisiones; el mal gestionado paraliza el prototipo.",
+          "Abordar desacuerdos centrándose en hechos observables, impacto en el negocio o en el proyecto, y opciones, no en atribuciones personales. En organizaciones complejas (planta, oficina técnica, comercial, dirección) el conflicto bien gestionado acelera decisiones; el mal gestionado congela inversiones y plazos.",
         examples: [
-          "Sustituir «tú nunca documentas» por «sin esquema actualizado no podemos cablear; propongo 20 minutos para dibujarlo».",
-          "Elegir entre dos enfoques (A/B) con un criterio medible: consumo, robustez, tiempo de desarrollo.",
-          "Pedir una prueba rápida compartida cuando hay dos interpretaciones del mismo fallo."
+          "Sustituir «compras siempre llega tarde» por «sin fecha firme de material no podemos cerrar el montaje; propongo reunión de 20 minutos con proveedor».",
+          "Elegir entre dos alternativas con criterios compartidos: coste, plazo, riesgo, calidad o servicio.",
+          "Mediar entre áreas con un hecho común (incidencia, dato de proceso, cláusula contractual) antes de escalar."
         ]
       },
       {
@@ -1694,11 +1694,11 @@ window.MYWEB_DATA = {
         contexts: ["equipo", "exposición", "proyecto"],
         image: "./softskills/ss_feedback.jpg",
         definition:
-          "Intercambio de información orientada a mejorar un entregable: concreto, oportuno y accionable. Dar feedback es una habilidad técnica de revisión; recibirlo sin defensividad es una ventaja competitiva en ciclos de iteración cortos.",
+          "Intercambio de información orientado a mejorar un entregable o un proceso: concreto, oportuno y accionable. En entornos profesionales, dar feedback es parte de la mejora continua; recibirlo sin defensividad acorta ciclos de corrección y reduce costes de no calidad.",
         examples: [
-          "«El margen de error no está indicado en la gráfica» frente a «está mal explicado».",
-          "Pedir aclaración ante una crítica: «¿qué cambio concreto mejoraría la demo?»",
-          "Una revisión de código o de esquema con 1 fortaleza observable y 1 mejora priorizada."
+          "«Falta el criterio de aceptación en el protocolo» frente a «el documento está mal».",
+          "Pedir aclaración ante una crítica: «¿qué cambio concreto mejoraría el resultado para el cliente o la planta?»",
+          "Una revisión de informe, plano o procedimiento con 1 fortaleza observable y 1 mejora priorizada."
         ]
       },
       {
@@ -1707,11 +1707,11 @@ window.MYWEB_DATA = {
         contexts: ["individual", "proyecto"],
         image: "./softskills/ss_autonomia.jpg",
         definition:
-          "Capacidad de avanzar con criterio propio: investigar, probar, documentar y pedir ayuda con evidencia. Responsabilidad significa hacerse cargo del resultado y de su trazabilidad, no solo de la intención de «haberlo intentado».",
+          "Capacidad de avanzar con criterio propio: investigar, contrastar, documentar y pedir ayuda con evidencia. Responsabilidad significa hacerse cargo del resultado y de su trazabilidad ante el equipo, el cliente o la organización, no solo de la intención de «haberlo intentado».",
         examples: [
-          "Mantener un diario breve de ensayos (fecha, cambio, resultado, siguiente hipótesis).",
-          "Llegar a una consulta técnica con logs, fotos o medidas, no solo con la duda.",
-          "Cerrar un módulo dejando instrucciones suficientes para que otra persona pueda continuar."
+          "Dejar un expediente o carpeta de proyecto usable por quien continúe (decisiones, versiones, pendientes).",
+          "Llegar a una reunión de escalado con datos, no solo con la descripción del problema.",
+          "Cerrar una tarea asumiendo el seguimiento hasta la verificación, no hasta «enviarlo»."
         ]
       },
       {
@@ -1720,11 +1720,11 @@ window.MYWEB_DATA = {
         contexts: ["exposición", "proyecto"],
         image: "./softskills/ss_exponer.jpg",
         definition:
-          "Comunicar en poco tiempo el problema, la solución, la evidencia y los límites del trabajo. En entornos profesionales (demo, defensa, pitch técnico) una narrativa sin prueba no convence; una prueba sin relato no se entiende.",
+          "Comunicar en poco tiempo el problema, la propuesta, la evidencia y los límites del trabajo. En entornos empresariales e industriales (comité, cliente, auditoría, defensa de inversión) una narrativa sin datos no convence; unos datos sin relato no se entienden ni se deciden.",
         examples: [
-          "Estructura 4 bloques: problema → enfoque → evidencia (dato/demo) → limitaciones y siguiente paso.",
-          "Mostrar una medida o prueba en vivo en lugar de solo describir la intención del diseño.",
-          "Anticipar una pregunta difícil («¿qué falla si…?») y responder con un límite conocido del sistema."
+          "Estructura 4 bloques: problema → enfoque → evidencia (dato, ensayo, piloto) → riesgos y siguiente paso.",
+          "Presentar el impacto en coste, plazo o calidad, no solo la descripción técnica de la solución.",
+          "Anticipar una pregunta difícil («¿qué pasa si falla el proveedor / la demanda / el proceso?») con un plan B realista."
         ]
       }
     ]
