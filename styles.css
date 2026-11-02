@@ -3391,7 +3391,7 @@ body.theme-light .soft-skill-card__visual {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(1.18) contrast(1.04) saturate(1.06);
+  filter: brightness(1.08) contrast(1.05) saturate(1.12);
 }
 
 .soft-skill-card__img--fallback {
@@ -3415,6 +3415,16 @@ body.theme-light .soft-skill-card__visual {
   line-height: 1.25;
   color: var(--accent, #7aa2ff);
   letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.soft-skills-lede strong {
+  font-weight: 800;
+  color: inherit;
+}
+
+body.theme-light .soft-skills-lede strong {
+  color: #0f3f9a;
 }
 
 body.theme-light .soft-skill-card__title {

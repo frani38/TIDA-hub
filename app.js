@@ -3856,7 +3856,14 @@
         const listEl = document.getElementById("soft-skills-list");
         const contextEl = document.getElementById("soft-skills-context");
         if (ledeEl) {
-          ledeEl.textContent = intro;
+          // Intro puede incluir <strong>…</strong> controlado desde data.js.
+          const safeIntro = intro
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/&lt;strong&gt;/gi, "<strong>")
+            .replace(/&lt;\/strong&gt;/gi, "</strong>");
+          ledeEl.innerHTML = safeIntro;
           ledeEl.hidden = !intro;
         }
 
@@ -3903,7 +3910,7 @@
                 <article class="soft-skill-card" data-soft-skill-id="${escapeHtml(s.id)}">
                   <div class="soft-skill-card__visual" aria-hidden="true">${imgInner}</div>
                   <div class="soft-skill-card__body">
-                    <h4 class="soft-skill-card__title">${escapeHtml(s.title)}</h4>
+                    <h4 class="soft-skill-card__title">${escapeHtml(s.title).toLocaleUpperCase("es")}</h4>
                     ${tags ? `<div class="soft-skill-card__tags">${tags}</div>` : ""}
                     ${s.definition ? `<p class="soft-skill-card__definition">${escapeHtml(s.definition)}</p>` : ""}
                     ${

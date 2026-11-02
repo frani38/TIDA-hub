@@ -504,6 +504,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: intro a ancho completo del área de contenido; tipografía Orbitron en textos de la sección; ilustraciones con algo más de brillo.
 
+## 1.6.4
+
+- Soft Skills: nuevas ilustraciones más coloridas; títulos en mayúsculas; palabras clave de la intro en negrita.
+
 ---
 
 ## Convención (recordatorio)
@@ -632,3 +636,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.6.1** | Soft Skills: definición+ejemplos universales e ilustraciones |
 | **1.6.2** | Miscelánea: icono visible tras recarga/historial |
 | **1.6.3** | Soft Skills: intro a ancho completo, Orbitron y brillo |
+| **1.6.4** | Soft Skills: ilustraciones coloridas, títulos MAYÚSCULAS, intro en negrita |

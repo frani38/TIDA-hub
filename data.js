@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.6.3",
+    version: "1.6.4",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1621,7 +1621,7 @@ window.MYWEB_DATA = {
   // image: ficha visual en ./softskills/
   softSkills: {
     intro:
-      "Las soft skills son competencias transversales que complementan el conocimiento técnico o de negocio en el mundo profesional del siglo XXI: empresa, industria, ingeniería de proyectos, operaciones, I+D y servicios. No sustituyen la especialidad (producción, diseño, finanzas, calidad, tecnología…); hacen posible coordinar personas, decidir con evidencia y convertir el trabajo en resultados fiables bajo plazos e incertidumbre. Cada ficha ofrece una definición operativa, ejemplos aplicables a entornos empresariales e industriales, e ilustración de apoyo.",
+      "Las <strong>soft skills</strong> son <strong>competencias transversales</strong> que complementan el conocimiento técnico o de negocio en el mundo profesional del <strong>siglo XXI</strong>: <strong>empresa</strong>, <strong>industria</strong>, <strong>ingeniería de proyectos</strong>, <strong>operaciones</strong>, <strong>I+D</strong> y <strong>servicios</strong>. No sustituyen la especialidad (producción, diseño, finanzas, calidad, tecnología…); hacen posible <strong>coordinar personas</strong>, <strong>decidir con evidencia</strong> y convertir el trabajo en <strong>resultados fiables</strong> bajo plazos e incertidumbre. Cada ficha ofrece una <strong>definición operativa</strong>, <strong>ejemplos</strong> aplicables a entornos empresariales e industriales, e ilustración de apoyo.",
     items: [
       {
         id: "ss_comunicacion",
