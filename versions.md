@@ -540,6 +540,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: entradas automáticas en NOVEDADES (`SOFT SKILL: …`) con enlace a la ficha; aviso luminoso al añadir o editar contenido (huella de texto + `updatedAt`).
 
+## 1.7.2
+
+- Soft Skills: exposición a full-bleed (sin contain/reborde); nuevas ilustraciones de IA, adaptabilidad y aprendizaje alineadas al estilo/color del resto.
+
 ---
 
 ## Convención (recordatorio)
@@ -677,3 +681,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.6.10** | Soft Skills: sin contextos; ejemplos estudio real; exposición contain |
 | **1.7.0** | Soft Skills: marcos WEF/DigComp/UNESCO + IA ética y 2 fichas nuevas |
 | **1.7.1** | Soft Skills → NOVEDADES automáticas + aviso luminoso al actualizar |
+| **1.7.2** | Soft Skills: exposición full-bleed + 3 ilustraciones estilo unificado |

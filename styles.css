@@ -3400,18 +3400,6 @@ body.theme-light .soft-skill-card__visual {
   filter: saturate(0.72) contrast(1.02) brightness(1.05);
 }
 
-.soft-skill-card__img--contain {
-  object-fit: contain;
-  object-position: center;
-  padding: 8%;
-  box-sizing: border-box;
-  background: rgba(8, 16, 36, 0.35);
-}
-
-body.theme-light .soft-skill-card__img--contain {
-  background: rgba(226, 232, 240, 0.65);
-}
-
 .soft-skill-card__img--fallback {
   display: flex;
   align-items: center;

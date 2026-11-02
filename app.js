@@ -3921,12 +3921,8 @@
           } else {
             listEl.innerHTML = skills
               .map((s) => {
-                const imgClass =
-                  s.id === "ss_exponer"
-                    ? "soft-skill-card__img soft-skill-card__img--contain"
-                    : "soft-skill-card__img";
                 const imgInner = s.image
-                  ? `<img class="${imgClass}" src="${escapeHtml(s.image)}?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" alt="" loading="lazy" decoding="async" />`
+                  ? `<img class="soft-skill-card__img" src="${escapeHtml(s.image)}?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" alt="" loading="lazy" decoding="async" />`
                   : `<div class="soft-skill-card__img soft-skill-card__img--fallback" aria-hidden="true">${escapeHtml(s.title.slice(0, 1).toUpperCase())}</div>`;
                 const listHtml = (items) =>
                   items.length
