@@ -528,6 +528,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: subir brillo y contraste de las ilustraciones (sin recuperar saturación fuerte).
 
+## 1.6.10
+
+- Soft Skills: eliminar filtro/tags de contexto; ejemplos académicos centrados en tareas reales de estudio; texto justificado en ejemplos; imagen de exposición con `contain` (no llena el recuadro).
+
 ---
 
 ## Convención (recordatorio)
@@ -662,3 +666,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.6.7** | Soft Skills: intro sin cierre meta; ilustraciones más suaves |
 | **1.6.8** | Soft Skills: imagen sin tinte, tags arriba-dcha, ejemplos desplegables |
 | **1.6.9** | Soft Skills: ilustraciones con más brillo y contraste |
+| **1.6.10** | Soft Skills: sin contextos; ejemplos estudio real; exposición contain |

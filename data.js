@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.6.9",
+    version: "1.6.10",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1617,23 +1617,21 @@ window.MYWEB_DATA = {
   ],
 
   // Soft Skills (Miscelánea → SOFT SKILLS)
-  // contexts canónicos: equipo | exposición | proyecto | individual
   // image: ficha visual en ./softskills/
   softSkills: {
     intro:
-      "Las <strong>soft skills</strong> son <strong>competencias transversales</strong> que complementan el conocimiento técnico o de negocio en el mundo profesional del <strong>siglo XXI</strong>: <strong>empresa</strong>, <strong>industria</strong>, <strong>ingeniería de proyectos</strong>, <strong>operaciones</strong>, <strong>I+D</strong> y <strong>servicios</strong>. También se entrenan en el <strong>entorno académico</strong> (Bachillerato, ciclos, universidad) mediante trabajos, proyectos y defensas. No sustituyen la especialidad; hacen posible <strong>coordinar personas</strong>, <strong>decidir con evidencia</strong> y convertir el trabajo en <strong>resultados fiables</strong>.",
+      "Las <strong>soft skills</strong> son <strong>competencias transversales</strong> que complementan el conocimiento técnico o de negocio en el mundo profesional del <strong>siglo XXI</strong>: <strong>empresa</strong>, <strong>industria</strong>, <strong>ingeniería de proyectos</strong>, <strong>operaciones</strong>, <strong>I+D</strong> y <strong>servicios</strong>. También se entrenan en el <strong>entorno académico</strong> (Bachillerato, ciclos, universidad) mediante el trabajo diario de estudio en las materias. No sustituyen la especialidad; hacen posible <strong>coordinar personas</strong>, <strong>decidir con evidencia</strong> y convertir el trabajo en <strong>resultados fiables</strong>.",
     items: [
       {
         id: "ss_comunicacion",
         title: "Comunicación clara",
-        contexts: ["equipo", "exposición", "proyecto"],
         image: "./softskills/ss_comunicacion.jpg",
         definition:
           "Capacidad de transmitir información de forma precisa, ordenada y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. Una comunicación clara no es «hablar mucho», sino reducir ambigüedad: qué se sabe, qué se ignora y qué se necesita de la otra parte. En contextos académicos y profesionales evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o departamentos (diseño, compras, producción, calidad, comercial, dirección).",
         examplesAcademic: [
-          "Resumir en 30 segundos el estado de un trabajo o proyecto: qué se ha hecho, qué falla y qué se pide al profesor o al equipo.",
-          "Redactar el enunciado propio de una tarea o memoria sin ambigüedades («urgente», «bonito») y con criterios observables.",
-          "Explicar oralmente el impacto de un cambio de alcance en plazo y calidad del entregable escolar."
+          "En un comentario de texto o ensayo, distinguir hechos del texto, interpretación propia y conclusión, para que el profesor sepa qué evalúa.",
+          "En Física o Matemáticas, redactar el desarrollo del problema con datos, fórmula, pasos y unidades, no solo el número final.",
+          "En Tecnología o Biología, explicar oralmente un procedimiento o un esquema con el vocabulario de la unidad, sin rodeos."
         ],
         examplesProfessional: [
           "Informe o correo de estado que separa hechos (plazo, coste, incidencia) de opiniones o hipótesis.",
@@ -1644,14 +1642,13 @@ window.MYWEB_DATA = {
       {
         id: "ss_equipo",
         title: "Trabajo en equipo",
-        contexts: ["equipo", "proyecto"],
         image: "./softskills/ss_equipo.jpg",
         definition:
           "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. El trabajo en equipo eficaz no consiste en «hacer todos lo mismo a la vez», sino en repartir responsabilidades visibles, sincronizar entregas parciales y respetar dependencias. Se practica en el aula (grupos de proyecto) y es crítica en empresa e industria, donde fallan las interfaces entre áreas, turnos o proveedores más que el talento individual.",
         examplesAcademic: [
-          "Acordar roles en un trabajo grupal (investigación, redacción, prototipo, presentación) y revisarlos a mitad de plazo.",
-          "Mantener un tablero o lista compartida con el estado real de cada parte del proyecto escolar.",
-          "Pedir ayuda a un compañero con contexto: qué se necesita, para cuándo y qué bloquea."
+          "En un trabajo grupal de Historia o Economía, repartir fuentes, redacción y diapositivas con fecha de revisión antes de la entrega.",
+          "En laboratorio (Química, Biología) o taller (Tecnología), rotar roles: medidas, registro, limpieza y conclusión del informe.",
+          "Si un compañero se atrasa en su parte de Lengua o Inglés, replanificar juntos qué se entrega mañana y qué se deja para después."
         ],
         examplesProfessional: [
           "Alinear ingeniería, producción y compras en un hito de lanzamiento con responsable claro por entrega.",
@@ -1662,14 +1659,13 @@ window.MYWEB_DATA = {
       {
         id: "ss_critico",
         title: "Pensamiento crítico",
-        contexts: ["proyecto", "individual", "exposición"],
         image: "./softskills/ss_critico.jpg",
         definition:
           "Evaluar afirmaciones y propuestas con criterios de evidencia: fuente, método, límites y consecuencias. El pensamiento crítico no es «pensar en negativo»; es comprobar antes de decidir. Incluye contrastar apuntes, tutoriales, respuestas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo plausible. Es transferable del aprendizaje académico a la toma de decisiones industriales y empresariales.",
         examplesAcademic: [
-          "Contrastar una respuesta de IA o un vídeo con el libro, la norma o una prueba propia en el taller.",
-          "Cuestionar un resultado «demasiado redondo» en un informe y repetir la medida o el cálculo.",
-          "En un debate o trabajo, separar opiniones de datos citados con fuente."
+          "Al estudiar, contrastar apuntes, libro de texto y una respuesta de IA o un vídeo antes de dar por buena una fórmula o una fecha.",
+          "En un problema de Física o Química, comprobar si el orden de magnitud del resultado tiene sentido; si no, revisar unidades y datos.",
+          "En Filosofía, Historia o Lengua, exigir fuente citada cuando se afirma un dato y separar opinión de evidencia."
         ],
         examplesProfessional: [
           "Contrastar la oferta de un proveedor con ensayos, normas o referencias de planta comparables.",
@@ -1680,14 +1676,13 @@ window.MYWEB_DATA = {
       {
         id: "ss_tiempo",
         title: "Gestión del tiempo",
-        contexts: ["proyecto", "individual"],
         image: "./softskills/ss_tiempo.jpg",
         definition:
           "Planificación por hitos realistas y control del alcance cuando aparece el retraso. Gestionar el tiempo no es solo «estar ocupado»: es priorizar lo que desbloquea la entrega, reservar margen para verificación y decidir qué se recorta si el calendario se tensa. En Bachillerato evita entregas a última hora sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente.",
         examplesAcademic: [
-          "Dividir un trabajo en hitos (investigación → borrador → revisión → entrega) con fechas intermedias.",
-          "Si se atrasa un bloque, reducir extras antes de saltarse la revisión o las pruebas.",
-          "Reservar tiempo explícito para ensayar la exposición, no solo para «terminar el contenido»."
+          "Planificar la semana de exámenes por materia: teoría, ejercicios tipo y un repaso corto el día anterior, no todo la noche previa.",
+          "En un trabajo de varias sesiones (Tecnología, Investigación), dejar el último día solo para revisar formato, citas y erratas.",
+          "Si hay deberes de tres asignaturas el mismo día, hacer primero lo que más pesa en nota o lo que más cuesta, no lo más fácil."
         ],
         examplesProfessional: [
           "Reservar margen para pruebas, homologación o formación, no solo para ejecutar.",
@@ -1698,14 +1693,13 @@ window.MYWEB_DATA = {
       {
         id: "ss_conflictos",
         title: "Resolución de conflictos",
-        contexts: ["equipo", "proyecto"],
         image: "./softskills/ss_conflictos.jpg",
         definition:
           "Abordar desacuerdos centrándose en hechos observables, impacto en el objetivo común y opciones de acción, no en etiquetas personales. Un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de clase y en una organización con planta, oficina técnica, comercial y dirección.",
         examplesAcademic: [
-          "Pasar de «tú no haces nada» a «falta la parte X para el viernes; propongo repartir Y y Z hoy».",
-          "Elegir entre dos enfoques de un trabajo con criterios compartidos (nota, plazo, claridad).",
-          "Pedir mediación del docente solo tras intentar un acuerdo basado en hechos del enunciado o del plan."
+          "En un grupo de trabajo, pasar de «tú no haces nada» a «falta el apartado de resultados para el viernes; yo hago tablas y tú la conclusión».",
+          "Si dos enfoques chocan (p. ej. cómo estructurar un informe), decidir con el enunciado y la rúbrica, no por quién insiste más.",
+          "Ante un malentendido con un compañero por notas o turnos, aclarar hechos del calendario de entrega antes de escalar al profesor."
         ],
         examplesProfessional: [
           "Sustituir acusaciones por hechos y propuesta («sin fecha firme de material no cerramos montaje; reunión de 20 min con proveedor»).",
@@ -1716,14 +1710,13 @@ window.MYWEB_DATA = {
       {
         id: "ss_feedback",
         title: "Feedback (dar y recibir)",
-        contexts: ["equipo", "exposición", "proyecto"],
         image: "./softskills/ss_feedback.jpg",
         definition:
           "Intercambio de información orientado a mejorar un entregable o un proceso: concreto, oportuno y accionable. Dar buen feedback describe el trabajo, no ataca a la persona; recibirlo implica escuchar, aclarar y decidir un cambio, sin defensividad automática. Es una competencia de aprendizaje continuo en el aula y de mejora de calidad en la organización.",
         examplesAcademic: [
-          "Comentar el trabajo de un compañero: 1 acierto observable + 1 mejora concreta + 1 pregunta.",
-          "Ante una corrección del profesor, reformular qué cambiarás en la siguiente entrega.",
-          "Pedir feedback específico («¿la estructura del informe se entiende?») en lugar de «¿está bien?»."
+          "Al revisar el borrador de un compañero: señalar un acierto concreto (estructura, ejemplo, gráfico) y una mejora accionable.",
+          "Tras una corrección del profesor en un examen o trabajo, anotar qué tipo de error se repite y cómo lo evitarás en el siguiente.",
+          "Pedir en clase o tutoría una duda concreta («no entiendo el paso 3 del ejercicio 5»), no un «no lo pillo» genérico."
         ],
         examplesProfessional: [
           "«Falta el criterio de aceptación en el protocolo» frente a «el documento está mal».",
@@ -1734,14 +1727,13 @@ window.MYWEB_DATA = {
       {
         id: "ss_autonomia",
         title: "Autonomía y responsabilidad",
-        contexts: ["individual", "proyecto"],
         image: "./softskills/ss_autonomia.jpg",
         definition:
           "Capacidad de avanzar con criterio propio: investigar, contrastar, documentar y pedir ayuda con evidencia. Autonomía no es aislarse; es no depender de instrucciones constantes para cada paso. Responsabilidad es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), tanto ante un profesor como ante un equipo, un cliente o la organización.",
         examplesAcademic: [
-          "Llevar un cuaderno breve de proyecto: fecha, cambio, resultado y siguiente prueba.",
-          "Acudir a tutoría con dudas concretas y material ya revisado, no solo con «no sé por dónde empezar».",
-          "Dejar la carpeta del trabajo ordenada para que un compañero o el evaluador pueda seguirla."
+          "Antes de preguntar, revisar apuntes, libro y ejercicios resueltos de la unidad; llegar a clase con el punto exacto donde te bloqueas.",
+          "Organizar carpetas y archivos por asignatura y tema para encontrar el material de estudio sin empezar de cero cada vez.",
+          "Si faltas a una clase, recuperar el contenido (apuntes de un compañero, aula virtual) y comprobar qué tareas hay, sin esperar a que te lo recuerden."
         ],
         examplesProfessional: [
           "Expediente de proyecto usable por quien continúe (decisiones, versiones, pendientes).",
@@ -1752,14 +1744,13 @@ window.MYWEB_DATA = {
       {
         id: "ss_exponer",
         title: "Exposición de proyectos",
-        contexts: ["exposición", "proyecto"],
         image: "./softskills/ss_exponer.jpg",
         definition:
           "Comunicar en poco tiempo el problema, la propuesta, la evidencia y los límites del trabajo. Una buena exposición combina relato y prueba: sin datos no convence; sin estructura no se entiende. Se entrena en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
         examplesAcademic: [
-          "Estructura 4 bloques en la defensa: problema → enfoque → evidencia → qué mejorarías.",
-          "Mostrar un resultado medible o una demo breve, no solo diapositivas descriptivas.",
-          "Preparar respuesta a una pregunta difícil («¿qué fallaría si…?») con un límite conocido del trabajo."
+          "En una exposición de clase: tema o pregunta → ideas clave → ejemplo o dato → conclusión, ensayada en el tiempo marcado.",
+          "Mostrar un gráfico, prototipo o resultado de laboratorio, no solo leer diapositivas de texto.",
+          "Preparar dos preguntas difíciles del tema (definición, comparación, «qué pasaría si…») para responder sin inventar."
         ],
         examplesProfessional: [
           "Presentar a comité o cliente: problema → enfoque → evidencia (dato, ensayo, piloto) → riesgos y siguiente paso.",

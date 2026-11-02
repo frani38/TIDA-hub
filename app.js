@@ -1349,14 +1349,13 @@
       const examplesLegacy = Array.isArray(s?.examples)
         ? s.examples.map((e) => String(e || "").trim()).filter(Boolean)
         : [];
-      const contexts = Array.isArray(s?.contexts) ? s.contexts.map((c) => String(c || "").trim()).filter(Boolean) : [];
-      const hay = `${title} ${definition} ${examplesAcademic.join(" ")} ${examplesProfessional.join(" ")} ${examplesLegacy.join(" ")} ${contexts.join(" ")} ${id} soft skills habilidades académico laboral profesional`;
+      const hay = `${title} ${definition} ${examplesAcademic.join(" ")} ${examplesProfessional.join(" ")} ${examplesLegacy.join(" ")} ${id} soft skills habilidades académico laboral profesional`;
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
         section: "MISCELÁNEA · SOFT SKILLS",
         title,
-        meta: contexts.length ? contexts.join(" · ") : "Soft skill",
+        meta: "Soft skill",
         navTarget: "misc",
         miscId: "misc_ss",
         softSkillId: id
@@ -2989,22 +2988,7 @@
               </div>
             </div>
             ${
-              isSoftSkills
-                ? `
-                  <div class="readings-aside-filters" role="group" aria-label="Filtros de soft skills">
-                    <label class="readings-filter">
-                      <span>CONTEXTO</span>
-                      <select id="soft-skills-context">
-                        <option value="" selected>Todos</option>
-                        <option value="equipo">Equipo</option>
-                        <option value="exposición">Exposición</option>
-                        <option value="proyecto">Proyecto</option>
-                        <option value="individual">Individual</option>
-                      </select>
-                    </label>
-                  </div>
-                `
-                : isReadings
+              isReadings
                 ? `
                   <div class="readings-aside-filters" role="group" aria-label="Filtros de lecturas recomendadas">
                       <label class="readings-filter">
@@ -3835,12 +3819,6 @@
         const pack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
         const intro = String(pack?.intro || "").trim();
         const rawItems = Array.isArray(pack?.items) ? pack.items : [];
-        const contextLabel = {
-          equipo: "Equipo",
-          exposición: "Exposición",
-          proyecto: "Proyecto",
-          individual: "Individual"
-        };
         const skills = rawItems
           .map((item, idx) => {
             const id = String(item?.id || "").trim();
@@ -3850,21 +3828,14 @@
             const image = String(item?.image || "").trim();
             const mapExamples = (arr) =>
               Array.isArray(arr) ? arr.map((e) => String(e || "").trim()).filter(Boolean) : [];
-            const examplesAcademic = mapExamples(item?.examplesAcademic);
-            const examplesProfessional = mapExamples(item?.examplesProfessional);
-            const examplesLegacy = mapExamples(item?.examples);
-            const contexts = Array.isArray(item?.contexts)
-              ? item.contexts.map((c) => String(c || "").trim()).filter(Boolean)
-              : [];
             return {
               id,
               title,
               definition,
               image,
-              examplesAcademic,
-              examplesProfessional,
-              examplesLegacy,
-              contexts,
+              examplesAcademic: mapExamples(item?.examplesAcademic),
+              examplesProfessional: mapExamples(item?.examplesProfessional),
+              examplesLegacy: mapExamples(item?.examples),
               __idx: idx
             };
           })
@@ -3872,7 +3843,6 @@
 
         const ledeEl = document.getElementById("soft-skills-lede");
         const listEl = document.getElementById("soft-skills-list");
-        const contextEl = document.getElementById("soft-skills-context");
         if (ledeEl) {
           // Intro puede incluir <strong>…</strong> controlado desde data.js.
           const safeIntro = intro
@@ -3885,39 +3855,22 @@
           ledeEl.hidden = !intro;
         }
 
-        const renderSoftSkills = () => {
-          if (!(listEl instanceof HTMLElement)) return;
-          const ctx = String(contextEl?.value || "").trim();
-          let rows = skills.slice();
-          if (ctx) rows = rows.filter((s) => s.contexts.includes(ctx));
-
-          if (!rows.length) {
-            listEl.innerHTML = skills.length
-              ? `
-                <div class="empty-state construction-notice">
-                  <strong>SIN RESULTADOS</strong>
-                  <br />
-                  Prueba con otro contexto.
-                </div>
-              `
-              : `
+        if (listEl instanceof HTMLElement) {
+          if (!skills.length) {
+            listEl.innerHTML = `
                 <div class="empty-state construction-notice">
                   <strong>PRÓXIMAMENTE</strong>
                 </div>
               `;
-            return;
-          }
-
-          listEl.innerHTML = rows
-            .map((s) => {
-              const tags = s.contexts
-                .map((c) => {
-                  const label = contextLabel[c] || c;
-                  return `<span class="soft-skill-tag">${escapeHtml(label)}</span>`;
-                })
-                .join("");
+          } else {
+            listEl.innerHTML = skills
+              .map((s) => {
+              const imgClass =
+                s.id === "ss_exponer"
+                  ? "soft-skill-card__img soft-skill-card__img--contain"
+                  : "soft-skill-card__img";
               const imgInner = s.image
-                ? `<img class="soft-skill-card__img" src="${escapeHtml(s.image)}?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" alt="" loading="lazy" decoding="async" />`
+                ? `<img class="${imgClass}" src="${escapeHtml(s.image)}?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" alt="" loading="lazy" decoding="async" />`
                 : `<div class="soft-skill-card__img soft-skill-card__img--fallback" aria-hidden="true">${escapeHtml(s.title.slice(0, 1).toUpperCase())}</div>`;
               const listHtml = (items) =>
                 items.length
@@ -3954,19 +3907,16 @@
                   <div class="soft-skill-card__body">
                     <div class="soft-skill-card__header">
                       <h4 class="soft-skill-card__title">${escapeHtml(s.title).toLocaleUpperCase("es")}</h4>
-                      ${tags ? `<div class="soft-skill-card__tags">${tags}</div>` : ""}
                     </div>
                     ${s.definition ? `<p class="soft-skill-card__definition">${escapeHtml(s.definition)}</p>` : ""}
                     ${examplesBlock}
                   </div>
                 </article>
               `;
-            })
-            .join("");
-        };
-
-        contextEl?.addEventListener("change", renderSoftSkills);
-        renderSoftSkills();
+              })
+              .join("");
+          }
+        }
       }
     };
 
