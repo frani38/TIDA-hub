@@ -544,6 +544,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: exposición a full-bleed (sin contain/reborde); nuevas ilustraciones de IA, adaptabilidad y aprendizaje alineadas al estilo/color del resto.
 
+## 1.7.3
+
+- Soft Skills: regenerar las 11 ilustraciones con escenas distintas y acordes a cada competencia (sin repetición visual).
+
 ---
 
 ## Convención (recordatorio)
@@ -682,3 +686,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.7.0** | Soft Skills: marcos WEF/DigComp/UNESCO + IA ética y 2 fichas nuevas |
 | **1.7.1** | Soft Skills → NOVEDADES automáticas + aviso luminoso al actualizar |
 | **1.7.2** | Soft Skills: exposición full-bleed + 3 ilustraciones estilo unificado |
+| **1.7.3** | Soft Skills: 11 ilustraciones nuevas, únicas y temáticas |
