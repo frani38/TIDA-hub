@@ -3396,8 +3396,7 @@ body.theme-light .soft-skill-card__visual {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* Homogeneidad ligera; el grade fuerte va en los JPG */
-  filter: saturate(1.02) contrast(1.04) brightness(1.0);
+  filter: none;
 }
 
 .soft-skill-card__img--fallback {
@@ -3469,7 +3468,7 @@ body.theme-light .soft-skill-card__title {
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: #8ec5ff;
+  color: #e3f4ff;
   font-family: var(--tech-font);
   font-size: 0.62rem;
   font-weight: 700;
@@ -3479,7 +3478,7 @@ body.theme-light .soft-skill-card__title {
 }
 
 body.theme-light .soft-skill-tag {
-  color: #8ec5ff;
+  color: #e3f4ff;
   background: transparent;
   border: 0;
 }
