@@ -6,22 +6,22 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **Web publicada (GitHub Pages):** [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/)
 - Guía de puesta en marcha online: **`github_TIDAhub.md`**
 - Historial de versiones: **`versions.md`**
-- Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.2.22**)
+- Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.5.1**)
 
 ## Objetivo del proyecto
 
 - **DOCENCIA**: navegación **etapa → nivel → materia → unidad**. En cada unidad se mantienen los cuatro apartados **Teoría**, **Actividades**, **Prácticas** y **Recursos**, pero el material deja de ser el PDF clásico de apuntes/ejercicios “al uso”. El enfoque es **visual y sintético**: piezas centradas en los puntos clave de cada tema (infografías, pósters, láminas o capturas de presentación, esquemas, y también PDF cuando aporte), a menudo elaboradas con **aplicaciones de IA**, alojadas bajo `/content/<unitId>/`.
-- **INICIO**: bienvenida (revelado tipo cortina) y panel de **últimas noticias** (`data.js` → `news`), con histórico por años/meses. En escritorio ancho (≥1680px) se mantiene el lienzo fijo; en tablet/móvil el layout hace **reflow** (WCAG 2.2 AA).
+- **INICIO**: bienvenida (revelado tipo cortina) y panel de **últimas noticias** (`data.js` → `news`), con histórico por años/meses. Lienzo de diseño **1680px** en PC; si el viewport CSS es menor (p. ej. 1920×1080 @ escala OS 125% ≈ 1536px) se **encaja** automáticamente (`site-desktop-fit`). El **reflow** compacto (WCAG 2.2 AA) solo en **móvil/tablet táctil**.
 - **NOVEDADES**: avisos manuales (`updates`) y altas automáticas de **LIBRO / JUEGO / MEDIA**; títulos enlazan a la ficha en Miscelánea; resalte azul por entrada no visitada.
 - **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación y entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
 - **PROYECTOS**: evidencias y trabajos que muestran aplicación real de los contenidos.
 - **LEGISLACIÓN**: normativa de referencia para el marco curricular (`data.js` → `legislation`); en móvil, columnas **Nacional** → **Asturias**.
 - **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, etc.) según `data.js`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial). En móvil: título + ← VOLVER en la misma línea; al abrir un subapartado el scroll vuelve arriba (logo + filtros).
-- **SOBRE MÍ**: contexto del autor/proyecto e imagen en `./image/`.
-- **AYUDA**: formulario de contacto con envío real vía **Web3Forms**; tras enviar, **Enviado** y retorno a INICIO. Política de privacidad en la propia sección y en **`privacidad.html`**.
+- **SOBRE MÍ**: contexto del autor/proyecto, imagen en `./image/` y **publicaciones académicas** (DOI/ISBN cuando aplica).
+- **AYUDA**: formulario de contacto con envío real vía **Web3Forms**; tras enviar, **Enviado** y retorno a INICIO. Política de privacidad en la propia sección (título AYUDA + ← VOLVER al margen en móvil; scroll al tope al abrir) y en **`privacidad.html`**.
 - Tipografías **Orbitron / Oxanium** embebidas en `./fonts/` (sin depender de Google Fonts).
 
-No usa framework ni paso de compilación: HTML + CSS + JS en el navegador.
+No usa framework ni paso de compilación: HTML + CSS + JS en el navegador (`version-boot.js` + `app.js`).
 
 ## Tecnologías
 
@@ -29,7 +29,7 @@ No usa framework ni paso de compilación: HTML + CSS + JS en el navegador.
 | --- | --- |
 | Marcado | `index.html`, `privacidad.html` |
 | Estilos | `styles.css` |
-| Lógica | `app.js` |
+| Lógica | `app.js`, `version-boot.js` |
 | Datos | `data.js` → `window.MYWEB_DATA` |
 | Contacto | [Web3Forms](https://web3forms.com/) (`helpContact` en `data.js`) |
 | Hosting | GitHub Pages (rama `main`) |
@@ -42,6 +42,7 @@ MyWeb/   (repo TIDA-hub)
 ├── privacidad.html
 ├── styles.css
 ├── app.js
+├── version-boot.js    # data.js sin caché + encaje PC (site-desktop-fit)
 ├── data.js
 ├── README.md
 ├── versions.md
@@ -82,10 +83,10 @@ Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP 
 ## Comportamiento destacado
 
 - **Historial del navegador**: tras cada carga/recarga se parte de **INICIO**; atrás/adelante recorren las secciones visitadas en esa sesión (History API + hashes). Desde un subapartado de Miscelánea, atrás vuelve al **hub** de Miscelánea. Desde INICIO, atrás puede salir del sitio (comportamiento normal del navegador).
-- **Layout híbrido**: en escritorio ancho (**≥1680px**) se conserva el lienzo fijo histórico. Por debajo (tablet/móvil/zoom) hay **reflow** (WCAG 1.4.10): cabecera adaptable, noticias apiladas, Miscelánea/legislación/privacidad en una columna, tipografía de bienvenida y lema ajustadas, pie **static** y compacto, objetivos táctiles ≥44px.
-- **Títulos de sección (móvil)**: mismo tamaño reducido que Bienvenido/a; en Miscelánea (títulos largos) título + ← VOLVER en una sola fila.
+- **Layout híbrido (1.5.0+)**: lienzo de diseño **1680px** en PC. Viewport CSS más estrecho → encaje `site-desktop-fit` (no cortar NOTICIAS; no pasar a móvil). **Reflow** compacto solo en táctil (`hover: none` + `pointer: coarse`): cabecera adaptable, noticias apiladas, Miscelánea/legislación/privacidad en una columna, pie **static**, objetivos táctiles ≥44px.
+- **Títulos (móvil)**: Miscelánea / publicaciones / privacidad desde AYUDA: título + ← VOLVER en una fila (en privacidad el título AYUDA **no** se reduce).
 - **Placeholders** EN CONSTRUCCIÓN / PRÓXIMAMENTE: tipografía contenida (`clamp`), sin desborde en pantallas estrechas.
-- **Scroll**: al cambiar de vista en Miscelánea (y al abrir PROYECTOS vacío) se resetea al tope; `history.scrollRestoration = "manual"`. Rueda del ratón: si hay barra activa, mueve el contenedor principal (también en `privacidad.html`). Paneles anidados (p. ej. NOTICIAS) conservan scroll propio.
+- **Scroll**: al cambiar de vista en Miscelánea, publicaciones o privacidad desde AYUDA se resetea al tope; `history.scrollRestoration = "manual"`. Rueda del ratón: si hay barra activa, mueve el contenedor principal (también en `privacidad.html`). Paneles anidados (p. ej. NOTICIAS) conservan scroll propio.
 - En **DOCENCIA**, el panel de materiales queda **sticky** en pantallas grandes.
 - Tema visual fijado a **claro** (`theme-light`).
 - Fechas: `DD.MM.YYYY` (y hora cuando aplica). Listados de novedades/histórico agrupados por **mes**. Catálogos de lecturas/juegos/media y NOVEDADES: lo más reciente arriba (entradas antepuestas en `data.js`).
@@ -122,7 +123,7 @@ Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP 
 
 ### Versión del sitio (`siteMeta` en `data.js`)
 
-Formato **MAJOR.MINOR.PATCH** (p. ej. `1.2.22` → pie `v1.2.22`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`. Anti-caché de CSS/JS/iconos: `window.MYWEB_ASSET_V` en HTML alineado con esa versión.
+Formato **MAJOR.MINOR.PATCH** (p. ej. `1.5.1` → pie `v1.5.1`). Fuente única: `siteMeta.version`. Historial narrativo: `versions.md`. Anti-caché de CSS/JS/iconos: `window.MYWEB_ASSET_V` en HTML alineado con esa versión; `data.js` se refresca vía `version-boot.js` sin exigir bump.
 
 | Dígito | Cuándo |
 | --- | --- |

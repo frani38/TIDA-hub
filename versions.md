@@ -479,6 +479,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - PC: si el viewport CSS es &lt; 1680px (p. ej. 1920×1080 con escala del sistema 125% ≈ 1536px), el lienzo de escritorio se encaja automáticamente (`site-desktop-fit` / `zoom`) para verse completo, sin cortar NOTICIAS ni pasar a layout móvil/tablet.
 
+## 1.5.1
+
+- Documentación alineada con **1.4.x–1.5.0**: `README.md`, `github_TIDAhub.md`, `content/README.md`, `versions.md` e informe LaTeX local (`#_Informe/Informe_MyWeb.tex`) — layout PC vs táctil, encaje `site-desktop-fit`, privacidad/AYUDA móvil, publicaciones, `version-boot.js`.
+
 ---
 
 ## Convención (recordatorio)
@@ -602,3 +606,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; a partir de la políti
 | **1.4.3** | AYUDA/privacidad móvil: VOLVER como Miscelánea; título sin reducir |
 | **1.4.4** | AYUDA → privacidad: scroll al top al abrir |
 | **1.5.0** | PC: encaje automático del lienzo 1680 al viewport CSS estrecho |
+| **1.5.1** | Docs/informe alineados con layout 1.4.x–1.5.0 |

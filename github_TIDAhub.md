@@ -272,8 +272,10 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 | La web no cambia tras el push | Actions/Pages; Ctrl+F5; ¿push a `main`? |
 | 404 en `…/TIDA-hub/` | Pages activado en `main` / root; nombre del repo |
 | CSS/JS/iconos antiguos | Comprobar que `MYWEB_ASSET_V` / `siteMeta.version` se bumpeó; Ctrl+F5 |
+| Noticias/libros no aparecen | `version-boot.js` debe cargar `data.js` sin caché; Ctrl+F5; ¿push a `main`? |
+| Web cortada en Full HD @ 125% | Viewport CSS ≈1536px &lt; 1680: desde **1.5.0** debe encajar (`site-desktop-fit`); Ctrl+F5 |
 | Iconos o portadas muy lentos | Tamaño de ficheros en `icons/` / `books/`; preferir PNG/JPG ligeros |
-| Pie con versión antigua | Caché de `data.js`; forzar recarga tras publicar |
+| Pie con versión antigua | Caché de HTML/assets; forzar recarga tras publicar (`?v=` / Ctrl+F5) |
 | AYUDA no envía | Ver §7.9 (clave, dominio, cupo, spam) |
 | `git` no se reconoce | Reabrir terminal tras instalar Git; comprobar PATH |
 | Login GitHub | `gh auth login` o Credential Manager |

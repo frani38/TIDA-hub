@@ -47,10 +47,11 @@ Si falta un fichero, el enlace puede abrir una URL inexistente hasta que exista.
 
 ## Nota sobre la interfaz
 
-- Panel **Teoría / Actividades / Prácticas / Recursos**: sticky en pantallas grandes; en anchos estrechos (&lt;1680px) el layout hace reflow junto al resto del sitio.
+- Panel **Teoría / Actividades / Prácticas / Recursos**: sticky en pantallas grandes (lienzo PC 1680px; si el viewport CSS es menor, el sitio encaja el lienzo con `site-desktop-fit`).
+- En **móvil/tablet táctil** el layout hace reflow junto al resto del sitio (no al solo redimensionar un navegador de PC).
 - URL de unidad: `#levelId/materialId/unitId` (historial atrás/adelante).
 - Iconos de apartados: `icons/` (caché ligada a la versión del sitio).
-- Selector etapa/nivel/materia/unidad: grid 4 → 2 → 1 columnas según el ancho (WCAG reflow).
+- Selector etapa/nivel/materia/unidad: en táctil, grid 4 → 2 → 1 columnas (WCAG reflow).
 - Placeholders **EN CONSTRUCCIÓN** / **PRÓXIMAMENTE** (materia sin unidades, apartados sin ficheros, etc.): tipografía adaptativa, sin desborde en móvil.
 
 ## Relación con otras carpetas de medios
