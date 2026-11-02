@@ -610,9 +610,13 @@
                       }
                       const canLinkMisc =
                         Boolean(u.__miscId) &&
-                        (Boolean(u.__readingId) || Boolean(u.__gameId) || Boolean(u.__mediaId) || u.__kind === "manual");
+                        (Boolean(u.__readingId) ||
+                          Boolean(u.__gameId) ||
+                          Boolean(u.__mediaId) ||
+                          Boolean(u.__softSkillId) ||
+                          u.__kind === "manual");
                       if (canLinkMisc) {
-                        return `href="#" data-misc-id="${escapeHtml(u.__miscId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}"`;
+                        return `href="#" data-misc-id="${escapeHtml(u.__miscId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}" data-soft-skill-id="${escapeHtml(u.__softSkillId || "")}"`;
                       }
                       if (u.__navTarget) {
                         return `href="#" data-nav-target="${escapeHtml(u.__navTarget)}"`;
@@ -636,6 +640,9 @@
                       }
                       if (u.__kind === "media") {
                         return `MEDIA: ${linkedName("updates-media-title", u.__mediaTitle || "")}`;
+                      }
+                      if (u.__kind === "softskill") {
+                        return `SOFT SKILL: ${linkedName("updates-softskill-title", u.__softSkillTitle || "")}`;
                       }
                       // Avisos manuales: el hipervínculo es el título (no el texto de detalle).
                       const titlePart = linkAttrsWithKey
@@ -696,9 +703,10 @@
         const readingId = String(a.getAttribute("data-reading-id") || "").trim();
         const gameId = String(a.getAttribute("data-game-id") || "").trim();
         const mediaId = String(a.getAttribute("data-media-id") || "").trim();
+        const softSkillId = String(a.getAttribute("data-soft-skill-id") || "").trim();
         const navTarget = String(a.getAttribute("data-nav-target") || "").trim();
         if (miscId) {
-          navigateToMiscContent({ miscId, readingId, gameId, mediaId });
+          navigateToMiscContent({ miscId, readingId, gameId, mediaId, softSkillId });
           return;
         }
         if (navTarget) applySearchNavTarget(navTarget);
@@ -885,6 +893,7 @@
       __readingId: String(it?.readingId || "").trim(),
       __gameId: String(it?.gameId || "").trim(),
       __mediaId: String(it?.mediaId || "").trim(),
+      __softSkillId: String(it?.softSkillId || "").trim(),
       __url: String(it?.url || it?.href || "").trim()
     });
 
@@ -979,9 +988,42 @@
       })
       .filter(Boolean);
 
+    const softPack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
+    const softRaw = Array.isArray(softPack?.items) ? softPack.items : [];
+    const softSkillUpdates = softRaw
+      .map((s, idx) => {
+        const addedAt = String(s?.addedAt || "").trim();
+        const updatedAt = String(s?.updatedAt || "").trim();
+        const publishedAt = updatedAt || addedAt;
+        const title = String(s?.title || "").trim();
+        const id = String(s?.id || "").trim();
+        if (!publishedAt || !title || !id) return null;
+        const definition = String(s?.definition || "").trim();
+        const exA = Array.isArray(s?.examplesAcademic) ? s.examplesAcademic.join("\n") : "";
+        const exP = Array.isArray(s?.examplesProfessional) ? s.examplesProfessional.join("\n") : "";
+        const contentFp = hashStringFNV1a(`${title}\n${definition}\n${exA}\n${exP}`);
+        const n = normalizeUpdateItem({
+          publishedAt,
+          title: `SOFT SKILL: ${title}`,
+          text: ""
+        });
+        if (!n) return null;
+        return {
+          ...n,
+          __priority: idx,
+          __ms: parsePublishedAtToMs(n.publishedAt),
+          __kind: "softskill",
+          __softSkillTitle: title,
+          __softSkillId: id,
+          __softSkillFp: contentFp,
+          __miscId: "misc_ss"
+        };
+      })
+      .filter(Boolean);
+
     const merged = [];
     const seen = new Set();
-    for (const u of [...baseUpdates, ...readingUpdates, ...gameUpdates, ...mediaUpdates]) {
+    for (const u of [...baseUpdates, ...readingUpdates, ...gameUpdates, ...mediaUpdates, ...softSkillUpdates]) {
       const sig = `${u.publishedAt}|${u.title}|${u.text}`;
       if (seen.has(sig)) continue;
       seen.add(sig);
@@ -1008,6 +1050,11 @@
     if (kind === "reading" && u.__readingId) return `reading:${String(u.__readingId).trim()}`;
     if (kind === "game" && u.__gameId) return `game:${String(u.__gameId).trim()}`;
     if (kind === "media" && u.__mediaId) return `media:${String(u.__mediaId).trim()}`;
+    // Soft skills: incluye huella del contenido para que una edición vuelva a marcarse como no vista.
+    if (kind === "softskill" && u.__softSkillId) {
+      const fp = String(u.__softSkillFp || "").trim() || String(u.publishedAt || "").trim();
+      return `softskill:${String(u.__softSkillId).trim()}:${fp}`;
+    }
     const sig = `${String(u?.publishedAt || "").trim()}|${String(u?.title || "").trim()}|${String(u?.text || "").trim()}`;
     return `manual:${hashStringFNV1a(sig)}`;
   }
@@ -1435,7 +1482,7 @@
   }
 
   /** Abre Miscelánea → subapartado y, si hay id, hace scroll hasta la ficha. */
-  function navigateToMiscContent({ miscId, readingId, gameId, mediaId } = {}) {
+  function navigateToMiscContent({ miscId, readingId, gameId, mediaId, softSkillId } = {}) {
     const mid = String(miscId || "").trim();
     if (!mid) {
       applySearchNavTarget("misc");
@@ -1449,13 +1496,16 @@
       const rid = String(readingId || "").trim();
       const gid = String(gameId || "").trim();
       const avid = String(mediaId || "").trim();
+      const ssid = String(softSkillId || "").trim();
       const selector = rid
         ? `.reading-card[data-reading-id="${CSS.escape(rid)}"]`
         : gid
           ? `.reading-card[data-game-id="${CSS.escape(gid)}"]`
           : avid
             ? `.reading-card[data-media-id="${CSS.escape(avid)}"]`
-            : "";
+            : ssid
+              ? `.soft-skill-card[data-soft-skill-id="${CSS.escape(ssid)}"]`
+              : "";
       if (!selector) return;
 
       const tryScroll = (triesLeft) => {
@@ -1647,7 +1697,8 @@
               miscId: hit.miscId,
               readingId: hit.readingId,
               gameId: hit.gameId,
-              mediaId: hit.mediaId
+              mediaId: hit.mediaId,
+              softSkillId: hit.softSkillId
             });
           } else if (hit?.navTarget) {
             applySearchNavTarget(hit.navTarget);

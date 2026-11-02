@@ -1858,6 +1858,11 @@ body.theme-light .help-form-status.is-error {
   font-weight: 800;
 }
 
+.updates-archive .updates-softskill-title {
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .updates-archive a.updates-item-link {
   color: var(--accent);
   font-weight: 800;

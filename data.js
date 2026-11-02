@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.7.0",
+    version: "1.7.1",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -367,8 +367,9 @@ window.MYWEB_DATA = {
   // Formato:
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título breve", text: "Detalle (opcional)",
   //   navTarget?: "misc"|"docencia"|..., miscId?: "misc_lr", readingId?/gameId?/mediaId?, url? }
-  // Los libros/juegos/media con `addedAt` generan entradas automáticas LIBRO:/JUEGO:/MEDIA:
-  // cuyo título enlaza al elemento en Miscelánea.
+  // Los libros/juegos/media/soft skills con `addedAt` generan entradas automáticas
+  // LIBRO:/JUEGO:/MEDIA:/SOFT SKILL: cuyo título enlaza al elemento en Miscelánea.
+  // Soft skills: si cambia el texto (o `updatedAt`), la novedad vuelve a marcarse como no vista.
   updates: [],
 
   // Lecturas recomendadas (Miscelánea → LECTURAS RECOMENDADAS)
@@ -1619,6 +1620,8 @@ window.MYWEB_DATA = {
   // Soft Skills (Miscelánea → SOFT SKILLS)
   // Referencias: WEF Future of Jobs 2025; DigComp 2.2 (JRC/UE); UNESCO AI CFS.
   // image: ficha visual en ./softskills/
+  // addedAt/updatedAt (YYYY-MM-DD): generan novedades automáticas; al editar una ficha,
+  // subir updatedAt (y el contenido) para que vuelva el aviso luminoso de NOVEDADES.
   softSkills: {
     intro:
       "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong>, <strong>socioemocionales</strong> o <strong>del siglo XXI</strong>) son capacidades transversales que complementan el conocimiento técnico: <strong>pensar con evidencia</strong>, <strong>colaborar</strong>, <strong>adaptarse</strong> y <strong>aprender de forma continua</strong>. En el <em>Future of Jobs Report 2025</em> del <strong>World Economic Forum</strong>, entre las competencias más demandadas figuran el <strong>pensamiento analítico</strong>, la <strong>resiliencia y agilidad</strong>, el <strong>liderazgo e influencia social</strong>, el <strong>pensamiento creativo</strong> y la <strong>curiosidad / aprendizaje permanente</strong>; en paralelo crecen con fuerza la <strong>literacidad tecnológica</strong> y las competencias en <strong>IA y datos</strong>. El marco europeo <strong>DigComp 2.2</strong> y el <strong>marco UNESCO de competencias en IA para estudiantes</strong> subrayan, además, un uso <strong>crítico, ético y con agencia humana</strong> de las herramientas digitales. Estas fichas traducen ese consenso a prácticas concretas en el <strong>estudio</strong> y en el <strong>trabajo</strong> (empresa, industria, proyectos, operaciones, I+D y servicios).",
@@ -1626,6 +1629,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_comunicacion",
         title: "Comunicación clara",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_comunicacion.jpg",
         definition:
           "Capacidad de transmitir información precisa, ordenada y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. En marcos como el WEF se asocia a competencias interpersonales (comunicación, escucha activa e influencia social): no es «hablar mucho», sino reducir ambigüedad —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección).",
@@ -1643,6 +1648,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_equipo",
         title: "Trabajo en equipo",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_equipo.jpg",
         definition:
           "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. La evidencia de empleabilidad (WEF y marcos de competencias humanas) insiste en colaboración, empatía y escucha activa porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en responsabilidades visibles, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—.",
@@ -1660,6 +1667,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_critico",
         title: "Pensamiento crítico",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_critico.jpg",
         definition:
           "Evaluar afirmaciones y propuestas con criterios de evidencia: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> es la competencia nuclear más citada por empleadores en el Future of Jobs 2025; aquí se concreta como comprobar antes de decidir —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo plausible (alineado también con la literacidad crítica de DigComp).",
@@ -1677,6 +1686,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_tiempo",
         title: "Gestión del tiempo",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_tiempo.jpg",
         definition:
           "Planificación por hitos realistas y control del alcance cuando aparece el retraso. Se relaciona con fiabilidad, priorización y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. En el estudio evita entregas sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente.",
@@ -1694,6 +1705,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_conflictos",
         title: "Resolución de conflictos",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_conflictos.jpg",
         definition:
           "Abordar desacuerdos centrándose en hechos observables, impacto en el objetivo común y opciones de acción, no en etiquetas personales. Conecta con influencia social, empatía y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de clase y en una organización con planta, oficina técnica, comercial y dirección.",
@@ -1711,6 +1724,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_feedback",
         title: "Feedback (dar y recibir)",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_feedback.jpg",
         definition:
           "Intercambio de información orientado a mejorar un entregable o un proceso: concreto, oportuno y accionable. Incorpora escucha activa (competencia destacada en encuestas de empleabilidad): dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización.",
@@ -1728,6 +1743,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_autonomia",
         title: "Autonomía y responsabilidad",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_autonomia.jpg",
         definition:
           "Capacidad de avanzar con criterio propio: investigar, contrastar, documentar y pedir ayuda con evidencia. Se acerca a motivación, autoconciencia y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; responsabilidad es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante un profesor, un equipo, un cliente o la organización.",
@@ -1745,6 +1762,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_exponer",
         title: "Exposición de proyectos",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_exponer.jpg",
         definition:
           "Comunicar en poco tiempo el problema, la propuesta, la evidencia y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y entrena influencia social y claridad argumental. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
@@ -1762,6 +1781,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_ia",
         title: "Uso ético y responsable de la IA",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_ia.jpg",
         definition:
           "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, contrastar salidas, proteger datos y asumir la autoría y las consecuencias del resultado final. DigComp 2.2 (anexo sobre interacción ciudadana con IA) y el marco UNESCO para estudiantes enfatizan ética, supervisión humana, sesgos, privacidad y actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio.",
@@ -1779,6 +1800,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_adaptabilidad",
         title: "Adaptabilidad y resiliencia",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_adaptabilidad.jpg",
         definition:
           "Capacidad de reajustar planes, prioridades y enfoque cuando cambian las condiciones, manteniendo el objetivo y el criterio. El WEF sitúa la tríada <strong>resiliencia, flexibilidad y agilidad</strong> entre las competencias más demandadas y de mayor crecimiento. No es resignación ni improvisación caótica: es detectar el cambio, evaluar impacto, proponer alternativas y seguir entregando valor sin paralizarse ante la incertidumbre.",
@@ -1796,6 +1819,8 @@ window.MYWEB_DATA = {
       {
         id: "ss_aprendizaje",
         title: "Curiosidad y aprendizaje continuo",
+        addedAt: "2026-11-02",
+        updatedAt: "2026-11-02",
         image: "./softskills/ss_aprendizaje.jpg",
         definition:
           "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. En el Future of Jobs 2025, <strong>curiosidad y lifelong learning</strong> figuran entre las competencias nucleares y emergentes, junto con la literacidad tecnológica. Implica formular buenas preguntas, buscar fuentes fiables, practicar y transferir lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—.",

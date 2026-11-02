@@ -536,6 +536,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: definiciones alineadas con WEF Future of Jobs 2025, DigComp 2.2 y UNESCO AI CFS; nuevas fichas (uso ético de IA, adaptabilidad/resiliencia, curiosidad/aprendizaje continuo); bloque de referencias; ilustraciones nuevas.
 
+## 1.7.1
+
+- Soft Skills: entradas automáticas en NOVEDADES (`SOFT SKILL: …`) con enlace a la ficha; aviso luminoso al añadir o editar contenido (huella de texto + `updatedAt`).
+
 ---
 
 ## Convención (recordatorio)
@@ -672,3 +676,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.6.9** | Soft Skills: ilustraciones con más brillo y contraste |
 | **1.6.10** | Soft Skills: sin contextos; ejemplos estudio real; exposición contain |
 | **1.7.0** | Soft Skills: marcos WEF/DigComp/UNESCO + IA ética y 2 fichas nuevas |
+| **1.7.1** | Soft Skills → NOVEDADES automáticas + aviso luminoso al actualizar |
