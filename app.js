@@ -2803,22 +2803,35 @@
       }
     };
 
+    const revealMiscFlyTarget = () => {
+      document.documentElement.classList.remove("misc-fly-target-hidden");
+    };
+
     const flyIconTo = async ({ fromRect, fromIconHtml, fromRadius, toIconWrapEl }) => {
       cleanupFly();
-      if (!fromRect || !fromIconHtml || !toIconWrapEl) return;
+      if (!fromRect || !fromIconHtml || !toIconWrapEl) {
+        revealMiscFlyTarget();
+        return;
+      }
       if (prefersReducedMotion() || isCompactViewport()) {
-        document.documentElement.classList.remove("misc-fly-target-hidden");
+        revealMiscFlyTarget();
         return;
       }
 
       const toRect = toIconWrapEl.getBoundingClientRect();
-      if (!fromRect.width || !fromRect.height || !toRect.width || !toRect.height) return;
+      if (!fromRect.width || !fromRect.height || !toRect.width || !toRect.height) {
+        revealMiscFlyTarget();
+        return;
+      }
 
       // Clon flotante (icono completo con su marco).
       const flyWrap = document.createElement("div");
       flyWrap.innerHTML = fromIconHtml;
       const clone = flyWrap.firstElementChild;
-      if (!clone) return;
+      if (!clone) {
+        revealMiscFlyTarget();
+        return;
+      }
       clone.style.position = "fixed";
       clone.style.left = `${fromRect.left}px`;
       clone.style.top = `${fromRect.top}px`;
@@ -2856,7 +2869,7 @@
       } catch {
         // cancelado
       } finally {
-        document.documentElement.classList.remove("misc-fly-target-hidden");
+        revealMiscFlyTarget();
         // Corrección final: si el layout se ha movido (fuentes/cálculos), ajustar el clon al destino real.
         try {
           const toRect2 = toIconWrapEl.getBoundingClientRect();
@@ -2940,14 +2953,14 @@
           const fromIconHtml = fromIconWrapEl ? fromIconWrapEl.outerHTML : "";
           const fromRadius = fromIconWrapEl ? getComputedStyle(fromIconWrapEl).borderRadius : "";
 
-          await renderDetail(it, { recordHistory: true });
+          await renderDetail(it, { recordHistory: true, expectFly: true });
           const toIconWrapEl = tabPanelEl.querySelector(".misc-detail__aside .unit-material-card__icon");
           flyIconTo({ fromRect, fromIconHtml, fromRadius, toIconWrapEl });
         });
       }
     };
 
-    const renderDetail = async (it, { recordHistory = true } = {}) => {
+    const renderDetail = async (it, { recordHistory = true, expectFly = false } = {}) => {
       setMiscTitle(it.label);
       currentState = { ...currentState, section: "miscelanea", miscId: String(it.id || "").trim() };
       if (recordHistory) pushAppHistory();
@@ -3130,8 +3143,10 @@
           </section>
         </div>
       `;
-      // Evitar que el icono final se vea antes de que llegue el clon animado.
-      document.documentElement.classList.add("misc-fly-target-hidden");
+      // Solo ocultar el icono destino si habrá animación de vuelo desde el hub.
+      // En recarga/hash/historial, sin vuelo, debe verse desde el primer frame.
+      if (expectFly) document.documentElement.classList.add("misc-fly-target-hidden");
+      else revealMiscFlyTarget();
       // Si se abrió la tarjeta desde abajo del hub, el scroll residual deja la vista a mitad de lista.
       scrollToPageTop();
       requestAnimationFrame(() => scrollToPageTop());

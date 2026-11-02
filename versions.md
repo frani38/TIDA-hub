@@ -496,6 +496,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills reorientado a cualquier perfil tech del s. XXI: definición operativa + ejemplos (sin split alumnado/docente); fichas visuales en `softskills/` e ilustración en cada tarjeta.
 
+## 1.6.2
+
+- Miscelánea: el icono del subapartado vuelve a mostrarse al recargar o entrar por historial/hash (ya no queda oculto por la clase de la animación de vuelo).
+
 ---
 
 ## Convención (recordatorio)
@@ -622,3 +626,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.5.1** | Docs/informe alineados con layout 1.4.x–1.5.0 (último bump solo-docs) |
 | **1.6.0** | Soft Skills: fichas visuales + filtro por contexto |
 | **1.6.1** | Soft Skills: definición+ejemplos universales e ilustraciones |
+| **1.6.2** | Miscelánea: icono visible tras recarga/historial |
