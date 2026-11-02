@@ -238,6 +238,13 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-11-02T09:22",
+      title:
+        "Un hackeo a Binance afecta a US$6.300 millones en activos digitales, el mayor robo de criptomonedas conocido",
+      text: "Binance confirma que unos US$6.300 millones se vieron afectados en un ataque a una billetera caliente; parte de los fondos fue congelada y la empresa dice que cubrirá las pérdidas. Analistas vinculan el incidente a grupos de piratería asociados a Corea del Norte; los retiros quedaron suspendidos mientras refuerzan la seguridad.",
+      url: "https://www.bbc.com/mundo/articles/cvze42lk562ko",
+    },
+    {
       publishedAt: "2026-10-29T15:15",
       title:
         "La crisis de la memoria RAM no tiene final a la vista y Samsung avisa de que lo peor llegará en 2027",
