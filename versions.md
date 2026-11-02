@@ -488,6 +488,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Documentación del repo e informe, y cambios solo en `.cursor/rules`, se publican con commit/push **sin** incrementar `siteMeta.version`. El pie refleja cambios de la web (código/UI/assets), no de la documentación.
 
+## 1.6.0
+
+- Miscelánea → **SOFT SKILLS**: catálogo de 8 fichas (comunicación, equipo, pensamiento crítico, tiempo, conflictos, feedback, autonomía, exposición) con intro, tips alumnado/docente y filtro por contexto; datos en `data.js` → `softSkills`.
+
 ---
 
 ## Convención (recordatorio)
@@ -612,3 +616,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.4.4** | AYUDA → privacidad: scroll al top al abrir |
 | **1.5.0** | PC: encaje automático del lienzo 1680 al viewport CSS estrecho |
 | **1.5.1** | Docs/informe alineados con layout 1.4.x–1.5.0 (último bump solo-docs) |
+| **1.6.0** | Soft Skills: fichas visuales + filtro por contexto |

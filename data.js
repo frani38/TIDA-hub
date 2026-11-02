@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.5.1",
+    version: "1.6.0",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1615,6 +1615,103 @@ window.MYWEB_DATA = {
         "Esta obra es una guía práctica que enseña a aplicar Python en el sector energético, abarcando desde fundamentos de programación hasta simulación de sistemas solares y eólicos, redes inteligentes y machine learning. Dirigida a ingenieros y estudiantes, combina teoría con ejemplos de código listos para usar, facilitando la optimización y análisis de proyectos de energía limpia. La obra sirve como puente entre la programación y la transición energética, estructurando el aprendizaje en módulos progresivos que van desde el análisis de datos hasta la planificación sostenible. Su enfoque pedagógico y práctico permite a profesionales y aficionados dominar herramientas clave para enfrentar los desafíos tecnológicos del futuro energético."
     }
   ],
+
+  // Soft Skills (Miscelánea → SOFT SKILLS)
+  // contexts canónicos: equipo | exposición | proyecto | individual
+  softSkills: {
+    intro:
+      "Competencias transversales para Bachillerato (y también para docentes): no sustituyen la técnica, pero deciden si un proyecto STEM avanza, se comunica bien y se sostiene en equipo. Cada ficha resume la skill, una situación de aula y una pista accionable.",
+    items: [
+      {
+        id: "ss_comunicacion",
+        title: "Comunicación clara",
+        contexts: ["equipo", "exposición", "proyecto"],
+        summary:
+          "Decir lo esencial de forma ordenada: objetivo, datos y siguiente paso. En Tecnología, una explicación confusa bloquea el montaje tanto como un error de cableado.",
+        classroomTip:
+          "Antes de pedir ayuda, resume en 30 segundos: qué has intentado, qué observas y qué necesitas decidir.",
+        teacherTip:
+          "Exige un «parte de estado» oral o escrito breve en cada hito del proyecto (qué funciona / qué no / siguiente prueba)."
+      },
+      {
+        id: "ss_equipo",
+        title: "Trabajo en equipo",
+        contexts: ["equipo", "proyecto"],
+        summary:
+          "Repartir roles, cumplir plazos parciales y hacer visible el trabajo de cada persona. El equipo no es «todos hacen de todo a la vez».",
+        classroomTip:
+          "Acordad roles rotativos (documentación, prototipo, pruebas, presentación) y revisadlos a mitad de tarea.",
+        teacherTip:
+          "Evalúa entregables intermedios por rol, no solo el producto final, para evitar el «free-rider»."
+      },
+      {
+        id: "ss_critico",
+        title: "Pensamiento crítico",
+        contexts: ["proyecto", "individual", "exposición"],
+        summary:
+          "Contrastar fuentes, dudar del primer resultado y distinguir evidencia de opinión. Imprescindible con IA, tutoriales y datasheets.",
+        classroomTip:
+          "Si usas IA o un vídeo, anota qué afirmaciones puedes verificar tú (medida, prueba, datasheet) y cuáles no.",
+        teacherTip:
+          "Pide citar al menos una fuente técnica primaria (manual, norma, paper o fabricante) junto a cualquier respuesta generada."
+      },
+      {
+        id: "ss_tiempo",
+        title: "Gestión del tiempo",
+        contexts: ["proyecto", "individual"],
+        summary:
+          "Planificar por hitos realistas: diseño → prototipo → prueba → mejora. El «ya lo haré el último día» suele romper la calibración o la demo.",
+        classroomTip:
+          "Divide el proyecto en 3 hitos con fecha; si un hito se atrasa, reduce alcance antes de saltarte las pruebas.",
+        teacherTip:
+          "Fija hitos cortos y visibles (checklist en aula). Premia la evidencia de prueba, no solo la estética final."
+      },
+      {
+        id: "ss_conflictos",
+        title: "Resolución de conflictos",
+        contexts: ["equipo", "proyecto"],
+        summary:
+          "Separar el problema de la persona: hechos observables, impacto en el proyecto y opciones. Sin eso, el laboratorio se convierte en debate estéril.",
+        classroomTip:
+          "Usa la fórmula: hecho → efecto → propuesta («el sensor no se ha probado; sin datos no podemos presentar; propongo 20 min de banco de pruebas»).",
+        teacherTip:
+          "Intervén con mediación breve centrada en el entregable; evita arbitrar «quién tiene razón» sin criterios técnicos."
+      },
+      {
+        id: "ss_feedback",
+        title: "Feedback (dar y recibir)",
+        contexts: ["equipo", "exposición", "proyecto"],
+        summary:
+          "Comentarios concretos, oportunos y orientados a mejora. Recibir feedback sin defensividad acelera el prototipo más que repetir el mismo error.",
+        classroomTip:
+          "Al comentar el trabajo de otro: 1 acierto observable + 1 mejora accionable + 1 pregunta.",
+        teacherTip:
+          "Modela feedback técnico en voz alta («el margen de error no está indicado») y pide al alumnado reformularlo."
+      },
+      {
+        id: "ss_autonomia",
+        title: "Autonomía y responsabilidad",
+        contexts: ["individual", "proyecto"],
+        summary:
+          "Avanzar sin esperar instrucciones constantes: documentar, probar y pedir ayuda con evidencia. Responsabilidad = hacerse cargo del resultado, no solo de la intención.",
+        classroomTip:
+          "Mantén un diario mínimo del proyecto (fecha, cambio, resultado). Si falló, escribe la hipótesis siguiente.",
+        teacherTip:
+          "Valora la trazabilidad (cuaderno/repo/fotos de prueba) como evidencia de autonomía, no solo la pregunta «profe, ¿esto está bien?»."
+      },
+      {
+        id: "ss_exponer",
+        title: "Exposición de proyectos",
+        contexts: ["exposición", "proyecto"],
+        summary:
+          "Contar el problema, la solución, la prueba y los límites en pocos minutos. Una demo sin relato no convence; un relato sin demo no demuestra.",
+        classroomTip:
+          "Estructura 4 bloques: problema → idea → evidencia (medida/foto/vídeo) → qué mejorarías.",
+        teacherTip:
+          "Limita el tiempo y exige una evidencia empírica en la defensa (dato, gráfica o prueba en vivo)."
+      }
+    ]
+  },
 
   // Juegos (Miscelánea → JUEGOS)
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.

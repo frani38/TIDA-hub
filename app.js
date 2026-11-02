@@ -1283,7 +1283,7 @@
       { id: "misc_ia", label: "IA", keywords: "inteligencia artificial" },
       { id: "misc_sw", label: "HACKING ÉTICO", keywords: "hacking etico ético ciberseguridad seguridad pentesting" },
       { id: "misc_bc", label: "BLOCKCHAIN Y BIG DATA", keywords: "blockchain big data cadena bloques datos" },
-      { id: "misc_ss", label: "SOFT SKILLS", keywords: "habilidades blandas" },
+      { id: "misc_ss", label: "SOFT SKILLS", keywords: "habilidades blandas soft skills comunicacion equipo feedback" },
       { id: "misc_lr", label: "LECTURAS RECOMENDADAS", keywords: "libros lecturas" },
       { id: "misc_av", label: "MEDIA", keywords: "media audiovisual audio video av" },
       { id: "misc_jt", label: "JUEGOS", keywords: "juegos gamificacion" },
@@ -1329,6 +1329,30 @@
         meta: desc || keywords || "Contenido en Miscelánea",
         navTarget: "misc",
         miscId: miscId || ""
+      });
+    }
+
+    // Soft Skills (Miscelánea → SOFT SKILLS)
+    const softPack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
+    const softItems = Array.isArray(softPack?.items) ? softPack.items : Array.isArray(DATA.softSkills) ? DATA.softSkills : [];
+    for (const s of softItems) {
+      const id = String(s?.id || "").trim();
+      const title = String(s?.title || "").trim();
+      if (!id || !title) continue;
+      const summary = String(s?.summary || "").trim();
+      const classroomTip = String(s?.classroomTip || "").trim();
+      const teacherTip = String(s?.teacherTip || "").trim();
+      const contexts = Array.isArray(s?.contexts) ? s.contexts.map((c) => String(c || "").trim()).filter(Boolean) : [];
+      const hay = `${title} ${summary} ${classroomTip} ${teacherTip} ${contexts.join(" ")} ${id} soft skills habilidades`;
+      if (!searchHaystackMatchesTokens(tokens, hay)) continue;
+      hits.push({
+        kind: "nav",
+        section: "MISCELÁNEA · SOFT SKILLS",
+        title,
+        meta: contexts.length ? contexts.join(" · ") : "Soft skill",
+        navTarget: "misc",
+        miscId: "misc_ss",
+        softSkillId: id
       });
     }
 
@@ -2028,7 +2052,7 @@
     const privacyLinkEl = formEl.querySelector(".help-privacy-link");
     if (privacyLinkEl) {
       privacyLinkEl.addEventListener("click", (e) => {
-        e.preventDefault();
+              e.preventDefault();
         showPrivacyPolicyPanel(getDraft());
         currentState = { ...currentState, section: "privacy" };
         pushAppHistory();
@@ -2322,11 +2346,11 @@
         }
       } catch {}
         setUnitTitleCompact(false);
-        unitTitleEl.textContent = "AYUDA";
-        showHelpForm(draft);
+      unitTitleEl.textContent = "AYUDA";
+      showHelpForm(draft);
         currentState = { ...currentState, section: "help" };
         pushAppHistory();
-      });
+    });
     // Móvil/tablet: el scroll residual de AYUDA deja la política a mitad; forzar inicio.
     scrollToPageTop();
     requestAnimationFrame(() => scrollToPageTop());
@@ -2929,9 +2953,11 @@
       const isReadings = it.id === "misc_lr";
       const isGames = it.id === "misc_jt";
       const isMedia = it.id === "misc_av";
+      const isSoftSkills = it.id === "misc_ss";
+      const isMiscCatalog = isReadings || isGames || isMedia || isSoftSkills;
       tabPanelEl.innerHTML = `
-        <div class="misc-detail${isReadings || isGames || isMedia ? " misc-detail--readings" : ""}">
-          <aside class="misc-detail__aside${isReadings || isGames || isMedia ? " misc-detail__aside--readings" : ""}" aria-label="${escapeHtml(it.label)}">
+        <div class="misc-detail${isMiscCatalog ? " misc-detail--readings" : ""}">
+          <aside class="misc-detail__aside${isMiscCatalog ? " misc-detail__aside--readings" : ""}" aria-label="${escapeHtml(it.label)}">
             <div class="misc-detail__card unit-material-card" role="presentation">
               <div class="misc-card__icon unit-material-card__icon">
                 <img
@@ -2943,7 +2969,22 @@
               </div>
             </div>
             ${
-              isReadings
+              isSoftSkills
+                ? `
+                  <div class="readings-aside-filters" role="group" aria-label="Filtros de soft skills">
+                    <label class="readings-filter">
+                      <span>CONTEXTO</span>
+                      <select id="soft-skills-context">
+                        <option value="" selected>Todos</option>
+                        <option value="equipo">Equipo</option>
+                        <option value="exposición">Exposición</option>
+                        <option value="proyecto">Proyecto</option>
+                        <option value="individual">Individual</option>
+                      </select>
+                    </label>
+                  </div>
+                `
+                : isReadings
                 ? `
                   <div class="readings-aside-filters" role="group" aria-label="Filtros de lecturas recomendadas">
                       <label class="readings-filter">
@@ -3072,6 +3113,13 @@
                         </div>
                   </div>
                 `
+                : isSoftSkills
+                  ? `
+                    <div class="readings-page soft-skills-page" aria-label="Soft Skills">
+                      <p class="soft-skills-lede" id="soft-skills-lede"></p>
+                      <div id="soft-skills-list" class="soft-skills-grid" aria-live="polite"></div>
+                    </div>
+                  `
                 : `
                   <div class="empty-state construction-notice">
                     <strong>PRÓXIMAMENTE</strong>
@@ -3759,6 +3807,101 @@
         }
 
         render();
+      }
+
+      if (isSoftSkills) {
+        const pack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
+        const intro = String(pack?.intro || "").trim();
+        const rawItems = Array.isArray(pack?.items) ? pack.items : [];
+        const contextLabel = {
+          equipo: "Equipo",
+          exposición: "Exposición",
+          proyecto: "Proyecto",
+          individual: "Individual"
+        };
+        const skills = rawItems
+          .map((item, idx) => {
+            const id = String(item?.id || "").trim();
+            const title = String(item?.title || "").trim();
+            if (!id || !title) return null;
+            const summary = String(item?.summary || "").trim();
+            const classroomTip = String(item?.classroomTip || "").trim();
+            const teacherTip = String(item?.teacherTip || "").trim();
+            const contexts = Array.isArray(item?.contexts)
+              ? item.contexts.map((c) => String(c || "").trim()).filter(Boolean)
+              : [];
+            return { id, title, summary, classroomTip, teacherTip, contexts, __idx: idx };
+          })
+          .filter(Boolean);
+
+        const ledeEl = document.getElementById("soft-skills-lede");
+        const listEl = document.getElementById("soft-skills-list");
+        const contextEl = document.getElementById("soft-skills-context");
+        if (ledeEl) {
+          ledeEl.textContent = intro;
+          ledeEl.hidden = !intro;
+        }
+
+        const renderSoftSkills = () => {
+          if (!(listEl instanceof HTMLElement)) return;
+          const ctx = String(contextEl?.value || "").trim();
+          let rows = skills.slice();
+          if (ctx) rows = rows.filter((s) => s.contexts.includes(ctx));
+
+          if (!rows.length) {
+            listEl.innerHTML = skills.length
+              ? `
+                <div class="empty-state construction-notice">
+                  <strong>SIN RESULTADOS</strong>
+                  <br />
+                  Prueba con otro contexto.
+                </div>
+              `
+              : `
+                <div class="empty-state construction-notice">
+                  <strong>PRÓXIMAMENTE</strong>
+                </div>
+              `;
+            return;
+          }
+
+          listEl.innerHTML = rows
+            .map((s, i) => {
+              const n = String(i + 1).padStart(2, "0");
+              const tags = s.contexts
+                .map((c) => {
+                  const label = contextLabel[c] || c;
+                  return `<span class="soft-skill-tag">${escapeHtml(label)}</span>`;
+                })
+                .join("");
+              return `
+                <article class="soft-skill-card" data-soft-skill-id="${escapeHtml(s.id)}">
+                  <div class="soft-skill-card__mark" aria-hidden="true">${escapeHtml(n)}</div>
+                  <div class="soft-skill-card__body">
+                    <h4 class="soft-skill-card__title">${escapeHtml(s.title)}</h4>
+                    ${tags ? `<div class="soft-skill-card__tags">${tags}</div>` : ""}
+                    ${s.summary ? `<p class="soft-skill-card__summary">${escapeHtml(s.summary)}</p>` : ""}
+                    <div class="soft-skill-card__tips">
+                      ${
+                        s.classroomTip
+                          ? `<p class="soft-skill-card__tip"><span class="soft-skill-card__tip-label">Alumnado</span> ${escapeHtml(s.classroomTip)}</p>`
+                          : ""
+                      }
+                      ${
+                        s.teacherTip
+                          ? `<p class="soft-skill-card__tip soft-skill-card__tip--teacher"><span class="soft-skill-card__tip-label">Docente</span> ${escapeHtml(s.teacherTip)}</p>`
+                          : ""
+                      }
+                    </div>
+                  </div>
+                </article>
+              `;
+            })
+            .join("");
+        };
+
+        contextEl?.addEventListener("change", renderSoftSkills);
+        renderSoftSkills();
       }
     };
 
