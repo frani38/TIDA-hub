@@ -512,6 +512,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: en la ficha «Exposición de proyectos», el presentador de la ilustración pasa a ser un hombre (mismo estilo y escena).
 
+## 1.6.6
+
+- Soft Skills: definiciones más extensas; ejemplos en dos columnas (entorno académico / mundo laboral) con estilos diferenciados.
+
 ---
 
 ## Convención (recordatorio)
@@ -642,3 +646,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.6.3** | Soft Skills: intro a ancho completo, Orbitron y brillo |
 | **1.6.4** | Soft Skills: ilustraciones coloridas, títulos MAYÚSCULAS, intro en negrita |
 | **1.6.5** | Soft Skills: presentador hombre en ficha de exposición |
+| **1.6.6** | Soft Skills: definiciones amplias + ejemplos académico/laboral |

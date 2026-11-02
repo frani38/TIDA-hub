@@ -1340,11 +1340,17 @@
       const title = String(s?.title || "").trim();
       if (!id || !title) continue;
       const definition = String(s?.definition || s?.summary || "").trim();
-      const examples = Array.isArray(s?.examples)
+      const examplesAcademic = Array.isArray(s?.examplesAcademic)
+        ? s.examplesAcademic.map((e) => String(e || "").trim()).filter(Boolean)
+        : [];
+      const examplesProfessional = Array.isArray(s?.examplesProfessional)
+        ? s.examplesProfessional.map((e) => String(e || "").trim()).filter(Boolean)
+        : [];
+      const examplesLegacy = Array.isArray(s?.examples)
         ? s.examples.map((e) => String(e || "").trim()).filter(Boolean)
         : [];
       const contexts = Array.isArray(s?.contexts) ? s.contexts.map((c) => String(c || "").trim()).filter(Boolean) : [];
-      const hay = `${title} ${definition} ${examples.join(" ")} ${contexts.join(" ")} ${id} soft skills habilidades`;
+      const hay = `${title} ${definition} ${examplesAcademic.join(" ")} ${examplesProfessional.join(" ")} ${examplesLegacy.join(" ")} ${contexts.join(" ")} ${id} soft skills habilidades académico laboral profesional`;
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
@@ -3842,13 +3848,25 @@
             if (!id || !title) return null;
             const definition = String(item?.definition || item?.summary || "").trim();
             const image = String(item?.image || "").trim();
-            const examples = Array.isArray(item?.examples)
-              ? item.examples.map((e) => String(e || "").trim()).filter(Boolean)
-              : [];
+            const mapExamples = (arr) =>
+              Array.isArray(arr) ? arr.map((e) => String(e || "").trim()).filter(Boolean) : [];
+            const examplesAcademic = mapExamples(item?.examplesAcademic);
+            const examplesProfessional = mapExamples(item?.examplesProfessional);
+            const examplesLegacy = mapExamples(item?.examples);
             const contexts = Array.isArray(item?.contexts)
               ? item.contexts.map((c) => String(c || "").trim()).filter(Boolean)
               : [];
-            return { id, title, definition, image, examples, contexts, __idx: idx };
+            return {
+              id,
+              title,
+              definition,
+              image,
+              examplesAcademic,
+              examplesProfessional,
+              examplesLegacy,
+              contexts,
+              __idx: idx
+            };
           })
           .filter(Boolean);
 
@@ -3901,11 +3919,31 @@
               const imgInner = s.image
                 ? `<img class="soft-skill-card__img" src="${escapeHtml(s.image)}?v=${escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim())}" alt="" loading="lazy" decoding="async" />`
                 : `<div class="soft-skill-card__img soft-skill-card__img--fallback" aria-hidden="true">${escapeHtml(s.title.slice(0, 1).toUpperCase())}</div>`;
-              const examplesHtml = s.examples.length
-                ? `<ul class="soft-skill-card__examples">${s.examples
-                    .map((ex) => `<li>${escapeHtml(ex)}</li>`)
-                    .join("")}</ul>`
-                : "";
+              const listHtml = (items) =>
+                items.length
+                  ? `<ul class="soft-skill-card__examples">${items
+                      .map((ex) => `<li>${escapeHtml(ex)}</li>`)
+                      .join("")}</ul>`
+                  : "";
+              const hasSplit =
+                s.examplesAcademic.length > 0 || s.examplesProfessional.length > 0;
+              const examplesBlock = hasSplit
+                ? `<div class="soft-skill-card__examples-wrap">
+                    <span class="soft-skill-card__examples-label">Ejemplos</span>
+                    <div class="soft-skill-card__examples-cols">
+                      <div class="soft-skill-card__examples-col soft-skill-card__examples-col--academic">
+                        <span class="soft-skill-card__examples-col-label">Entorno académico</span>
+                        ${listHtml(s.examplesAcademic)}
+                      </div>
+                      <div class="soft-skill-card__examples-col soft-skill-card__examples-col--professional">
+                        <span class="soft-skill-card__examples-col-label">Mundo laboral</span>
+                        ${listHtml(s.examplesProfessional)}
+                      </div>
+                    </div>
+                  </div>`
+                : s.examplesLegacy.length
+                  ? `<div class="soft-skill-card__examples-wrap"><span class="soft-skill-card__examples-label">Ejemplos</span>${listHtml(s.examplesLegacy)}</div>`
+                  : "";
               return `
                 <article class="soft-skill-card" data-soft-skill-id="${escapeHtml(s.id)}">
                   <div class="soft-skill-card__visual" aria-hidden="true">${imgInner}</div>
@@ -3913,11 +3951,7 @@
                     <h4 class="soft-skill-card__title">${escapeHtml(s.title).toLocaleUpperCase("es")}</h4>
                     ${tags ? `<div class="soft-skill-card__tags">${tags}</div>` : ""}
                     ${s.definition ? `<p class="soft-skill-card__definition">${escapeHtml(s.definition)}</p>` : ""}
-                    ${
-                      examplesHtml
-                        ? `<div class="soft-skill-card__examples-wrap"><span class="soft-skill-card__examples-label">Ejemplos</span>${examplesHtml}</div>`
-                        : ""
-                    }
+                    ${examplesBlock}
                   </div>
                 </article>
               `;

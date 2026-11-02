@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.6.5",
+    version: "1.6.6",
     updated: "2026-11-02",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1621,7 +1621,7 @@ window.MYWEB_DATA = {
   // image: ficha visual en ./softskills/
   softSkills: {
     intro:
-      "Las <strong>soft skills</strong> son <strong>competencias transversales</strong> que complementan el conocimiento técnico o de negocio en el mundo profesional del <strong>siglo XXI</strong>: <strong>empresa</strong>, <strong>industria</strong>, <strong>ingeniería de proyectos</strong>, <strong>operaciones</strong>, <strong>I+D</strong> y <strong>servicios</strong>. No sustituyen la especialidad (producción, diseño, finanzas, calidad, tecnología…); hacen posible <strong>coordinar personas</strong>, <strong>decidir con evidencia</strong> y convertir el trabajo en <strong>resultados fiables</strong> bajo plazos e incertidumbre. Cada ficha ofrece una <strong>definición operativa</strong>, <strong>ejemplos</strong> aplicables a entornos empresariales e industriales, e ilustración de apoyo.",
+      "Las <strong>soft skills</strong> son <strong>competencias transversales</strong> que complementan el conocimiento técnico o de negocio en el mundo profesional del <strong>siglo XXI</strong>: <strong>empresa</strong>, <strong>industria</strong>, <strong>ingeniería de proyectos</strong>, <strong>operaciones</strong>, <strong>I+D</strong> y <strong>servicios</strong>. También se entrenan en el <strong>entorno académico</strong> (Bachillerato, ciclos, universidad) mediante trabajos, proyectos y defensas. No sustituyen la especialidad; hacen posible <strong>coordinar personas</strong>, <strong>decidir con evidencia</strong> y convertir el trabajo en <strong>resultados fiables</strong>. Cada ficha incluye una <strong>definición ampliada</strong>, ejemplos en <strong>ámbito académico</strong> y en el <strong>mundo laboral</strong>, e ilustración de apoyo.",
     items: [
       {
         id: "ss_comunicacion",
@@ -1629,11 +1629,16 @@ window.MYWEB_DATA = {
         contexts: ["equipo", "exposición", "proyecto"],
         image: "./softskills/ss_comunicacion.jpg",
         definition:
-          "Capacidad de transmitir información de forma precisa, ordenada y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. En empresa e industria reduce malentendidos de requisitos, retrasos entre áreas (diseño, compras, producción, calidad, comercial) y costes por retrabajo.",
-        examples: [
-          "Un informe o correo de estado que separa hechos (plazo, coste, incidencia) de opiniones o hipótesis.",
-          "Una especificación de pedido o de proyecto sin ambigüedades del tipo «urgente» o «como siempre» sin criterios.",
-          "Explicar a dirección o a un cliente el impacto de un cambio de alcance en tiempo, presupuesto y riesgo."
+          "Capacidad de transmitir información de forma precisa, ordenada y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. Una comunicación clara no es «hablar mucho», sino reducir ambigüedad: qué se sabe, qué se ignora y qué se necesita de la otra parte. En contextos académicos y profesionales evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o departamentos (diseño, compras, producción, calidad, comercial, dirección).",
+        examplesAcademic: [
+          "Resumir en 30 segundos el estado de un trabajo o proyecto: qué se ha hecho, qué falla y qué se pide al profesor o al equipo.",
+          "Redactar el enunciado propio de una tarea o memoria sin ambigüedades («urgente», «bonito») y con criterios observables.",
+          "Explicar oralmente el impacto de un cambio de alcance en plazo y calidad del entregable escolar."
+        ],
+        examplesProfessional: [
+          "Informe o correo de estado que separa hechos (plazo, coste, incidencia) de opiniones o hipótesis.",
+          "Especificación de pedido o de proyecto con criterios medibles para cliente o proveedor.",
+          "Explicar a dirección el impacto de un cambio de alcance en tiempo, presupuesto y riesgo."
         ]
       },
       {
@@ -1642,11 +1647,16 @@ window.MYWEB_DATA = {
         contexts: ["equipo", "proyecto"],
         image: "./softskills/ss_equipo.jpg",
         definition:
-          "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. En proyectos industriales o empresariales no basta «ayudarse»: hace falta responsabilidad visible, sincronización de entregables y respeto por las dependencias entre departamentos, proveedores y fases del proyecto.",
-        examples: [
-          "Alinear ingeniería, producción y compras en un hito de lanzamiento con un responsable claro por entrega.",
-          "Usar un plan común (Gantt, tablero, actas) donde cada área actualiza el estado real de su parte.",
-          "Pedir apoyo a otra unidad con contexto suficiente (qué se necesita, para cuándo y qué bloquea)."
+          "Coordinación deliberada de personas con roles, interfaces y plazos compartidos. El trabajo en equipo eficaz no consiste en «hacer todos lo mismo a la vez», sino en repartir responsabilidades visibles, sincronizar entregas parciales y respetar dependencias. Se practica en el aula (grupos de proyecto) y es crítica en empresa e industria, donde fallan las interfaces entre áreas, turnos o proveedores más que el talento individual.",
+        examplesAcademic: [
+          "Acordar roles en un trabajo grupal (investigación, redacción, prototipo, presentación) y revisarlos a mitad de plazo.",
+          "Mantener un tablero o lista compartida con el estado real de cada parte del proyecto escolar.",
+          "Pedir ayuda a un compañero con contexto: qué se necesita, para cuándo y qué bloquea."
+        ],
+        examplesProfessional: [
+          "Alinear ingeniería, producción y compras en un hito de lanzamiento con responsable claro por entrega.",
+          "Plan común (Gantt, tablero, actas) donde cada área actualiza el estado real de su parte.",
+          "Solicitar apoyo interdepartamental indicando bloqueo, fecha y consecuencia si no llega."
         ]
       },
       {
@@ -1655,11 +1665,16 @@ window.MYWEB_DATA = {
         contexts: ["proyecto", "individual", "exposición"],
         image: "./softskills/ss_critico.jpg",
         definition:
-          "Evaluar afirmaciones y propuestas con criterios de evidencia: fuente, método, límites y consecuencias. En entornos empresariales e industriales incluye cuestionar datos de mercado, informes de proveedores, KPIs incompletos o recomendaciones automáticas antes de convertirlas en decisión.",
-        examples: [
-          "Contrastar la oferta de un proveedor con ensayos, normas aplicables o referencias de planta comparables.",
+          "Evaluar afirmaciones y propuestas con criterios de evidencia: fuente, método, límites y consecuencias. El pensamiento crítico no es «pensar en negativo»; es comprobar antes de decidir. Incluye contrastar apuntes, tutoriales, respuestas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo plausible. Es transferable del aprendizaje académico a la toma de decisiones industriales y empresariales.",
+        examplesAcademic: [
+          "Contrastar una respuesta de IA o un vídeo con el libro, la norma o una prueba propia en el taller.",
+          "Cuestionar un resultado «demasiado redondo» en un informe y repetir la medida o el cálculo.",
+          "En un debate o trabajo, separar opiniones de datos citados con fuente."
+        ],
+        examplesProfessional: [
+          "Contrastar la oferta de un proveedor con ensayos, normas o referencias de planta comparables.",
           "Revisar un KPI atractivo preguntando qué queda fuera del indicador y qué riesgo oculta.",
-          "Distinguir correlación de causalidad al interpretar resultados de proceso, ventas o calidad."
+          "Distinguir correlación de causalidad en datos de proceso, ventas o calidad."
         ]
       },
       {
@@ -1668,10 +1683,15 @@ window.MYWEB_DATA = {
         contexts: ["proyecto", "individual"],
         image: "./softskills/ss_tiempo.jpg",
         definition:
-          "Planificación por hitos realistas y control del alcance cuando aparece el retraso. En proyectos industriales y planes de negocio, el tiempo mal gestionado suele castigar la validación, la puesta en marcha o la calidad: se llega a la fecha clave sin evidencia suficiente.",
-        examples: [
-          "Reservar margen explícito para pruebas, homologación o formación, no solo para «ejecutar».",
-          "Recortar funciones o extras no críticos si el hito de arranque, entrega o auditoría está en riesgo.",
+          "Planificación por hitos realistas y control del alcance cuando aparece el retraso. Gestionar el tiempo no es solo «estar ocupado»: es priorizar lo que desbloquea la entrega, reservar margen para verificación y decidir qué se recorta si el calendario se tensa. En Bachillerato evita entregas a última hora sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente.",
+        examplesAcademic: [
+          "Dividir un trabajo en hitos (investigación → borrador → revisión → entrega) con fechas intermedias.",
+          "Si se atrasa un bloque, reducir extras antes de saltarse la revisión o las pruebas.",
+          "Reservar tiempo explícito para ensayar la exposición, no solo para «terminar el contenido»."
+        ],
+        examplesProfessional: [
+          "Reservar margen para pruebas, homologación o formación, no solo para ejecutar.",
+          "Recortar funciones no críticas si el hito de arranque, entrega o auditoría está en riesgo.",
           "Trabajar con entregables parciales revisables en lugar de un único cierre final."
         ]
       },
@@ -1681,11 +1701,16 @@ window.MYWEB_DATA = {
         contexts: ["equipo", "proyecto"],
         image: "./softskills/ss_conflictos.jpg",
         definition:
-          "Abordar desacuerdos centrándose en hechos observables, impacto en el negocio o en el proyecto, y opciones, no en atribuciones personales. En organizaciones complejas (planta, oficina técnica, comercial, dirección) el conflicto bien gestionado acelera decisiones; el mal gestionado congela inversiones y plazos.",
-        examples: [
-          "Sustituir «compras siempre llega tarde» por «sin fecha firme de material no podemos cerrar el montaje; propongo reunión de 20 minutos con proveedor».",
-          "Elegir entre dos alternativas con criterios compartidos: coste, plazo, riesgo, calidad o servicio.",
-          "Mediar entre áreas con un hecho común (incidencia, dato de proceso, cláusula contractual) antes de escalar."
+          "Abordar desacuerdos centrándose en hechos observables, impacto en el objetivo común y opciones de acción, no en etiquetas personales. Un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de clase y en una organización con planta, oficina técnica, comercial y dirección.",
+        examplesAcademic: [
+          "Pasar de «tú no haces nada» a «falta la parte X para el viernes; propongo repartir Y y Z hoy».",
+          "Elegir entre dos enfoques de un trabajo con criterios compartidos (nota, plazo, claridad).",
+          "Pedir mediación del docente solo tras intentar un acuerdo basado en hechos del enunciado o del plan."
+        ],
+        examplesProfessional: [
+          "Sustituir acusaciones por hechos y propuesta («sin fecha firme de material no cerramos montaje; reunión de 20 min con proveedor»).",
+          "Elegir entre alternativas con criterios: coste, plazo, riesgo, calidad o servicio.",
+          "Mediar entre áreas con un hecho común (incidencia, dato de proceso, cláusula) antes de escalar."
         ]
       },
       {
@@ -1694,11 +1719,16 @@ window.MYWEB_DATA = {
         contexts: ["equipo", "exposición", "proyecto"],
         image: "./softskills/ss_feedback.jpg",
         definition:
-          "Intercambio de información orientado a mejorar un entregable o un proceso: concreto, oportuno y accionable. En entornos profesionales, dar feedback es parte de la mejora continua; recibirlo sin defensividad acorta ciclos de corrección y reduce costes de no calidad.",
-        examples: [
+          "Intercambio de información orientado a mejorar un entregable o un proceso: concreto, oportuno y accionable. Dar buen feedback describe el trabajo, no ataca a la persona; recibirlo implica escuchar, aclarar y decidir un cambio, sin defensividad automática. Es una competencia de aprendizaje continuo en el aula y de mejora de calidad en la organización.",
+        examplesAcademic: [
+          "Comentar el trabajo de un compañero: 1 acierto observable + 1 mejora concreta + 1 pregunta.",
+          "Ante una corrección del profesor, reformular qué cambiarás en la siguiente entrega.",
+          "Pedir feedback específico («¿la estructura del informe se entiende?») en lugar de «¿está bien?»."
+        ],
+        examplesProfessional: [
           "«Falta el criterio de aceptación en el protocolo» frente a «el documento está mal».",
-          "Pedir aclaración ante una crítica: «¿qué cambio concreto mejoraría el resultado para el cliente o la planta?»",
-          "Una revisión de informe, plano o procedimiento con 1 fortaleza observable y 1 mejora priorizada."
+          "Pedir aclaración: «¿qué cambio concreto mejoraría el resultado para el cliente o la planta?»",
+          "Revisión de informe, plano o procedimiento con 1 fortaleza y 1 mejora priorizada."
         ]
       },
       {
@@ -1707,11 +1737,16 @@ window.MYWEB_DATA = {
         contexts: ["individual", "proyecto"],
         image: "./softskills/ss_autonomia.jpg",
         definition:
-          "Capacidad de avanzar con criterio propio: investigar, contrastar, documentar y pedir ayuda con evidencia. Responsabilidad significa hacerse cargo del resultado y de su trazabilidad ante el equipo, el cliente o la organización, no solo de la intención de «haberlo intentado».",
-        examples: [
-          "Dejar un expediente o carpeta de proyecto usable por quien continúe (decisiones, versiones, pendientes).",
+          "Capacidad de avanzar con criterio propio: investigar, contrastar, documentar y pedir ayuda con evidencia. Autonomía no es aislarse; es no depender de instrucciones constantes para cada paso. Responsabilidad es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), tanto ante un profesor como ante un equipo, un cliente o la organización.",
+        examplesAcademic: [
+          "Llevar un cuaderno breve de proyecto: fecha, cambio, resultado y siguiente prueba.",
+          "Acudir a tutoría con dudas concretas y material ya revisado, no solo con «no sé por dónde empezar».",
+          "Dejar la carpeta del trabajo ordenada para que un compañero o el evaluador pueda seguirla."
+        ],
+        examplesProfessional: [
+          "Expediente de proyecto usable por quien continúe (decisiones, versiones, pendientes).",
           "Llegar a una reunión de escalado con datos, no solo con la descripción del problema.",
-          "Cerrar una tarea asumiendo el seguimiento hasta la verificación, no hasta «enviarlo»."
+          "Cerrar una tarea hasta la verificación, no solo hasta «enviarlo»."
         ]
       },
       {
@@ -1720,11 +1755,16 @@ window.MYWEB_DATA = {
         contexts: ["exposición", "proyecto"],
         image: "./softskills/ss_exponer.jpg",
         definition:
-          "Comunicar en poco tiempo el problema, la propuesta, la evidencia y los límites del trabajo. En entornos empresariales e industriales (comité, cliente, auditoría, defensa de inversión) una narrativa sin datos no convence; unos datos sin relato no se entienden ni se deciden.",
-        examples: [
-          "Estructura 4 bloques: problema → enfoque → evidencia (dato, ensayo, piloto) → riesgos y siguiente paso.",
-          "Presentar el impacto en coste, plazo o calidad, no solo la descripción técnica de la solución.",
-          "Anticipar una pregunta difícil («¿qué pasa si falla el proveedor / la demanda / el proceso?») con un plan B realista."
+          "Comunicar en poco tiempo el problema, la propuesta, la evidencia y los límites del trabajo. Una buena exposición combina relato y prueba: sin datos no convence; sin estructura no se entiende. Se entrena en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
+        examplesAcademic: [
+          "Estructura 4 bloques en la defensa: problema → enfoque → evidencia → qué mejorarías.",
+          "Mostrar un resultado medible o una demo breve, no solo diapositivas descriptivas.",
+          "Preparar respuesta a una pregunta difícil («¿qué fallaría si…?») con un límite conocido del trabajo."
+        ],
+        examplesProfessional: [
+          "Presentar a comité o cliente: problema → enfoque → evidencia (dato, ensayo, piloto) → riesgos y siguiente paso.",
+          "Traducir la solución a impacto en coste, plazo o calidad, no solo a detalle técnico.",
+          "Anticipar «¿qué pasa si falla el proveedor / la demanda / el proceso?» con un plan B realista."
         ]
       }
     ]

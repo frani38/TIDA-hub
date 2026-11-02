@@ -3478,7 +3478,7 @@ body.theme-light .soft-skill-card__definition {
 
 .soft-skill-card__examples-label {
   display: block;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.45rem;
   font-family: var(--tech-font);
   font-weight: 750;
   font-size: 0.72rem;
@@ -3491,6 +3491,49 @@ body.theme-light .soft-skill-card__examples-label {
   color: #1d4ed8;
 }
 
+.soft-skill-card__examples-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  align-items: stretch;
+}
+
+.soft-skill-card__examples-col {
+  min-width: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.soft-skill-card__examples-col-label {
+  display: block;
+  padding: 0.4rem 0.55rem;
+  font-family: var(--tech-font);
+  font-weight: 750;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.soft-skill-card__examples-col--academic .soft-skill-card__examples-col-label {
+  color: #cfe0ff;
+  background: rgba(59, 110, 220, 0.35);
+}
+
+.soft-skill-card__examples-col--professional .soft-skill-card__examples-col-label {
+  color: #d8f7e8;
+  background: rgba(16, 140, 100, 0.38);
+}
+
+body.theme-light .soft-skill-card__examples-col--academic .soft-skill-card__examples-col-label {
+  color: #1e3a8a;
+  background: rgba(37, 99, 235, 0.14);
+}
+
+body.theme-light .soft-skill-card__examples-col--professional .soft-skill-card__examples-col-label {
+  color: #065f46;
+  background: rgba(5, 150, 105, 0.14);
+}
+
 .soft-skill-card__examples {
   margin: 0;
   padding: 0.55rem 0.55rem 0.55rem 1.25rem;
@@ -3498,8 +3541,20 @@ body.theme-light .soft-skill-card__examples-label {
   background: rgba(10, 18, 40, 0.28);
   color: #dbe7ff;
   font-family: var(--tech-font);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   line-height: 1.45;
+}
+
+.soft-skill-card__examples-col--academic .soft-skill-card__examples {
+  border-left-color: rgba(122, 162, 255, 0.7);
+  background: rgba(30, 60, 140, 0.28);
+  color: #dbe7ff;
+}
+
+.soft-skill-card__examples-col--professional .soft-skill-card__examples {
+  border-left-color: rgba(52, 211, 153, 0.7);
+  background: rgba(8, 70, 55, 0.32);
+  color: #d8f5e8;
 }
 
 body.theme-light .soft-skill-card__examples {
@@ -3508,8 +3563,26 @@ body.theme-light .soft-skill-card__examples {
   border-left-color: rgba(37, 99, 235, 0.45);
 }
 
+body.theme-light .soft-skill-card__examples-col--academic .soft-skill-card__examples {
+  background: rgba(37, 99, 235, 0.07);
+  color: #1e3a5f;
+  border-left-color: rgba(37, 99, 235, 0.5);
+}
+
+body.theme-light .soft-skill-card__examples-col--professional .soft-skill-card__examples {
+  background: rgba(5, 150, 105, 0.08);
+  color: #064e3b;
+  border-left-color: rgba(5, 150, 105, 0.5);
+}
+
 .soft-skill-card__examples li + li {
   margin-top: 0.35rem;
+}
+
+@media (max-width: 720px) {
+  .soft-skill-card__examples-cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 .reading-title-row {
