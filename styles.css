@@ -3391,8 +3391,8 @@ body.theme-light .soft-skill-card__visual {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* Suaviza saturación/contraste originales sin tinte de color */
-  filter: saturate(0.7) contrast(0.9) brightness(0.97);
+  /* Suaviza saturación sin apagar brillo/contraste */
+  filter: saturate(0.72) contrast(1.02) brightness(1.05);
 }
 
 .soft-skill-card__img--fallback {
