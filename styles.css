@@ -3373,7 +3373,6 @@ body.theme-light .soft-skill-card {
 }
 
 .soft-skill-card__visual {
-  position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 0;
@@ -3382,25 +3381,9 @@ body.theme-light .soft-skill-card {
   background: rgba(122, 162, 255, 0.1);
 }
 
-.soft-skill-card__visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(160deg, rgba(14, 28, 58, 0.28) 0%, rgba(14, 28, 58, 0.08) 45%, rgba(20, 40, 80, 0.22) 100%),
-    linear-gradient(0deg, rgba(90, 130, 200, 0.12), rgba(90, 130, 200, 0.12));
-}
-
 body.theme-light .soft-skill-card__visual {
   border-color: rgba(15, 23, 42, 0.12);
   background: rgba(37, 99, 235, 0.06);
-}
-
-body.theme-light .soft-skill-card__visual::after {
-  background:
-    linear-gradient(160deg, rgba(241, 245, 255, 0.22) 0%, rgba(226, 232, 245, 0.1) 50%, rgba(203, 213, 235, 0.2) 100%),
-    linear-gradient(0deg, rgba(100, 130, 180, 0.1), rgba(100, 130, 180, 0.1));
 }
 
 .soft-skill-card__img {
@@ -3408,7 +3391,8 @@ body.theme-light .soft-skill-card__visual::after {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(0.92) contrast(0.94) saturate(0.62);
+  /* Suaviza saturación/contraste originales sin tinte de color */
+  filter: saturate(0.7) contrast(0.9) brightness(0.97);
 }
 
 .soft-skill-card__img--fallback {
@@ -3425,8 +3409,18 @@ body.theme-light .soft-skill-card__visual::after {
   min-width: 0;
 }
 
+.soft-skill-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem 0.85rem;
+  flex-wrap: wrap;
+}
+
 .soft-skill-card__title {
   margin: 0;
+  flex: 1 1 12rem;
+  min-width: 0;
   font-family: var(--tech-font);
   font-size: 1.16rem;
   line-height: 1.25;
@@ -3452,7 +3446,11 @@ body.theme-light .soft-skill-card__title {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin-top: 0.45rem;
+  margin: 0;
+  justify-content: flex-end;
+  align-content: flex-start;
+  flex: 0 1 auto;
+  max-width: 100%;
 }
 
 .soft-skill-tag {
@@ -3493,26 +3491,11 @@ body.theme-light .soft-skill-card__definition {
   margin-top: 0.75rem;
 }
 
-.soft-skill-card__examples-label {
-  display: block;
-  margin-bottom: 0.45rem;
-  font-family: var(--tech-font);
-  font-weight: 750;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent, #7aa2ff);
-}
-
-body.theme-light .soft-skill-card__examples-label {
-  color: #1d4ed8;
-}
-
 .soft-skill-card__examples-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.65rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .soft-skill-card__examples-col {
@@ -3522,13 +3505,44 @@ body.theme-light .soft-skill-card__examples-label {
 }
 
 .soft-skill-card__examples-col-label {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
   padding: 0.4rem 0.55rem;
   font-family: var(--tech-font);
   font-weight: 750;
   font-size: 0.68rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.soft-skill-card__examples-col-label::-webkit-details-marker {
+  display: none;
+}
+
+.soft-skill-card__examples-col-text {
+  min-width: 0;
+}
+
+.soft-skill-card__examples-chevron {
+  flex: 0 0 auto;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.85;
+  transition: transform 0.18s ease;
+  margin-top: -0.15rem;
+}
+
+.soft-skill-card__examples-col[open] > .soft-skill-card__examples-col-label .soft-skill-card__examples-chevron {
+  transform: rotate(225deg);
+  margin-top: 0.12rem;
 }
 
 .soft-skill-card__examples-col--academic .soft-skill-card__examples-col-label {

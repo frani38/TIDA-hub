@@ -3925,31 +3925,37 @@
                       .map((ex) => `<li>${escapeHtml(ex)}</li>`)
                       .join("")}</ul>`
                   : "";
+              const colHtml = (mod, label, items) => {
+                if (!items.length) return "";
+                return `
+                  <details class="soft-skill-card__examples-col soft-skill-card__examples-col--${mod}">
+                    <summary class="soft-skill-card__examples-col-label">
+                      <span class="soft-skill-card__examples-col-text">${escapeHtml(label)}</span>
+                      <span class="soft-skill-card__examples-chevron" aria-hidden="true"></span>
+                    </summary>
+                    ${listHtml(items)}
+                  </details>`;
+              };
               const hasSplit =
                 s.examplesAcademic.length > 0 || s.examplesProfessional.length > 0;
               const examplesBlock = hasSplit
                 ? `<div class="soft-skill-card__examples-wrap">
-                    <span class="soft-skill-card__examples-label">Ejemplos</span>
                     <div class="soft-skill-card__examples-cols">
-                      <div class="soft-skill-card__examples-col soft-skill-card__examples-col--academic">
-                        <span class="soft-skill-card__examples-col-label">Entorno académico</span>
-                        ${listHtml(s.examplesAcademic)}
-                      </div>
-                      <div class="soft-skill-card__examples-col soft-skill-card__examples-col--professional">
-                        <span class="soft-skill-card__examples-col-label">Mundo laboral</span>
-                        ${listHtml(s.examplesProfessional)}
-                      </div>
+                      ${colHtml("academic", "Entorno académico", s.examplesAcademic)}
+                      ${colHtml("professional", "Mundo laboral", s.examplesProfessional)}
                     </div>
                   </div>`
                 : s.examplesLegacy.length
-                  ? `<div class="soft-skill-card__examples-wrap"><span class="soft-skill-card__examples-label">Ejemplos</span>${listHtml(s.examplesLegacy)}</div>`
+                  ? `<div class="soft-skill-card__examples-wrap">${listHtml(s.examplesLegacy)}</div>`
                   : "";
               return `
                 <article class="soft-skill-card" data-soft-skill-id="${escapeHtml(s.id)}">
                   <div class="soft-skill-card__visual" aria-hidden="true">${imgInner}</div>
                   <div class="soft-skill-card__body">
-                    <h4 class="soft-skill-card__title">${escapeHtml(s.title).toLocaleUpperCase("es")}</h4>
-                    ${tags ? `<div class="soft-skill-card__tags">${tags}</div>` : ""}
+                    <div class="soft-skill-card__header">
+                      <h4 class="soft-skill-card__title">${escapeHtml(s.title).toLocaleUpperCase("es")}</h4>
+                      ${tags ? `<div class="soft-skill-card__tags">${tags}</div>` : ""}
+                    </div>
                     ${s.definition ? `<p class="soft-skill-card__definition">${escapeHtml(s.definition)}</p>` : ""}
                     ${examplesBlock}
                   </div>
