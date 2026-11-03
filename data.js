@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.8.16",
+    version: "1.8.17",
     updated: "2026-11-03",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1639,7 +1639,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_comunicacion.jpg",
         definition:
-          "Capacidad de transmitir información <strong>precisa</strong>, <strong>ordenada</strong> y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. Incluye <strong>escucha activa</strong> e influencia social: no es «hablar mucho», sino <strong>reducir ambigüedad</strong> —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección).",
+          "Capacidad de transmitir información <strong>precisa</strong>, <strong>ordenada</strong> y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. Incluye <strong>escucha activa</strong> e influencia social: no es «hablar mucho», sino <strong>reducir ambigüedad</strong> —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Una comunicación clara distingue hechos, supuestos y peticiones, elige el canal adecuado y comprueba que el mensaje se ha entendido. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección). En el aula y en la organización, convierte ideas dispersas en acuerdos operativos.",
         examplesAcademic: [
           "En un ensayo o comentario, separar qué dice el texto, qué opina el alumnado y cuál es la conclusión.",
           "En un problema de Matemáticas o Física, escribir datos, fórmula y pasos; no solo el resultado final.",
@@ -1661,7 +1661,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_equipo.jpg",
         definition:
-          "Coordinación deliberada de personas con <strong>roles</strong>, <strong>interfaces</strong> y plazos compartidos. Se apoya en <strong>colaboración</strong>, <strong>empatía</strong> y escucha activa, porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en <strong>responsabilidades visibles</strong>, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—.",
+          "Coordinación deliberada de personas con <strong>roles</strong>, <strong>interfaces</strong> y plazos compartidos. Se apoya en <strong>colaboración</strong>, <strong>empatía</strong> y escucha activa, porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en <strong>responsabilidades visibles</strong>, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—. Un equipo eficaz hace explícito quién decide, quién informa y qué queda bloqueado si falta una entrega; también reparte carga y reconoce aportaciones para sostener la cooperación en el tiempo.",
         examplesAcademic: [
           "En un trabajo grupal, repartir partes (buscar, redactar, presentar) y fijar una fecha de revisión antes de entregar.",
           "En el laboratorio o taller, rotar quién mide, quién anota y quién limpia, para que todo el alumnado practique.",
@@ -1683,7 +1683,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_critico.jpg",
         definition:
-          "Evaluar afirmaciones y propuestas con criterios de <strong>evidencia</strong>: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> se concreta aquí como <strong>comprobar antes de decidir</strong> —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo meramente plausible.",
+          "Evaluar afirmaciones y propuestas con criterios de <strong>evidencia</strong>: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> se concreta aquí como <strong>comprobar antes de decidir</strong> —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo meramente plausible. También implica formular buenas preguntas, detectar sesgos o lagunas y aceptar revisar una conclusión cuando aparecen datos mejores. En estudio e industria reduce errores costosos al separar opinión, hipótesis y prueba.",
         examplesAcademic: [
           "Antes de memorizar una fórmula o una fecha, contrastarla con el libro y con los apuntes del alumnado.",
           "Si un resultado de laboratorio parece demasiado «redondo», repetir la medida o revisar las unidades.",
@@ -1705,7 +1705,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_tiempo.jpg",
         definition:
-          "Planificación por <strong>hitos realistas</strong> y control del alcance cuando aparece el retraso. Se relaciona con <strong>fiabilidad</strong>, <strong>priorización</strong> y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. En el estudio evita entregas sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente.",
+          "Planificación por <strong>hitos realistas</strong> y control del alcance cuando aparece el retraso. Se relaciona con <strong>fiabilidad</strong>, <strong>priorización</strong> y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. Incluye estimar esfuerzo con honestidad, secuenciar dependencias y comunicar desvíos a tiempo. En el estudio evita entregas sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente. Gestionar el tiempo es gestionar compromiso y calidad, no solo el reloj.",
         examplesAcademic: [
           "Planificar la semana de exámenes: teoría, ejercicios y un repaso corto; no dejarlo todo para la noche anterior.",
           "En un trabajo largo, reservar el último día solo para revisar formato, citas y erratas.",
@@ -1727,7 +1727,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_conflictos.jpg",
         definition:
-          "Abordar desacuerdos centrándose en <strong>hechos observables</strong>, impacto en el objetivo común y <strong>opciones de acción</strong>, no en etiquetas personales. Requiere influencia social, <strong>empatía</strong> y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de estudiantes y en una organización con planta, oficina técnica, comercial y dirección.",
+          "Abordar desacuerdos centrándose en <strong>hechos observables</strong>, impacto en el objetivo común y <strong>opciones de acción</strong>, no en etiquetas personales. Requiere influencia social, <strong>empatía</strong> y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. Implica escuchar posiciones, buscar intereses compartidos y dejar por escrito el acuerdo. La misma lógica sirve en un grupo de estudiantes y en una organización con planta, oficina técnica, comercial y dirección: el objetivo no es «ganar» la discusión, sino desbloquear el trabajo con criterios explícitos.",
         examplesAcademic: [
           "Pasar de acusaciones personales a hechos y tareas («falta el apartado X para el viernes; unas personas hacen las tablas y otras la conclusión»).",
           "Si hay dos formas de hacer el informe, decidir con el enunciado y la rúbrica, no por quién habla más alto.",
@@ -1749,7 +1749,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_feedback.jpg",
         definition:
-          "Intercambio de información orientado a mejorar un entregable o un proceso: <strong>concreto</strong>, <strong>oportuno</strong> y <strong>accionable</strong>. Incorpora <strong>escucha activa</strong>: dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización.",
+          "Intercambio de información orientado a mejorar un entregable o un proceso: <strong>concreto</strong>, <strong>oportuno</strong> y <strong>accionable</strong>. Incorpora <strong>escucha activa</strong>: dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Un buen feedback prioriza una o dos mejoras útiles, aporta criterios o ejemplos y deja espacio para preguntas. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización: sin retorno veraz, los errores se repiten y el progreso se vuelve opaco.",
         examplesAcademic: [
           "Al revisar el trabajo de otras personas del grupo: señalar un acierto concreto y una mejora aplicable de inmediato.",
           "Tras una corrección del profesorado, anotar el tipo de error y cómo evitarlo en la siguiente entrega.",
@@ -1771,7 +1771,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_autonomia.jpg",
         definition:
-          "Capacidad de avanzar con <strong>criterio propio</strong>: investigar, contrastar, documentar y pedir ayuda con evidencia. Se relaciona con <strong>motivación</strong>, <strong>autoconciencia</strong> y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; <strong>responsabilidad</strong> es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante el profesorado, un equipo, un cliente o la organización.",
+          "Capacidad de avanzar con <strong>criterio propio</strong>: investigar, contrastar, documentar y pedir ayuda con evidencia. Se relaciona con <strong>motivación</strong>, <strong>autoconciencia</strong> y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; <strong>responsabilidad</strong> es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante el profesorado, un equipo, un cliente o la organización. Incluye anticipar riesgos, organizar el material y dejar el trabajo usable por otras personas. Quien es autónomo reduce cuellos de botella y eleva la confianza del entorno.",
         examplesAcademic: [
           "Antes de preguntar, revisar apuntes, libro y ejercicios; llegar al aula con el punto exacto de bloqueo.",
           "Organizar carpetas por asignatura y tema para encontrar el material sin empezar de cero.",
@@ -1793,7 +1793,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_exponer.jpg",
         definition:
-          "Comunicar en poco tiempo el <strong>problema</strong>, la <strong>propuesta</strong>, la <strong>evidencia</strong> y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y desarrolla <strong>influencia social</strong> y claridad argumental. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
+          "Comunicar en poco tiempo el <strong>problema</strong>, la <strong>propuesta</strong>, la <strong>evidencia</strong> y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y desarrolla <strong>influencia social</strong> y claridad argumental. Una buena exposición adapta el lenguaje al público, anticipa objeciones y cierra con una petición concreta. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales: el objetivo es que quien escucha pueda decidir o actuar.",
         examplesAcademic: [
           "Estructurar la exposición: pregunta o tema → ideas clave → ejemplo o dato → conclusión.",
           "Ensayar en voz alta con el tiempo real marcado, no solo leer mentalmente las diapositivas.",
@@ -1815,7 +1815,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_ia.jpg",
         definition:
-          "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, <strong>contrastar salidas</strong>, proteger datos y asumir la <strong>autoría</strong> y las consecuencias del resultado final. Implica <strong>ética</strong>, supervisión humana, atención a sesgos y <strong>privacidad</strong>, con una actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio.",
+          "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, <strong>contrastar salidas</strong>, proteger datos y asumir la <strong>autoría</strong> y las consecuencias del resultado final. Implica <strong>ética</strong>, supervisión humana, atención a sesgos y <strong>privacidad</strong>, con una actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio. También exige documentar el uso cuando procede y evitar introducir información sensible en herramientas no autorizadas. En el aula y en la industria, la IA amplifica tanto el acierto como el error si falta criterio humano.",
         examplesAcademic: [
           "Usar la IA para un esquema o repaso y luego reescribir con palabras propias contrastando el libro.",
           "No pegar datos personales, exámenes ni trabajos ajenos en herramientas externas.",
@@ -1837,7 +1837,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_adaptabilidad.jpg",
         definition:
-          "Capacidad de reajustar planes, prioridades y enfoque cuando cambian las condiciones, manteniendo el objetivo y el criterio. Integra <strong>resiliencia</strong>, <strong>flexibilidad</strong> y <strong>agilidad</strong>. No es resignación ni improvisación caótica: es detectar el cambio, evaluar impacto, proponer alternativas y seguir entregando valor sin paralizarse ante la incertidumbre.",
+          "Capacidad de reajustar planes, prioridades y enfoque cuando cambian las condiciones, manteniendo el objetivo y el criterio. Integra <strong>resiliencia</strong>, <strong>flexibilidad</strong> y <strong>agilidad</strong>. No es resignación ni improvisación caótica: es detectar el cambio, evaluar impacto, proponer alternativas y seguir entregando valor sin paralizarse ante la incertidumbre. Quien se adapta comunica el nuevo escenario, protege lo esencial y aprende del desvío. En entornos escolares e industriales, la adaptabilidad convierte imprevistos en replanificación útil en lugar de bloqueo o culpa.",
         examplesAcademic: [
           "Si cambia la fecha de un examen, rehacer el plan de estudio ese mismo día: qué se mantiene y qué se recorta.",
           "Si un experimento falla, anotar la causa probable y diseñar la siguiente prueba; no abandonarlo.",
@@ -1859,7 +1859,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_aprendizaje.jpg",
         definition:
-          "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. Une <strong>curiosidad</strong>, aprendizaje permanente y <strong>literacidad tecnológica</strong>. Implica formular buenas preguntas, buscar <strong>fuentes fiables</strong>, practicar y <strong>transferir</strong> lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—.",
+          "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. Une <strong>curiosidad</strong>, aprendizaje permanente y <strong>literacidad tecnológica</strong>. Implica formular buenas preguntas, buscar <strong>fuentes fiables</strong>, practicar y <strong>transferir</strong> lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—. El aprendizaje continuo no es acumular cursos: es cerrar el ciclo observar → practicar → revisar → aplicar. Quien lo cultiva mantiene competencia técnica y capacidad de reinventar el método cuando el contexto cambia.",
         examplesAcademic: [
           "Al terminar un tema, escribir 3 preguntas propias y buscarlas en el libro o en una fuente citada.",
           "Probar un método de estudio distinto (mapa, ejercicios cronometrados, explicar en voz alta) y quedarse con el que mejor funciona al grupo.",
