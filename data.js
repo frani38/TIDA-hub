@@ -1618,13 +1618,12 @@ window.MYWEB_DATA = {
   ],
 
   // Soft Skills (Miscelánea → SOFT SKILLS)
-  // Referencias: WEF Future of Jobs 2025; DigComp 2.2 (JRC/UE); UNESCO AI CFS.
   // image: ficha visual en ./softskills/
   // changelog: avisos de sección en NOVEDADES → «Soft Skills: {text}» (uno por cambio, no por ficha).
   // domains canónicos: cognición | colaboración | comunicación | autogestión | digital
   softSkills: {
     intro:
-      "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong>, <strong>socioemocionales</strong> o <strong>del siglo XXI</strong>) son capacidades transversales que complementan el conocimiento técnico: <strong>pensar con evidencia</strong>, <strong>colaborar</strong>, <strong>adaptarse</strong> y <strong>aprender de forma continua</strong>. En el <em>Future of Jobs Report 2025</em> del <strong>World Economic Forum</strong>, entre las competencias más demandadas figuran el <strong>pensamiento analítico</strong>, la <strong>resiliencia y agilidad</strong>, el <strong>liderazgo e influencia social</strong>, el <strong>pensamiento creativo</strong> y la <strong>curiosidad / aprendizaje permanente</strong>; en paralelo crecen con fuerza la <strong>literacidad tecnológica</strong> y las competencias en <strong>IA y datos</strong>. El marco europeo <strong>DigComp 2.2</strong> y el <strong>marco UNESCO de competencias en IA para estudiantes</strong> subrayan, además, un uso <strong>crítico, ético y con agencia humana</strong> de las herramientas digitales. Estas fichas traducen ese consenso a prácticas concretas en el <strong>estudio</strong> y en el <strong>trabajo</strong> (empresa, industria, proyectos, operaciones, I+D y servicios).",
+      "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong> o <strong>socioemocionales</strong>) son capacidades transversales que complementan el conocimiento técnico. No sustituyen saber hacer un cálculo, un circuito o un procedimiento: aportan cómo se <strong>piensa con evidencia</strong>, se <strong>colabora</strong>, se <strong>comunica</strong>, se <strong>adapta</strong> y se <strong>aprende de forma continua</strong>. Incluyen el juicio crítico ante la información y las herramientas digitales, y la capacidad de actuar con <strong>criterio propio</strong> en el <strong>estudio</strong> y en el <strong>trabajo</strong> (empresa, industria, proyectos, operaciones, I+D y servicios). Estas fichas describen cada competencia en términos teóricos y la ilustran con ejemplos académicos y laborales.",
     changelog: [
       {
         publishedAt: "2026-11-02",
@@ -1637,10 +1636,10 @@ window.MYWEB_DATA = {
         title: "Comunicación clara",
         domains: ["comunicación"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_comunicacion.jpg",
         definition:
-          "Capacidad de transmitir información <strong>precisa</strong>, <strong>ordenada</strong> y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. En marcos como el WEF se asocia a competencias interpersonales (<strong>comunicación</strong>, <strong>escucha activa</strong> e influencia social): no es «hablar mucho», sino <strong>reducir ambigüedad</strong> —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección).",
+          "Capacidad de transmitir información <strong>precisa</strong>, <strong>ordenada</strong> y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. Incluye <strong>escucha activa</strong> e influencia social: no es «hablar mucho», sino <strong>reducir ambigüedad</strong> —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección).",
         examplesAcademic: [
           "En un ensayo o comentario, separar qué dice el texto, qué opinas tú y cuál es tu conclusión.",
           "En un problema de Matemáticas o Física, escribir datos, fórmula y pasos; no solo el resultado final.",
@@ -1659,10 +1658,10 @@ window.MYWEB_DATA = {
         title: "Trabajo en equipo",
         domains: ["colaboración"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_equipo.jpg",
         definition:
-          "Coordinación deliberada de personas con <strong>roles</strong>, <strong>interfaces</strong> y plazos compartidos. La evidencia de empleabilidad (WEF y marcos de competencias humanas) insiste en <strong>colaboración</strong>, <strong>empatía</strong> y escucha activa porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en <strong>responsabilidades visibles</strong>, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—.",
+          "Coordinación deliberada de personas con <strong>roles</strong>, <strong>interfaces</strong> y plazos compartidos. Se apoya en <strong>colaboración</strong>, <strong>empatía</strong> y escucha activa, porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en <strong>responsabilidades visibles</strong>, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—.",
         examplesAcademic: [
           "En un trabajo grupal, repartir partes (buscar, redactar, presentar) y fijar una fecha de revisión antes de entregar.",
           "En el laboratorio o taller, rotar quién mide, quién anota y quién limpia, para que todos aprendan.",
@@ -1681,10 +1680,10 @@ window.MYWEB_DATA = {
         title: "Pensamiento crítico",
         domains: ["cognición"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_critico.jpg",
         definition:
-          "Evaluar afirmaciones y propuestas con criterios de <strong>evidencia</strong>: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> es la competencia nuclear más citada por empleadores en el Future of Jobs 2025; aquí se concreta como <strong>comprobar antes de decidir</strong> —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo plausible (alineado también con la literacidad crítica de DigComp).",
+          "Evaluar afirmaciones y propuestas con criterios de <strong>evidencia</strong>: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> se concreta aquí como <strong>comprobar antes de decidir</strong> —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo meramente plausible.",
         examplesAcademic: [
           "Antes de memorizar una fórmula o una fecha, contrastarla con el libro y con tus apuntes.",
           "Si un resultado de laboratorio parece demasiado «redondo», repetir la medida o revisar las unidades.",
@@ -1703,7 +1702,7 @@ window.MYWEB_DATA = {
         title: "Gestión del tiempo",
         domains: ["autogestión"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_tiempo.jpg",
         definition:
           "Planificación por <strong>hitos realistas</strong> y control del alcance cuando aparece el retraso. Se relaciona con <strong>fiabilidad</strong>, <strong>priorización</strong> y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. En el estudio evita entregas sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente.",
@@ -1725,10 +1724,10 @@ window.MYWEB_DATA = {
         title: "Resolución de conflictos",
         domains: ["colaboración"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_conflictos.jpg",
         definition:
-          "Abordar desacuerdos centrándose en <strong>hechos observables</strong>, impacto en el objetivo común y <strong>opciones de acción</strong>, no en etiquetas personales. Conecta con influencia social, <strong>empatía</strong> y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de clase y en una organización con planta, oficina técnica, comercial y dirección.",
+          "Abordar desacuerdos centrándose en <strong>hechos observables</strong>, impacto en el objetivo común y <strong>opciones de acción</strong>, no en etiquetas personales. Requiere influencia social, <strong>empatía</strong> y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. La misma lógica sirve en un grupo de clase y en una organización con planta, oficina técnica, comercial y dirección.",
         examplesAcademic: [
           "Pasar de «tú no haces nada» a «falta el apartado X para el viernes; yo hago las tablas y tú la conclusión».",
           "Si hay dos formas de hacer el informe, decidir con el enunciado y la rúbrica, no por quién habla más alto.",
@@ -1747,10 +1746,10 @@ window.MYWEB_DATA = {
         title: "Feedback (dar y recibir)",
         domains: ["comunicación"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_feedback.jpg",
         definition:
-          "Intercambio de información orientado a mejorar un entregable o un proceso: <strong>concreto</strong>, <strong>oportuno</strong> y <strong>accionable</strong>. Incorpora <strong>escucha activa</strong> (competencia destacada en encuestas de empleabilidad): dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización.",
+          "Intercambio de información orientado a mejorar un entregable o un proceso: <strong>concreto</strong>, <strong>oportuno</strong> y <strong>accionable</strong>. Incorpora <strong>escucha activa</strong>: dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización.",
         examplesAcademic: [
           "Al revisar el trabajo de un compañero: di un acierto concreto y una mejora que se pueda aplicar ya.",
           "Tras una corrección del profesor, anota el tipo de error y cómo lo evitarás en la siguiente entrega.",
@@ -1769,10 +1768,10 @@ window.MYWEB_DATA = {
         title: "Autonomía y responsabilidad",
         domains: ["autogestión"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_autonomia.jpg",
         definition:
-          "Capacidad de avanzar con <strong>criterio propio</strong>: investigar, contrastar, documentar y pedir ayuda con evidencia. Se acerca a <strong>motivación</strong>, <strong>autoconciencia</strong> y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; <strong>responsabilidad</strong> es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante un profesor, un equipo, un cliente o la organización.",
+          "Capacidad de avanzar con <strong>criterio propio</strong>: investigar, contrastar, documentar y pedir ayuda con evidencia. Se relaciona con <strong>motivación</strong>, <strong>autoconciencia</strong> y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; <strong>responsabilidad</strong> es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante un profesor, un equipo, un cliente o la organización.",
         examplesAcademic: [
           "Antes de preguntar, revisa apuntes, libro y ejercicios; llega a clase con el punto exacto donde te bloqueas.",
           "Organiza carpetas por asignatura y tema para encontrar el material sin empezar de cero.",
@@ -1791,10 +1790,10 @@ window.MYWEB_DATA = {
         title: "Exposición de proyectos",
         domains: ["comunicación"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_exponer.jpg",
         definition:
-          "Comunicar en poco tiempo el <strong>problema</strong>, la <strong>propuesta</strong>, la <strong>evidencia</strong> y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y entrena <strong>influencia social</strong> y claridad argumental. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
+          "Comunicar en poco tiempo el <strong>problema</strong>, la <strong>propuesta</strong>, la <strong>evidencia</strong> y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y desarrolla <strong>influencia social</strong> y claridad argumental. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales.",
         examplesAcademic: [
           "Estructura la exposición: pregunta o tema → ideas clave → ejemplo o dato → conclusión.",
           "Ensayar en voz alta con el tiempo real marcado, no solo leer mentalmente las diapositivas.",
@@ -1813,10 +1812,10 @@ window.MYWEB_DATA = {
         title: "Uso ético y responsable de la IA",
         domains: ["digital"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_ia.jpg",
         definition:
-          "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, <strong>contrastar salidas</strong>, proteger datos y asumir la <strong>autoría</strong> y las consecuencias del resultado final. DigComp 2.2 (anexo sobre interacción ciudadana con IA) y el marco UNESCO para estudiantes enfatizan <strong>ética</strong>, supervisión humana, sesgos, <strong>privacidad</strong> y actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio.",
+          "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, <strong>contrastar salidas</strong>, proteger datos y asumir la <strong>autoría</strong> y las consecuencias del resultado final. Implica <strong>ética</strong>, supervisión humana, atención a sesgos y <strong>privacidad</strong>, con una actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio.",
         examplesAcademic: [
           "Usa la IA para un esquema o repaso y luego reescribe con tus palabras contrastando el libro.",
           "No pegues datos personales, exámenes ni trabajos ajenos en herramientas externas.",
@@ -1835,10 +1834,10 @@ window.MYWEB_DATA = {
         title: "Adaptabilidad y resiliencia",
         domains: ["autogestión"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_adaptabilidad.jpg",
         definition:
-          "Capacidad de reajustar planes, prioridades y enfoque cuando cambian las condiciones, manteniendo el objetivo y el criterio. El WEF sitúa la tríada <strong>resiliencia, flexibilidad y agilidad</strong> entre las competencias más demandadas y de mayor crecimiento. No es resignación ni improvisación caótica: es detectar el cambio, evaluar impacto, proponer alternativas y seguir entregando valor sin paralizarse ante la incertidumbre.",
+          "Capacidad de reajustar planes, prioridades y enfoque cuando cambian las condiciones, manteniendo el objetivo y el criterio. Integra <strong>resiliencia</strong>, <strong>flexibilidad</strong> y <strong>agilidad</strong>. No es resignación ni improvisación caótica: es detectar el cambio, evaluar impacto, proponer alternativas y seguir entregando valor sin paralizarse ante la incertidumbre.",
         examplesAcademic: [
           "Si cambia la fecha de un examen, rehaz el plan de estudio ese mismo día: qué mantienes y qué recortas.",
           "Si un experimento falla, anota la causa probable y diseña la siguiente prueba; no lo abandones.",
@@ -1857,10 +1856,10 @@ window.MYWEB_DATA = {
         title: "Curiosidad y aprendizaje continuo",
         domains: ["cognición"],
         addedAt: "2026-11-02",
-        updatedAt: "2026-11-02",
+        updatedAt: "2026-11-03",
         image: "./softskills/ss_aprendizaje.jpg",
         definition:
-          "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. En el Future of Jobs 2025, <strong>curiosidad y lifelong learning</strong> figuran entre las competencias nucleares y emergentes, junto con la <strong>literacidad tecnológica</strong>. Implica formular buenas preguntas, buscar <strong>fuentes fiables</strong>, practicar y <strong>transferir</strong> lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—.",
+          "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. Une <strong>curiosidad</strong>, aprendizaje permanente y <strong>literacidad tecnológica</strong>. Implica formular buenas preguntas, buscar <strong>fuentes fiables</strong>, practicar y <strong>transferir</strong> lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—.",
         examplesAcademic: [
           "Al terminar un tema, escribe 3 preguntas propias y búscalas en el libro o en una fuente citada.",
           "Prueba un método de estudio distinto (mapa, ejercicios cronometrados, explicar en voz alta) y quédate con el que mejor te funciona.",
@@ -1875,20 +1874,7 @@ window.MYWEB_DATA = {
         ]
       }
     ],
-    refs: [
-      {
-        label: "World Economic Forum — Future of Jobs Report 2025 (Skills outlook)",
-        url: "https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/"
-      },
-      {
-        label: "JRC / Comisión Europea — DigComp 2.2: The Digital Competence Framework for Citizens (2022)",
-        url: "https://publications.jrc.ec.europa.eu/repository/handle/JRC128415"
-      },
-      {
-        label: "UNESCO — AI competency framework for students",
-        url: "https://www.unesco.org/en/articles/ai-competency-framework-students"
-      }
-    ]
+    refs: []
   },
 
   // Juegos (Miscelánea → JUEGOS)
