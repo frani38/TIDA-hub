@@ -644,6 +644,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Hipervínculos de texto azul: subrayado solo al pasar el ratón.
 
+## 1.8.23
+
+- Soft Skills: textos justificados también en móvil/tablet.
+
 ---
 
 ## Convención (recordatorio)
@@ -807,3 +811,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.20** | Soft Skills: enlaces refs en azul de acento |
 | **1.8.21** | Subrayado en hipervínculos de texto azul |
 | **1.8.22** | Subrayado de enlaces azules solo en hover |
+| **1.8.23** | Soft Skills: justificado en móvil/tablet |

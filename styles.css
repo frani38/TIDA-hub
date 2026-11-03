@@ -5019,12 +5019,20 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   }
 
   .soft-skill-card__definition {
-    text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
   }
 
   .soft-skills-lede {
     font-size: clamp(0.88rem, 2.85vw, 1.02rem);
-    text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .soft-skill-card__examples,
+  .soft-skill-card__examples li {
+    text-align: justify;
+    text-justify: inter-word;
   }
 
   .reading-meta {
