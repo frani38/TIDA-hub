@@ -1647,10 +1647,10 @@ window.MYWEB_DATA = {
           "Al pedir ayuda al profesor, decir exactamente qué no entiendes (página, ejercicio o paso)."
         ],
         examplesProfessional: [
-          "Enviar un correo de estado que separe hechos (plazo, coste, incidencia) de opiniones.",
-          "Redactar un pedido o requisito con criterios medibles, sin frases vagas como «urgente» o «como siempre».",
-          "Explicar a dirección qué cambia en tiempo, presupuesto y riesgo si se amplia el alcance.",
-          "En una reunión, resumir al final: decisión tomada, responsable y próxima fecha."
+          "Enviar al comité de proyecto un estado que separe hechos (hito, coste, incidencia de planta) de opiniones.",
+          "Redactar una especificación o pedido de ingeniería con tolerancias, normas y criterios de aceptación medibles.",
+          "Explicar a dirección de planta o de proyecto qué cambia en plazo, CAPEX/OPEX y riesgo si se amplía el alcance.",
+          "Cerrar una reunión de coordinación con decisión tomada, responsable de ingeniería/producción y fecha de hito."
         ]
       },
       {
@@ -1669,10 +1669,10 @@ window.MYWEB_DATA = {
           "Usar una lista compartida (papel o digital) con el estado real de cada parte del trabajo."
         ],
         examplesProfessional: [
-          "En un lanzamiento, acordar un responsable claro por entrega entre ingeniería, producción y compras.",
-          "Mantener un plan o tablero común donde cada área actualiza su estado real.",
-          "Pedir apoyo a otro departamento indicando qué falta, para cuándo y qué se bloquea si no llega.",
-          "Hacer una breve reunión de sincronización cuando haya dependencias críticas entre equipos."
+          "En un arranque de línea o commissioning, fijar un responsable claro por entrega entre ingeniería, producción y compras.",
+          "Mantener el plan del proyecto (WBS/Gantt o tablero) donde cada área industrial actualiza su estado real.",
+          "Pedir apoyo a mantenimiento u oficina técnica indicando qué falta, para cuándo y qué hito se bloquea si no llega.",
+          "Hacer un daily o reunión de interfaz cuando haya dependencias críticas entre diseño, fabricación y montaje."
         ]
       },
       {
@@ -1691,10 +1691,10 @@ window.MYWEB_DATA = {
           "No dar por buena una respuesta de IA o de un vídeo sin comprobarla con material fiable."
         ],
         examplesProfessional: [
-          "Comparar la oferta de un proveedor con ensayos, normas o casos reales de planta.",
-          "Ante un KPI muy positivo, preguntar qué queda fuera del indicador y qué riesgo oculta.",
-          "Separar correlación de causalidad al interpretar datos de ventas, calidad o proceso.",
-          "Pedir evidencia (dato, prueba, referencia) antes de aprobar un cambio importante."
+          "Comparar la oferta de un proveedor industrial con ensayos, normas aplicables y casos reales de planta.",
+          "Ante un OEE o KPI de calidad muy positivo, preguntar qué queda fuera del indicador y qué riesgo oculta.",
+          "Separar correlación de causalidad al interpretar datos de proceso, scrap o paradas no planificadas.",
+          "Pedir evidencia (ensayo, medición, FAT/SAT o referencia normativa) antes de aprobar un cambio de diseño o proceso."
         ]
       },
       {
@@ -1713,10 +1713,10 @@ window.MYWEB_DATA = {
           "Marcar fechas intermedias (borrador, ensayo de exposición) además de la entrega final."
         ],
         examplesProfessional: [
-          "Incluir en el plan tiempo para pruebas, homologación o formación, no solo para «hacer».",
-          "Si el plazo aprieta, recortar extras no críticos antes de saltarse la verificación.",
-          "Entregar avances parciales revisables en lugar de un único cierre a última hora.",
-          "Avisar pronto del retraso con una nueva fecha realista y el impacto concreto."
+          "Incluir en el cronograma del proyecto tiempo para pruebas, homologación, formación de operadores y puesta en marcha.",
+          "Si el plazo de entrega a planta aprieta, recortar extras no críticos antes de saltarse la verificación o el FAT.",
+          "Entregar paquetes de ingeniería revisables (P&ID, planos, protocolos) en hitos, no un único cierre a última hora.",
+          "Avisar pronto del deslizamiento de un hito con nueva fecha, impacto en ruta crítica y acciones de recuperación."
         ]
       },
       {
@@ -1735,10 +1735,10 @@ window.MYWEB_DATA = {
           "Proponer una solución concreta (quién hace qué y cuándo) en lugar de quedarse solo en la queja."
         ],
         examplesProfessional: [
-          "Sustituir acusaciones por hechos y una propuesta («sin fecha de material no cerramos montaje; reunámonos 20 minutos»).",
-          "Elegir entre opciones con criterios compartidos: coste, plazo, riesgo, calidad o servicio.",
-          "Mediar entre áreas partiendo de un dato común (incidencia, medición, cláusula) antes de escalar.",
-          "Documentar el acuerdo alcanzado para que no se reabra el conflicto al día siguiente."
+          "Pasar de acusaciones entre producción e ingeniería a hechos y propuesta («sin fecha de material no cerramos montaje; 20 minutos de interfaz»).",
+          "Elegir entre alternativas de diseño o suministro con criterios compartidos: coste, plazo, riesgo, calidad y seguridad.",
+          "Mediar entre planta, calidad y proveedor partiendo de un dato común (incidencia, medición, cláusula contractual).",
+          "Documentar el acuerdo del comité de proyecto para que no se reabra el conflicto en la siguiente reunión de avance."
         ]
       },
       {
@@ -1757,10 +1757,10 @@ window.MYWEB_DATA = {
           "Cuando te den feedback, resume en una frase qué vas a cambiar para comprobar que lo has entendido."
         ],
         examplesProfessional: [
-          "Decir «falta el criterio de aceptación en el protocolo» en lugar de «el documento está mal».",
-          "Preguntar: «¿qué cambio concreto mejoraría el resultado para el cliente o la planta?»",
-          "En una revisión, señalar una fortaleza clara y una mejora priorizada.",
-          "Recibir una crítica pidiendo ejemplo y criterio, sin ponerse a la defensiva de inmediato."
+          "En revisión de protocolo o plano: «falta el criterio de aceptación» en lugar de «el documento está mal».",
+          "Preguntar en la revisión de ingeniería: «¿qué cambio concreto mejoraría seguridad, mantenibilidad o coste de planta?»",
+          "En un design review, señalar un acierto técnico claro y una mejora priorizada para el siguiente paquete.",
+          "Recibir una no conformidad o crítica de calidad pidiendo ejemplo, norma o medición, sin ponerse a la defensiva."
         ]
       },
       {
@@ -1779,10 +1779,10 @@ window.MYWEB_DATA = {
           "Entrega el trabajo listo para que otra persona lo entienda: nombres claros, versiones y fuentes."
         ],
         examplesProfessional: [
-          "Dejar un expediente usable por quien continúe: decisiones, versiones y pendientes visibles.",
-          "Llegar a una reunión de problema con datos, no solo con la descripción del fallo.",
-          "Cerrar una tarea hasta verificar que funciona, no solo hasta «enviarlo».",
-          "Pedir ayuda con el contexto ya preparado: qué probaste, qué falló y qué necesitas."
+          "Dejar el expediente de ingeniería o de proyecto usable por quien continúe: decisiones, versiones, planos y pendientes.",
+          "Llegar a la reunión de incidencia con datos de proceso o medidas, no solo con la descripción del fallo.",
+          "Cerrar una tarea hasta verificar en banco, FAT o planta que cumple el criterio, no solo hasta «enviarlo».",
+          "Escalar un bloqueo técnico con el contexto preparado: qué se probó, qué falló, norma aplicable y qué se necesita."
         ]
       },
       {
@@ -1801,10 +1801,10 @@ window.MYWEB_DATA = {
           "Preparar dos preguntas difíciles del tema y practicar la respuesta sin inventar."
         ],
         examplesProfessional: [
-          "Presentar a cliente o comité: problema → enfoque → evidencia → riesgos y siguiente paso.",
-          "Traducir la solución a impacto en coste, plazo o calidad, no solo a detalle técnico.",
-          "Anticipar «¿qué pasa si falla el proveedor o el proceso?» con un plan B realista.",
-          "Cerrar la presentación con una petición clara: decisión, recurso o fecha de seguimiento."
+          "Presentar al comité de inversión o al cliente industrial: problema → enfoque técnico → evidencia → riesgos y siguiente hito.",
+          "Traducir la solución de ingeniería a impacto en coste, plazo, seguridad o capacidad de planta.",
+          "Anticipar «¿qué pasa si falla el proveedor crítico o el proceso?» con un plan B realista y coste asociado.",
+          "Cerrar la exposición pidiendo una decisión clara: go/no-go, recurso, CAPEX o fecha de seguimiento."
         ]
       },
       {
@@ -1823,10 +1823,10 @@ window.MYWEB_DATA = {
           "Revisa fechas, fórmulas y citas: si la IA inventa algo, corrígelo antes de entregar."
         ],
         examplesProfessional: [
-          "Usa la IA para un borrador y valídalo con normativa, datos reales o criterio técnico propio.",
-          "No introduzcas información confidencial en sistemas no autorizados por la empresa.",
-          "Documenta qué parte se apoyó en IA y quién revisó el resultado final.",
-          "Rechaza una recomendación automática si no puedes explicar por qué es segura o correcta."
+          "Usar la IA para un borrador de procedimiento o informe y validarlo con normativa, planos y datos reales de planta.",
+          "No introducir P&ID, secretos industriales ni datos de cliente en sistemas de IA no autorizados por la empresa.",
+          "Documentar en el expediente qué parte se apoyó en IA y qué ingeniero responsable revisó el resultado final.",
+          "Rechazar una recomendación automática de proceso o mantenimiento si no puedes justificar seguridad y conformidad."
         ]
       },
       {
@@ -1845,10 +1845,10 @@ window.MYWEB_DATA = {
           "Cuando el enunciado de un trabajo se modifica, actualiza tu lista de tareas y avisa al grupo."
         ],
         examplesProfessional: [
-          "Si cambia el alcance o el proveedor, actualiza riesgos, plazos y responsables en el plan.",
-          "Tras un incidente, estabiliza, comunica hechos y propone contención antes de buscar culpables.",
-          "Cuando llega una herramienta nueva, aprende el mínimo necesario para no bloquear al equipo.",
-          "Si un plan deja de ser viable, propone una alternativa concreta con impacto y fecha."
+          "Si cambia el alcance del proyecto o el proveedor crítico, actualizar riesgos, plazos y responsables en el plan maestro.",
+          "Tras una parada o incidente de planta, estabilizar, comunicar hechos y proponer contención antes de buscar culpables.",
+          "Cuando entra una nueva máquina, SCADA o norma, aprender el mínimo operativo para no bloquear al equipo de proyecto.",
+          "Si la ruta crítica deja de ser viable, proponer una alternativa concreta (resecuenciación, make-or-buy) con impacto y fecha."
         ]
       },
       {
@@ -1867,10 +1867,10 @@ window.MYWEB_DATA = {
           "Después de un examen, revisa los fallos y anota qué vas a practicar la semana siguiente."
         ],
         examplesProfessional: [
-          "Reserva un rato fijo para normas, herramientas o procedimientos nuevos de tu área.",
-          "Al cerrar un proyecto, anota 2 lecciones aprendidas y compártelas con el equipo.",
-          "Pide formación o mentoría concreta cuando cambie la herramienta, la norma o el proceso.",
-          "Aplica en la siguiente tarea algo que hayas aprendido en un curso, manual o incidencia reciente."
+          "Reservar tiempo fijo para normas, procedimientos de planta o herramientas nuevas de ingeniería de tu área.",
+          "Al cerrar un proyecto o un commissioning, anotar 2 lecciones aprendidas y compartirlas con el equipo técnico.",
+          "Pedir formación o mentoría concreta cuando cambie la máquina, el software de diseño, la norma o el proceso.",
+          "Aplicar en el siguiente paquete de ingeniería algo aprendido en un curso, manual de fabricante o incidencia reciente."
         ]
       }
     ],
