@@ -4018,11 +4018,13 @@
         renderSoftSkills();
 
         if (refsEl instanceof HTMLElement) {
+          const assetV = escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim());
           const refs = Array.isArray(pack?.refs)
             ? pack.refs
                 .map((r) => ({
                   label: String(r?.label || "").trim(),
-                  url: String(r?.url || "").trim()
+                  url: String(r?.url || "").trim(),
+                  icon: String(r?.icon || "").trim()
                 }))
                 .filter((r) => r.label && r.url)
             : [];
@@ -4035,10 +4037,12 @@
               <h4 class="soft-skills-refs__title">Referencias</h4>
               <ul class="soft-skills-refs__list">
                 ${refs
-                  .map(
-                    (r) =>
-                      `<li><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`
-                  )
+                  .map((r) => {
+                    const iconHtml = r.icon
+                      ? `<img class="soft-skills-refs__icon" src="${escapeHtml(r.icon)}?v=${assetV}" alt="" loading="lazy" decoding="async" />`
+                      : "";
+                    return `<li class="soft-skills-refs__item">${iconHtml}<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`;
+                  })
                   .join("")}
               </ul>
             `;

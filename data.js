@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.8.11",
+    version: "1.8.12",
     updated: "2026-11-03",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: true,
@@ -1877,15 +1877,18 @@ window.MYWEB_DATA = {
     refs: [
       {
         label: "World Economic Forum — Future of Jobs Report 2025 (Skills outlook)",
-        url: "https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/"
+        url: "https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/",
+        icon: "./softskills/WEF.png"
       },
       {
         label: "JRC / Comisión Europea — DigComp 2.2: The Digital Competence Framework for Citizens (2022)",
-        url: "https://publications.jrc.ec.europa.eu/repository/handle/JRC128415"
+        url: "https://publications.jrc.ec.europa.eu/repository/handle/JRC128415",
+        icon: "./softskills/EC.png"
       },
       {
         label: "UNESCO — AI competency framework for students",
-        url: "https://www.unesco.org/en/articles/ai-competency-framework-students"
+        url: "https://www.unesco.org/en/articles/ai-competency-framework-students",
+        icon: "./softskills/UNESCO.png"
       }
     ]
   },

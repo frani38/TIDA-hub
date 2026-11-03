@@ -600,6 +600,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: Adaptabilidad mantiene el acercamiento del dibujo con el mismo tamaño de recuadro que el resto.
 
+## 1.8.12
+
+- Soft Skills: título REFERENCIAS más grande; logos WEF/EC/UNESCO delante de cada enlace, mismo alto.
+
 ---
 
 ## Convención (recordatorio)
