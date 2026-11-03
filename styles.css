@@ -4585,6 +4585,13 @@ body.theme-light .theme-switch-btn.active {
   font-weight: 500;
 }
 
+body.ai-assist-page #unit-title.privacy-block-heading {
+  max-width: 52rem;
+  letter-spacing: 0.04em;
+  line-height: 1.28;
+  text-wrap: balance;
+}
+
 .ai-assist-card {
   max-width: 52rem;
   margin-inline: auto;

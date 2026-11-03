@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.9**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.10**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -701,6 +701,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Corregir sintaxis de `data.js` (llave duplicada en referencias) que impedía cargar la web.
 
+## 1.9.10
+
+- Declaración responsable sobre Cursor (vibecoding y asistente): título y texto ampliados, sin citar apartados concretos.
+
 ---
 
 ## Convención (recordatorio)
@@ -878,3 +882,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.7** | Blockchain/Big Data: 12 figuras SVG propias nítidas |
 | **1.9.8** | Pie: Asistencia IA → página de transparencia |
 | **1.9.9** | Fix: data.js roto (refs) dejaba la web sin cargar |
+| **1.9.10** | Declaración responsable Cursor (vibecoding/asistente) |
