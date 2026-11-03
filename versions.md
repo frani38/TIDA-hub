@@ -604,6 +604,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: título REFERENCIAS más grande; logos WEF/EC/UNESCO delante de cada enlace, mismo alto.
 
+## 1.8.13
+
+- Soft Skills: logo WEF actualizado; iconos de referencias al doble de alto; textos de enlace alineados.
+
 ---
 
 ## Convención (recordatorio)
@@ -756,3 +760,5 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.9** | Soft Skills: tags sin corchetes |
 | **1.8.10** | Soft Skills: dibujo mayor en Adaptabilidad |
 | **1.8.11** | Soft Skills: Adaptabilidad, mismo tamaño de recuadro |
+| **1.8.12** | Soft Skills: REFERENCIAS + logos WEF/EC/UNESCO |
+| **1.8.13** | Soft Skills: WEF nuevo, logos ×2, textos alineados |
