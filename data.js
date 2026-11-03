@@ -1622,7 +1622,7 @@ window.MYWEB_DATA = {
   // Imágenes didácticas en ./blockchain/. changelog → NOVEDADES (una entrada de sección).
   blockchainBigData: {
     intro:
-      "El <strong>blockchain</strong> (cadena de bloques) es, en términos técnicos, un <strong>libro mayor digital distribuido</strong>: un historial de registros agrupados en bloques, enlazados mediante <strong>funciones resumen criptográficas</strong> (<em>hash</em>) y mantenido por una red de nodos que solo aceptan actualizaciones según reglas de <strong>validación</strong> y <strong>consenso</strong>. Su valor no reside en «ser misterioso» ni en equivaler automáticamente a una criptomoneda, sino en ofrecer un registro <strong>compartido</strong>, <strong>auditable</strong> y difícil de alterar en silencio sin que el cambio quede expuesto. Implica nociones de integridad de datos, firma digital, claves públicas y privadas, incentivos de red y límites (escalabilidad, consumo, irreversibilidad práctica, riesgos de custodia). Por su parte, el <strong>big data</strong> (macrodatos) designa escenarios en los que el <strong>volumen</strong>, la <strong>velocidad</strong> y/o la <strong>variedad</strong> de los datos —junto con la <strong>veracidad</strong> y el <strong>valor</strong> que se les atribuye— desbordan los métodos convencionales de gestión y análisis. No se reduce a «muchas filas»: exige pensar en tipologías (estructurados, semiestructurados, no estructurados), ciclos de captura–procesamiento–decisión, calidad del dato, privacidad y el peligro de confundir correlación con causalidad o cantidad con evidencia.\n\nAunque se presentan por separado, blockchain y big data se relacionan en el ecosistema digital contemporáneo: el primero aporta mecanismos para <strong>registrar y verificar</strong> estados o eventos con garantías criptográficas; el segundo aporta la capacidad de <strong>generar, almacenar y analizar</strong> masas de información heterogénea a gran escala. En la práctica pueden converger (p. ej. anclar huellas de grandes conjuntos de datos, trazabilidad de procesos alimentados por sensores, o analítica sobre ledgers públicos), pero no son intercambiables: un blockchain no «resuelve» por sí solo el análisis masivo, y el big data no garantiza por sí solo integridad distribuida ni consenso entre partes que no se confían. Estudiarlos con rigor es especialmente pertinente en <strong>Digitalización</strong> (4.º de ESO) y en <strong>Tecnologías Digitales Aplicadas I y II</strong> (1.º y 2.º de Bachillerato), materias orientadas a comprender sistemas digitales reales, sus fundamentos, sus aplicaciones y sus implicaciones éticas y sociales. Esta sección desarrolla ambos conceptos en columnas paralelas —teoría, figuras y propuestas de aula— y cierra con referencias técnicas (NIST, Bitcoin whitepaper, DigComp, AEPD, entre otras) para contrastar y ampliar lo aprendido.",
+      "El <strong>blockchain</strong> (cadena de bloques) es, en términos técnicos, un <strong>libro mayor digital distribuido</strong>: un historial de registros agrupados en bloques, enlazados mediante <strong>funciones resumen criptográficas</strong> (<em>hash</em>) y mantenido por una red de nodos que solo aceptan actualizaciones según reglas de <strong>validación</strong> y <strong>consenso</strong>. Su valor no reside en «ser misterioso» ni en equivaler automáticamente a una criptomoneda, sino en ofrecer un registro <strong>compartido</strong>, <strong>auditable</strong> y difícil de alterar en silencio sin que el cambio quede expuesto. Implica nociones de integridad de datos, firma digital, claves públicas y privadas, incentivos de red y límites (escalabilidad, consumo, irreversibilidad práctica, riesgos de custodia). Por su parte, el <strong>big data</strong> (macrodatos) designa escenarios en los que el <strong>volumen</strong>, la <strong>velocidad</strong> y/o la <strong>variedad</strong> de los datos —junto con la <strong>veracidad</strong> y el <strong>valor</strong> que se les atribuye— desbordan los métodos convencionales de gestión y análisis. No se reduce a «muchas filas»: exige pensar en tipologías (estructurados, semiestructurados, no estructurados), ciclos de captura–procesamiento–decisión, calidad del dato, privacidad y el peligro de confundir correlación con causalidad o cantidad con evidencia.\n\nAunque se presentan por separado, blockchain y big data se relacionan en el ecosistema digital contemporáneo: el primero aporta mecanismos para <strong>registrar y verificar</strong> estados o eventos con garantías criptográficas; el segundo aporta la capacidad de <strong>generar, almacenar y analizar</strong> masas de información heterogénea a gran escala. En la práctica pueden converger (p. ej. anclar huellas de grandes conjuntos de datos, trazabilidad de procesos alimentados por sensores, o analítica sobre ledgers públicos), pero no son intercambiables: un blockchain no «resuelve» por sí solo el análisis masivo, y el big data no garantiza por sí solo integridad distribuida ni consenso entre partes que no se confían. Estudiarlos con rigor es especialmente pertinente en <strong>Digitalización</strong> (4.º de ESO) y en <strong>Tecnologías Digitales Aplicadas I y II</strong> (1.º y 2.º de Bachillerato), materias orientadas a comprender sistemas digitales reales, sus fundamentos, sus aplicaciones y sus implicaciones éticas y sociales. Esta sección desarrolla ambos conceptos en columnas paralelas —teoría, figuras y propuestas de aula— y cierra con <strong>referencias en español</strong> (datos.gob.es, INCIBE, AEPD, DigComp en castellano y el whitepaper de Bitcoin traducido) para contrastar y ampliar lo aprendido.",
     changelog: [
       {
         publishedAt: "2026-11-03T19:40",
@@ -1804,32 +1804,40 @@ window.MYWEB_DATA = {
     ],
     refs: [
       {
-        label: "NISTIR 8202 — Blockchain Technology Overview (NIST, 2018)",
-        url: "https://nvlpubs.nist.gov/nistpubs/ir/2018/NIST.IR.8202.pdf"
+        label: "datos.gob.es — Descubriendo las claves de Blockchain (informe en español)",
+        url: "https://datos.gob.es/sites/default/files/documentacion/files/descubriendo_las_claves_de_blockchain.pdf"
       },
       {
-        label: "NIST — Blockchain (portal temático)",
-        url: "https://www.nist.gov/information-technology/blockchain"
+        label: "INCIBE — Blockchain sin intermediarios (infografía didáctica)",
+        url: "https://www.incibe.es/sites/default/files/docs/c10-pdf-infografia-blockchain-sin-intermediarios.pdf"
       },
       {
-        label: "Bitcoin: A Peer-to-Peer Electronic Cash System (Satoshi Nakamoto, 2008)",
-        url: "https://bitcoin.org/bitcoin.pdf"
+        label: "Nakamoto — Bitcoin: un sistema de dinero en efectivo electrónico peer-to-peer (traducción al español)",
+        url: "https://bitcoin.org/files/bitcoin-paper/bitcoin_es.pdf"
       },
       {
-        label: "DigComp 2.2: The Digital Competence Framework for Citizens (Comisión Europea, 2022)",
-        url: "https://publications.jrc.ec.europa.eu/repository/handle/JRC128415"
+        label: "AEPD — Blockchain y el derecho de supresión (nota técnica / prueba de concepto)",
+        url: "https://www.aepd.es/guias/nota-tecnica-blockchain.pdf"
       },
       {
-        label: "5Vs for K-12 — marco pedagógico de evaluación de datos (University of Maryland)",
-        url: "https://apicancode.umd.edu/5VsForK12.html"
+        label: "AEPD — Código de buenas prácticas en protección de datos para proyectos Big Data",
+        url: "https://www.aepd.es/sites/default/files/2019-09/guia-codigo-de-buenas-practicas-proyectos-de-big-data.pdf"
       },
       {
-        label: "AEPD — protección de datos y derechos (portal oficial)",
+        label: "datos.gob.es — Datos abiertos, big data y gobierno abierto",
+        url: "https://datos.gob.es/es/noticias/datos-abiertos-big-data-y-gobierno-abierto-diferentes-tipos-de-datos"
+      },
+      {
+        label: "datos.gob.es — Nuevas tendencias y desafíos en el mundo de los datos",
+        url: "https://datos.gob.es/sites/default/files/documentacion/files/nuevas_tendencias_y_desafios_en_el_mundo_de_los_datos_0.pdf"
+      },
+      {
+        label: "Marco europeo DigComp (traducción al castellano — Asociación Somos Digital)",
+        url: "https://somos-digital.org/digcomp/"
+      },
+      {
+        label: "AEPD — Agencia Española de Protección de Datos (portal oficial)",
         url: "https://www.aepd.es/"
-      },
-      {
-        label: "ICO — recursos educativos sobre privacidad (secundaria)",
-        url: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/school-resources/england-secondary/"
       }
     ]
   },
