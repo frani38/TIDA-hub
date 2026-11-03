@@ -23,7 +23,7 @@ alwaysApply: true
 
 ## Qué SÍ versiona (cambios de la web que ve el visitante o sus assets)
 
-Código de producto (`app.js`, `version-boot.js`, etc.), estilos, HTML estructural publicado, política de privacidad **en la web**, formularios, navegación, layout, comportamiento de la interfaz, etc.
+Código de producto (`app.js`, `version-boot.js`, etc.), estilos, HTML **estructural** publicado, formularios, navegación, layout, comportamiento de la interfaz, y cambios de UI/estructura en páginas satélite (`privacidad.html`, `asistencia-ia.html`, pie, cabecera, etc.).
 
 En esas tareas:
 
@@ -41,6 +41,7 @@ En esas tareas:
 
 - Alta, edición o borrado de **libros** (`readings`), **juegos**, **media**, **noticias** (`news`), entradas manuales de **novedades** (`updates`), **legislación**, unidades/PDF/imágenes de **DOCENCIA** en `content/` o `books/`, u otro catálogo de datos equivalente.
 - Corrección de metadatos de ese contenido (título, año, ISBN, descripción, portada, `addedAt`, etc.).
+- Redacción o corrección **solo de texto** en páginas de declaración/política (`asistencia-ia.html`, cuerpo de `privacidad.html`, títulos/párrafos de esas páginas) **sin** cambiar estilos, layout, pie, cabecera ni estructura HTML de producto. Esas páginas se sirven sin depender del bump para verse actualizadas (HTML directo / bust por `data.js` cuando aplica).
 
 ### Documentación y reglas (sin cambio de UI/código de la web)
 
@@ -66,7 +67,8 @@ Si un mismo commit mezcla **contenido o docs + cambio de la web**, sí se versio
 
 - Añadir un libro en `readings` → commit/push, **sin** subir versión.
 - Corregir el año de un libro → commit/push, **sin** subir versión.
+- Reescribir un párrafo de Asistencia IA o Privacidad (solo texto) → commit/push, **sin** subir versión.
 - Actualizar solo `README.md` / informe → commit/push, **sin** subir versión.
-- Corregir un solape CSS → **PATCH**.
+- Corregir un solape CSS o el pie de Privacidad/Asistencia IA → **PATCH**.
 - Nueva sección completa de Miscelánea (código/UI) → **MINOR**.
 - Rediseño total del layout → **MAJOR**.

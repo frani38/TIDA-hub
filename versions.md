@@ -805,6 +805,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Asistencia IA: «la empleo en mi día a día como herramienta de trabajo…».
 
+### Nota (sin bump)
+
+- Criterio aclarado: cambios **solo de redacción** en Asistencia IA / Privacidad no deben incrementar `siteMeta.version` (sí layout, estilos, pie o HTML estructural). Los PATCH 1.9.x recientes de texto puro quedan como histórico ya publicado.
+
 ---
 
 ## Convención (recordatorio)
