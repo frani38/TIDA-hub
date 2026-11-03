@@ -628,6 +628,8 @@
                     const linkAttrsWithKey = linkAttrs
                       ? `${linkAttrs} data-update-key="${escapeHtml(updateKey)}"`
                       : "";
+                    // Regla NOVEDADES: la etiqueta (LIBRO:/JUEGO:/…) es texto fijo;
+                    // el hipervínculo va siempre en el texto descriptivo.
                     const linkedName = (labelClass, name) =>
                       linkAttrsWithKey
                         ? `<a class="updates-item-link ${labelClass}" ${linkAttrsWithKey}>${escapeHtml(name)}</a>`
@@ -645,11 +647,12 @@
                       if (u.__kind === "softskills") {
                         return `Soft Skills: ${linkedName("updates-softskills-title", u.__softSkillsBlurb || u.text || "")}`;
                       }
-                      // Avisos manuales: el hipervínculo es el título (no el texto de detalle).
-                      const titlePart = linkAttrsWithKey
-                        ? `<a class="updates-item-link updates-manual-title" ${linkAttrsWithKey}>${safeTitle}</a>`
-                        : safeTitle;
-                      return safeText ? `${titlePart} — ${safeText}` : titlePart;
+                      // Avisos manuales: etiqueta = título; enlace = texto descriptivo (o el título si no hay texto).
+                      const manualDesc = String(u.text || "").trim();
+                      if (manualDesc) {
+                        return `${safeTitle}: ${linkedName("updates-manual-title", manualDesc)}`;
+                      }
+                      return linkedName("updates-manual-title", u.title || "");
                     })();
                     const isUnseen = !seenUpdateIds.has(updateKey);
                     return `

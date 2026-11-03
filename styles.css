@@ -1880,13 +1880,9 @@ body.theme-light .help-form-status.is-error {
   text-underline-offset: 0.12em;
 }
 
-.updates-archive a.updates-manual-title {
-  font-weight: 650;
-  color: #0f172a;
-}
-
-.updates-archive a.updates-manual-title:hover {
-  color: #1d4ed8;
+.updates-archive .updates-manual-title {
+  color: var(--accent);
+  font-weight: 800;
 }
 
 .updates-archive .year-result.is-unseen-update {

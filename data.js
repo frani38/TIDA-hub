@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.8.25",
+    version: "1.8.26",
     updated: "2026-11-03",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
@@ -365,10 +365,11 @@ window.MYWEB_DATA = {
 
   // Novedades/mejoras de la web (panel NOVEDADES).
   // Formato:
-  // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título breve", text: "Detalle (opcional)",
+  // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Etiqueta breve", text: "Texto descriptivo (enlazable)",
   //   navTarget?: "misc"|"docencia"|..., miscId?: "misc_lr", readingId?/gameId?/mediaId?, url? }
-  // Los libros/juegos/media con `addedAt` generan entradas automáticas
-  // LIBRO:/JUEGO:/MEDIA: cuyo título enlaza al elemento en Miscelánea.
+  // Regla de enlace: la etiqueta queda en texto normal; el hipervínculo es siempre el texto descriptivo
+  // (título del libro/juego/media, blurb Soft Skills, o `text` en avisos manuales).
+  // Los libros/juegos/media con `addedAt` generan entradas automáticas LIBRO:/JUEGO:/MEDIA:.
   // Soft Skills: avisos de sección vía softSkills.changelog (un aviso por cambio, no por ficha).
   updates: [],
 
