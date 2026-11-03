@@ -624,6 +624,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: definiciones ampliadas; desplegables de ejemplos anclados a la base de la imagen.
 
+## 1.8.18
+
+- INICIO: se retira el lazo de luto (marca de agua).
+
 ---
 
 ## Convención (recordatorio)
@@ -782,3 +786,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.15** | Soft Skills: logos centrados/menores; WEF transparente |
 | **1.8.16** | Soft Skills: referencias más a la izquierda |
 | **1.8.17** | Soft Skills: más texto; ejemplos alineados con imagen |
+| **1.8.18** | INICIO: sin lazo de luto |
