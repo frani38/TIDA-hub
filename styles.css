@@ -3645,7 +3645,7 @@ body.theme-light .soft-skill-card__examples-col--professional .soft-skill-card__
   border-top: 1px solid rgba(122, 162, 255, 0.22);
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  column-gap: 0.95rem;
+  column-gap: 0;
   align-items: start;
 }
 
@@ -3666,7 +3666,7 @@ body.theme-light .soft-skills-refs__title {
 }
 
 .soft-skills-refs__list {
-  margin: 0;
+  margin: 0 0 0 -4.6rem;
   padding-top: 1.85rem;
   padding-left: 0;
   list-style: none;
@@ -3729,6 +3729,7 @@ body.theme-light .soft-skills-refs {
   }
 
   .soft-skills-refs__list {
+    margin-left: 0;
     padding-top: 0.55rem;
   }
 
