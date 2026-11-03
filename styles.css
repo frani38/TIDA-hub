@@ -3980,22 +3980,22 @@ body.theme-light .bc-bd-figure__img {
 
 .bc-bd-figure__caption {
   margin-top: 0.35rem;
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   line-height: 1.35;
+  font-style: italic;
   color: var(--text-soft, #c5d0e8);
-  text-align: left;
+  text-align: center;
 }
 
 .bc-bd-figure__credit {
-  display: block;
-  margin-top: 0.2rem;
-  font-size: 0.72rem;
+  font-style: italic;
   opacity: 0.92;
 }
 
 .bc-bd-figure__credit a {
   color: var(--accent, #7aa2ff);
   text-decoration: none;
+  font-style: italic;
 }
 
 .bc-bd-figure__credit a:hover {

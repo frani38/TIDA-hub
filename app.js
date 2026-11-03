@@ -4198,10 +4198,13 @@
                     const imgCaption = String(img?.caption || "").trim();
                     const imgCredit = String(img?.credit || "").trim();
                     const imgCreditUrl = String(img?.creditUrl || "").trim();
-                    const creditHtml = imgCredit
+                    const creditInner = imgCredit
                       ? imgCreditUrl
-                        ? `<span class="bc-bd-figure__credit">Fuente: <a href="${escapeHtml(imgCreditUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(imgCredit)}</a></span>`
-                        : `<span class="bc-bd-figure__credit">Fuente: ${escapeHtml(imgCredit)}</span>`
+                        ? `<a href="${escapeHtml(imgCreditUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(imgCredit)}</a>`
+                        : escapeHtml(imgCredit)
+                      : "";
+                    const creditHtml = creditInner
+                      ? `<span class="bc-bd-figure__credit">(${creditInner})</span>`
                       : "";
                     const figureHtml = imgSrc
                       ? `
