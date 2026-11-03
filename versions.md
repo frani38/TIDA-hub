@@ -632,6 +632,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: menos espacio vertical entre filas de Referencias.
 
+## 1.8.20
+
+- Soft Skills: enlaces de Referencias sin subrayado y en azul de acento.
+
 ---
 
 ## Convención (recordatorio)
@@ -792,3 +796,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.17** | Soft Skills: más texto; ejemplos alineados con imagen |
 | **1.8.18** | INICIO: sin lazo de luto |
 | **1.8.19** | Soft Skills: referencias más juntas |
+| **1.8.20** | Soft Skills: enlaces refs en azul de acento |

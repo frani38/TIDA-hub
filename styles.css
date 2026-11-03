@@ -3705,14 +3705,23 @@ body.theme-light .soft-skills-refs__title {
 }
 
 .soft-skills-refs__list a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+  color: var(--accent, #7aa2ff);
+  text-decoration: none;
   min-width: 0;
 }
 
 .soft-skills-refs__list a:hover {
-  color: var(--accent, #7aa2ff);
+  color: var(--accent-2, #97b8ff);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+body.theme-light .soft-skills-refs__list a {
+  color: var(--accent, #2563eb);
+}
+
+body.theme-light .soft-skills-refs__list a:hover {
+  color: var(--accent-2, #3b82f6);
 }
 
 body.theme-light .soft-skills-refs__list {
