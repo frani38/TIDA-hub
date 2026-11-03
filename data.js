@@ -1622,7 +1622,7 @@ window.MYWEB_DATA = {
   // Imágenes didácticas en ./blockchain/. changelog → NOVEDADES (una entrada de sección).
   blockchainBigData: {
     intro:
-      "El <strong>blockchain</strong> (cadena de bloques) y el <strong>big data</strong> (macrodatos) son dos pilares del mundo digital actual. El primero permite registrar información de forma <strong>distribuida</strong>, <strong>verificable</strong> y difícil de alterar a posteriori; el segundo describe conjuntos de datos tan <strong>voluminosos</strong>, <strong>variados</strong> y <strong>rápidos</strong> que exigen métodos y herramientas distintos a las hojas de cálculo tradicionales. En 4.º de ESO y Bachillerato conviene estudiarlos con rigor: no como moda tecnológica, sino como sistemas con vocabulario técnico preciso, limitaciones reales y consecuencias éticas.\n\nEsta sección presenta ambos conceptos en paralelo: primero la idea general, después los mecanismos (función resumen o <em>hash</em>, consenso, las «cinco V», ciclo de vida de los datos) y, por último, ejemplos del aula y de la sociedad. Las referencias finales enlazan a fuentes técnicas y educativas de contraste —entre ellas el informe NISTIR 8202 sobre blockchain, el marco DigComp de la Comisión Europea y materiales de protección de datos— para que el alumnado pueda ampliar y verificar lo estudiado.",
+      "El <strong>blockchain</strong> (cadena de bloques) y el <strong>big data</strong> (macrodatos) son dos pilares del mundo digital actual. El primero permite registrar información de forma <strong>distribuida</strong>, <strong>verificable</strong> y difícil de alterar a posteriori; el segundo describe conjuntos de datos tan <strong>voluminosos</strong>, <strong>variados</strong> y <strong>rápidos</strong> que exigen métodos y herramientas distintos a las hojas de cálculo tradicionales. Conviene estudiarlos con rigor: no como moda tecnológica, sino como sistemas con vocabulario técnico preciso, limitaciones reales y consecuencias éticas.\n\nEsta sección presenta ambos conceptos en paralelo: primero la idea general, después los mecanismos (función resumen o <em>hash</em>, consenso, claves, las «cinco V», tipología de datos, ciclo de vida) y, en cada apartado, propuestas de aula. Las referencias finales enlazan a fuentes técnicas de contraste —entre ellas el informe NISTIR 8202 sobre blockchain, el marco DigComp de la Comisión Europea y materiales de protección de datos— para ampliar y verificar lo estudiado.",
     changelog: [
       {
         publishedAt: "2026-11-03T19:40",
@@ -1638,7 +1638,7 @@ window.MYWEB_DATA = {
             id: "bc_que_es",
             title: "Qué es un libro de registro distribuido",
             body:
-              "Según el <strong>NIST</strong> (Instituto Nacional de Estándares y Tecnología de EE. UU.), un blockchain es un <strong>libro mayor digital</strong> (<em>ledger</em>) <strong>distribuido</strong>, con evidencias de manipulación (<em>tamper-evident</em>) y, en condiciones normales, resistente a cambios a posteriori. Las transacciones se agrupan en <strong>bloques</strong>; cada bloque se enlaza criptográficamente con el anterior. Varios nodos de la red mantienen copias del mismo historial y solo aceptan bloques que cumplan las reglas acordadas. No es «magia» ni solo «dinero digital»: es un sistema de <strong>registro compartido</strong> sin depender de un único servidor central de confianza.",
+              "Según el <strong>NIST</strong> (Instituto Nacional de Estándares y Tecnología de EE. UU.), un blockchain es un <strong>libro mayor digital</strong> (<em>ledger</em>) implementado de forma <strong>distribuida</strong>: no reside en un único repositorio central ni depende, en el caso típico, de una autoridad única que “certifique” cada asiento. El libro es <strong>tamper-evident</strong> (cualquier alteración deja huella detectable) y, bajo el funcionamiento normal de la red, <strong>tamper-resistant</strong> (reescribir el pasado resulta cada vez más costoso a medida que se añaden bloques). Las operaciones —llamadas genéricamente <strong>transacciones</strong>— se agrupan en <strong>bloques</strong>; cada bloque se enlaza criptográficamente con el anterior, formando una cadena. Varios <strong>nodos</strong> mantienen copias del historial y solo aceptan bloques que cumplan las reglas de validación y de <strong>consenso</strong> acordadas. En síntesis: no es “dinero digital” por definición, sino un mecanismo de <strong>registro compartido y verificable</strong> entre participantes que no tienen por qué confiar unos en otros de antemano.",
             image: {
               src: "./blockchain/Centralised-decentralised-distributed.png",
               alt: "Tres topologías de red: centralizada, descentralizada y distribuida",
@@ -1648,15 +1648,15 @@ window.MYWEB_DATA = {
               creditUrl: "https://commons.wikimedia.org/wiki/File:Centralised-decentralised-distributed.png"
             },
             examples: [
-              "En clase: imaginar un diario de notas compartido por todo el grupo donde nadie puede borrar una página antigua sin que el resto lo detecte.",
-              "En la sociedad: trazabilidad de un envío o de un título académico sin depender de un único archivo en un solo servidor."
+              "Propuesta de aula (4.º ESO / Bachillerato): organizar un «diario compartido» en papel o en un documento visible por toda la clase. Cada alumno o equipo añade una entrada fechada; nadie puede borrar las anteriores sin que el resto lo note. Después, comparar ese modelo con un cuaderno guardado solo por una persona (registro centralizado) y debatir qué problemas de confianza, errores y manipulación aparecen en cada caso.",
+              "Ampliación: pedir que el alumnado diseñe, en un esquema, tres arquitecturas (centralizada, descentralizada y distribuida) y explique con sus palabras dónde situaría un blockchain y por qué no basta «guardar el archivo en la nube» para obtener las mismas propiedades de integridad."
             ]
           },
           {
             id: "bc_hash",
             title: "Hash, bloque y encadenamiento",
             body:
-              "Una <strong>función resumen criptográfica</strong> (<em>hash</em>), como SHA-256, transforma datos de cualquier tamaño en una huella de longitud fija. Cambiar un solo bit del contenido cambia por completo la huella. Cada bloque suele incluir: datos (p. ej. transacciones), la huella del bloque anterior y metadatos. Esa dependencia crea la <strong>cadena</strong>: alterar un bloque pasado rompería el enlace con los siguientes. Por eso se dice que el historial es <strong>append-only</strong> (solo se añade al final) bajo el funcionamiento normal de la red.",
+              "Una <strong>función resumen criptográfica</strong> (<em>hash</em>) —por ejemplo SHA-256— transforma una entrada de tamaño arbitrario en una <strong>huella</strong> de longitud fija. Propiedades clave: es <strong>determinista</strong> (misma entrada → misma huella), <strong>sensibilidad al cambio</strong> (alterar un bit cambia radicalmente la salida) y, en diseños criptográficos adecuados, resulta inviable recuperar la entrada a partir de la huella o encontrar otra entrada distinta con la misma huella (colisión). En un blockchain, cada bloque suele incluir: el conjunto de datos (p. ej. transacciones), metadatos (marca temporal, versión, etc.) y, de forma crítica, la <strong>huella del bloque anterior</strong> (<em>previous hash</em>). Esa dependencia construye la <strong>cadena</strong>: si alguien modifica un bloque antiguo, su huella deja de coincidir con la referenciada por el siguiente, y la ruptura se propaga. Bajo operación normal, el historial es esencialmente <strong>append-only</strong> (se añade al final). En Bitcoin, además, el bloque incluye un <em>nonce</em> y la raíz de un árbol de Merkle sobre las transacciones (<em>Tx_root</em>), que compacta la integridad del conjunto de operaciones del bloque.",
             image: {
               src: "./blockchain/Bitcoin_Block_Data.svg",
               alt: "Campos de un bloque de Bitcoin: Prev_Hash, Tx_root, Timestamp y Nonce",
@@ -1666,15 +1666,15 @@ window.MYWEB_DATA = {
               creditUrl: "https://commons.wikimedia.org/wiki/File:Bitcoin_Block_Data.svg"
             },
             examples: [
-              "Actividad: calcular (con una herramienta educativa) el hash de una frase y ver cómo cambia al modificar una letra.",
-              "Debate: si el hash detecta cambios, ¿quién decide qué versión del historial es la correcta? (puente hacia el consenso)."
+              "Propuesta de aula: usar una herramienta online o un script sencillo (Python, JavaScript o una calculadora SHA-256) para obtener el hash de una frase corta. Pedir que se cambie una sola letra o un espacio y se compare la nueva huella. El objetivo es experimentar la sensibilidad al cambio y conectar ese resultado con la idea de «detectar manipulación».",
+              "Segunda fase: representar en pizarra tres bloques encadenados (Bloque 0 → 1 → 2), cada uno con un hash inventado del anterior. Simular que alguien altera el Bloque 1 y preguntar qué hay que recalcular para que la cadena vuelva a ser coherente. Cerrar con la pregunta: «si el hash detecta el cambio, ¿quién decide cuál es la versión válida?» (puente al consenso)."
             ]
           },
           {
             id: "bc_consenso",
             title: "Consenso: quién añade el siguiente bloque",
             body:
-              "En una red sin autoridad central hace falta un <strong>modelo de consenso</strong>: un procedimiento para acordar qué bloque se publica a continuación. En <strong>prueba de trabajo</strong> (<em>proof of work</em>), un nodo gana el derecho a publicar resolviendo un problema costoso en cálculo (buscar un <em>nonce</em> que produzca un hash con un patrón exigido); verificar la solución es fácil. En <strong>prueba de participación</strong> (<em>proof of stake</em>) y otros modelos, la selección depende de reglas distintas (participación, autoridad, etc.). El consenso no elimina el conflicto: lo convierte en un protocolo comprobable por todos los nodos.",
+              "En una red sin autoridad central hace falta un <strong>modelo de consenso</strong>: un protocolo que permita a nodos mutuamente desconfiados acordar qué bloque se publica a continuación y cuál es la cadena válida si aparecen versiones concurrentes. En <strong>prueba de trabajo</strong> (<em>proof of work</em>), un nodo gana el derecho a publicar resolviendo un problema costoso en tiempo y energía —típicamente, buscar un <em>nonce</em> tal que el hash del bloque cumpla un umbral de dificultad— mientras que <strong>verificar</strong> la solución es barato. En <strong>prueba de participación</strong> (<em>proof of stake</em>) y otros modelos (autoridad, identidad, tiempo transcurrido, etc.), la selección del publicador sigue reglas distintas, con otros perfiles de coste, seguridad y gobernanza. El NIST enfatiza que el consenso no elimina el conflicto: lo formaliza. Si dos cadenas válidas compiten, muchas redes adoptan por defecto la que acumula más «trabajo» o peso según su regla (p. ej. la cadena más larga en PoW). Comprender el consenso es comprender <strong>quién escribe la historia compartida</strong> y con qué incentivos.",
             image: {
               src: "./blockchain/Bitcoin_blocks_linking.svg",
               alt: "Bloques de Bitcoin enlazados formando la cadena",
@@ -1684,28 +1684,38 @@ window.MYWEB_DATA = {
               creditUrl: "https://commons.wikimedia.org/wiki/File:Bitcoin_blocks_linking.svg"
             },
             examples: [
-              "Simulación de aula: varios equipos proponen el «siguiente bloque»; solo se acepta el que cumple una regla pública y verificable.",
-              "Pregunta crítica: ¿qué coste energético o de exclusión social puede asociarse a un modelo de consenso concreto?"
+              "Simulación de aula: dividir la clase en nodos. Cada equipo propone un «siguiente bloque» (ficha con datos + un número nonce). Solo se acepta el bloque que cumpla una regla pública y fácil de comprobar (por ejemplo, que la suma de dígitos del nonce + el texto sea múltiplo de 7). Si dos equipos cumplen a la vez, aplicar una regla de desempate anunciada de antemano. Reflexionar después: ¿fue justo?, ¿fue costoso?, ¿quién pudo «minar» más veces?",
+              "Debate guiado (Bachillerato): comparar prueba de trabajo y prueba de participación en coste energético, accesibilidad y riesgo de centralización. Pedir dos argumentos a favor y dos en contra de cada modelo, citando al menos una fuente técnica (p. ej. NISTIR 8202) o un artículo de divulgación rigurosa."
+            ]
+          },
+          {
+            id: "bc_claves",
+            title: "Claves, direcciones y control de la identidad criptográfica",
+            body:
+              "Además del hash y del consenso, la mayoría de blockchains de valor se apoyan en <strong>criptografía de clave pública</strong> (asimétrica). Cada participante dispone de un par: una <strong>clave privada</strong> (secreta) y una <strong>clave pública</strong> derivada de ella. Firmar digitalmente una transacción con la clave privada demuestra control sobre unos fondos o un derecho sin revelar la privada; la red verifica la firma con la pública. Las <strong>direcciones</strong> suelen obtenerse a partir de la clave pública (a menudo tras funciones hash adicionales). Quien pierde la clave privada pierde, en la práctica, el control del activo asociado: no hay «recuperar contraseña» central. Quien roba la clave privada puede actuar en nombre de la víctima. Por tanto, la seguridad del sistema no reside solo en la cadena, sino en la <strong>custodia de secretos</strong>, en el software de cartera (<em>wallet</em>) y en la higiene operativa del usuario. Distinguir «dirección pública visible» de «clave privada secreta» es esencial para no confundir transparencia del libro mayor con anonimato absoluto.",
+            examples: [
+              "Propuesta de aula: analogía controlada —cada alumno recibe un «código secreto» (clave privada simulada) y un «código público» visible. Solo quien conoce el secreto puede autorizar un movimiento en un tablero compartido; el resto puede comprobar que la autorización es coherente con el código público. Insistir en que es una metáfora: no usar claves reales ni carteras con valor.",
+              "Actividad de riesgos: elaborar un cartel o infografía con cinco buenas prácticas (no compartir la privada, no fotografiar semillas de recuperación, desconfiar de enlaces, verificar direcciones carácter a carácter en transferencias grandes, preferir entornos de prueba) y cinco estafas frecuentes (phishing, falsos soportes, airdrops engañosos). Presentación breve al grupo."
             ]
           },
           {
             id: "bc_cripto_contratos",
-            title: "Criptomonedas, contratos inteligentes y usos",
+            title: "Criptomonedas, contratos inteligentes y tipos de red",
             body:
-              "Una <strong>criptomoneda</strong> (p. ej. Bitcoin) es una aplicación sobre blockchain, no el sinónimo de blockchain. Los <strong>contratos inteligentes</strong> son código almacenado y ejecutado de forma coordinada en la red: automatizan reglas («si se cumple la condición, se transfiere el activo»), pero heredan errores de programación y dependen de datos externos fiables. Fuera de las finanzas, hay usos en <strong>notarización</strong>, <strong>identidad digital</strong>, <strong>cadenas de suministro</strong> o votaciones experimentales. Conviene distinguir redes <strong>públicas</strong> (cualquiera puede participar) y <strong>permissionadas</strong> (solo participantes autorizados), según el NIST.",
+              "Una <strong>criptomoneda</strong> (p. ej. Bitcoin) es una <strong>aplicación</strong> construida sobre un blockchain, no el sinónimo del concepto. El blockchain puede usarse para otros registros de estado. Los <strong>contratos inteligentes</strong> son programas almacenados en el propio libro mayor y ejecutados de forma coordinada por la red: automatizan reglas del tipo «si se cumple la condición, se ejecuta la transferencia o el cambio de estado». No «entienden» el mundo físico: dependen de datos de entrada y, a menudo, de <strong>oráculos</strong> externos; un error de código o un dato falso produce un resultado automáticamente incorrecto. Según el NIST, conviene distinguir redes <strong>permissionless</strong> (públicas: cualquiera puede participar según las reglas) y <strong>permissioned</strong> (solo participantes autorizados). Fuera de las finanzas hay usos en notarización de documentos, trazabilidad de suministro, identidad digital o prototipos de votación; cada uno exige evaluar si las propiedades del blockchain (transparencia, irreversibilidad, coste, privacidad) encajan con el problema real.",
             examples: [
-              "Caso de estudio: un certificado escolar con huella publicada en un registro distribuido (integridad) frente a un PDF solo en el correo (fácil de falsificar si no hay contraste).",
-              "Límite: un contrato inteligente no «entiende» el mundo; si los datos de entrada son falsos, el resultado automatizado también lo será."
+              "Caso de estudio en aula: comparar un certificado en PDF enviado por correo con un escenario en el que solo se publica la <strong>huella hash</strong> del documento en un registro distribuido. El alumnado debe explicar qué se gana (integridad verificable) y qué no se gana (el contenido del PDF no está «en la cadena» si solo se ancla el hash; tampoco se resuelve automáticamente la autenticidad de quién emitió el certificado sin un marco de identidad).",
+              "Taller de límites del contrato inteligente: inventar una regla («si llega el material, se paga»). Identificar qué datos harían falta del mundo real, quién los aportaría y qué fallos (retraso, fraude, sensor averiado) romperían la automatización. Conclusión esperada: el código no sustituye la calidad de la información de entrada."
             ]
           },
           {
             id: "bc_limites",
             title: "Límites, riesgos y pensamiento crítico",
             body:
-              "El blockchain no garantiza verdad absoluta: garantiza, en lo esencial, que el historial acordado es <strong>coherente y difícil de reescribir en silencio</strong>. Sigue habiendo riesgos: claves privadas perdidas, estafas, vulnerabilidades de software, escalabilidad limitada y consumo energético en algunos diseños. La irreversibilidad práctica de muchas operaciones exige <strong>cautela</strong>: lo publicado puede ser muy costoso de corregir. En Bachillerato, el objetivo no es «creer en la cadena», sino saber <strong>qué problema resuelve</strong> y <strong>cuál no</strong>.",
+              "El blockchain no garantiza la «verdad» del mundo: garantiza, en lo esencial, que el historial <strong>acordado por el protocolo</strong> es coherente y costoso de reescribir en silencio. Siguen existiendo riesgos graves: pérdida o robo de claves, estafas sociales, vulnerabilidades de software y de contratos inteligentes, congestión y tasas elevadas, gobernanza conflictiva (bifurcaciones), y —en algunos diseños— alto consumo energético. La <strong>irreversibilidad práctica</strong> de muchas operaciones exige cautela: corregir un error publicado puede ser imposible o muy caro. Tampoco es una solución universal de privacidad: en redes públicas el libro puede ser auditable por cualquiera, aunque las identidades reales estén seudonimizadas. Un análisis serio separa el eslogan «usa blockchain» de afirmaciones como «es seguro», «es legal», «es ético» o «es eficiente», que deben demostrarse caso a caso.",
             examples: [
-              "Análisis de noticia: separar «usa blockchain» de «es seguro / ético / legal».",
-              "Ejercicio: listar tres problemas que un libro mayor distribuido resuelve mal (p. ej. borrado del derecho al olvido sin diseño específico)."
+              "Análisis crítico de noticia (ESO/Bachillerato): seleccionar una pieza periodística que mencione blockchain. En parejas, subrayar afirmaciones técnicas y clasificarlas en: (a) correctas, (b) exageradas, (c) confusas, (d) no comprobables con el texto. Entregar una ficha de media página con la clasificación y una reformulación más precisa de al menos dos frases.",
+              "Ejercicio de contraejemplos: listar tres problemas para los que un libro mayor distribuido es mala herramienta (p. ej. borrado sencillo por derecho al olvido sin diseño específico, datos personales masivos en claro, sistemas que requieren corrección frecuente por error humano). Justificar cada uno con una propiedad técnica del blockchain que choca con el requisito."
             ]
           }
         ]
@@ -1718,7 +1728,7 @@ window.MYWEB_DATA = {
             id: "bd_que_es",
             title: "Qué son los macrodatos (Big Data)",
             body:
-              "Se habla de <strong>big data</strong> cuando el volumen, la velocidad o la variedad de los datos superan lo que se gestiona con métodos convencionales y requieren infraestructuras y técnicas específicas de captura, almacenamiento y análisis. No basta con «muchas filas en Excel»: importa también la <strong>heterogeneidad</strong> (texto, sensores, vídeo, registros) y la <strong>rapidez</strong> con la que llegan. En educación secundaria, el concepto se estudia como alfabetización de datos: preguntar de dónde salen, con qué calidad y para qué se usan.",
+              "Se habla de <strong>big data</strong> (macrodatos) cuando el <strong>volumen</strong>, la <strong>velocidad</strong> o la <strong>variedad</strong> de los datos —o una combinación de ellos— superan lo que se gestiona de forma razonable con métodos y herramientas convencionales (hojas de cálculo, bases pequeñas, procesos manuales) y requieren infraestructuras, algoritmos y flujos de trabajo específicos de captura, almacenamiento, procesamiento y análisis. «Grande» es relativo al contexto tecnológico y a la pregunta que se quiere responder: un conjunto puede ser enorme e inútil, o moderado y decisivo. El fenómeno no es solo cuantitativo: incluye datos heterogéneos (sensores, texto, imágenes, registros de clics, logs), a menudo generados de forma continua, y plantea retos de calidad, interoperabilidad, coste y gobernanza. En ingeniería y ciencia de datos, big data se entiende como un <strong>ecosistema</strong> (tecnologías + métodos + organización), no como un único archivo voluminoso.",
             image: {
               src: "./blockchain/Big_Data.png",
               alt: "Esquema de Big Data con volumen, velocidad y variedad",
@@ -1728,25 +1738,35 @@ window.MYWEB_DATA = {
               creditUrl: "https://commons.wikimedia.org/wiki/File:Big_Data.png"
             },
             examples: [
-              "Comparar: notas de un grupo (datos «pequeños» y estructurados) frente a registros de uso de una plataforma educativa de miles de centros.",
-              "Pregunta guía: ¿este conjunto es «grande» para nuestra pregunta, o simplemente es ruidoso?"
+              "Propuesta de aula: contrastar dos conjuntos —(1) las calificaciones de un grupo en una evaluación y (2) los registros diarios de uso de una plataforma digital a escala de muchos centros—. Pedir al alumnado que explique qué cambia en herramientas, tiempo de análisis, riesgos de privacidad y tipo de conclusiones posibles. No se trata de «cuál es mejor», sino de reconocer umbrales distintos de complejidad.",
+              "Pregunta-guía para el cuaderno: «¿Este conjunto es grande para nuestra pregunta, o solo es ruidoso?». Cada equipo debe responder aplicando criterios de tamaño, actualización y utilidad, y proponer un ejemplo propio (deporte, transporte, redes sociales, meteorología)."
             ]
           },
           {
             id: "bd_5v",
             title: "Las cinco V: volumen, velocidad, variedad, veracidad y valor",
             body:
-              "Las tres V clásicas —<strong>volumen</strong>, <strong>velocidad</strong> y <strong>variedad</strong>— describen magnitud, ritmo de generación y diversidad de formatos (estructurados, semiestructurados y no estructurados). Se añaden <strong>veracidad</strong> (fiabilidad, sesgos, datos incompletos) y <strong>valor</strong> (utilidad real para una pregunta). Un marco pedagógico reciente para educación secundaria reformula estas V como <strong>preguntas de evaluación</strong> del dato: ¿hay observaciones suficientes?, ¿están actualizados?, ¿qué tipos incluye?, ¿quién los recogió y con qué sesgo?, ¿sirven para lo que investigamos?",
+              "Las tres V clásicas —<strong>volumen</strong> (magnitud de observaciones y variables), <strong>velocidad</strong> (ritmo de generación, actualización y necesidad de respuesta) y <strong>variedad</strong> (diversidad de formatos y estructuras)— describen la escala operativa del problema. Se añaden <strong>veracidad</strong> (exactitud, completitud, fiabilidad, sesgos y ruido) y <strong>valor</strong> (relevancia real para una decisión o una pregunta científica). Sin veracidad, el volumen engaña; sin valor, el análisis es costoso e inútil. Un enfoque riguroso trata las cinco V como <strong>dimensiones de evaluación</strong>: no basta medir terabytes; hay que preguntar de dónde salen los datos, con qué frecuencia se actualizan, qué queda fuera de la muestra y si las variables miden realmente el fenómeno de interés. Las V están acopladas: aumentar la velocidad puede degradar la veracidad; ampliar la variedad puede complicar el procesamiento.",
             examples: [
-              "Taller: evaluar un dataset abierto (clima, transporte, estadísticas) con una ficha de las cinco V.",
-              "Contraste: un dato muy voluminoso pero poco veraz puede ser peor que una muestra pequeña y bien documentada."
+              "Taller (4.º ESO / 1.º Bachillerato): elegir un dataset abierto (AEMET, datos de transporte, estadísticas oficiales). Completar una ficha con las cinco V: evidencias concretas para cada una (números, fechas, tipos de campo, limitaciones documentadas). Entregar la ficha y una conclusión de cinco líneas sobre si el dataset sirve para una pregunta formulada por el equipo.",
+              "Contraste dirigido: presentar un caso hipotético de «millones de opiniones en redes» con alta velocidad y bajo control de veracidad frente a una encuesta pequeña bien diseñada. Debatir cuándo el volumen no compensa la falta de calidad y cómo se documentaría esa limitación en un informe."
+            ]
+          },
+          {
+            id: "bd_tipos",
+            title: "Datos estructurados, semiestructurados y no estructurados",
+            body:
+              "En big data conviene clasificar la información según su organización. Los datos <strong>estructurados</strong> siguen un esquema rígido (tablas con columnas tipadas: números, fechas, categorías). Los <strong>semiestructurados</strong> tienen marcas o campos flexibles (p. ej. JSON, XML, registros con atributos opcionales). Los <strong>no estructurados</strong> —texto libre, audio, vídeo, imágenes— carecen de esquema tabular inmediato y suelen requerir extracción de características, etiquetado o modelos específicos antes del análisis cuantitativo. Esta tipología condiciona el almacenamiento (relacional, documental, lagos de datos), las consultas y la calidad: un CSV limpio no se analiza igual que un corpus de comentarios o un flujo de vídeo. En la práctica, muchos sistemas reales son híbridos: metadatos estructurados acompañan a contenidos no estructurados.",
+            examples: [
+              "Propuesta de aula: repartir tres «paquetes» de evidencia (una tabla de temperaturas, un fragmento JSON de una API pública, y un conjunto de capturas de texto/comentarios). En grupos, clasificar cada paquete, listar herramientas adecuadas (hoja de cálculo, script, nube de palabras, etc.) y señalar un riesgo de interpretación errónea típico de ese tipo de dato.",
+              "Reto de Bachillerato: transformar un texto breve (noticia) en datos estructurados (entidades, fechas, lugares) mediante una tabla acordada por la clase. Reflexionar qué se pierde al estructurar y qué se gana para el análisis."
             ]
           },
           {
             id: "bd_ciclo",
             title: "Ciclo de vida: de la captura a la decisión",
             body:
-              "Un flujo típico incluye <strong>captura</strong> (sensores, formularios, registros digitales), <strong>almacenamiento</strong>, <strong>procesamiento</strong> (limpieza, agregación), <strong>análisis</strong> (estadística, visualización, a veces aprendizaje automático) y <strong>decisión</strong> o comunicación de resultados. Cada etapa introduce posibles errores: sensores mal calibrados, variables omitidas, correlaciones confundidas con causas. El rigor científico exige documentar el método y no presentar un gráfico como «prueba» sin contexto.",
+              "Un flujo típico de macrodatos incluye <strong>captura</strong> (sensores, formularios, APIs, logs), <strong>ingesta y almacenamiento</strong>, <strong>procesamiento</strong> (limpieza, normalización, agregación, deduplicación), <strong>análisis</strong> (estadística descriptiva e inferencial, visualización; a veces aprendizaje automático) y <strong>decisión o comunicación</strong> de resultados. Cada etapa puede introducir o corregir error: un sensor mal calibrado, valores ausentes tratados sin criterio, variables confusoras, o gráficos que sugieren causalidad donde solo hay correlación. El rigor exige <strong>trazabilidad metodológica</strong>: documentar origen, versiones, filtros aplicados y límites de la conclusión. Sin ese ciclo consciente, el big data se convierte en acumulación opaca de cifras.",
             image: {
               src: "./blockchain/bd_pipeline.jpg",
               alt: "Pipeline de datos: captura, almacenamiento, procesamiento, análisis y decisión",
@@ -1755,28 +1775,28 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Proyecto: medir un fenómeno del centro (ocupación de biblioteca, consumo energético) y describir cada etapa del ciclo.",
-              "Error típico a detectar: concluir causa–efecto solo porque dos series temporales «suben juntas»."
+              "Proyecto de centro (secuencia de 2–3 sesiones): medir un fenómeno accesible (ocupación de un espacio, ruido en un pasillo con una app, consumo estimado, tiempos de espera). El alumnado debe describir explícitamente cada etapa del ciclo, anexar datos brutos y limpios, y redactar una conclusión que distinga hallazgo, interpretación y recomendación.",
+              "Mini-laboratorio de falacias: mostrar dos series temporales que «suben juntas» y pedir que se propongan al menos tres explicaciones alternativas a «A causa B» (causalidad inversa, variable oculta, coincidencia). Evaluar la calidad del razonamiento, no la «respuesta única»."
             ]
           },
           {
             id: "bd_etica",
             title: "Privacidad, RGPD y uso responsable",
             body:
-              "Los macrodatos amplifican tanto el conocimiento como el riesgo. En la Unión Europea, el <strong>Reglamento General de Protección de Datos (RGPD)</strong> establece principios como licitud, minimización, exactitud y derechos de las personas (acceso, rectificación, oposición, etc.). Recoger «todo por si acaso» choca con la minimización. En el aula, conviene tratar datos personales con cuidado extremo y preferir datasets anonimizados o sintéticos. La veracidad ética también importa: un modelo entrenado con datos sesgados puede discriminar aunque «use mucha información».",
+              "Los macrodatos amplifican tanto la capacidad de conocer como el riesgo de vigilar, discriminar o filtrar información sensible. En la Unión Europea, el <strong>Reglamento General de Protección de Datos (RGPD)</strong> articula principios como licitud, lealtad y transparencia, <strong>minimización</strong>, exactitud, limitación del plazo de conservación, integridad y confidencialidad, y responsabilidad proactiva. Reconoce derechos de las personas (acceso, rectificación, oposición, entre otros). Recoger «todo por si acaso» choca con la minimización. Además, la calidad ética del análisis importa: un modelo entrenado con datos sesgados puede reproducir desigualdades aunque el volumen sea enorme. Anonimización y seudonimización reducen riesgos, pero no siempre eliminan la reidentificación. El uso responsable combina cumplimiento normativo, diseño técnico cuidadoso y juicio humano sobre finalidades legítimas.",
             examples: [
-              "Caso: una app educativa que registra cada clic —¿qué finalidad legítima hay y qué sobra?",
-              "Debate: publicidad personalizada frente a privacidad; argumentos con vocabulario de derechos digitales."
+              "Caso de aula: analizar una app educativa hipotética que registra cada clic, tiempo de permanencia y localización. En equipos, identificar qué datos son personales, qué finalidad podría ser legítima, qué sobra (minimización) y qué derechos tendría el usuario. Entregar un dictamen de una página con recomendaciones concretas.",
+              "Debate estructurado (1.º/2.º Bachillerato): publicidad personalizada frente a privacidad. Roles: empresa de datos, persona usuaria, regulador. Cada rol aporta tres argumentos con vocabulario de derechos digitales; un equipo moderador resume acuerdos y desacuerdos al final."
             ]
           },
           {
             id: "bd_aplicaciones",
-            title: "Aplicaciones y límites en estudio y sociedad",
+            title: "Aplicaciones, relación con la IA y límites",
             body:
-              "Hay aplicaciones en salud, movilidad, energía, investigación y educación (analítica del aprendizaje). El límite pedagógico es claro: <strong>más datos no implican automáticamente mejores decisiones</strong>. Hace falta pregunta científica, calidad del dato, interpretación humana y responsabilidad. Big data e inteligencia artificial se relacionan con frecuencia, pero no son lo mismo: la IA puede consumir macrodatos; el big data puede analizarse sin «modelos inteligentes». Separar ambos términos evita confusiones frecuentes en medios y redes.",
+              "Hay aplicaciones relevantes en salud, movilidad, energía, industria, investigación científica, administración pública y analítica del aprendizaje. En todos los casos, <strong>más datos no implican automáticamente mejores decisiones</strong>: hacen falta pregunta bien formulada, calidad del dato, método adecuado, interpretación humana y responsabilidad sobre los efectos. Big data e <strong>inteligencia artificial</strong> se relacionan con frecuencia, pero no son equivalentes: la IA puede entrenarse o alimentarse con macrodatos; el big data puede analizarse con estadística clásica y visualización sin modelos de aprendizaje automático. Separar ambos términos evita confusiones mediáticas. Los límites típicos incluyen sesgo muestral, opacidad de pipelines, coste energético y de almacenamiento, y la falsa sensación de objetividad que producen los números grandes sin contexto.",
             examples: [
-              "Ejemplo laboral: logística que ajusta rutas con datos de tráfico en tiempo real (velocidad + valor).",
-              "Ejemplo académico: usar estadísticas públicas para un trabajo de Economía o Tecnología, citando fuente y fecha de descarga."
+              "Ejemplo laboral guiado: logística que replanifica rutas con datos de tráfico en tiempo real. Pedir al alumnado un diagrama del ciclo de datos y señalar dónde intervienen velocidad y valor, y dónde podría fallar la veracidad (sensor averiado, incidente no reportado).",
+              "Ejemplo académico: realizar un trabajo breve con estadísticas públicas (INE u otra fuente oficial): formular una pregunta, descargar datos, citar fuente y fecha de descarga, producir un gráfico y una conclusión prudente. Rúbrica: claridad de la pregunta, trazabilidad, calidad gráfica y honestidad sobre limitaciones."
             ]
           }
         ]
