@@ -4612,7 +4612,7 @@ body.theme-light .theme-switch-btn.active {
   font-weight: 500;
 }
 
-/* Columna: el título fija el ancho; el cuadro de texto lo hereda. */
+/* Bloque centrado: el título fija el ancho; el cuadro no lo ensancha. */
 body.ai-assist-page .content-card {
   align-items: center;
 }
@@ -4621,17 +4621,18 @@ body.ai-assist-page .ai-assist-shell {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: max-content;
+  width: fit-content;
   max-width: 100%;
   min-width: 0;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   min-height: 0;
+  margin-inline: auto;
 }
 
 body.ai-assist-page #unit-title.privacy-block-heading {
   width: max-content;
   max-width: 100%;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   flex: 0 0 auto;
   letter-spacing: 0.035em;
@@ -4643,11 +4644,12 @@ body.ai-assist-page #unit-title.privacy-block-heading {
   font-size: clamp(0.78rem, 1.55vw, 1.12rem);
 }
 
-/* Justo debajo del título, sin centrado vertical. */
+/* Justo debajo del título; width:0 + min-width:100% evita que el texto ensanche el shell. */
 body.ai-assist-page .tab-panel {
   display: block;
   flex: 0 1 auto;
-  width: 100%;
+  width: 0;
+  min-width: 100%;
   margin-top: 0.75rem;
   overflow: hidden;
 }
@@ -4657,6 +4659,7 @@ body.ai-assist-page .privacy-stack {
   max-width: none;
   margin: 0;
   display: block;
+  min-width: 0;
 }
 
 body.ai-assist-page .help-privacy.ai-assist-card,
@@ -4665,6 +4668,7 @@ body.ai-assist-page .help-privacy.ai-assist-card,
   max-width: none;
   margin: 0;
   box-sizing: border-box;
+  min-width: 0;
 }
 
 .ai-assist-body {
