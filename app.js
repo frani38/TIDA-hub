@@ -615,7 +615,8 @@
                           Boolean(u.__mediaId) ||
                           Boolean(u.__softSkillId) ||
                           u.__kind === "manual" ||
-                          u.__kind === "softskills");
+                          u.__kind === "softskills" ||
+                          u.__kind === "blockchain");
                       if (canLinkMisc) {
                         return `href="#" data-misc-id="${escapeHtml(u.__miscId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}" data-soft-skill-id="${escapeHtml(u.__softSkillId || "")}"`;
                       }
@@ -646,6 +647,9 @@
                       }
                       if (u.__kind === "softskills") {
                         return `Soft Skills: ${linkedName("updates-softskills-title", u.__softSkillsBlurb || u.text || "")}`;
+                      }
+                      if (u.__kind === "blockchain") {
+                        return `Blockchain y Big Data: ${linkedName("updates-blockchain-title", u.__blockchainBlurb || u.text || "")}`;
                       }
                       // Avisos manuales: etiqueta = título; enlace = texto descriptivo (o el título si no hay texto).
                       const manualDesc = String(u.text || "").trim();
@@ -1017,9 +1021,40 @@
       })
       .filter(Boolean);
 
+    const bcPack = DATA.blockchainBigData && typeof DATA.blockchainBigData === "object" ? DATA.blockchainBigData : null;
+    const bcChangelog = Array.isArray(bcPack?.changelog) ? bcPack.changelog : [];
+    const blockchainUpdates = bcChangelog
+      .map((entry, idx) => {
+        const publishedAt = String(entry?.publishedAt || "").trim();
+        const text = String(entry?.text || "").trim();
+        if (!publishedAt || !text) return null;
+        const n = normalizeUpdateItem({
+          publishedAt,
+          title: "Blockchain y Big Data",
+          text
+        });
+        if (!n) return null;
+        return {
+          ...n,
+          __priority: idx,
+          __ms: parsePublishedAtToMs(n.publishedAt),
+          __kind: "blockchain",
+          __blockchainBlurb: text,
+          __miscId: "misc_bc"
+        };
+      })
+      .filter(Boolean);
+
     const merged = [];
     const seen = new Set();
-    for (const u of [...baseUpdates, ...readingUpdates, ...gameUpdates, ...mediaUpdates, ...softSkillUpdates]) {
+    for (const u of [
+      ...baseUpdates,
+      ...readingUpdates,
+      ...gameUpdates,
+      ...mediaUpdates,
+      ...softSkillUpdates,
+      ...blockchainUpdates
+    ]) {
       const sig = `${u.publishedAt}|${u.title}|${u.text}`;
       if (seen.has(sig)) continue;
       seen.add(sig);
@@ -1049,6 +1084,10 @@
     if (kind === "softskills") {
       const sig = `${String(u?.publishedAt || "").trim()}|${String(u?.__softSkillsBlurb || u?.text || "").trim()}`;
       return `softskills:${hashStringFNV1a(sig)}`;
+    }
+    if (kind === "blockchain") {
+      const sig = `${String(u?.publishedAt || "").trim()}|${String(u?.__blockchainBlurb || u?.text || "").trim()}`;
+      return `blockchain:${hashStringFNV1a(sig)}`;
     }
     const sig = `${String(u?.publishedAt || "").trim()}|${String(u?.title || "").trim()}|${String(u?.text || "").trim()}`;
     return `manual:${hashStringFNV1a(sig)}`;
@@ -1372,6 +1411,36 @@
         navTarget: "misc",
         miscId: miscId || ""
       });
+    }
+
+    // Blockchain y Big Data (Miscelánea → BLOCKCHAIN Y BIG DATA)
+    const bcPackSearch = DATA.blockchainBigData && typeof DATA.blockchainBigData === "object" ? DATA.blockchainBigData : null;
+    if (bcPackSearch) {
+      const introHay = String(bcPackSearch.intro || "").trim();
+      const cols = Array.isArray(bcPackSearch.columns) ? bcPackSearch.columns : [];
+      for (const col of cols) {
+        const colTitle = String(col?.title || "").trim();
+        const sections = Array.isArray(col?.sections) ? col.sections : [];
+        for (const sec of sections) {
+          const id = String(sec?.id || "").trim();
+          const title = String(sec?.title || "").trim();
+          if (!id || !title) continue;
+          const body = String(sec?.body || "").trim();
+          const examples = Array.isArray(sec?.examples)
+            ? sec.examples.map((e) => String(e || "").trim()).filter(Boolean)
+            : [];
+          const hay = `${colTitle} ${title} ${body} ${examples.join(" ")} ${id} ${introHay} blockchain big data`;
+          if (!searchHaystackMatchesTokens(tokens, hay)) continue;
+          hits.push({
+            kind: "nav",
+            section: "MISCELÁNEA · BLOCKCHAIN Y BIG DATA",
+            title: colTitle ? `${colTitle}: ${title}` : title,
+            meta: "Blockchain y Big Data",
+            navTarget: "misc",
+            miscId: "misc_bc"
+          });
+        }
+      }
     }
 
     // Soft Skills (Miscelánea → SOFT SKILLS)
@@ -3019,7 +3088,8 @@
       const isGames = it.id === "misc_jt";
       const isMedia = it.id === "misc_av";
       const isSoftSkills = it.id === "misc_ss";
-      const isMiscCatalog = isReadings || isGames || isMedia || isSoftSkills;
+      const isBlockchainBigData = it.id === "misc_bc";
+      const isMiscCatalog = isReadings || isGames || isMedia || isSoftSkills || isBlockchainBigData;
       tabPanelEl.innerHTML = `
         <div class="misc-detail${isMiscCatalog ? " misc-detail--readings" : ""}">
           <aside class="misc-detail__aside${isMiscCatalog ? " misc-detail__aside--readings" : ""}" aria-label="${escapeHtml(it.label)}">
@@ -3187,6 +3257,14 @@
                       <footer class="soft-skills-refs" id="soft-skills-refs" hidden></footer>
                   </div>
                 `
+                : isBlockchainBigData
+                  ? `
+                    <div class="readings-page bc-bd-page" aria-label="Blockchain y Big Data">
+                      <div class="bc-bd-lede" id="bc-bd-lede"></div>
+                      <div id="bc-bd-columns" class="bc-bd-columns" aria-live="polite"></div>
+                      <footer class="soft-skills-refs bc-bd-refs" id="bc-bd-refs" hidden></footer>
+                    </div>
+                  `
                 : `
                   <div class="empty-state construction-notice">
                     <strong>PRÓXIMAMENTE</strong>
@@ -4051,6 +4129,129 @@
                       : "";
                     return `<li class="soft-skills-refs__item">${iconHtml}<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`;
                   })
+                  .join("")}
+              </ul>
+            `;
+          }
+        }
+      }
+
+      if (isBlockchainBigData) {
+        const pack = DATA.blockchainBigData && typeof DATA.blockchainBigData === "object" ? DATA.blockchainBigData : null;
+        const intro = String(pack?.intro || "").trim();
+        const allowBcHtml = (raw) =>
+          String(raw || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/&lt;strong&gt;/gi, "<strong>")
+            .replace(/&lt;\/strong&gt;/gi, "</strong>")
+            .replace(/&lt;em&gt;/gi, "<em>")
+            .replace(/&lt;\/em&gt;/gi, "</em>");
+
+        const ledeEl = document.getElementById("bc-bd-lede");
+        const colsEl = document.getElementById("bc-bd-columns");
+        const refsEl = document.getElementById("bc-bd-refs");
+        const assetV = escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim());
+
+        if (ledeEl) {
+          const introParts = intro
+            .split(/\n\s*\n/)
+            .map((p) => String(p || "").trim())
+            .filter(Boolean);
+          ledeEl.innerHTML = introParts.length
+            ? introParts.map((p) => `<p>${allowBcHtml(p)}</p>`).join("")
+            : "";
+          ledeEl.hidden = !introParts.length;
+        }
+
+        if (colsEl instanceof HTMLElement) {
+          const columns = Array.isArray(pack?.columns) ? pack.columns : [];
+          if (!columns.length) {
+            colsEl.innerHTML = `
+              <div class="empty-state construction-notice">
+                <strong>PRÓXIMAMENTE</strong>
+              </div>
+            `;
+          } else {
+            colsEl.innerHTML = columns
+              .map((col) => {
+                const colTitle = String(col?.title || "").trim();
+                const colId = String(col?.id || "").trim();
+                const sections = Array.isArray(col?.sections) ? col.sections : [];
+                const sectionsHtml = sections
+                  .map((sec) => {
+                    const title = String(sec?.title || "").trim();
+                    const body = String(sec?.body || "").trim();
+                    const examples = Array.isArray(sec?.examples)
+                      ? sec.examples.map((e) => String(e || "").trim()).filter(Boolean)
+                      : [];
+                    const img = sec?.image && typeof sec.image === "object" ? sec.image : null;
+                    const imgSrc = String(img?.src || "").trim();
+                    const imgAlt = String(img?.alt || "").trim();
+                    const imgCaption = String(img?.caption || "").trim();
+                    const figureHtml = imgSrc
+                      ? `
+                        <figure class="bc-bd-figure">
+                          <img class="bc-bd-figure__img" src="${escapeHtml(imgSrc)}?v=${assetV}" alt="${escapeHtml(imgAlt)}" loading="lazy" decoding="async" />
+                          ${imgCaption ? `<figcaption class="bc-bd-figure__caption">${escapeHtml(imgCaption)}</figcaption>` : ""}
+                        </figure>
+                      `
+                      : "";
+                    const examplesHtml = examples.length
+                      ? `
+                        <div class="bc-bd-examples">
+                          <h5 class="bc-bd-examples__title">Ejemplos y propuestas de aula</h5>
+                          <ul class="bc-bd-examples__list">
+                            ${examples.map((ex) => `<li>${escapeHtml(ex)}</li>`).join("")}
+                          </ul>
+                        </div>
+                      `
+                      : "";
+                    if (!title && !body) return "";
+                    return `
+                      <article class="bc-bd-section" id="${escapeHtml(String(sec?.id || "").trim())}">
+                        ${title ? `<h4 class="bc-bd-section__title">${escapeHtml(title)}</h4>` : ""}
+                        ${body ? `<div class="bc-bd-section__body">${allowBcHtml(body)}</div>` : ""}
+                        ${figureHtml}
+                        ${examplesHtml}
+                      </article>
+                    `;
+                  })
+                  .join("");
+                return `
+                  <section class="bc-bd-column" data-bc-col="${escapeHtml(colId)}" aria-label="${escapeHtml(colTitle || colId)}">
+                    <h3 class="bc-bd-column__title">${escapeHtml(colTitle || colId)}</h3>
+                    <div class="bc-bd-column__sections">${sectionsHtml}</div>
+                  </section>
+                `;
+              })
+              .join("");
+          }
+        }
+
+        if (refsEl instanceof HTMLElement) {
+          const refs = Array.isArray(pack?.refs)
+            ? pack.refs
+                .map((r) => ({
+                  label: String(r?.label || "").trim(),
+                  url: String(r?.url || "").trim()
+                }))
+                .filter((r) => r.label && r.url)
+            : [];
+          if (!refs.length) {
+            refsEl.hidden = true;
+            refsEl.innerHTML = "";
+          } else {
+            refsEl.hidden = false;
+            refsEl.innerHTML = `
+              <h4 class="soft-skills-refs__title">Referencias</h4>
+              <ul class="soft-skills-refs__list soft-skills-refs__list--text">
+                ${refs
+                  .map(
+                    (r) =>
+                      `<li class="soft-skills-refs__item soft-skills-refs__item--text"><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`
+                  )
                   .join("")}
               </ul>
             `;

@@ -259,7 +259,8 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 - **Sin backend:** ideal para Pages; contacto externalizado (Web3Forms).  
 - **Layout híbrido (1.5.0+):** lienzo de diseño 1680px en PC; si el viewport CSS es más estrecho (p. ej. Full HD con escala OS 125%), se encaja con `site-desktop-fit` en lugar de cortar el contenido. El layout compacto solo en dispositivos táctiles (`hover: none` + `pointer: coarse`).  
 - **Móvil/tablet:** cabecera y lema adaptativos; Miscelánea con título+VOLVER en una línea, iconos de sección dimensionados y scroll al tope al abrir subapartados; avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE con tipografía contenida; pie no fijo.  
-- **Soft Skills (1.6.x–1.8.x):** fichas en Miscelánea (`data.js` → `softSkills`, imágenes en `softskills/`), filtro por dominio, tags en la barra del título, colores naturales sin filtros CSS; NOVEDADES de sección vía `changelog`.  
+- **Soft Skills (1.6.x–1.8.x):** fichas en Miscelánea (`data.js` → `softSkills`, imágenes en `softskills/`), filtro por dominio, tags en la barra del título, colores naturales sin filtros CSS; NOVEDADES de sección vía `changelog`.
+- **Blockchain y Big Data (1.9.0):** Miscelánea (`blockchainBigData`), intro + columnas paralelas, figuras en `blockchain/`, referencias NIST/DigComp/AEPD; aviso en NOVEDADES vía `changelog`.  
 - **Fuentes locales** en `fonts/`: no dependen de CDNs bloqueados.  
 - **Historial del navegador:** hashes + `history.pushState` para atrás/adelante entre secciones; subapartados de Miscelánea registran `miscId` (atrás → hub); `history.scrollRestoration = "manual"`.  
 - **Web3Forms free:** honeypot + antispam; Restrict to Domains solo en Pro.
