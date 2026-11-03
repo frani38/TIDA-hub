@@ -1626,16 +1626,8 @@ window.MYWEB_DATA = {
       "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong> o <strong>socioemocionales</strong>) son capacidades transversales que acompañan al saber técnico. No sustituyen dominar una materia, un procedimiento o una herramienta: explican <strong>cómo</strong> se piensa, se decide, se colabora y se comunica mientras se aprende o se trabaja. Incluyen, entre otras, la claridad al transmitir ideas, la coordinación con otras personas, el juicio crítico ante la información, la gestión del tiempo, la resolución de desacuerdos, la retroalimentación útil, la autonomía responsable, la exposición convincente, el uso ético de la inteligencia artificial, la adaptabilidad ante los cambios y la disposición a seguir aprendiendo. En conjunto, ayudan a actuar con <strong>criterio propio</strong>, a reducir ambigüedad y a convertir el conocimiento en resultados comprensibles y compartibles.\n\nSu relevancia no es solo académica ni de «moda formativa»: organismos internacionales las sitúan entre las competencias clave para el estudio, la ciudadanía y el empleo. El <strong>Foro Económico Mundial</strong> las destaca en su visión de habilidades del futuro laboral; la <strong>Comisión Europea</strong>, a través del marco DigComp, las vincula con la competencia digital ciudadana; y la <strong>UNESCO</strong> las conecta, en particular, con un uso crítico y ético de la inteligencia artificial en el alumnado. Las fichas de esta sección describen cada competencia de forma general y la ilustran con ejemplos del <strong>ámbito educativo</strong> y del <strong>mundo laboral</strong>; al final se recogen las referencias citadas.",
     changelog: [
       {
-        publishedAt: "2026-11-02",
-        text: "Nueva sección Soft Skills: fichas con ejemplos académico/laboral, filtro por dominio e ilustraciones con paleta unificada."
-      },
-      {
         publishedAt: "2026-11-03",
-        text: "Soft Skills: descripciones más generales y ejemplos laborales redactados íntegramente en español."
-      },
-      {
-        publishedAt: "2026-11-03",
-        text: "Soft Skills: intro ampliada en dos párrafos (con referencias) y ejemplos académico/laboral revisados."
+        text: "Nuevo apartado Soft Skills en Miscelánea: fichas de competencias humanas con definición, ejemplos educativo/laboral, filtro por dominio y referencias internacionales."
       }
     ],
     items: [
