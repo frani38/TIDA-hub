@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.29**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.30**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -781,6 +781,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Pie: restaurar badges WCAG y CC en Privacidad y Asistencia IA (mismo footprint que el resto).
 
+## 1.9.30
+
+- Asistencia IA: marca T·I·D·Ahub más pequeña en el texto; 3.º párrafo sin repetir el nombre.
+
 ---
 
 ## Convención (recordatorio)
@@ -978,3 +982,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.27** | Asistencia IA: matiz CURSOR / vibecoding en el 1.º párrafo |
 | **1.9.28** | Asistencia IA: párrafos 3–4 refundidos |
 | **1.9.29** | Pie: badges WCAG/CC también en Privacidad y Asistencia IA |
+| **1.9.30** | Asistencia IA: marca más pequeña + 3.º párrafo sin repetir nombre |
