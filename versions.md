@@ -771,7 +771,7 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ## 1.9.27
 
-- Asistencia IA: corregir redacción del primer párrafo (Cursor / asistente IA / vibecoding).
+- Asistencia IA: primer párrafo — CURSOR como ASISTENTE DE PROGRAMACIÓN mediante VIBECODING.
 
 ---
 
@@ -967,4 +967,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.24** | Asistencia IA: título sobre uso de IA en la construcción del sitio |
 | **1.9.25** | Asistencia IA: texto mayor y bloque más ancho con márgenes |
 | **1.9.26** | Asistencia IA: título «uso de la IA» |
-| **1.9.27** | Asistencia IA: corrección del primer párrafo |
+| **1.9.27** | Asistencia IA: matiz CURSOR / vibecoding en el 1.º párrafo |
