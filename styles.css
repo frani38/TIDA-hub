@@ -4612,25 +4612,43 @@ body.theme-light .theme-switch-btn.active {
   font-weight: 500;
 }
 
+/* Columna: el título fija el ancho; el cuadro de texto lo hereda. */
+body.ai-assist-page .content-card {
+  align-items: center;
+}
+
+body.ai-assist-page .ai-assist-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 body.ai-assist-page #unit-title.privacy-block-heading {
-  max-width: none;
-  width: 100%;
-  margin-inline: 0;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   flex: 0 0 auto;
   letter-spacing: 0.035em;
   line-height: 1.15;
   white-space: nowrap;
   overflow-x: auto;
   text-wrap: nowrap;
+  text-align: center;
   font-size: clamp(0.78rem, 1.55vw, 1.12rem);
 }
 
-/* Centrado vertical bajo el título; ancho alineado con el título (100%). */
+/* Justo debajo del título, sin centrado vertical. */
 body.ai-assist-page .tab-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
+  display: block;
+  flex: 0 1 auto;
+  width: 100%;
+  margin-top: 0.75rem;
   overflow: hidden;
 }
 
@@ -4638,16 +4656,14 @@ body.ai-assist-page .privacy-stack {
   width: 100%;
   max-width: none;
   margin: 0;
-  display: flex;
-  justify-content: stretch;
+  display: block;
 }
 
 body.ai-assist-page .help-privacy.ai-assist-card,
 .ai-assist-card {
   width: 100%;
   max-width: none;
-  margin-inline: 0;
-  align-self: stretch;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -4656,7 +4672,7 @@ body.ai-assist-page .help-privacy.ai-assist-card,
   line-height: 1.55;
   text-align: justify;
   text-justify: inter-word;
-  color: var(--text, #0f172a);
+  color: #0f172a;
 }
 
 .ai-assist-body .welcome-brand {
@@ -4675,8 +4691,8 @@ body.ai-assist-page .help-privacy.ai-assist-card,
   margin-top: 0.95rem;
   padding-top: 0.8rem;
   border-top: 1px solid rgba(15, 23, 42, 0.12);
-  color: #475569;
-  font-size: 0.94rem;
+  color: #0f172a;
+  font-size: 1rem;
 }
 
 .site-footer a {

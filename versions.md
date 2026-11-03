@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.16**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.17**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -729,6 +729,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Pie: separación uniforme de 3 espacios a cada lado de las rayas verticales.
 
+## 1.9.17
+
+- Declaración IA: cuadro al ancho del título, pegado debajo; cierre con mismo color y tamaño.
+
 ---
 
 ## Convención (recordatorio)
@@ -913,3 +917,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.14** | Declaración IA: texto al ancho del título |
 | **1.9.15** | Declaración IA: título programación / vibecoding |
 | **1.9.16** | Pie: separación uniforme (3ch) a cada lado de las rayas |
+| **1.9.17** | Declaración IA: ancho=título, sin centrado vertical |
