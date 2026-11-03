@@ -420,9 +420,11 @@ def main():
         '      },'
     )
     if "beaa1804-art26.pdf" not in text:
+        # Insertar como primer ítem del array refs, sin duplicar la llave de apertura.
         text = text.replace(
-            'label: "datos.gob.es — Descubriendo las claves de Blockchain (informe en español)",',
-            bde
+            '    refs: [\n      {\n        label: "datos.gob.es — Descubriendo las claves de Blockchain (informe en español)",',
+            "    refs: [\n      "
+            + bde
             + '\n      {\n        label: "datos.gob.es — Descubriendo las claves de Blockchain (informe en español)",',
             1,
         )

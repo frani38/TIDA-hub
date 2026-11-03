@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.9.8",
+    version: "1.9.9",
     updated: "2026-11-03",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
@@ -1849,7 +1849,6 @@ window.MYWEB_DATA = {
     ],
     refs: [
       {
-        {
         label: "Banco de España — Tecnología de registros distribuidos (DLT): una introducción",
         url: "https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/InformesBoletinesRevistas/ArticulosAnaliticos/2018/T4/descargar/Fich/beaa1804-art26.pdf"
       },
