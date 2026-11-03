@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.12**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.13**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -713,6 +713,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Declaración IA: bloque más estrecho y centrado verticalmente, sin scroll vertical.
 
+## 1.9.13
+
+- Privacidad / Asistencia IA: misma cabecera que INICIO (logo a escala del título y altura de banner); solo cambia el menú por VOLVER.
+
 ---
 
 ## Convención (recordatorio)
@@ -893,3 +897,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.10** | Declaración responsable Cursor (vibecoding/asistente) |
 | **1.9.11** | Declaración IA: 1.ª persona, título monolínea, hub↑ |
 | **1.9.12** | Declaración IA: bloque estrecho y centrado vertical |
+| **1.9.13** | Cabecera unificada en Privacidad / Asistencia IA |

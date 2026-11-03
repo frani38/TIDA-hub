@@ -1375,6 +1375,22 @@ body.privacy-page header {
   position: relative; /* no sticky: ya no hace falta con layout bloqueado */
 }
 
+/* Misma geometría de cabecera que INICIO (logo/título/aire); solo cambia el menú → VOLVER. */
+body.privacy-page .header-inner {
+  padding: var(--header-gap, 1.15rem) 1rem 0.58rem;
+}
+
+body.privacy-page .header-meta-row {
+  /* Reserva la altura típica de la fila de botones + búsqueda de INICIO. */
+  min-height: 2.35rem;
+  align-items: center;
+}
+
+body.privacy-page .header-nav-buttons {
+  min-height: 2.15rem;
+  align-items: center;
+}
+
 body.privacy-page .app,
 body.privacy-page .app-layout,
 body.privacy-page main {
@@ -1437,8 +1453,13 @@ body.privacy-page .help-privacy {
 */
 body.privacy-page header .privacy-header-back {
   text-decoration: none;
+  /* Misma caja visual que .header-home-btn del menú principal. */
   font-size: 0.78rem;
-  padding: 0.3rem 0.65rem;
+  padding: 0.42rem 0.75rem;
+  min-height: 2.15rem;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
   font-weight: 700;
   letter-spacing: 0.06em;
   background: rgba(15, 36, 77, 0.72);
