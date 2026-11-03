@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub · Privacidad</title>
-    <link rel="stylesheet" href="./styles.css?v=1.9.28" />
+    <link rel="stylesheet" href="./styles.css?v=1.9.29" />
     <script>
-      window.MYWEB_ASSET_V = "1.9.28";
+      window.MYWEB_ASSET_V = "1.9.29";
     </script>
     <script>
       (function () {
@@ -15,7 +15,7 @@
         document.head.appendChild(s);
       })();
     </script>
-    <script src="./brand-logo-sync.js?v=1.9.28" defer></script>
+    <script src="./brand-logo-sync.js?v=1.9.29" defer></script>
   </head>
   <body class="theme-light privacy-page">
     <header>
@@ -36,7 +36,7 @@
           <div class="header-nav-buttons">
             <a
               class="home-btn header-home-btn privacy-header-back"
-              href="./index.html?v=1.9.28"
+              href="./index.html?v=1.9.29"
               aria-label="Volver a inicio"
               id="privacy-back-home"
             >← VOLVER</a>
@@ -211,16 +211,45 @@
 
     <footer class="site-footer">
       <div class="site-footer-inner">
+        <a
+          class="wcag-badge"
+          href="https://www.w3.org/WAI/WCAG2AA-Conformance"
+          title="Explicación de la conformidad WCAG 2 nivel AA (W3C)"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Explicación de la conformidad WCAG 2.2 nivel AA (W3C)"
+        >
+          <img
+            src="https://www.w3.org/WAI/WCAG22/wcag2.2AA"
+            alt="Conformidad nivel AA, W3C Web Content Accessibility Guidelines 2.2"
+            width="88"
+            height="31"
+          />
+        </a>
+        <a
+          class="cc-badge"
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ver licencia Creative Commons BY-NC-SA 4.0"
+        >
+          <img
+            src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg"
+            alt="Creative Commons BY-NC-SA 4.0"
+            width="136"
+            height="48"
+          />
+        </a>
         <div class="footer-meta">
           <span>&copy; 2026-<span id="year-current">2026</span></span>
           <span class="footer-sep" aria-hidden="true">|</span>
           <span>PhD.Eng. Francisco Carnero Rodríguez</span>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <span id="site-version">v1.9.28</span>
+          <span id="site-version">v1.9.29</span>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <a href="./privacidad.html?v=1.9.28" class="footer-privacy-link">Privacidad y protección de datos</a>
+          <a href="./privacidad.html?v=1.9.29" class="footer-privacy-link">Privacidad y protección de datos</a>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <a href="./asistencia-ia.html?v=1.9.28" class="footer-ai-link">Asistencia IA</a>
+          <a href="./asistencia-ia.html?v=1.9.29" class="footer-ai-link">Asistencia IA</a>
         </div>
       </div>
     </footer>
@@ -258,7 +287,7 @@
           applyMeta();
         }
         function loadData(bust, dataJsText) {
-          bust = String(bust || window.MYWEB_ASSET_V || "1.9.28");
+          bust = String(bust || window.MYWEB_ASSET_V || "1.9.29");
           window.MYWEB_ASSET_V = bust;
           if (typeof window.MYWEB_wireVersionedLinks === "function") {
             window.MYWEB_wireVersionedLinks(bust);
@@ -289,7 +318,7 @@
           start(d.version || window.MYWEB_ASSET_V, d.dataJsText || "");
         });
         setTimeout(function () {
-          start(window.MYWEB_ASSET_V || "1.9.28", window.__MYWEB_DATA_JS_TEXT__ || "");
+          start(window.MYWEB_ASSET_V || "1.9.29", window.__MYWEB_DATA_JS_TEXT__ || "");
         }, 2500);
 
         function isVerticallyScrollable(el) {
