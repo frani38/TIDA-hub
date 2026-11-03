@@ -4603,8 +4603,8 @@ body.theme-light .theme-switch-btn.active {
 
 .footer-sep {
   flex: 0 0 auto;
-  /* Tres espacios tipográficos a cada lado de la raya. */
-  padding-inline: 3ch;
+  /* Un espacio tipográfico a cada lado de la raya. */
+  padding-inline: 1ch;
 }
 
 .footer-privacy-link,
