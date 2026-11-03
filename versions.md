@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.23**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.24**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -757,6 +757,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Asistencia IA: ensanchar un poco el cuadro de texto.
 
+## 1.9.24
+
+- Asistencia IA: nuevo título sobre el uso de IA como asistente en la construcción del sitio.
+
 ---
 
 ## Convención (recordatorio)
@@ -948,3 +952,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.21** | Declaración IA: matiz del asistente y menos repeticiones |
 | **1.9.22** | Asistencia IA: título sin «DECLARACIÓN RESPONSABLE» |
 | **1.9.23** | Asistencia IA: cuadro de texto un poco más ancho |
+| **1.9.24** | Asistencia IA: título sobre uso de IA en la construcción del sitio |
