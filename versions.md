@@ -636,6 +636,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: enlaces de Referencias sin subrayado y en azul de acento.
 
+## 1.8.21
+
+- Hipervínculos de texto azul: subrayado siempre visible en toda la web.
+
 ---
 
 ## Convención (recordatorio)
@@ -797,3 +801,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.18** | INICIO: sin lazo de luto |
 | **1.8.19** | Soft Skills: referencias más juntas |
 | **1.8.20** | Soft Skills: enlaces refs en azul de acento |
+| **1.8.21** | Subrayado en hipervínculos de texto azul |
