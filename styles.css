@@ -4589,6 +4589,7 @@ body.ai-assist-page #unit-title.privacy-block-heading {
   max-width: none;
   width: 100%;
   margin-inline: 0;
+  flex: 0 0 auto;
   letter-spacing: 0.035em;
   line-height: 1.15;
   white-space: nowrap;
@@ -4597,14 +4598,34 @@ body.ai-assist-page #unit-title.privacy-block-heading {
   font-size: clamp(0.78rem, 1.55vw, 1.12rem);
 }
 
+/* Bloque más estrecho y centrado en el hueco bajo el título, sin scroll vertical. */
+body.ai-assist-page .tab-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+body.ai-assist-page .privacy-stack {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+body.ai-assist-page .help-privacy.ai-assist-card,
 .ai-assist-card {
-  max-width: 56rem;
+  width: 100%;
+  max-width: 40rem;
   margin-inline: auto;
+  align-self: center;
 }
 
 .ai-assist-body {
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.55;
   text-align: justify;
   text-justify: inter-word;
   color: var(--text, #0f172a);
@@ -4615,7 +4636,7 @@ body.ai-assist-page #unit-title.privacy-block-heading {
 }
 
 .ai-assist-body p {
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
 }
 
 .ai-assist-body p:last-child {
@@ -4623,11 +4644,11 @@ body.ai-assist-page #unit-title.privacy-block-heading {
 }
 
 .ai-assist-note {
-  margin-top: 1.15rem;
-  padding-top: 0.9rem;
+  margin-top: 0.95rem;
+  padding-top: 0.8rem;
   border-top: 1px solid rgba(15, 23, 42, 0.12);
   color: #475569;
-  font-size: 0.98rem;
+  font-size: 0.94rem;
 }
 
 .site-footer a {

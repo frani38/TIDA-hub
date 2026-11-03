@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.11**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.12**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -709,6 +709,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Declaración IA: título en una línea; texto en 1.ª persona; «hub» en superíndice; cuerpo con letra algo mayor.
 
+## 1.9.12
+
+- Declaración IA: bloque más estrecho y centrado verticalmente, sin scroll vertical.
+
 ---
 
 ## Convención (recordatorio)
@@ -888,3 +892,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.9** | Fix: data.js roto (refs) dejaba la web sin cargar |
 | **1.9.10** | Declaración responsable Cursor (vibecoding/asistente) |
 | **1.9.11** | Declaración IA: 1.ª persona, título monolínea, hub↑ |
+| **1.9.12** | Declaración IA: bloque estrecho y centrado vertical |
