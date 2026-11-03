@@ -4644,14 +4644,16 @@ body.ai-assist-page #unit-title.privacy-block-heading {
   font-size: clamp(0.78rem, 1.55vw, 1.12rem);
 }
 
-/* Justo debajo del título; width:0 + min-width:100% evita que el texto ensanche el shell. */
+/* Bajo el título: un poco más estrecho que el título y centrado; sin scroll vertical. */
 body.ai-assist-page .tab-panel {
   display: block;
   flex: 0 1 auto;
   width: 0;
-  min-width: 100%;
-  margin-top: 0.75rem;
-  overflow: hidden;
+  min-width: 88%;
+  align-self: center;
+  margin-top: 1.35rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body.ai-assist-page .privacy-stack {
@@ -4669,11 +4671,12 @@ body.ai-assist-page .help-privacy.ai-assist-card,
   margin: 0;
   box-sizing: border-box;
   min-width: 0;
+  padding: 0.5rem 0.72rem;
 }
 
 .ai-assist-body {
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: 0.92rem;
+  line-height: 1.42;
   text-align: justify;
   text-justify: inter-word;
   color: #0f172a;
@@ -4684,7 +4687,7 @@ body.ai-assist-page .help-privacy.ai-assist-card,
 }
 
 .ai-assist-body p {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.68rem;
 }
 
 .ai-assist-body p:last-child {
@@ -4692,11 +4695,11 @@ body.ai-assist-page .help-privacy.ai-assist-card,
 }
 
 .ai-assist-note {
-  margin-top: 0.95rem;
-  padding-top: 0.8rem;
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
   border-top: 1px solid rgba(15, 23, 42, 0.12);
   color: #0f172a;
-  font-size: 1rem;
+  font-size: inherit;
 }
 
 .site-footer a {
