@@ -3180,7 +3180,7 @@
                 : isSoftSkills
                   ? `
                     <div class="readings-page soft-skills-page" aria-label="Soft Skills">
-                      <p class="soft-skills-lede" id="soft-skills-lede"></p>
+                      <div class="soft-skills-lede" id="soft-skills-lede"></div>
                       <div id="soft-skills-list" class="soft-skills-grid" aria-live="polite"></div>
                       <footer class="soft-skills-refs" id="soft-skills-refs" hidden></footer>
                   </div>
@@ -3928,8 +3928,14 @@
         const refsEl = document.getElementById("soft-skills-refs");
         const domainEl = document.getElementById("soft-skills-domain");
         if (ledeEl) {
-          ledeEl.innerHTML = allowSoftHtml(intro);
-          ledeEl.hidden = !intro;
+          const introParts = intro
+            .split(/\n\s*\n/)
+            .map((p) => String(p || "").trim())
+            .filter(Boolean);
+          ledeEl.innerHTML = introParts.length
+            ? introParts.map((p) => `<p>${allowSoftHtml(p)}</p>`).join("")
+            : "";
+          ledeEl.hidden = !introParts.length;
         }
 
         const renderSoftSkills = () => {

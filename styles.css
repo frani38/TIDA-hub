@@ -3362,6 +3362,14 @@ body.theme-light .construction-notice strong {
   text-justify: inter-word;
 }
 
+.soft-skills-lede p {
+  margin: 0;
+}
+
+.soft-skills-lede p + p {
+  margin-top: 0.85rem;
+}
+
 body.theme-light .soft-skills-lede {
   color: #334155;
 }
