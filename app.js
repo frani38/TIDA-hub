@@ -996,54 +996,61 @@
       })
       .filter(Boolean);
 
-    // Soft Skills: un aviso de sección por entrada en softSkills.changelog (no una por ficha).
-    const softPack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
-    const softChangelog = Array.isArray(softPack?.changelog) ? softPack.changelog : [];
-    const softSkillUpdates = softChangelog
-      .map((entry, idx) => {
-        const publishedAt = String(entry?.publishedAt || "").trim();
-        const text = String(entry?.text || "").trim();
-        if (!publishedAt || !text) return null;
-        const n = normalizeUpdateItem({
-          publishedAt,
-          title: "Soft Skills",
-          text
-        });
-        if (!n) return null;
-        return {
-          ...n,
-          __priority: idx,
-          __ms: parsePublishedAtToMs(n.publishedAt),
-          __kind: "softskills",
-          __softSkillsBlurb: text,
-          __miscId: "misc_ss"
-        };
-      })
-      .filter(Boolean);
+    // Avisos de sección Miscelánea: __priority menor = más reciente (mismo instante).
+    // Registrar primero las secciones más nuevas para darles prioridad más baja.
+    const sectionChangelogUpdates = [];
+    let sectionPriority = 0;
+    const pushSectionChangelog = (entries, mapEntry) => {
+      const list = Array.isArray(entries) ? entries : [];
+      // Dentro del changelog, la última entrada del array se considera la más reciente.
+      for (let i = list.length - 1; i >= 0; i -= 1) {
+        const mapped = mapEntry(list[i], sectionPriority);
+        sectionPriority += 1;
+        if (mapped) sectionChangelogUpdates.push(mapped);
+      }
+    };
 
     const bcPack = DATA.blockchainBigData && typeof DATA.blockchainBigData === "object" ? DATA.blockchainBigData : null;
-    const bcChangelog = Array.isArray(bcPack?.changelog) ? bcPack.changelog : [];
-    const blockchainUpdates = bcChangelog
-      .map((entry, idx) => {
-        const publishedAt = String(entry?.publishedAt || "").trim();
-        const text = String(entry?.text || "").trim();
-        if (!publishedAt || !text) return null;
-        const n = normalizeUpdateItem({
-          publishedAt,
-          title: "Blockchain y Big Data",
-          text
-        });
-        if (!n) return null;
-        return {
-          ...n,
-          __priority: idx,
-          __ms: parsePublishedAtToMs(n.publishedAt),
-          __kind: "blockchain",
-          __blockchainBlurb: text,
-          __miscId: "misc_bc"
-        };
-      })
-      .filter(Boolean);
+    pushSectionChangelog(bcPack?.changelog, (entry, priority) => {
+      const publishedAt = String(entry?.publishedAt || "").trim();
+      const text = String(entry?.text || "").trim();
+      if (!publishedAt || !text) return null;
+      const n = normalizeUpdateItem({
+        publishedAt,
+        title: "Blockchain y Big Data",
+        text
+      });
+      if (!n) return null;
+      return {
+        ...n,
+        __priority: priority,
+        __ms: parsePublishedAtToMs(n.publishedAt),
+        __kind: "blockchain",
+        __blockchainBlurb: text,
+        __miscId: "misc_bc"
+      };
+    });
+
+    const softPack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
+    pushSectionChangelog(softPack?.changelog, (entry, priority) => {
+      const publishedAt = String(entry?.publishedAt || "").trim();
+      const text = String(entry?.text || "").trim();
+      if (!publishedAt || !text) return null;
+      const n = normalizeUpdateItem({
+        publishedAt,
+        title: "Soft Skills",
+        text
+      });
+      if (!n) return null;
+      return {
+        ...n,
+        __priority: priority,
+        __ms: parsePublishedAtToMs(n.publishedAt),
+        __kind: "softskills",
+        __softSkillsBlurb: text,
+        __miscId: "misc_ss"
+      };
+    });
 
     const merged = [];
     const seen = new Set();
@@ -1052,8 +1059,7 @@
       ...readingUpdates,
       ...gameUpdates,
       ...mediaUpdates,
-      ...softSkillUpdates,
-      ...blockchainUpdates
+      ...sectionChangelogUpdates
     ]) {
       const sig = `${u.publishedAt}|${u.title}|${u.text}`;
       if (seen.has(sig)) continue;
@@ -1061,7 +1067,7 @@
       merged.push(u);
     }
 
-    // Orden descendente por fecha; a igualdad, menor __priority primero (más reciente en el catálogo).
+    // Orden descendente por fecha/hora; a igualdad, menor __priority primero (más reciente).
     merged.sort((a, b) => (a.__ms !== b.__ms ? b.__ms - a.__ms : a.__priority - b.__priority));
     return merged;
   }

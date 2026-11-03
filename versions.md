@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.0**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.2**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -669,6 +669,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Blockchain y Big Data: figuras de Wikimedia Commons con pie de crédito/licencia (y elaboración propia en el ciclo de datos).
 
+## 1.9.2
+
+- NOVEDADES: orden correcto por fecha/hora (Blockchain y Big Data por encima de Soft Skills).
+
 ---
 
 ## Convención (recordatorio)
@@ -837,3 +841,5 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.25** | NOVEDADES Soft Skills: enlace en el texto |
 | **1.8.26** | NOVEDADES: enlace siempre en el texto descriptivo |
 | **1.9.0** | Miscelánea: Blockchain y Big Data (columnas + refs) |
+| **1.9.1** | Figuras Commons con crédito en Blockchain/Big Data |
+| **1.9.2** | NOVEDADES: orden por fecha/hora de avisos de sección |

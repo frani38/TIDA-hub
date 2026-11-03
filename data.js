@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.9.1",
+    version: "1.9.2",
     updated: "2026-11-03",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
@@ -1625,7 +1625,7 @@ window.MYWEB_DATA = {
       "El <strong>blockchain</strong> (cadena de bloques) y el <strong>big data</strong> (macrodatos) son dos pilares del mundo digital actual. El primero permite registrar información de forma <strong>distribuida</strong>, <strong>verificable</strong> y difícil de alterar a posteriori; el segundo describe conjuntos de datos tan <strong>voluminosos</strong>, <strong>variados</strong> y <strong>rápidos</strong> que exigen métodos y herramientas distintos a las hojas de cálculo tradicionales. En 4.º de ESO y Bachillerato conviene estudiarlos con rigor: no como moda tecnológica, sino como sistemas con vocabulario técnico preciso, limitaciones reales y consecuencias éticas.\n\nEsta sección presenta ambos conceptos en paralelo: primero la idea general, después los mecanismos (función resumen o <em>hash</em>, consenso, las «cinco V», ciclo de vida de los datos) y, por último, ejemplos del aula y de la sociedad. Las referencias finales enlazan a fuentes técnicas y educativas de contraste —entre ellas el informe NISTIR 8202 sobre blockchain, el marco DigComp de la Comisión Europea y materiales de protección de datos— para que el alumnado pueda ampliar y verificar lo estudiado.",
     changelog: [
       {
-        publishedAt: "2026-11-03",
+        publishedAt: "2026-11-03T19:40",
         text: "Nuevo apartado Blockchain y Big Data en Miscelánea: teoría en dos columnas, ejemplos didácticos, figuras y referencias técnicas."
       }
     ],
@@ -1823,7 +1823,7 @@ window.MYWEB_DATA = {
       "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong> o <strong>socioemocionales</strong>) son capacidades transversales que acompañan al saber técnico. No sustituyen dominar una materia, un procedimiento o una herramienta: explican <strong>cómo</strong> se piensa, se decide, se colabora y se comunica mientras se aprende o se trabaja. Incluyen, entre otras, la claridad al transmitir ideas, la coordinación con otras personas, el juicio crítico ante la información, la gestión del tiempo, la resolución de desacuerdos, la retroalimentación útil, la autonomía responsable, la exposición convincente, el uso ético de la inteligencia artificial, la adaptabilidad ante los cambios y la disposición a seguir aprendiendo. En conjunto, ayudan a actuar con <strong>criterio propio</strong>, a reducir ambigüedad y a convertir el conocimiento en resultados comprensibles y compartibles.\n\nSu relevancia no es solo académica ni de «moda formativa»: organismos internacionales las sitúan entre las competencias clave para el estudio, la ciudadanía y el empleo. El <strong>Foro Económico Mundial</strong> las destaca en su visión de habilidades del futuro laboral; la <strong>Comisión Europea</strong>, a través del marco DigComp, las vincula con la competencia digital ciudadana; y la <strong>UNESCO</strong> las conecta, en particular, con un uso crítico y ético de la inteligencia artificial en el alumnado. Las fichas de esta sección describen cada competencia de forma general y la ilustran con ejemplos del <strong>ámbito educativo</strong> y del <strong>mundo laboral</strong>; al final se recogen las referencias citadas.",
     changelog: [
       {
-        publishedAt: "2026-11-03",
+        publishedAt: "2026-11-03T12:30",
         text: "Nuevo apartado Soft Skills en Miscelánea: fichas de competencias humanas con definición, ejemplos educativo/laboral, filtro por dominio y referencias internacionales."
       }
     ],
