@@ -1744,7 +1744,7 @@ window.MYWEB_DATA = {
       },
       {
         id: "ss_feedback",
-        title: "Retroalimentación (dar y recibir)",
+        title: "Retroalimentación",
         domains: ["comunicación"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-03",
