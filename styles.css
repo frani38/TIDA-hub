@@ -3777,13 +3777,28 @@ body.theme-light .soft-skills-refs {
   }
 }
 
+/* Referencias solo texto (Blockchain/Big Data): bajo el título y alineadas a su mitad, con viñetas. */
 .soft-skills-refs__list--text {
-  margin-left: 0;
-  padding-top: 0.35rem;
+  margin: 0 0 0 -3.2rem;
+  padding-top: 1.85rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+  list-style-position: outside;
+  display: block;
 }
 
 .soft-skills-refs__item--text {
-  grid-template-columns: 1fr;
+  display: list-item;
+  grid-template-columns: none;
+  margin: 0.15rem 0;
+}
+
+@media (max-width: 720px) {
+  .soft-skills-refs__list--text {
+    margin-left: 0;
+    padding-top: 0.55rem;
+    padding-left: 1.2rem;
+  }
 }
 
 .bc-bd-page {
