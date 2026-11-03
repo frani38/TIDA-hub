@@ -652,6 +652,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: intro en dos párrafos (con soporte de render) y ejemplos académico/laboral revisados.
 
+## 1.8.25
+
+- NOVEDADES: en Soft Skills el enlace es el texto descriptivo (como en LIBRO), no la etiqueta.
+
 ---
 
 ## Convención (recordatorio)
@@ -817,3 +821,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.22** | Subrayado de enlaces azules solo en hover |
 | **1.8.23** | Soft Skills: justificado en móvil/tablet |
 | **1.8.24** | Soft Skills: intro en 2 párrafos + ejemplos |
+| **1.8.25** | NOVEDADES Soft Skills: enlace en el texto |

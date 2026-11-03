@@ -643,8 +643,7 @@
                         return `MEDIA: ${linkedName("updates-media-title", u.__mediaTitle || "")}`;
                       }
                       if (u.__kind === "softskills") {
-                        const blurb = escapeHtml(u.__softSkillsBlurb || u.text || "");
-                        return `${linkedName("updates-softskills-title", "Soft Skills")}: ${blurb}`;
+                        return `Soft Skills: ${linkedName("updates-softskills-title", u.__softSkillsBlurb || u.text || "")}`;
                       }
                       // Avisos manuales: el hipervínculo es el título (no el texto de detalle).
                       const titlePart = linkAttrsWithKey
