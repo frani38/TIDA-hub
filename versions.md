@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.33**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.34**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -797,6 +797,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Asistencia IA: 3.º párrafo — objetivos técnicos complejos y publicación en GitHub.
 
+## 1.9.34
+
+- Asistencia IA: «poner este trabajo al servicio…» en el 3.º párrafo.
+
 ---
 
 ## Convención (recordatorio)
@@ -998,3 +1002,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.31** | Asistencia IA: inicio del 3.º párrafo ajustado |
 | **1.9.32** | Asistencia IA: «lo realizo yo» en el 2.º párrafo |
 | **1.9.33** | Asistencia IA: matiz técnico del 3.º párrafo |
+| **1.9.34** | Asistencia IA: «este trabajo» en el 3.º párrafo |
