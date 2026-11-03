@@ -4190,11 +4190,22 @@
                     const imgSrc = String(img?.src || "").trim();
                     const imgAlt = String(img?.alt || "").trim();
                     const imgCaption = String(img?.caption || "").trim();
+                    const imgCredit = String(img?.credit || "").trim();
+                    const imgCreditUrl = String(img?.creditUrl || "").trim();
+                    const creditHtml = imgCredit
+                      ? imgCreditUrl
+                        ? `<span class="bc-bd-figure__credit">Fuente: <a href="${escapeHtml(imgCreditUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(imgCredit)}</a></span>`
+                        : `<span class="bc-bd-figure__credit">Fuente: ${escapeHtml(imgCredit)}</span>`
+                      : "";
                     const figureHtml = imgSrc
                       ? `
                         <figure class="bc-bd-figure">
                           <img class="bc-bd-figure__img" src="${escapeHtml(imgSrc)}?v=${assetV}" alt="${escapeHtml(imgAlt)}" loading="lazy" decoding="async" />
-                          ${imgCaption ? `<figcaption class="bc-bd-figure__caption">${escapeHtml(imgCaption)}</figcaption>` : ""}
+                          ${
+                            imgCaption || creditHtml
+                              ? `<figcaption class="bc-bd-figure__caption">${imgCaption ? escapeHtml(imgCaption) : ""}${imgCaption && creditHtml ? " " : ""}${creditHtml}</figcaption>`
+                              : ""
+                          }
                         </figure>
                       `
                       : "";

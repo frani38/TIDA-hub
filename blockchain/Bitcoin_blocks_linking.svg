@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <title>Bitcoin blockchain</title>
+
+ <g>
+  <rect id="svg_1" height="163.00001" width="275.99999" y="10" x="40" stroke-width="2" stroke="#000000" fill="none"/>
+  <rect id="svg_2" height="67" width="267" y="37" x="45" stroke="#7f00ff" fill="none"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="24" id="svg_4" y="32" x="50" stroke-width="0" stroke="#7f00ff" fill="#7f00ff">Header</text>
+  <rect id="svg_5" height="54" width="267" y="109" x="45" stroke="#007f00" fill="none"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="24" id="svg_6" y="133" x="50" stroke-width="0" stroke="#007f00" fill="#007f00">Transactions</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="14" id="svg_9" y="55" x="50" stroke-width="0" stroke="#007f00" fill="#000000">(...)</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="14" id="svg_8" y="75" x="50" stroke-width="0" stroke="#007f00" fill="#ff7f00">hashPrevBlock</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="14" id="svg_7" y="95" x="50" stroke-width="0" stroke="#007f00" fill="#007f00">hashMerkleRoot</text>
+  <path transform="rotate(88.4799, 18.9727, 72.5664)" id="svg_10" d="m3.97066,72.53139l15.00201,-14.95166l15.002,14.95166l-7.501,0l0,15.02343l-15.002,0l0,-15.02343l-7.50101,0z" stroke="#ff7f00" fill="none"/>
+  <path id="svg_11" d="m205.8887,123.38545l19.01953,-31.42525l19.01953,31.42525l-9.5103,0l0,31.57642l-19.01962,0l0,-31.57642l-9.50914,0z" stroke="#007f00" fill="#007f00"/>
+  <rect id="svg_22" height="163.00001" width="275.99999" y="10.5" x="534" stroke-width="2" stroke="#000000" fill="none"/>
+  <rect id="svg_23" height="67" width="267" y="37.5" x="539" stroke="#7f00ff" fill="none"/>
+  <text id="svg_24" xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="24" y="32" x="545" stroke-width="0" stroke="#7f00ff" fill="#7f00ff">Header</text>
+  <rect id="svg_25" height="54" width="267" y="109.5" x="539" stroke="#007f00" fill="none"/>
+  <text id="svg_26" xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="24" y="133" x="545" stroke-width="0" stroke="#007f00" fill="#007f00">Transactions</text>
+  <text id="svg_29" xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="14" y="55" x="545" stroke-width="0" stroke="#007f00" fill="#000000">(...)</text>
+  <text id="svg_28" xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="14" y="75" x="545" stroke-width="0" stroke="#007f00" fill="#0000ff">hashPrevBlock</text>
+  <text id="svg_27" xml:space="preserve" text-anchor="start" font-family="Liberation Sans" font-size="14" y="95" x="545" stroke-width="0" stroke="#007f00" fill="#007f00">hashMerkleRoot</text>
+  <path id="svg_30" d="m699.88867,123.88545l19.01953,-31.42525l19.01953,31.42525l-9.51025,0l0,31.57642l-19.01965,0l0,-31.57642l-9.50916,0z" stroke="#007f00" fill="#007f00"/>
+  <path transform="rotate(180, 329.342, 69.7891)" id="svg_31" d="m334.72925,102.78732c-2.97433,0 -5.38687,-0.40189 -5.38687,-0.89783l0,-31.2033c0,-0.49593 -2.4119,-0.89792 -5.38751,-0.89792l0,0c2.97562,0 5.38751,-0.40195 5.38751,-0.89783l0,-31.20331l0,0c0,-0.49594 2.41254,-0.8979 5.38687,-0.8979" stroke-width="2" stroke="#0000ff" fill="none"/>
+  <path transform="rotate(90, 433.137, 72.6641)" id="svg_32" d="m408.13495,72.4622l24.99988,-83.77385l25.00006,83.77385l-12.49921,0l0,84.17654l-25.00031,0l0,-84.17654l-12.50043,0z" stroke-width="2" stroke="#0000ff" fill="none"/>
+  <text xml:space="preserve" text-anchor="middle" font-family="Liberation Sans" font-size="12" id="svg_35" y="45" x="430" stroke-width="0" stroke="#0000ff" fill="#0000ff">Hash of previous block header</text>
+  <path id="svg_36" transform="rotate(180, 819.342, 71.7891)" d="m824.72925,104.78732c-2.97437,0 -5.38684,-0.40189 -5.38684,-0.89783l0,-31.2033c0,-0.49593 -2.41193,-0.89792 -5.38757,-0.89792l0,0c2.97565,0 5.38757,-0.40195 5.38757,-0.89783l0,-31.20331l0,0c0,-0.49594 2.41248,-0.8979 5.38684,-0.8979" stroke-width="2" stroke="#0000ff" fill="none"/>
+  <path id="svg_37" transform="rotate(90, 901.137, 72.6636)" d="m876.13519,72.50225l24.99988,-66.81489l25.00006,66.81489l-12.49921,0l0,67.13605l-25.00031,0l0,-67.13605l-12.50043,0z" stroke-width="2" stroke="#0000ff" fill="none"/>
+  <text xml:space="preserve" text-anchor="middle" font-family="Liberation Sans" font-size="24" id="svg_42" y="195" x="12" stroke-width="0" stroke="#0000ff" fill="#000000">#0</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="Liberation Sans" font-size="24" id="svg_33" y="195" x="83" stroke-width="0" stroke="#0000ff" fill="#000000">Block #1</text>
+  <text id="svg_34" xml:space="preserve" text-anchor="middle" font-family="Liberation Sans" font-size="24" y="195" x="579.29999" stroke-width="0" stroke="#0000ff" fill="#000000">Block #2</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="Liberation Sans" font-size="24" id="svg_41" y="195" x="946" stroke-width="0" stroke="#0000ff" fill="#000000">Block #3</text>
+ </g>
+</svg>

@@ -665,6 +665,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 - Miscelánea → **Blockchain y Big Data**: intro en dos párrafos, columnas paralelas (teoría + ejemplos), figuras didácticas y referencias (NIST, Bitcoin, DigComp, AEPD, etc.).
 - NOVEDADES: aviso de sección vía `blockchainBigData.changelog`.
 
+## 1.9.1
+
+- Blockchain y Big Data: figuras de Wikimedia Commons con pie de crédito/licencia (y elaboración propia en el ciclo de datos).
+
 ---
 
 ## Convención (recordatorio)

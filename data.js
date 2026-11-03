@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.9.0",
+    version: "1.9.1",
     updated: "2026-11-03",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
@@ -1640,9 +1640,12 @@ window.MYWEB_DATA = {
             body:
               "Según el <strong>NIST</strong> (Instituto Nacional de Estándares y Tecnología de EE. UU.), un blockchain es un <strong>libro mayor digital</strong> (<em>ledger</em>) <strong>distribuido</strong>, con evidencias de manipulación (<em>tamper-evident</em>) y, en condiciones normales, resistente a cambios a posteriori. Las transacciones se agrupan en <strong>bloques</strong>; cada bloque se enlaza criptográficamente con el anterior. Varios nodos de la red mantienen copias del mismo historial y solo aceptan bloques que cumplan las reglas acordadas. No es «magia» ni solo «dinero digital»: es un sistema de <strong>registro compartido</strong> sin depender de un único servidor central de confianza.",
             image: {
-              src: "./blockchain/bc_distributed.jpg",
-              alt: "Comparación entre un registro centralizado y una red distribuida de nodos",
-              caption: "Figura 1. Registro centralizado frente a red distribuida (cada nodo guarda una copia del historial)."
+              src: "./blockchain/Centralised-decentralised-distributed.png",
+              alt: "Tres topologías de red: centralizada, descentralizada y distribuida",
+              caption:
+                "Figura 1. Topologías centralizada, descentralizada y distribuida: el blockchain opera como red distribuida de nodos con historial compartido.",
+              credit: "Wikimedia Commons · 1983~enwiki · CC BY-SA 3.0",
+              creditUrl: "https://commons.wikimedia.org/wiki/File:Centralised-decentralised-distributed.png"
             },
             examples: [
               "En clase: imaginar un diario de notas compartido por todo el grupo donde nadie puede borrar una página antigua sin que el resto lo detecte.",
@@ -1655,9 +1658,12 @@ window.MYWEB_DATA = {
             body:
               "Una <strong>función resumen criptográfica</strong> (<em>hash</em>), como SHA-256, transforma datos de cualquier tamaño en una huella de longitud fija. Cambiar un solo bit del contenido cambia por completo la huella. Cada bloque suele incluir: datos (p. ej. transacciones), la huella del bloque anterior y metadatos. Esa dependencia crea la <strong>cadena</strong>: alterar un bloque pasado rompería el enlace con los siguientes. Por eso se dice que el historial es <strong>append-only</strong> (solo se añade al final) bajo el funcionamiento normal de la red.",
             image: {
-              src: "./blockchain/bc_chain.jpg",
-              alt: "Cadena de bloques enlazados por el hash del bloque anterior",
-              caption: "Figura 2. Cada bloque apunta al hash del anterior: la integridad del pasado se puede verificar."
+              src: "./blockchain/Bitcoin_Block_Data.svg",
+              alt: "Campos de un bloque de Bitcoin: Prev_Hash, Tx_root, Timestamp y Nonce",
+              caption:
+                "Figura 2. Estructura simplificada de un bloque (Bitcoin): Prev_Hash encadena con el bloque anterior; el Nonce interviene en la prueba de trabajo.",
+              credit: "Matthäus Wander · Wikimedia Commons · CC BY-SA 3.0",
+              creditUrl: "https://commons.wikimedia.org/wiki/File:Bitcoin_Block_Data.svg"
             },
             examples: [
               "Actividad: calcular (con una herramienta educativa) el hash de una frase y ver cómo cambia al modificar una letra.",
@@ -1669,6 +1675,14 @@ window.MYWEB_DATA = {
             title: "Consenso: quién añade el siguiente bloque",
             body:
               "En una red sin autoridad central hace falta un <strong>modelo de consenso</strong>: un procedimiento para acordar qué bloque se publica a continuación. En <strong>prueba de trabajo</strong> (<em>proof of work</em>), un nodo gana el derecho a publicar resolviendo un problema costoso en cálculo (buscar un <em>nonce</em> que produzca un hash con un patrón exigido); verificar la solución es fácil. En <strong>prueba de participación</strong> (<em>proof of stake</em>) y otros modelos, la selección depende de reglas distintas (participación, autoridad, etc.). El consenso no elimina el conflicto: lo convierte en un protocolo comprobable por todos los nodos.",
+            image: {
+              src: "./blockchain/Bitcoin_blocks_linking.svg",
+              alt: "Bloques de Bitcoin enlazados formando la cadena",
+              caption:
+                "Figura 2b. Encadenamiento visual de bloques: la cadena crece al aceptar nuevos bloques válidos según el consenso.",
+              credit: "Wargo · Wikimedia Commons · CC BY-SA 4.0",
+              creditUrl: "https://commons.wikimedia.org/wiki/File:Bitcoin_blocks_linking.svg"
+            },
             examples: [
               "Simulación de aula: varios equipos proponen el «siguiente bloque»; solo se acepta el que cumple una regla pública y verificable.",
               "Pregunta crítica: ¿qué coste energético o de exclusión social puede asociarse a un modelo de consenso concreto?"
@@ -1706,9 +1720,12 @@ window.MYWEB_DATA = {
             body:
               "Se habla de <strong>big data</strong> cuando el volumen, la velocidad o la variedad de los datos superan lo que se gestiona con métodos convencionales y requieren infraestructuras y técnicas específicas de captura, almacenamiento y análisis. No basta con «muchas filas en Excel»: importa también la <strong>heterogeneidad</strong> (texto, sensores, vídeo, registros) y la <strong>rapidez</strong> con la que llegan. En educación secundaria, el concepto se estudia como alfabetización de datos: preguntar de dónde salen, con qué calidad y para qué se usan.",
             image: {
-              src: "./blockchain/bd_5v.jpg",
-              alt: "Las cinco V del Big Data: volumen, velocidad, variedad, veracidad y valor",
-              caption: "Figura 3. Las cinco V: criterios para evaluar un conjunto de datos, no solo su tamaño."
+              src: "./blockchain/Big_Data.png",
+              alt: "Esquema de Big Data con volumen, velocidad y variedad",
+              caption:
+                "Figura 3. Las tres V clásicas (volumen, velocidad y variedad). En el texto se añaden veracidad y valor como criterios de evaluación.",
+              credit: "Ender005 · Wikimedia Commons · CC BY-SA 4.0",
+              creditUrl: "https://commons.wikimedia.org/wiki/File:Big_Data.png"
             },
             examples: [
               "Comparar: notas de un grupo (datos «pequeños» y estructurados) frente a registros de uso de una plataforma educativa de miles de centros.",
@@ -1733,7 +1750,9 @@ window.MYWEB_DATA = {
             image: {
               src: "./blockchain/bd_pipeline.jpg",
               alt: "Pipeline de datos: captura, almacenamiento, procesamiento, análisis y decisión",
-              caption: "Figura 4. Ciclo simplificado de los datos: cada etapa puede introducir o corregir error."
+              caption:
+                "Figura 4. Ciclo simplificado de los datos: cada etapa puede introducir o corregir error.",
+              credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
               "Proyecto: medir un fenómeno del centro (ocupación de biblioteca, consumo energético) y describir cada etapa del ciclo.",

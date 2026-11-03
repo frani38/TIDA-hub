@@ -3910,8 +3910,34 @@ body.theme-light .bc-bd-figure__img {
   text-align: left;
 }
 
+.bc-bd-figure__credit {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  opacity: 0.92;
+}
+
+.bc-bd-figure__credit a {
+  color: var(--accent, #7aa2ff);
+  text-decoration: none;
+}
+
+.bc-bd-figure__credit a:hover {
+  color: var(--accent-2, #97b8ff);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 body.theme-light .bc-bd-figure__caption {
   color: #64748b;
+}
+
+body.theme-light .bc-bd-figure__credit a {
+  color: var(--accent, #2563eb);
+}
+
+body.theme-light .bc-bd-figure__credit a:hover {
+  color: var(--accent-2, #3b82f6);
 }
 
 .bc-bd-examples {
