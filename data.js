@@ -1874,7 +1874,20 @@ window.MYWEB_DATA = {
         ]
       }
     ],
-    refs: []
+    refs: [
+      {
+        label: "World Economic Forum — Future of Jobs Report 2025 (Skills outlook)",
+        url: "https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/"
+      },
+      {
+        label: "JRC / Comisión Europea — DigComp 2.2: The Digital Competence Framework for Citizens (2022)",
+        url: "https://publications.jrc.ec.europa.eu/repository/handle/JRC128415"
+      },
+      {
+        label: "UNESCO — AI competency framework for students",
+        url: "https://www.unesco.org/en/articles/ai-competency-framework-students"
+      }
+    ]
   },
 
   // Juegos (Miscelánea → JUEGOS)
