@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img">
+<rect width="1000" height="420" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <text class="t title" x="500" y="34" text-anchor="middle">¿Cuándo hablamos de macrodatos (Big Data)?</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">Cuando volumen, velocidad o variedad superan las herramientas convencionales</text>
+  <rect x="50" y="90" width="220" height="200" rx="12" fill="#dbeafe" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="160" y="130" text-anchor="middle">Volumen</text>
+  <text class="t s muted" x="160" y="165" text-anchor="middle">Muchas</text>
+  <text class="t s muted" x="160" y="185" text-anchor="middle">observaciones</text>
+  <text class="t xs" x="160" y="230" text-anchor="middle">MB → GB → TB → PB</text>
+  <rect x="290" y="90" width="220" height="200" rx="12" fill="#dcfce7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="400" y="130" text-anchor="middle">Velocidad</text>
+  <text class="t s muted" x="400" y="165" text-anchor="middle">Ritmo de</text>
+  <text class="t s muted" x="400" y="185" text-anchor="middle">llegada / respuesta</text>
+  <text class="t xs" x="400" y="230" text-anchor="middle">lote → casi tiempo real</text>
+  <rect x="530" y="90" width="220" height="200" rx="12" fill="#fce7f3" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="640" y="130" text-anchor="middle">Variedad</text>
+  <text class="t s muted" x="640" y="165" text-anchor="middle">Formatos y</text>
+  <text class="t s muted" x="640" y="185" text-anchor="middle">fuentes distintas</text>
+  <text class="t xs" x="640" y="230" text-anchor="middle">tablas, texto, sensor…</text>
+  <rect x="770" y="90" width="180" height="200" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="860" y="130" text-anchor="middle">Resultado</text>
+  <text class="t s muted" x="860" y="170" text-anchor="middle">Hace falta un</text>
+  <text class="t s muted" x="860" y="190" text-anchor="middle">ecosistema:</text>
+  <text class="t xs" x="860" y="230" text-anchor="middle">infra + métodos</text>
+  <text class="t xs" x="860" y="248" text-anchor="middle">+ organización</text>
+  <text class="t s" x="500" y="340" text-anchor="middle">«Grande» es relativo a la pregunta y al contexto tecnológico</text>
+  <text class="t xs muted" x="500" y="370" text-anchor="middle">Un conjunto enorme puede ser inútil; uno moderado, decisivo</text>
+
+</svg>

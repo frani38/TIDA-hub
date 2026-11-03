@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img">
+<rect width="1000" height="420" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <text class="t title" x="500" y="34" text-anchor="middle">Las cinco V como dimensiones de evaluación</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">No basta medir tamaño: hay que evaluar calidad y utilidad</text>
+  <rect x="30" y="90" width="180" height="260" rx="12" fill="#dbeafe" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="120" y="130" text-anchor="middle">Volumen</text>
+  <text class="t xs muted" x="120" y="170" text-anchor="middle">Cuántos datos</text>
+  <text class="t xs muted" x="120" y="190" text-anchor="middle">y variables</text>
+  <rect x="220" y="90" width="180" height="260" rx="12" fill="#dcfce7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="310" y="130" text-anchor="middle">Velocidad</text>
+  <text class="t xs muted" x="310" y="170" text-anchor="middle">Con qué ritmo</text>
+  <text class="t xs muted" x="310" y="190" text-anchor="middle">se generan</text>
+  <rect x="410" y="90" width="180" height="260" rx="12" fill="#fce7f3" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="500" y="130" text-anchor="middle">Variedad</text>
+  <text class="t xs muted" x="500" y="170" text-anchor="middle">Qué formatos</text>
+  <text class="t xs muted" x="500" y="190" text-anchor="middle">y estructuras</text>
+  <rect x="600" y="90" width="180" height="260" rx="12" fill="#fef3c7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="690" y="130" text-anchor="middle">Veracidad</text>
+  <text class="t xs muted" x="690" y="170" text-anchor="middle">Exactitud,</text>
+  <text class="t xs muted" x="690" y="190" text-anchor="middle">sesgos, ruido</text>
+  <text class="t xs" x="690" y="240" text-anchor="middle" fill="#b45309">Sin veracidad,</text>
+  <text class="t xs" x="690" y="258" text-anchor="middle" fill="#b45309">el volumen engaña</text>
+  <rect x="790" y="90" width="180" height="260" rx="12" fill="#ede9fe" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="880" y="130" text-anchor="middle">Valor</text>
+  <text class="t xs muted" x="880" y="170" text-anchor="middle">¿Sirve para</text>
+  <text class="t xs muted" x="880" y="190" text-anchor="middle">la decisión?</text>
+  <text class="t xs" x="880" y="240" text-anchor="middle" fill="#6d28d9">Sin valor,</text>
+  <text class="t xs" x="880" y="258" text-anchor="middle" fill="#6d28d9">análisis inútil</text>
+  <text class="t xs muted" x="120" y="320" text-anchor="middle">escala</text>
+  <text class="t xs muted" x="310" y="320" text-anchor="middle">escala</text>
+  <text class="t xs muted" x="500" y="320" text-anchor="middle">escala</text>
+  <text class="t xs muted" x="690" y="320" text-anchor="middle">calidad</text>
+  <text class="t xs muted" x="880" y="320" text-anchor="middle">utilidad</text>
+
+</svg>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img">
+<rect width="1000" height="460" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#334155"/></marker></defs>
+  <text class="t title" x="500" y="34" text-anchor="middle">Hash, bloque y encadenamiento</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">Una pequeña alteración cambia la huella; cada bloque guarda el hash del anterior</text>
+  <rect x="40" y="80" width="440" height="150" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="260" y="108" text-anchor="middle">Sensibilidad del hash</text>
+  <text class="t s" x="60" y="140">Entrada A: «Hola clase»</text>
+  <text class="t xs" x="60" y="162" fill="#1d4ed8">Hash → a3f1…9c02</text>
+  <text class="t s" x="60" y="196">Entrada B: «Hola clase!»</text>
+  <text class="t xs" x="60" y="218" fill="#b91c1c">Hash → 7e88…0b4d  (muy distinto)</text>
+  <rect x="520" y="80" width="440" height="150" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="740" y="108" text-anchor="middle">Campos típicos de un bloque</text>
+  <text class="t s" x="545" y="140">• Hash del bloque anterior</text>
+  <text class="t s" x="545" y="164">• Datos / transacciones</text>
+  <text class="t s" x="545" y="188">• Marca temporal</text>
+  <text class="t s" x="545" y="212">• Nonce (prueba de trabajo)</text>
+  <rect x="60" y="280" width="200" height="120" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text class="t b" x="160" y="310" text-anchor="middle">Bloque 0</text>
+  <text class="t xs muted" x="160" y="335" text-anchor="middle">prev: —</text>
+  <text class="t xs" x="160" y="358" text-anchor="middle">hash: 00aa…</text>
+  <text class="t xs muted" x="160" y="380" text-anchor="middle">datos…</text>
+  <line x1="270" y1="340" x2="330" y2="340" stroke="#334155" stroke-width="3" marker-end="url(#m)"/>
+  <rect x="340" y="280" width="200" height="120" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text class="t b" x="440" y="310" text-anchor="middle">Bloque 1</text>
+  <text class="t xs" x="440" y="335" text-anchor="middle" fill="#1d4ed8">prev: 00aa…</text>
+  <text class="t xs" x="440" y="358" text-anchor="middle">hash: 11bb…</text>
+  <text class="t xs muted" x="440" y="380" text-anchor="middle">datos…</text>
+  <line x1="550" y1="340" x2="610" y2="340" stroke="#334155" stroke-width="3" marker-end="url(#m)"/>
+  <rect x="620" y="280" width="200" height="120" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text class="t b" x="720" y="310" text-anchor="middle">Bloque 2</text>
+  <text class="t xs" x="720" y="335" text-anchor="middle" fill="#1d4ed8">prev: 11bb…</text>
+  <text class="t xs" x="720" y="358" text-anchor="middle">hash: 22cc…</text>
+  <text class="t xs muted" x="720" y="380" text-anchor="middle">datos…</text>
+  <text class="t xs muted" x="860" y="340">append-only</text>
+  <text class="t xs muted" x="500" y="440" text-anchor="middle">Si se altera el Bloque 1, deja de coincidir con el «prev» del Bloque 2</text>
+
+</svg>

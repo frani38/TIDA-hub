@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img">
+<rect width="1000" height="420" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <text class="t title" x="500" y="34" text-anchor="middle">Big Data e Inteligencia Artificial: relacionados, no equivalentes</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">Más datos no implican automáticamente mejores decisiones</text>
+  <circle cx="340" cy="230" r="130" fill="#bfdbfe" fill-opacity="0.85" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="660" cy="230" r="130" fill="#bbf7d0" fill-opacity="0.85" stroke="#059669" stroke-width="2"/>
+  <text class="t h" x="280" y="180" text-anchor="middle">Big Data</text>
+  <text class="t xs muted" x="280" y="205" text-anchor="middle">volumen / velocidad</text>
+  <text class="t xs muted" x="280" y="223" text-anchor="middle">/ variedad</text>
+  <text class="t xs muted" x="280" y="250" text-anchor="middle">también con</text>
+  <text class="t xs muted" x="280" y="268" text-anchor="middle">estadística clásica</text>
+  <text class="t h" x="720" y="180" text-anchor="middle">IA</text>
+  <text class="t xs muted" x="720" y="205" text-anchor="middle">modelos que</text>
+  <text class="t xs muted" x="720" y="223" text-anchor="middle">aprenden / razonan</text>
+  <text class="t xs muted" x="720" y="250" text-anchor="middle">pueden usar</text>
+  <text class="t xs muted" x="720" y="268" text-anchor="middle">pocos o muchos datos</text>
+  <text class="t b" x="500" y="220" text-anchor="middle">Solape</text>
+  <text class="t xs" x="500" y="242" text-anchor="middle">entrenar con</text>
+  <text class="t xs" x="500" y="260" text-anchor="middle">macrodatos</text>
+  <text class="t s" x="500" y="390" text-anchor="middle">Límites: sesgo, opacidad, coste y falsa objetividad de los números grandes</text>
+
+</svg>

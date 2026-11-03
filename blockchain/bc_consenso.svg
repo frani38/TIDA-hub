@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img">
+<rect width="1000" height="440" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#334155"/></marker></defs>
+  <text class="t title" x="500" y="34" text-anchor="middle">Consenso: ¿quién añade el siguiente bloque?</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">Los nodos acuerdan una sola historia compartida según reglas públicas</text>
+  <rect x="40" y="85" width="300" height="300" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="190" y="118" text-anchor="middle">1. Propuestas</text>
+  <circle cx="110" cy="190" r="22" fill="#e2e8f0" stroke="#64748b"/><text class="t xs" x="110" y="195" text-anchor="middle">Nodo A</text>
+  <circle cx="190" cy="230" r="22" fill="#e2e8f0" stroke="#64748b"/><text class="t xs" x="190" y="235" text-anchor="middle">Nodo B</text>
+  <circle cx="270" cy="190" r="22" fill="#e2e8f0" stroke="#64748b"/><text class="t xs" x="270" y="195" text-anchor="middle">Nodo C</text>
+  <text class="t s muted" x="190" y="290" text-anchor="middle">Cada uno puede</text>
+  <text class="t s muted" x="190" y="310" text-anchor="middle">proponer un bloque</text>
+  <text class="t xs" x="190" y="350" text-anchor="middle" fill="#b45309">¿Cuál se acepta?</text>
+  <rect x="360" y="85" width="280" height="300" rx="12" fill="#eff6ff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="500" y="118" text-anchor="middle">2. Regla de consenso</text>
+  <text class="t s" x="385" y="160">PoW: resolver un</text>
+  <text class="t s" x="385" y="180">puzzle costoso (nonce)</text>
+  <text class="t s" x="385" y="220">PoS: selección según</text>
+  <text class="t s" x="385" y="240">participación / stake</text>
+  <text class="t s" x="385" y="280">Otros: autoridad,</text>
+  <text class="t s" x="385" y="300">identidad, tiempo…</text>
+  <text class="t xs muted" x="500" y="350" text-anchor="middle">Verificar es mucho más</text>
+  <text class="t xs muted" x="500" y="368" text-anchor="middle">barato que publicar (PoW)</text>
+  <rect x="660" y="85" width="300" height="300" rx="12" fill="#ecfdf5" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="810" y="118" text-anchor="middle">3. Cadena aceptada</text>
+  <rect x="700" y="160" width="70" height="40" rx="6" fill="#bbf7d0" stroke="#059669"/>
+  <rect x="790" y="160" width="70" height="40" rx="6" fill="#86efac" stroke="#059669"/>
+  <rect x="880" y="160" width="50" height="40" rx="6" fill="#4ade80" stroke="#059669"/>
+  <text class="t xs" x="735" y="185" text-anchor="middle">B0</text>
+  <text class="t xs" x="825" y="185" text-anchor="middle">B1</text>
+  <text class="t xs" x="905" y="185" text-anchor="middle">B2</text>
+  <text class="t s" x="810" y="240" text-anchor="middle">Historia válida</text>
+  <text class="t s muted" x="810" y="270" text-anchor="middle">Si hay empate: regla</text>
+  <text class="t s muted" x="810" y="290" text-anchor="middle">de desempate (p. ej.</text>
+  <text class="t s muted" x="810" y="310" text-anchor="middle">cadena con más peso)</text>
+  <text class="t xs" x="810" y="355" text-anchor="middle" fill="#047857">Quién escribe la historia</text>
+
+</svg>

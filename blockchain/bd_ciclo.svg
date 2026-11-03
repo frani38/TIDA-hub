@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" role="img">
+<rect width="1000" height="380" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#334155"/></marker></defs>
+  <text class="t title" x="500" y="34" text-anchor="middle">Ciclo de vida de los datos</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">Cada etapa puede introducir o corregir error</text>
+  <rect x="30" y="120" width="150" height="120" rx="12" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+  <text class="t b" x="105" y="160" text-anchor="middle">1. Captura</text>
+  <text class="t xs muted" x="105" y="190" text-anchor="middle">sensores, APIs,</text>
+  <text class="t xs muted" x="105" y="208" text-anchor="middle">formularios, logs</text>
+  <line x1="185" y1="180" x2="215" y2="180" stroke="#334155" stroke-width="3" marker-end="url(#m)"/>
+  <rect x="220" y="120" width="150" height="120" rx="12" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/>
+  <text class="t b" x="295" y="160" text-anchor="middle">2. Almacén</text>
+  <text class="t xs muted" x="295" y="190" text-anchor="middle">ingesta y</text>
+  <text class="t xs muted" x="295" y="208" text-anchor="middle">almacenamiento</text>
+  <line x1="375" y1="180" x2="405" y2="180" stroke="#334155" stroke-width="3" marker-end="url(#m)"/>
+  <rect x="410" y="120" width="150" height="120" rx="12" fill="#86efac" stroke="#059669" stroke-width="2"/>
+  <text class="t b" x="485" y="155" text-anchor="middle">3. Proceso</text>
+  <text class="t xs muted" x="485" y="185" text-anchor="middle">limpieza,</text>
+  <text class="t xs muted" x="485" y="203" text-anchor="middle">agregación…</text>
+  <line x1="565" y1="180" x2="595" y2="180" stroke="#334155" stroke-width="3" marker-end="url(#m)"/>
+  <rect x="600" y="120" width="150" height="120" rx="12" fill="#4ade80" stroke="#059669" stroke-width="2"/>
+  <text class="t b" x="675" y="155" text-anchor="middle">4. Análisis</text>
+  <text class="t xs muted" x="675" y="185" text-anchor="middle">estadística,</text>
+  <text class="t xs muted" x="675" y="203" text-anchor="middle">visualización…</text>
+  <line x1="755" y1="180" x2="785" y2="180" stroke="#334155" stroke-width="3" marker-end="url(#m)"/>
+  <rect x="790" y="120" width="170" height="120" rx="12" fill="#22c55e" stroke="#047857" stroke-width="2"/>
+  <text class="t b" x="875" y="155" text-anchor="middle">5. Decisión</text>
+  <text class="t xs" x="875" y="185" text-anchor="middle" fill="#064e3b">comunicación</text>
+  <text class="t xs" x="875" y="203" text-anchor="middle" fill="#064e3b">responsable</text>
+  <text class="t s" x="500" y="300" text-anchor="middle">Trazabilidad: documentar origen, filtros y límites de la conclusión</text>
+  <text class="t xs muted" x="500" y="330" text-anchor="middle">Hallazgo ≠ interpretación ≠ recomendación</text>
+
+</svg>

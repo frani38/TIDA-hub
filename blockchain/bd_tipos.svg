@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img">
+<rect width="1000" height="440" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <text class="t title" x="500" y="34" text-anchor="middle">Tipos de datos según su organización</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">La tipología condiciona almacenamiento, herramientas y riesgos de error</text>
+  <rect x="40" y="85" width="300" height="310" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="190" y="120" text-anchor="middle">Estructurados</text>
+  <rect x="70" y="145" width="240" height="90" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+  <text class="t xs" x="90" y="170">id | temp | fecha</text>
+  <text class="t xs" x="90" y="192">01 | 18.2 | 03-11</text>
+  <text class="t xs" x="90" y="214">02 | 17.8 | 03-11</text>
+  <text class="t s muted" x="190" y="270" text-anchor="middle">Esquema rígido</text>
+  <text class="t xs muted" x="190" y="295" text-anchor="middle">Tablas, CSV limpio</text>
+  <text class="t xs muted" x="190" y="320" text-anchor="middle">Fácil de consultar</text>
+  <rect x="350" y="85" width="300" height="310" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="500" y="120" text-anchor="middle">Semiestructurados</text>
+  <rect x="380" y="145" width="240" height="110" rx="6" fill="#f8fafc" stroke="#64748b"/>
+  <text class="t xs" x="395" y="170" fill="#0369a1">{</text>
+  <text class="t xs" x="410" y="190">"estación": "AEMET",</text>
+  <text class="t xs" x="410" y="210">"temp": 18.2,</text>
+  <text class="t xs" x="410" y="230">"extra": {…}</text>
+  <text class="t xs" x="395" y="248" fill="#0369a1">}</text>
+  <text class="t s muted" x="500" y="295" text-anchor="middle">Marcas flexibles</text>
+  <text class="t xs muted" x="500" y="320" text-anchor="middle">JSON, XML, logs</text>
+  <text class="t xs muted" x="500" y="345" text-anchor="middle">Campos opcionales</text>
+  <rect x="660" y="85" width="300" height="310" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="810" y="120" text-anchor="middle">No estructurados</text>
+  <rect x="690" y="145" width="240" height="90" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text class="t xs" x="810" y="175" text-anchor="middle">texto · audio</text>
+  <text class="t xs" x="810" y="198" text-anchor="middle">vídeo · imagen</text>
+  <text class="t xs" x="810" y="220" text-anchor="middle">comentarios libres</text>
+  <text class="t s muted" x="810" y="280" text-anchor="middle">Sin esquema tabular</text>
+  <text class="t xs muted" x="810" y="305" text-anchor="middle">Requieren extracción</text>
+  <text class="t xs muted" x="810" y="330" text-anchor="middle">o etiquetado previo</text>
+  <text class="t xs muted" x="500" y="420" text-anchor="middle">En la práctica: sistemas híbridos (metadatos + contenido)</text>
+
+</svg>

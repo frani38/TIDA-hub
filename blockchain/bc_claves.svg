@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img">
+<rect width="1000" height="420" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#334155"/></marker></defs>
+  <text class="t title" x="500" y="34" text-anchor="middle">Claves, direcciones y firma digital</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">La privada se guarda en secreto; la pública / dirección pueden mostrarse</text>
+  <rect x="50" y="90" width="280" height="280" rx="12" fill="#fef2f2" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="190" y="125" text-anchor="middle">Clave privada</text>
+  <text class="t s" x="190" y="160" text-anchor="middle">SECRETA</text>
+  <rect x="90" y="180" width="200" height="50" rx="8" fill="#fecaca" stroke="#b91c1c"/>
+  <text class="t xs" x="190" y="210" text-anchor="middle">•••• •••• ••••</text>
+  <text class="t s muted" x="190" y="270" text-anchor="middle">Sirve para firmar</text>
+  <text class="t s muted" x="190" y="292" text-anchor="middle">y controlar el activo</text>
+  <text class="t xs" x="190" y="335" text-anchor="middle" fill="#b91c1c">Si se pierde → se pierde</text>
+  <text class="t xs" x="190" y="352" text-anchor="middle" fill="#b91c1c">el control (sin «reset»)</text>
+  <line x1="350" y1="230" x2="410" y2="230" stroke="#334155" stroke-width="3" marker-end="url(#m)"/>
+  <text class="t xs muted" x="380" y="215" text-anchor="middle">deriva</text>
+  <rect x="430" y="90" width="280" height="280" rx="12" fill="#eff6ff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="570" y="125" text-anchor="middle">Clave pública</text>
+  <text class="t s" x="570" y="160" text-anchor="middle">VISIBLE</text>
+  <rect x="470" y="180" width="200" height="50" rx="8" fill="#bfdbfe" stroke="#1d4ed8"/>
+  <text class="t xs" x="570" y="210" text-anchor="middle">04a9…f3c1</text>
+  <text class="t s muted" x="570" y="270" text-anchor="middle">Sirve para verificar</text>
+  <text class="t s muted" x="570" y="292" text-anchor="middle">la firma de otro</text>
+  <text class="t xs" x="570" y="335" text-anchor="middle" fill="#1d4ed8">No revela la privada</text>
+  <line x1="730" y1="230" x2="790" y2="230" stroke="#334155" stroke-width="3" marker-end="url(#m)"/>
+  <text class="t xs muted" x="760" y="215" text-anchor="middle">hash</text>
+  <rect x="810" y="90" width="150" height="280" rx="12" fill="#ecfdf5" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="885" y="125" text-anchor="middle">Dirección</text>
+  <text class="t s" x="885" y="160" text-anchor="middle">pública</text>
+  <rect x="830" y="180" width="110" height="70" rx="8" fill="#bbf7d0" stroke="#059669"/>
+  <text class="t xs" x="885" y="210" text-anchor="middle">bc1q…</text>
+  <text class="t xs" x="885" y="230" text-anchor="middle">8k2p</text>
+  <text class="t xs muted" x="885" y="300" text-anchor="middle">Para recibir</text>
+  <text class="t xs muted" x="885" y="318" text-anchor="middle">sin revelar</text>
+  <text class="t xs muted" x="885" y="336" text-anchor="middle">la privada</text>
+
+</svg>

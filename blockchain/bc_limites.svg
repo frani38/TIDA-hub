@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img">
+<rect width="1000" height="440" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <text class="t title" x="500" y="34" text-anchor="middle">Qué garantiza el blockchain… y qué no</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">Pensamiento crítico: separar protocolo, mundo real y eslóganes</text>
+  <rect x="40" y="85" width="440" height="320" rx="12" fill="#ecfdf5" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="260" y="120" text-anchor="middle" fill="#047857">Sí garantiza (en lo esencial)</text>
+  <text class="t s" x="70" y="160">• Historial coherente según el protocolo</text>
+  <text class="t s" x="70" y="190">• Alteraciones detectables (tamper-evident)</text>
+  <text class="t s" x="70" y="220">• Reescritura silenciosa muy costosa</text>
+  <text class="t s" x="70" y="250">• Verificación abierta entre nodos</text>
+  <text class="t s" x="70" y="280">• Reglas de consenso explícitas</text>
+  <text class="t xs muted" x="260" y="350" text-anchor="middle">Integridad del registro acordado</text>
+  <rect x="520" y="85" width="440" height="320" rx="12" fill="#fef2f2" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="740" y="120" text-anchor="middle" fill="#b91c1c">No garantiza automáticamente</text>
+  <text class="t s" x="550" y="160">• Que un dato del mundo real sea cierto</text>
+  <text class="t s" x="550" y="190">• Que no te estafen (phishing, claves)</text>
+  <text class="t s" x="550" y="220">• Privacidad absoluta en redes públicas</text>
+  <text class="t s" x="550" y="250">• Corrección fácil de errores publicados</text>
+  <text class="t s" x="550" y="280">• Legalidad, ética o eficiencia «por magia»</text>
+  <text class="t xs muted" x="740" y="350" text-anchor="middle">Hay que demostrar cada afirmación</text>
+
+</svg>

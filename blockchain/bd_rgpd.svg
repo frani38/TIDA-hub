@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img">
+<rect width="1000" height="440" fill="#f8fafc"/>
+<defs><style type="text/css"><![CDATA[.t{font-family:Segoe UI,system-ui,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.h{font-size:16px;font-weight:700}.b{font-size:14px;font-weight:600}.s{font-size:12.5px}.xs{font-size:11px}.muted{fill:#475569}]]></style></defs>
+
+  <text class="t title" x="500" y="34" text-anchor="middle">Privacidad y uso responsable (RGPD)</text>
+  <text class="t s muted" x="500" y="56" text-anchor="middle">Más datos amplifican conocimiento… y riesgos de vigilancia o discriminación</text>
+  <rect x="40" y="85" width="450" height="310" rx="12" fill="#eff6ff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="265" y="120" text-anchor="middle">Principios clave</text>
+  <text class="t s" x="70" y="160">• Licitud, lealtad y transparencia</text>
+  <text class="t s" x="70" y="190">• Minimización (no «todo por si acaso»)</text>
+  <text class="t s" x="70" y="220">• Exactitud y limitación del plazo</text>
+  <text class="t s" x="70" y="250">• Integridad y confidencialidad</text>
+  <text class="t s" x="70" y="280">• Responsabilidad proactiva</text>
+  <text class="t xs muted" x="265" y="340" text-anchor="middle">Derechos: acceso, rectificación, oposición…</text>
+  <rect x="520" y="85" width="440" height="310" rx="12" fill="#fef3c7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text class="t h" x="740" y="120" text-anchor="middle">Buenas preguntas de aula</text>
+  <text class="t s" x="550" y="165">1. ¿Qué datos son personales?</text>
+  <text class="t s" x="550" y="200">2. ¿Qué finalidad es legítima?</text>
+  <text class="t s" x="550" y="235">3. ¿Qué sobra (minimización)?</text>
+  <text class="t s" x="550" y="270">4. ¿Anonimizar elimina todo riesgo?</text>
+  <text class="t xs muted" x="740" y="340" text-anchor="middle">No siempre: existe reidentificación</text>
+
+</svg>
