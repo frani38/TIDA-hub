@@ -4586,27 +4586,36 @@ body.theme-light .theme-switch-btn.active {
 }
 
 body.ai-assist-page #unit-title.privacy-block-heading {
-  max-width: 52rem;
-  letter-spacing: 0.04em;
-  line-height: 1.28;
-  text-wrap: balance;
+  max-width: none;
+  width: 100%;
+  margin-inline: 0;
+  letter-spacing: 0.035em;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow-x: auto;
+  text-wrap: nowrap;
+  font-size: clamp(0.78rem, 1.55vw, 1.12rem);
 }
 
 .ai-assist-card {
-  max-width: 52rem;
+  max-width: 56rem;
   margin-inline: auto;
 }
 
 .ai-assist-body {
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 1.05rem;
+  line-height: 1.6;
   text-align: justify;
   text-justify: inter-word;
   color: var(--text, #0f172a);
 }
 
+.ai-assist-body .welcome-brand {
+  font-weight: 700;
+}
+
 .ai-assist-body p {
-  margin: 0 0 0.95rem;
+  margin: 0 0 1rem;
 }
 
 .ai-assist-body p:last-child {
@@ -4614,11 +4623,11 @@ body.ai-assist-page #unit-title.privacy-block-heading {
 }
 
 .ai-assist-note {
-  margin-top: 1.1rem;
-  padding-top: 0.85rem;
+  margin-top: 1.15rem;
+  padding-top: 0.9rem;
   border-top: 1px solid rgba(15, 23, 42, 0.12);
   color: #475569;
-  font-size: 0.9rem;
+  font-size: 0.98rem;
 }
 
 .site-footer a {
