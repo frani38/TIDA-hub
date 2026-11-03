@@ -1295,12 +1295,13 @@ body.theme-light .unit-material-card__label {
 
 .help-consent a.help-privacy-link {
   color: #0b3bdc;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
 }
 
 .help-consent a.help-privacy-link:hover {
   color: #0932ba;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
   opacity: 1;
 }
 
@@ -1538,12 +1539,13 @@ body.privacy-page .privacy-legal-lede {
 .privacy-legal-lede a,
 .privacy-legal-lede a:visited {
   color: #2563eb;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
 }
 
 .privacy-legal-lede a:hover {
   color: #1d4ed8;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 .help-privacy-panel .privacy-card {
@@ -1868,13 +1870,14 @@ body.theme-light .help-form-status.is-error {
 .updates-archive a.updates-item-link {
   color: var(--accent);
   font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .updates-archive a.updates-item-link:hover {
   color: var(--accent-2);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 .updates-archive a.updates-manual-title {
@@ -2219,13 +2222,14 @@ body.theme-light .law-block--title-only .law-block__title {
 
 a.law-title-link {
   color: #1d4ed8;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
   cursor: pointer;
 }
 
 a.law-title-link:hover {
   color: #1e40af;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 /* Búsqueda global (cabecera → área de trabajo) */
@@ -2305,13 +2309,14 @@ a.law-title-link:hover {
 a.global-search-hit__title-link {
   display: block;
   color: #93c5fd;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
   cursor: pointer;
 }
 
 a.global-search-hit__title-link:hover {
   color: #bfdbfe;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 .global-search-hit__sub {
@@ -2355,6 +2360,8 @@ body.theme-light a.global-search-hit__title-link {
 
 body.theme-light a.global-search-hit__title-link:hover {
   color: #1e40af;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 body.theme-light .global-search-hit__sub {
@@ -2967,14 +2974,15 @@ body.theme-light .about-section__photo img {
 .about-help-link {
   color: var(--accent);
   font-weight: 650;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .about-academic-link:hover,
 .about-help-link:hover {
   color: var(--accent-2);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 .about-academic-link:focus-visible,
@@ -3027,13 +3035,14 @@ body.theme-light .about-section__photo img {
 
 a.about-pub-venue-link {
   color: #1d4ed8;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
   cursor: pointer;
 }
 
 a.about-pub-venue-link:hover {
   color: #1e40af;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 a.about-pub-venue-link:focus-visible {
@@ -3709,13 +3718,14 @@ body.theme-light .soft-skills-refs__title {
 
 .soft-skills-refs__list a {
   color: var(--accent, #7aa2ff);
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
   min-width: 0;
 }
 
 .soft-skills-refs__list a:hover {
   color: var(--accent-2, #97b8ff);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 body.theme-light .soft-skills-refs__list a {
@@ -4239,12 +4249,13 @@ body.theme-light .theme-switch-btn.active {
 
 .site-footer a {
   color: #1d4ed8;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
 }
 
 .site-footer a:hover {
   color: #1e40af;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 /*
