@@ -592,6 +592,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Soft Skills: tags sin corchetes (solo la palabra del dominio).
 
+## 1.8.10
+
+- Soft Skills: ampliar el dibujo de la ficha Adaptabilidad y resiliencia.
+
 ---
 
 ## Convención (recordatorio)
@@ -742,3 +746,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.8.7** | Soft Skills: colores vivos y contraste legible en fichas |
 | **1.8.8** | Soft Skills: reset colores naturales realistas sin filtros |
 | **1.8.9** | Soft Skills: tags sin corchetes |
+| **1.8.10** | Soft Skills: dibujo mayor en Adaptabilidad |
