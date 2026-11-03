@@ -3949,6 +3949,14 @@ body.theme-light .bc-bd-section__chevron {
   text-justify: inter-word;
 }
 
+.bc-bd-section__body p {
+  margin: 0;
+}
+
+.bc-bd-section__body p + p {
+  margin-top: 0.7rem;
+}
+
 body.theme-light .bc-bd-section__body {
   color: #1e293b;
 }
@@ -4009,34 +4017,67 @@ body.theme-light .bc-bd-figure__credit a:hover {
 }
 
 .bc-bd-examples {
-  margin-top: 0.55rem;
-  padding: 0.5rem 0.55rem 0.55rem 0.7rem;
-  border-left: 3px solid rgba(122, 162, 255, 0.55);
-  background: rgba(10, 18, 40, 0.28);
+  margin-top: 0.7rem;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  background: rgba(6, 78, 59, 0.28);
+  overflow: hidden;
 }
 
 body.theme-light .bc-bd-examples {
-  background: rgba(37, 99, 235, 0.06);
-  border-left-color: rgba(37, 99, 235, 0.45);
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(5, 150, 105, 0.4);
+}
+
+.bc-bd-examples__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  color: #bbf7d0;
+}
+
+.bc-bd-examples__summary::-webkit-details-marker {
+  display: none;
+}
+
+body.theme-light .bc-bd-examples__summary {
+  color: #065f46;
 }
 
 .bc-bd-examples__title {
-  margin: 0 0 0.35rem;
+  margin: 0;
   font-size: 0.78rem;
   font-weight: 750;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--accent, #7aa2ff);
+  color: inherit;
+  min-width: 0;
 }
 
-body.theme-light .bc-bd-examples__title {
-  color: #1e3a8a;
+.bc-bd-examples__chevron {
+  flex: 0 0 auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -0.12rem;
+  transition: transform 0.15s ease;
+}
+
+.bc-bd-examples[open] > .bc-bd-examples__summary .bc-bd-examples__chevron {
+  transform: rotate(225deg);
+  margin-top: 0.1rem;
 }
 
 .bc-bd-examples__list {
   margin: 0;
-  padding-left: 1.1rem;
-  color: #dbe7ff;
+  padding: 0 0.7rem 0.65rem 1.35rem;
+  color: #d1fae5;
   font-size: 0.84rem;
   line-height: 1.45;
   text-align: justify;
@@ -4044,11 +4085,11 @@ body.theme-light .bc-bd-examples__title {
 }
 
 .bc-bd-examples__list li + li {
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
 }
 
 body.theme-light .bc-bd-examples__list {
-  color: #334155;
+  color: #064e3b;
 }
 
 .bc-bd-refs {

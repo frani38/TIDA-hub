@@ -3269,8 +3269,8 @@
                       <div class="bc-bd-lede" id="bc-bd-lede"></div>
                       <div id="bc-bd-columns" class="bc-bd-columns" aria-live="polite"></div>
                       <footer class="soft-skills-refs bc-bd-refs" id="bc-bd-refs" hidden></footer>
-                    </div>
-                  `
+                  </div>
+                `
                 : `
                   <div class="empty-state construction-notice">
                     <strong>PRÓXIMAMENTE</strong>
@@ -4215,14 +4215,26 @@
                         </figure>
                       `
                       : "";
+                    const bodyParts = body
+                      .split(/\n\s*\n/)
+                      .map((p) => String(p || "").trim())
+                      .filter(Boolean);
+                    const bodyHtml = bodyParts.length
+                      ? `<div class="bc-bd-section__body">${bodyParts
+                          .map((p) => `<p>${allowBcHtml(p)}</p>`)
+                          .join("")}</div>`
+                      : "";
                     const examplesHtml = examples.length
                       ? `
-                        <div class="bc-bd-examples">
-                          <h5 class="bc-bd-examples__title">Ejemplos y propuestas de aula</h5>
+                        <details class="bc-bd-examples">
+                          <summary class="bc-bd-examples__summary">
+                            <span class="bc-bd-examples__title">Ejemplos y propuestas de aula</span>
+                            <span class="bc-bd-examples__chevron" aria-hidden="true"></span>
+                          </summary>
                           <ul class="bc-bd-examples__list">
                             ${examples.map((ex) => `<li>${escapeHtml(ex)}</li>`).join("")}
                           </ul>
-                        </div>
+                        </details>
                       `
                       : "";
                     if (!title && !body) return "";
@@ -4233,7 +4245,7 @@
                           <span class="bc-bd-section__chevron" aria-hidden="true"></span>
                         </summary>
                         <div class="bc-bd-section__content">
-                          ${body ? `<div class="bc-bd-section__body">${allowBcHtml(body)}</div>` : ""}
+                          ${bodyHtml}
                           ${figureHtml}
                           ${examplesHtml}
                         </div>
