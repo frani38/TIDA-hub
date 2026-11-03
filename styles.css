@@ -3399,11 +3399,7 @@ body.theme-light .soft-skill-card__visual {
   filter: none;
 }
 
-/* Adaptabilidad: el motivo ocupa poco del encuadre; acercar el dibujo sin cambiar el arte. */
-.soft-skill-card[data-soft-skill-id="ss_adaptabilidad"] {
-  grid-template-columns: minmax(170px, 240px) 1fr;
-}
-
+/* Adaptabilidad: acercar el dibujo; el recuadro mantiene el mismo tamaño que el resto. */
 .soft-skill-card[data-soft-skill-id="ss_adaptabilidad"] .soft-skill-card__img {
   transform: scale(1.32);
   transform-origin: 48% 52%;
@@ -4936,14 +4932,6 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   .soft-skill-card__visual {
     max-width: min(100%, 220px);
     margin-inline: auto;
-  }
-
-  .soft-skill-card[data-soft-skill-id="ss_adaptabilidad"] {
-    grid-template-columns: 1fr;
-  }
-
-  .soft-skill-card[data-soft-skill-id="ss_adaptabilidad"] .soft-skill-card__visual {
-    max-width: min(100%, 260px);
   }
 
   .soft-skill-card__definition {
