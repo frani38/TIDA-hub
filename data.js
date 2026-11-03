@@ -1669,7 +1669,7 @@ window.MYWEB_DATA = {
           "Usar una lista compartida (papel o digital) con el estado real de cada parte del trabajo."
         ],
         examplesProfessional: [
-          "En un arranque de línea o commissioning, fijar un responsable claro por entrega entre ingeniería, producción y compras.",
+          "En un arranque de línea o puesta en marcha, fijar un responsable claro por entrega entre ingeniería, producción y compras.",
           "Mantener el plan del proyecto (WBS/Gantt o tablero) donde cada área industrial actualiza su estado real.",
           "Pedir apoyo a mantenimiento u oficina técnica indicando qué falta, para cuándo y qué hito se bloquea si no llega.",
           "Hacer un daily o reunión de interfaz cuando haya dependencias críticas entre diseño, fabricación y montaje."
@@ -1868,7 +1868,7 @@ window.MYWEB_DATA = {
         ],
         examplesProfessional: [
           "Reservar tiempo fijo para normas, procedimientos de planta o herramientas nuevas de ingeniería del área.",
-          "Al cerrar un proyecto o un commissioning, anotar 2 lecciones aprendidas y compartirlas con el equipo técnico.",
+          "Al cerrar un proyecto o una puesta en marcha, anotar 2 lecciones aprendidas y compartirlas con el equipo técnico.",
           "Pedir formación o mentoría concreta cuando cambie la máquina, el software de diseño, la norma o el proceso.",
           "Aplicar en el siguiente paquete de ingeniería algo aprendido en un curso, manual de fabricante o incidencia reciente."
         ]
