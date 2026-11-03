@@ -30,13 +30,15 @@
 
   function wireVersionedLinks(ver) {
     if (!ver || !global.document) return;
-    var nodes = global.document.querySelectorAll('a[href*="privacidad.html"], a[href*="index.html"]');
+    var nodes = global.document.querySelectorAll(
+      'a[href*="privacidad.html"], a[href*="index.html"], a[href*="asistencia-ia.html"]'
+    );
     for (var i = 0; i < nodes.length; i++) {
       var a = nodes[i];
       var href = String(a.getAttribute("href") || "");
       if (!href || href.indexOf("javascript:") === 0) continue;
       if (/^https?:\/\//i.test(href) && href.indexOf(global.location.origin) !== 0) continue;
-      if (/privacidad\.html/i.test(href) || /index\.html/i.test(href)) {
+      if (/privacidad\.html/i.test(href) || /index\.html/i.test(href) || /asistencia-ia\.html/i.test(href)) {
         a.setAttribute("href", withBust(href, ver));
       }
     }

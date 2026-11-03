@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.7**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.8**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -693,6 +693,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Blockchain y Big Data: figura SVG nítida en los 12 apartados (español); retirados rasters pixelados; pies y créditos alineados.
 
+## 1.9.8
+
+- Pie: enlace «Asistencia IA» a página breve de transparencia sobre el uso de Cursor (desarrollo y contenidos, con revisión humana).
+
 ---
 
 ## Convención (recordatorio)
@@ -868,3 +872,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.5** | Blockchain/Big Data: párrafos + ejemplos verdes anidados |
 | **1.9.6** | Blockchain/Big Data: pies de figura cursiva/centrados |
 | **1.9.7** | Blockchain/Big Data: 12 figuras SVG propias nítidas |
+| **1.9.8** | Pie: Asistencia IA → página de transparencia |
