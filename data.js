@@ -1623,11 +1623,15 @@ window.MYWEB_DATA = {
   // domains canónicos: cognición | colaboración | comunicación | autogestión | digital
   softSkills: {
     intro:
-      "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong> o <strong>socioemocionales</strong>) son capacidades transversales que complementan el conocimiento técnico. No sustituyen saber hacer un cálculo, un circuito o un procedimiento: aportan cómo se <strong>piensa con evidencia</strong>, se <strong>colabora</strong>, se <strong>comunica</strong>, se <strong>adapta</strong> y se <strong>aprende de forma continua</strong>. Incluyen el juicio crítico ante la información y las herramientas digitales, y la capacidad de actuar con <strong>criterio propio</strong> en el <strong>estudio</strong> y en el <strong>trabajo</strong> (empresa, industria, proyectos, operaciones, I+D y servicios). Estas fichas describen cada competencia en términos teóricos y la ilustran con ejemplos para el <strong>alumnado</strong> y para entornos laborales.",
+      "Las <strong>soft skills</strong> (también llamadas competencias <strong>humanas</strong> o <strong>socioemocionales</strong>) son capacidades transversales que complementan el conocimiento técnico. No sustituyen saber hacer un cálculo, un circuito o un procedimiento: aportan cómo se <strong>piensa con evidencia</strong>, se <strong>colabora</strong>, se <strong>comunica</strong>, se <strong>adapta</strong> y se <strong>aprende de forma continua</strong>. Incluyen el juicio crítico ante la información y las herramientas digitales, y la capacidad de actuar con <strong>criterio propio</strong> en el <strong>estudio</strong> y en el <strong>trabajo</strong>. Estas fichas describen cada competencia de forma general y la ilustran con ejemplos para el <strong>alumnado</strong> y para entornos laborales.",
     changelog: [
       {
         publishedAt: "2026-11-02",
         text: "Nueva sección Soft Skills: fichas con ejemplos académico/laboral, filtro por dominio e ilustraciones con paleta unificada."
+      },
+      {
+        publishedAt: "2026-11-03",
+        text: "Soft Skills: descripciones más generales y ejemplos laborales redactados íntegramente en español."
       }
     ],
     items: [
@@ -1639,7 +1643,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_comunicacion.jpg",
         definition:
-          "Capacidad de transmitir información <strong>precisa</strong>, <strong>ordenada</strong> y usable para quien debe actuar: objetivo, hechos relevantes y siguiente decisión. Incluye <strong>escucha activa</strong> e influencia social: no es «hablar mucho», sino <strong>reducir ambigüedad</strong> —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Una comunicación clara distingue hechos, supuestos y peticiones, elige el canal adecuado y comprueba que el mensaje se ha entendido. Evita malentendidos de enunciados o requisitos, retrabajo y fricción entre personas o áreas (diseño, compras, producción, calidad, comercial, dirección). En el aula y en la organización, convierte ideas dispersas en acuerdos operativos.",
+          "Capacidad de transmitir información <strong>precisa</strong>, <strong>ordenada</strong> y útil para quien debe actuar: objetivo, hechos relevantes y siguiente paso. Incluye <strong>escucha activa</strong>: no es «hablar mucho», sino <strong>reducir ambigüedad</strong> —qué se sabe, qué se ignora y qué se necesita de la otra parte—. Una comunicación clara distingue hechos, supuestos y peticiones, elige el canal adecuado y comprueba que el mensaje se ha entendido. Así se evitan malentendidos, retrabajo y fricción entre personas o equipos.",
         examplesAcademic: [
           "En un ensayo o comentario, separar qué dice el texto, qué opina el alumnado y cuál es la conclusión.",
           "En un problema de Matemáticas o Física, escribir datos, fórmula y pasos; no solo el resultado final.",
@@ -1647,10 +1651,10 @@ window.MYWEB_DATA = {
           "Al pedir apoyo al profesorado, indicar exactamente el punto de duda (página, ejercicio o paso)."
         ],
         examplesProfessional: [
-          "Enviar al comité de proyecto un estado que separe hechos (hito, coste, incidencia de planta) de opiniones.",
-          "Redactar una especificación o pedido de ingeniería con tolerancias, normas y criterios de aceptación medibles.",
-          "Explicar a dirección de planta o de proyecto qué cambia en plazo, CAPEX/OPEX y riesgo si se amplía el alcance.",
-          "Cerrar una reunión de coordinación con decisión tomada, responsable de ingeniería/producción y fecha de hito."
+          "Enviar un informe de estado que separe hechos (avance, coste, incidencia) de opiniones.",
+          "Redactar un pedido o una especificación con requisitos claros y criterios de aceptación medibles.",
+          "Explicar a la dirección qué cambia en plazo, coste y riesgo si se amplía el alcance del trabajo.",
+          "Cerrar una reunión de coordinación con la decisión tomada, la persona responsable y la fecha acordada."
         ]
       },
       {
@@ -1661,7 +1665,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_equipo.jpg",
         definition:
-          "Coordinación deliberada de personas con <strong>roles</strong>, <strong>interfaces</strong> y plazos compartidos. Se apoya en <strong>colaboración</strong>, <strong>empatía</strong> y escucha activa, porque el fallo suele estar en las interfaces, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en <strong>responsabilidades visibles</strong>, sincronización de entregas y respeto a dependencias —en el aula, en planta o entre departamentos y proveedores—. Un equipo eficaz hace explícito quién decide, quién informa y qué queda bloqueado si falta una entrega; también reparte carga y reconoce aportaciones para sostener la cooperación en el tiempo.",
+          "Coordinación deliberada de personas con <strong>roles</strong>, puntos de encuentro y plazos compartidos. Se apoya en <strong>colaboración</strong>, <strong>empatía</strong> y escucha activa, porque el fallo suele estar en las conexiones entre tareas, no en el talento individual. No consiste en «hacer todos lo mismo a la vez», sino en <strong>responsabilidades visibles</strong>, sincronización de entregas y respeto a las dependencias. Un equipo eficaz hace explícito quién decide, quién informa y qué queda bloqueado si falta una entrega; también reparte la carga y reconoce aportaciones para sostener la cooperación en el tiempo.",
         examplesAcademic: [
           "En un trabajo grupal, repartir partes (buscar, redactar, presentar) y fijar una fecha de revisión antes de entregar.",
           "En el laboratorio o taller, rotar quién mide, quién anota y quién limpia, para que todo el alumnado practique.",
@@ -1669,10 +1673,10 @@ window.MYWEB_DATA = {
           "Usar una lista compartida (papel o digital) con el estado real de cada parte del trabajo."
         ],
         examplesProfessional: [
-          "En un arranque de línea o puesta en marcha, fijar un responsable claro por entrega entre ingeniería, producción y compras.",
-          "Mantener el plan del proyecto (WBS/Gantt o tablero) donde cada área industrial actualiza su estado real.",
-          "Pedir apoyo a mantenimiento u oficina técnica indicando qué falta, para cuándo y qué hito se bloquea si no llega.",
-          "Hacer un daily o reunión de interfaz cuando haya dependencias críticas entre diseño, fabricación y montaje."
+          "Al iniciar un proyecto, fijar una persona responsable clara por cada entrega entre las áreas implicadas.",
+          "Mantener un plan o tablero compartido donde cada área actualiza el estado real de su trabajo.",
+          "Pedir apoyo a otra área indicando qué falta, para cuándo y qué hito se bloquea si no llega.",
+          "Convocar una reunión breve de coordinación cuando haya dependencias críticas entre equipos."
         ]
       },
       {
@@ -1683,7 +1687,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_critico.jpg",
         definition:
-          "Evaluar afirmaciones y propuestas con criterios de <strong>evidencia</strong>: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> se concreta aquí como <strong>comprobar antes de decidir</strong> —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de IA, datos de mercado o informes de proveedor, y distinguir lo demostrable de lo meramente plausible. También implica formular buenas preguntas, detectar sesgos o lagunas y aceptar revisar una conclusión cuando aparecen datos mejores. En estudio e industria reduce errores costosos al separar opinión, hipótesis y prueba.",
+          "Evaluar afirmaciones y propuestas con criterios de <strong>evidencia</strong>: fuente, método, límites y consecuencias. El <strong>pensamiento analítico</strong> se concreta aquí como <strong>comprobar antes de decidir</strong> —no como «pensar en negativo»—. Incluye contrastar apuntes, tutoriales, salidas de inteligencia artificial u otros informes, y distinguir lo demostrable de lo meramente plausible. También implica formular buenas preguntas, detectar sesgos o lagunas y aceptar revisar una conclusión cuando aparecen datos mejores. En el estudio y en el trabajo reduce errores al separar opinión, hipótesis y prueba.",
         examplesAcademic: [
           "Antes de memorizar una fórmula o una fecha, contrastarla con el libro y con los apuntes del alumnado.",
           "Si un resultado de laboratorio parece demasiado «redondo», repetir la medida o revisar las unidades.",
@@ -1691,10 +1695,10 @@ window.MYWEB_DATA = {
           "No dar por buena una respuesta de IA o de un vídeo sin comprobarla con material fiable."
         ],
         examplesProfessional: [
-          "Comparar la oferta de un proveedor industrial con ensayos, normas aplicables y casos reales de planta.",
-          "Ante un OEE o KPI de calidad muy positivo, preguntar qué queda fuera del indicador y qué riesgo oculta.",
-          "Separar correlación de causalidad al interpretar datos de proceso, scrap o paradas no planificadas.",
-          "Pedir evidencia (ensayo, medición, FAT/SAT o referencia normativa) antes de aprobar un cambio de diseño o proceso."
+          "Comparar una oferta de proveedor con ensayos, normas aplicables y casos reales similares.",
+          "Ante un indicador de calidad o rendimiento muy positivo, preguntar qué queda fuera de la medida y qué riesgo oculta.",
+          "Separar correlación de causalidad al interpretar datos de actividad, rechazos o incidencias.",
+          "Pedir evidencia (ensayo, medición o referencia normativa) antes de aprobar un cambio relevante."
         ]
       },
       {
@@ -1705,7 +1709,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_tiempo.jpg",
         definition:
-          "Planificación por <strong>hitos realistas</strong> y control del alcance cuando aparece el retraso. Se relaciona con <strong>fiabilidad</strong>, <strong>priorización</strong> y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. Incluye estimar esfuerzo con honestidad, secuenciar dependencias y comunicar desvíos a tiempo. En el estudio evita entregas sin revisión; en industria y empresa evita llegadas a arranque, auditoría o cliente sin evidencia suficiente. Gestionar el tiempo es gestionar compromiso y calidad, no solo el reloj.",
+          "Planificación por <strong>hitos realistas</strong> y control del alcance cuando aparece el retraso. Se relaciona con <strong>fiabilidad</strong>, <strong>priorización</strong> y gestión de recursos: no es solo «estar ocupado», sino desbloquear la entrega, reservar margen de verificación y decidir qué se recorta si el calendario se tensa. Incluye estimar el esfuerzo con honestidad, secuenciar dependencias y comunicar desvíos a tiempo. Gestionar el tiempo es gestionar compromiso y calidad, no solo el reloj.",
         examplesAcademic: [
           "Planificar la semana de exámenes: teoría, ejercicios y un repaso corto; no dejarlo todo para la noche anterior.",
           "En un trabajo largo, reservar el último día solo para revisar formato, citas y erratas.",
@@ -1713,10 +1717,10 @@ window.MYWEB_DATA = {
           "Marcar fechas intermedias (borrador, ensayo de exposición) además de la entrega final."
         ],
         examplesProfessional: [
-          "Incluir en el cronograma del proyecto tiempo para pruebas, homologación, formación de operadores y puesta en marcha.",
-          "Si el plazo de entrega a planta aprieta, recortar extras no críticos antes de saltarse la verificación o el FAT.",
-          "Entregar paquetes de ingeniería revisables (P&ID, planos, protocolos) en hitos, no un único cierre a última hora.",
-          "Avisar pronto del deslizamiento de un hito con nueva fecha, impacto en ruta crítica y acciones de recuperación."
+          "Incluir en el cronograma tiempo para pruebas, formación del equipo y revisión final antes de la entrega.",
+          "Si el plazo aprieta, recortar extras no críticos antes de saltarse la verificación.",
+          "Entregar partes revisables en hitos intermedios, no un único cierre a última hora.",
+          "Avisar pronto del deslizamiento de un hito con nueva fecha, impacto y acciones de recuperación."
         ]
       },
       {
@@ -1727,7 +1731,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_conflictos.jpg",
         definition:
-          "Abordar desacuerdos centrándose en <strong>hechos observables</strong>, impacto en el objetivo común y <strong>opciones de acción</strong>, no en etiquetas personales. Requiere influencia social, <strong>empatía</strong> y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. Implica escuchar posiciones, buscar intereses compartidos y dejar por escrito el acuerdo. La misma lógica sirve en un grupo de estudiantes y en una organización con planta, oficina técnica, comercial y dirección: el objetivo no es «ganar» la discusión, sino desbloquear el trabajo con criterios explícitos.",
+          "Abordar desacuerdos centrándose en <strong>hechos observables</strong>, impacto en el objetivo común y <strong>opciones de acción</strong>, no en etiquetas personales. Requiere <strong>empatía</strong> y liderazgo situacional: un conflicto bien gestionado acelera decisiones; uno mal gestionado degrada el clima y congela el avance. Implica escuchar posiciones, buscar intereses compartidos y dejar por escrito el acuerdo. El objetivo no es «ganar» la discusión, sino desbloquear el trabajo con criterios explícitos.",
         examplesAcademic: [
           "Pasar de acusaciones personales a hechos y tareas («falta el apartado X para el viernes; unas personas hacen las tablas y otras la conclusión»).",
           "Si hay dos formas de hacer el informe, decidir con el enunciado y la rúbrica, no por quién habla más alto.",
@@ -1735,32 +1739,32 @@ window.MYWEB_DATA = {
           "Proponer una solución concreta (quién hace qué y cuándo) en lugar de quedarse solo en la queja."
         ],
         examplesProfessional: [
-          "Pasar de acusaciones entre producción e ingeniería a hechos y propuesta («sin fecha de material no cerramos montaje; 20 minutos de interfaz»).",
-          "Elegir entre alternativas de diseño o suministro con criterios compartidos: coste, plazo, riesgo, calidad y seguridad.",
-          "Mediar entre planta, calidad y proveedor partiendo de un dato común (incidencia, medición, cláusula contractual).",
-          "Documentar el acuerdo del comité de proyecto para que no se reabra el conflicto en la siguiente reunión de avance."
+          "Pasar de acusaciones entre áreas a hechos y propuesta («sin fecha de material no cerramos la entrega; 20 minutos de coordinación»).",
+          "Elegir entre alternativas con criterios compartidos: coste, plazo, riesgo, calidad y seguridad.",
+          "Mediar entre equipos o con un proveedor partiendo de un dato común (incidencia, medición o cláusula contractual).",
+          "Documentar el acuerdo de la reunión para que no se reabra el conflicto en el siguiente encuentro."
         ]
       },
       {
         id: "ss_feedback",
-        title: "Feedback (dar y recibir)",
+        title: "Retroalimentación (dar y recibir)",
         domains: ["comunicación"],
         addedAt: "2026-11-02",
         updatedAt: "2026-11-03",
         image: "./softskills/ss_feedback.jpg",
         definition:
-          "Intercambio de información orientado a mejorar un entregable o un proceso: <strong>concreto</strong>, <strong>oportuno</strong> y <strong>accionable</strong>. Incorpora <strong>escucha activa</strong>: dar feedback describe el trabajo, no ataca a la persona; recibirlo implica aclarar y decidir un cambio, sin defensividad automática. Un buen feedback prioriza una o dos mejoras útiles, aporta criterios o ejemplos y deja espacio para preguntas. Es base del aprendizaje continuo en el aula y de la mejora de calidad en la organización: sin retorno veraz, los errores se repiten y el progreso se vuelve opaco.",
+          "Intercambio de información orientado a mejorar un trabajo o un proceso: <strong>concreto</strong>, <strong>oportuno</strong> y <strong>aplicable de inmediato</strong>. Incorpora <strong>escucha activa</strong>: dar retroalimentación describe el trabajo, no ataca a la persona; recibirla implica aclarar y decidir un cambio, sin ponerse a la defensiva de inmediato. Una buena retroalimentación prioriza una o dos mejoras útiles, aporta criterios o ejemplos y deja espacio para preguntas. Sin retorno veraz, los errores se repiten y el progreso se vuelve opaco.",
         examplesAcademic: [
           "Al revisar el trabajo de otras personas del grupo: señalar un acierto concreto y una mejora aplicable de inmediato.",
           "Tras una corrección del profesorado, anotar el tipo de error y cómo evitarlo en la siguiente entrega.",
           "Formular dudas concretas («no se entiende el paso 3 del ejercicio 5»), no un «no se entiende» genérico.",
-          "Al recibir feedback, resumir en una frase qué se va a cambiar para comprobar que se ha entendido."
+          "Al recibir retroalimentación, resumir en una frase qué se va a cambiar para comprobar que se ha entendido."
         ],
         examplesProfessional: [
-          "En revisión de protocolo o plano: «falta el criterio de aceptación» en lugar de «el documento está mal».",
-          "Preguntar en la revisión de ingeniería: «¿qué cambio concreto mejoraría seguridad, mantenibilidad o coste de planta?»",
-          "En un design review, señalar un acierto técnico claro y una mejora priorizada para el siguiente paquete.",
-          "Recibir una no conformidad o crítica de calidad pidiendo ejemplo, norma o medición, sin ponerse a la defensiva."
+          "En la revisión de un documento: «falta el criterio de aceptación» en lugar de «el documento está mal».",
+          "Preguntar en una revisión: «¿qué cambio concreto mejoraría seguridad, claridad o coste?»",
+          "Señalar un acierto claro y una mejora priorizada para la siguiente versión del trabajo.",
+          "Recibir una crítica pidiendo ejemplo o dato concreto, sin ponerse a la defensiva."
         ]
       },
       {
@@ -1771,7 +1775,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_autonomia.jpg",
         definition:
-          "Capacidad de avanzar con <strong>criterio propio</strong>: investigar, contrastar, documentar y pedir ayuda con evidencia. Se relaciona con <strong>motivación</strong>, <strong>autoconciencia</strong> y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; <strong>responsabilidad</strong> es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué), ante el profesorado, un equipo, un cliente o la organización. Incluye anticipar riesgos, organizar el material y dejar el trabajo usable por otras personas. Quien es autónomo reduce cuellos de botella y eleva la confianza del entorno.",
+          "Capacidad de avanzar con <strong>criterio propio</strong>: investigar, contrastar, documentar y pedir ayuda con evidencia. Se relaciona con <strong>motivación</strong>, <strong>autoconciencia</strong> y fiabilidad: autonomía no es aislarse, sino no depender de instrucciones constantes para cada paso; <strong>responsabilidad</strong> es hacerse cargo del resultado y de su trazabilidad (qué se decidió y por qué). Incluye anticipar riesgos, organizar el material y dejar el trabajo usable por otras personas. Quien es autónomo reduce cuellos de botella y eleva la confianza del entorno.",
         examplesAcademic: [
           "Antes de preguntar, revisar apuntes, libro y ejercicios; llegar al aula con el punto exacto de bloqueo.",
           "Organizar carpetas por asignatura y tema para encontrar el material sin empezar de cero.",
@@ -1779,10 +1783,10 @@ window.MYWEB_DATA = {
           "Entregar el trabajo listo para que otras personas lo entiendan: nombres claros, versiones y fuentes."
         ],
         examplesProfessional: [
-          "Dejar el expediente de ingeniería o de proyecto usable por quien continúe: decisiones, versiones, planos y pendientes.",
-          "Llegar a la reunión de incidencia con datos de proceso o medidas, no solo con la descripción del fallo.",
-          "Cerrar una tarea hasta verificar en banco, FAT o planta que cumple el criterio, no solo hasta «enviarlo».",
-          "Escalar un bloqueo técnico con el contexto preparado: qué se probó, qué falló, norma aplicable y qué se necesita."
+          "Dejar el expediente o carpeta del proyecto usable por quien continúe: decisiones, versiones y pendientes.",
+          "Llegar a una reunión de incidencia con datos o medidas, no solo con la descripción del problema.",
+          "Cerrar una tarea hasta verificar que cumple el criterio acordado, no solo hasta «enviarla».",
+          "Escalar un bloqueo con el contexto preparado: qué se probó, qué falló y qué se necesita."
         ]
       },
       {
@@ -1793,7 +1797,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_exponer.jpg",
         definition:
-          "Comunicar en poco tiempo el <strong>problema</strong>, la <strong>propuesta</strong>, la <strong>evidencia</strong> y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y desarrolla <strong>influencia social</strong> y claridad argumental. Una buena exposición adapta el lenguaje al público, anticipa objeciones y cierra con una petición concreta. Se practica en defensas escolares y se exige en comités, clientes, auditorías o defensa de inversiones industriales y empresariales: el objetivo es que quien escucha pueda decidir o actuar.",
+          "Comunicar en poco tiempo el <strong>problema</strong>, la <strong>propuesta</strong>, la <strong>evidencia</strong> y los límites del trabajo. Combina relato y prueba (sin datos no convence; sin estructura no se entiende) y desarrolla claridad argumental. Una buena exposición adapta el lenguaje al público, anticipa objeciones y cierra con una petición concreta. El objetivo es que quien escucha pueda decidir o actuar.",
         examplesAcademic: [
           "Estructurar la exposición: pregunta o tema → ideas clave → ejemplo o dato → conclusión.",
           "Ensayar en voz alta con el tiempo real marcado, no solo leer mentalmente las diapositivas.",
@@ -1801,10 +1805,10 @@ window.MYWEB_DATA = {
           "Preparar dos preguntas difíciles del tema y practicar la respuesta sin inventar."
         ],
         examplesProfessional: [
-          "Presentar al comité de inversión o al cliente industrial: problema → enfoque técnico → evidencia → riesgos y siguiente hito.",
-          "Traducir la solución de ingeniería a impacto en coste, plazo, seguridad o capacidad de planta.",
-          "Anticipar «¿qué pasa si falla el proveedor crítico o el proceso?» con un plan B realista y coste asociado.",
-          "Cerrar la exposición pidiendo una decisión clara: go/no-go, recurso, CAPEX o fecha de seguimiento."
+          "Presentar ante un comité o un cliente: problema → propuesta → evidencia → riesgos y siguiente hito.",
+          "Traducir la solución a impacto en coste, plazo, seguridad o capacidad de servicio.",
+          "Anticipar «¿qué pasa si falla un recurso crítico?» con un plan alternativo realista y su coste.",
+          "Cerrar la exposición pidiendo una decisión clara: seguir o no, recurso necesario o fecha de seguimiento."
         ]
       },
       {
@@ -1815,7 +1819,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_ia.jpg",
         definition:
-          "Emplear sistemas de inteligencia artificial como apoyo al trabajo con <strong>agencia humana</strong>: saber qué pueden y qué no pueden hacer, <strong>contrastar salidas</strong>, proteger datos y asumir la <strong>autoría</strong> y las consecuencias del resultado final. Implica <strong>ética</strong>, supervisión humana, atención a sesgos y <strong>privacidad</strong>, con una actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio. También exige documentar el uso cuando procede y evitar introducir información sensible en herramientas no autorizadas. En el aula y en la industria, la IA amplifica tanto el acierto como el error si falta criterio humano.",
+          "Emplear sistemas de inteligencia artificial como apoyo al trabajo manteniendo el <strong>criterio humano</strong>: saber qué pueden y qué no pueden hacer, <strong>contrastar salidas</strong>, proteger datos y asumir la <strong>autoría</strong> y las consecuencias del resultado final. Implica <strong>ética</strong>, supervisión humana, atención a sesgos y <strong>privacidad</strong>, con una actitud crítica pero abierta. No es «saber programar modelos»; es decidir cuándo usar la IA, cómo verificarla y cuándo no delegar el juicio. También exige documentar el uso cuando procede y evitar introducir información sensible en herramientas no autorizadas. La IA amplifica tanto el acierto como el error si falta ese criterio.",
         examplesAcademic: [
           "Usar la IA para un esquema o repaso y luego reescribir con palabras propias contrastando el libro.",
           "No pegar datos personales, exámenes ni trabajos ajenos en herramientas externas.",
@@ -1823,10 +1827,10 @@ window.MYWEB_DATA = {
           "Revisar fechas, fórmulas y citas: si la IA inventa algo, corregirlo antes de entregar."
         ],
         examplesProfessional: [
-          "Usar la IA para un borrador de procedimiento o informe y validarlo con normativa, planos y datos reales de planta.",
-          "No introducir P&ID, secretos industriales ni datos de cliente en sistemas de IA no autorizados por la empresa.",
-          "Documentar en el expediente qué parte se apoyó en IA y qué persona responsable de ingeniería revisó el resultado final.",
-          "Rechazar una recomendación automática de proceso o mantenimiento si no se puede justificar seguridad y conformidad."
+          "Usar la IA para un borrador de procedimiento o informe y validarlo con normativa y datos reales.",
+          "No introducir información confidencial ni datos de cliente en sistemas de IA no autorizados por la organización.",
+          "Documentar qué parte se apoyó en IA y qué persona responsable revisó el resultado final.",
+          "Rechazar una recomendación automática si no se puede justificar seguridad, calidad o cumplimiento."
         ]
       },
       {
@@ -1837,7 +1841,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_adaptabilidad.jpg",
         definition:
-          "Capacidad de reajustar planes, prioridades y enfoque cuando cambian las condiciones, manteniendo el objetivo y el criterio. Integra <strong>resiliencia</strong>, <strong>flexibilidad</strong> y <strong>agilidad</strong>. No es resignación ni improvisación caótica: es detectar el cambio, evaluar impacto, proponer alternativas y seguir entregando valor sin paralizarse ante la incertidumbre. Quien se adapta comunica el nuevo escenario, protege lo esencial y aprende del desvío. En entornos escolares e industriales, la adaptabilidad convierte imprevistos en replanificación útil en lugar de bloqueo o culpa.",
+          "Capacidad de reajustar planes, prioridades y enfoque cuando cambian las condiciones, manteniendo el objetivo y el criterio. Integra <strong>resiliencia</strong>, <strong>flexibilidad</strong> y capacidad de respuesta. No es resignación ni improvisación caótica: es detectar el cambio, evaluar el impacto, proponer alternativas y seguir avanzando sin paralizarse ante la incertidumbre. Quien se adapta comunica el nuevo escenario, protege lo esencial y aprende del desvío. La adaptabilidad convierte imprevistos en replanificación útil en lugar de bloqueo o culpa.",
         examplesAcademic: [
           "Si cambia la fecha de un examen, rehacer el plan de estudio ese mismo día: qué se mantiene y qué se recorta.",
           "Si un experimento falla, anotar la causa probable y diseñar la siguiente prueba; no abandonarlo.",
@@ -1845,10 +1849,10 @@ window.MYWEB_DATA = {
           "Cuando el enunciado de un trabajo se modifica, actualizar la lista de tareas y avisar al grupo."
         ],
         examplesProfessional: [
-          "Si cambia el alcance del proyecto o el proveedor crítico, actualizar riesgos, plazos y responsables en el plan maestro.",
-          "Tras una parada o incidente de planta, estabilizar, comunicar hechos y proponer contención antes de buscar culpables.",
-          "Cuando entra una nueva máquina, SCADA o norma, aprender el mínimo operativo para no bloquear al equipo de proyecto.",
-          "Si la ruta crítica deja de ser viable, proponer una alternativa concreta (resecuenciación, make-or-buy) con impacto y fecha."
+          "Si cambia el alcance del proyecto o un recurso crítico, actualizar riesgos, plazos y responsables en el plan.",
+          "Tras una incidencia grave, estabilizar la situación, comunicar hechos y proponer contención antes de buscar culpables.",
+          "Cuando entra una herramienta, norma o procedimiento nuevo, aprender lo esencial para no bloquear al equipo.",
+          "Si el plan deja de ser viable, proponer una alternativa concreta (reordenar tareas o encargar fuera) con impacto y fecha."
         ]
       },
       {
@@ -1859,7 +1863,7 @@ window.MYWEB_DATA = {
         updatedAt: "2026-11-03",
         image: "./softskills/ss_aprendizaje.jpg",
         definition:
-          "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. Une <strong>curiosidad</strong>, aprendizaje permanente y <strong>literacidad tecnológica</strong>. Implica formular buenas preguntas, buscar <strong>fuentes fiables</strong>, practicar y <strong>transferir</strong> lo aprendido a nuevas tareas —en el aula y en entornos donde la tecnología y los procesos cambian con rapidez—. El aprendizaje continuo no es acumular cursos: es cerrar el ciclo observar → practicar → revisar → aplicar. Quien lo cultiva mantiene competencia técnica y capacidad de reinventar el método cuando el contexto cambia.",
+          "Disposición a actualizar conocimientos y métodos de forma deliberada a lo largo del tiempo. Une <strong>curiosidad</strong>, aprendizaje permanente y alfabetización tecnológica. Implica formular buenas preguntas, buscar <strong>fuentes fiables</strong>, practicar y <strong>transferir</strong> lo aprendido a nuevas tareas. El aprendizaje continuo no es acumular cursos: es cerrar el ciclo observar → practicar → revisar → aplicar. Quien lo cultiva mantiene competencia y capacidad de reinventar el método cuando el contexto cambia.",
         examplesAcademic: [
           "Al terminar un tema, escribir 3 preguntas propias y buscarlas en el libro o en una fuente citada.",
           "Probar un método de estudio distinto (mapa, ejercicios cronometrados, explicar en voz alta) y quedarse con el que mejor funciona al grupo.",
@@ -1867,10 +1871,10 @@ window.MYWEB_DATA = {
           "Después de un examen, revisar los fallos y anotar qué se va a practicar la semana siguiente."
         ],
         examplesProfessional: [
-          "Reservar tiempo fijo para normas, procedimientos de planta o herramientas nuevas de ingeniería del área.",
-          "Al cerrar un proyecto o una puesta en marcha, anotar 2 lecciones aprendidas y compartirlas con el equipo técnico.",
-          "Pedir formación o mentoría concreta cuando cambie la máquina, el software de diseño, la norma o el proceso.",
-          "Aplicar en el siguiente paquete de ingeniería algo aprendido en un curso, manual de fabricante o incidencia reciente."
+          "Reservar tiempo fijo para normas, procedimientos o herramientas nuevas del área.",
+          "Al cerrar un proyecto, anotar 2 lecciones aprendidas y compartirlas con el equipo.",
+          "Pedir formación o acompañamiento concreto cuando cambie una herramienta, una norma o un proceso.",
+          "Aplicar en el siguiente trabajo algo aprendido en un curso, un manual o una incidencia reciente."
         ]
       }
     ],
