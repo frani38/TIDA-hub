@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.21**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.22**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -749,6 +749,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Declaración IA: matizar el rol del asistente (metas alcanzables en poco tiempo) y eliminar repeticiones entre párrafos.
 
+## 1.9.22
+
+- Asistencia IA: quitar «DECLARACIÓN RESPONSABLE» del título.
+
 ---
 
 ## Convención (recordatorio)
@@ -938,3 +942,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.19** | Declaración IA: título centrado = ancho del cuadro |
 | **1.9.20** | Declaración IA: cuadro más estrecho + texto de autoría/aprendizaje |
 | **1.9.21** | Declaración IA: matiz del asistente y menos repeticiones |
+| **1.9.22** | Asistencia IA: título sin «DECLARACIÓN RESPONSABLE» |
