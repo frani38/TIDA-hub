@@ -4619,29 +4619,30 @@ body.ai-assist-page #unit-title.privacy-block-heading {
   font-size: clamp(0.78rem, 1.55vw, 1.12rem);
 }
 
-/* Bloque más estrecho y centrado en el hueco bajo el título, sin scroll vertical. */
+/* Centrado vertical bajo el título; ancho alineado con el título (100%). */
 body.ai-assist-page .tab-panel {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   overflow: hidden;
 }
 
 body.ai-assist-page .privacy-stack {
   width: 100%;
-  max-width: 40rem;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
 }
 
 body.ai-assist-page .help-privacy.ai-assist-card,
 .ai-assist-card {
   width: 100%;
-  max-width: 40rem;
-  margin-inline: auto;
-  align-self: center;
+  max-width: none;
+  margin-inline: 0;
+  align-self: stretch;
+  box-sizing: border-box;
 }
 
 .ai-assist-body {
