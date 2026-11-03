@@ -4227,12 +4227,17 @@
                       : "";
                     if (!title && !body) return "";
                     return `
-                      <article class="bc-bd-section" id="${escapeHtml(String(sec?.id || "").trim())}">
-                        ${title ? `<h4 class="bc-bd-section__title">${escapeHtml(title)}</h4>` : ""}
-                        ${body ? `<div class="bc-bd-section__body">${allowBcHtml(body)}</div>` : ""}
-                        ${figureHtml}
-                        ${examplesHtml}
-                      </article>
+                      <details class="bc-bd-section" id="${escapeHtml(String(sec?.id || "").trim())}">
+                        <summary class="bc-bd-section__summary">
+                          <span class="bc-bd-section__title">${escapeHtml(title || "Apartado")}</span>
+                          <span class="bc-bd-section__chevron" aria-hidden="true"></span>
+                        </summary>
+                        <div class="bc-bd-section__content">
+                          ${body ? `<div class="bc-bd-section__body">${allowBcHtml(body)}</div>` : ""}
+                          ${figureHtml}
+                          ${examplesHtml}
+                        </div>
+                      </details>
                     `;
                   })
                   .join("");
