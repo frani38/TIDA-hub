@@ -20,7 +20,7 @@ window.MYWEB_DATA = {
   siteMeta: {
     version: "1.9.33",
     updated: "2026-11-04",
-    assetBust: "33",
+    assetBust: "34",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },
@@ -1851,6 +1851,213 @@ window.MYWEB_DATA = {
             ]
           }
         ]
+      }
+    ],
+    /* glossary: términos técnicos de la sección, orden alfabético en la UI. */
+    glossary: [
+      {
+        term: "Anonimización",
+        def: "Proceso de eliminar o transformar identificadores de modo que los datos ya no puedan asociarse a una persona concreta. Reduce riesgos de privacidad, pero no siempre es irreversible al 100 %."
+      },
+      {
+        term: "API",
+        def: "Interfaz de programación de aplicaciones: conjunto de reglas que permite a un programa pedir o enviar datos a otro servicio de forma estructurada."
+      },
+      {
+        term: "Append-only (solo añadir)",
+        def: "Modo de escritura en el que el historial se amplía al final y, en condiciones normales, no se reescribe el pasado en silencio."
+      },
+      {
+        term: "Aprendizaje automático",
+        def: "Conjunto de técnicas con las que un sistema aprende patrones a partir de datos de ejemplo para hacer predicciones o clasificaciones, sin programar a mano cada regla."
+      },
+      {
+        term: "Árbol de Merkle",
+        def: "Estructura que resume la integridad de muchas transacciones de un bloque en una sola huella compacta, facilitando su verificación."
+      },
+      {
+        term: "Big data (macrodatos)",
+        def: "Escenarios en los que el volumen, la velocidad y/o la variedad de los datos desbordan los métodos convencionales de gestión y análisis, y exigen infraestructuras y métodos específicos."
+      },
+      {
+        term: "Bifurcación",
+        def: "División de una cadena en dos historias posibles, a menudo por conflicto de reglas, de gobernanza o de versiones concurrentes."
+      },
+      {
+        term: "Blockchain (cadena de bloques)",
+        def: "Tipo de registro distribuido en el que las operaciones se agrupan en bloques enlazados cronológicamente mediante huellas digitales."
+      },
+      {
+        term: "Bloque",
+        def: "Paquete de información de la cadena: suele incluir transacciones, metadatos y la huella del bloque anterior."
+      },
+      {
+        term: "Cartera (wallet)",
+        def: "Software o dispositivo que gestiona claves y permite autorizar operaciones en una blockchain. No «guarda monedas» como un monedero físico; custodia secretos criptográficos."
+      },
+      {
+        term: "Clave privada",
+        def: "Secreto criptográfico que permite firmar operaciones. Quien la pierde o se la roban pierde, en la práctica, el control del activo asociado."
+      },
+      {
+        term: "Clave pública",
+        def: "Clave derivada de la privada que puede mostrarse. Sirve para que la red compruebe firmas sin revelar el secreto."
+      },
+      {
+        term: "Consenso",
+        def: "Conjunto de reglas públicas con las que los nodos acuerdan qué bloque nuevo se acepta y qué cadena se considera válida si hay versiones concurrentes."
+      },
+      {
+        term: "Contrato inteligente",
+        def: "Programa almacenado en el libro mayor y ejecutado por la red. Automatiza reglas del tipo «si se cumple la condición, se ejecuta la acción»."
+      },
+      {
+        term: "Correlación",
+        def: "Relación estadística en la que dos variables cambian juntas. No implica por sí sola que una cause la otra."
+      },
+      {
+        term: "Criptografía de clave pública",
+        def: "Sistema de dos claves (privada y pública) que permite firmar y verificar operaciones sin compartir el secreto. También llamada criptografía asimétrica."
+      },
+      {
+        term: "Criptomoneda",
+        def: "Aplicación construida sobre una blockchain para representar y transferir unidades de valor. No define por sí sola qué es una blockchain."
+      },
+      {
+        term: "Datos abiertos",
+        def: "Datos publicados con pocas barreras jurídicas y técnicas para que puedan reutilizarse. No equivalen automáticamente a big data."
+      },
+      {
+        term: "Datos estructurados",
+        def: "Información organizada en un esquema rígido, típicamente tablas con columnas tipadas (números, fechas, categorías)."
+      },
+      {
+        term: "Datos no estructurados",
+        def: "Información sin esquema tabular inmediato: texto libre, audio, vídeo, imágenes o comentarios."
+      },
+      {
+        term: "Datos semiestructurados",
+        def: "Información con marcas o campos flexibles (por ejemplo JSON o XML), con más variabilidad que una tabla rígida."
+      },
+      {
+        term: "Dirección",
+        def: "Identificador visible derivado de la clave pública (a menudo tras más hashes) al que se envían operaciones en el libro mayor."
+      },
+      {
+        term: "DLT (tecnología de registros distribuidos)",
+        def: "Familia de tecnologías que mantienen un historial compartido con múltiples copias entre participantes, actualizado según reglas de consenso."
+      },
+      {
+        term: "Firma digital",
+        def: "Prueba criptográfica generada con la clave privada que demuestra la autorización de una operación; la red la verifica con la clave pública."
+      },
+      {
+        term: "Gobierno abierto",
+        def: "Enfoque de transparencia y participación ciudadana en la administración. Puede usar datos abiertos, pero no se identifica con el big data."
+      },
+      {
+        term: "Hash (función resumen)",
+        def: "Procedimiento que transforma un contenido en una huella digital de longitud fija. Es determinista y muy sensible a cualquier cambio."
+      },
+      {
+        term: "Huella digital",
+        def: "Resultado del hash: código que actúa como firma del contenido y permite detectar si ha sido alterado."
+      },
+      {
+        term: "Inteligencia artificial (IA)",
+        def: "Conjunto de sistemas capaces de realizar tareas que suelen requerir inteligencia humana. Puede usar macrodatos, pero no es sinónimo de big data."
+      },
+      {
+        term: "Libro mayor (ledger)",
+        def: "Registro ordenado de asientos (movimientos, hechos o estados) que puede consultarse después. En blockchain es digital y compartido."
+      },
+      {
+        term: "Log",
+        def: "Registro automático de actividad de un sistema (accesos, errores, eventos) usado a menudo como fuente de datos."
+      },
+      {
+        term: "Minado",
+        def: "En prueba de trabajo, proceso de buscar un nonce válido para proponer el siguiente bloque; suele ser costoso en tiempo y energía."
+      },
+      {
+        term: "Minimización",
+        def: "Principio del RGPD: recoger solo los datos adecuados, pertinentes y limitados a la finalidad legítima declarada."
+      },
+      {
+        term: "Nodo",
+        def: "Participante de la red que guarda una copia del registro y/o ayuda a validar y propagar actualizaciones."
+      },
+      {
+        term: "Nonce",
+        def: "Número que se ajusta (por ejemplo en el minado) hasta que el hash del bloque cumple una condición de dificultad."
+      },
+      {
+        term: "Oráculo",
+        def: "Fuente externa que aporta al contrato inteligente datos del mundo real que el código no puede observar por sí solo."
+      },
+      {
+        term: "Previous hash",
+        def: "Huella del bloque anterior incluida en el bloque actual; es el enlace que construye la cadena."
+      },
+      {
+        term: "Prueba de participación (PoS)",
+        def: "Modelo de consenso en el que el derecho a proponer bloques se elige según reglas de participación o depósito, no por trabajo computacional intensivo."
+      },
+      {
+        term: "Prueba de trabajo (PoW)",
+        def: "Modelo de consenso en el que publicar un bloque exige resolver un problema costoso de calcular y barato de verificar."
+      },
+      {
+        term: "Red autorizada (permissioned)",
+        def: "Red en la que solo participan nodos previamente admitidos. Suele permitir un consenso más ligero y una gobernanza más explícita."
+      },
+      {
+        term: "Red abierta (permissionless)",
+        def: "Red en la que cualquiera puede participar según las reglas públicas; suele requerir incentivos fuertes para validar."
+      },
+      {
+        term: "RGPD",
+        def: "Reglamento General de Protección de Datos de la Unión Europea: norma que fija principios y derechos sobre el tratamiento de datos personales."
+      },
+      {
+        term: "Seudonimización",
+        def: "Sustitución de identificadores directos por códigos. Reduce riesgo, pero puede permitir reidentificar si se cruzan otras fuentes."
+      },
+      {
+        term: "Tamper-evident",
+        def: "Propiedad de un registro evidente ante manipulación: un cambio indebido deja rastro detectable."
+      },
+      {
+        term: "Tamper-resistant",
+        def: "Propiedad de resistencia a la manipulación: reescribir el pasado se vuelve cada vez más difícil o costoso conforme crece la cadena."
+      },
+      {
+        term: "Transacción",
+        def: "Operación o asiento que se registra en un bloque (por ejemplo, una transferencia o un cambio de estado)."
+      },
+      {
+        term: "Valor (V de big data)",
+        def: "Utilidad real de los datos para una decisión o una pregunta. Sin valor, el análisis puede ser costoso e inútil."
+      },
+      {
+        term: "Variabilidad",
+        def: "Dimensión adicional del big data: el significado de los datos cambia con el tiempo o el contexto y hay que gestionar inconsistencias."
+      },
+      {
+        term: "Variedad",
+        def: "Diversidad de formatos, estructuras y fuentes de los datos (tablas, texto, sensores, imágenes, etc.)."
+      },
+      {
+        term: "Velocidad",
+        def: "Ritmo al que se generan, actualizan o necesitan responder los datos; en algunos casos, casi en tiempo real."
+      },
+      {
+        term: "Veracidad",
+        def: "Calidad de los datos: exactitud, completitud, fiabilidad, sesgos y ruido de lo capturado."
+      },
+      {
+        term: "Volumen",
+        def: "Cantidad de datos disponibles; en macrodatos suele crecer hasta escalas que desbordan herramientas convencionales."
       }
     ],
     /* refs: un icono por entidad; varios enlaces en `links` para no repetir logo. */

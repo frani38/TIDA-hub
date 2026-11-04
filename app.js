@@ -1865,7 +1865,7 @@
     if (section === "miscelanea") {
       const mid = String(st.miscId || "").trim();
       const tab = String(st.tabId || "").trim();
-      if (mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "refs")) {
+      if (mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs")) {
         return `${base}#miscelanea/${encodeURIComponent(mid)}/${encodeURIComponent(tab)}`;
       }
       return mid ? `${base}#miscelanea/${encodeURIComponent(mid)}` : `${base}#miscelanea`;
@@ -2031,7 +2031,7 @@
         const parts = raw.slice("miscelanea/".length).split("/").filter(Boolean);
         miscId = decodeURIComponent(parts[0] || "");
         const maybeTab = decodeURIComponent(parts[1] || "");
-        if (miscId === "misc_bc" && (maybeTab === "blockchain" || maybeTab === "bigdata" || maybeTab === "refs")) {
+        if (miscId === "misc_bc" && (maybeTab === "blockchain" || maybeTab === "bigdata" || maybeTab === "glossary" || maybeTab === "refs")) {
           tabId = maybeTab;
         }
       }
@@ -2842,7 +2842,7 @@
         const mid = String(currentState.miscId || "").trim();
         const tab = String(currentState.tabId || "").trim();
         const inBcSub =
-          mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "refs");
+          mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs");
         if (inBcSub) {
           const sectionIt = items.find((x) => x.id === mid);
           currentState = { ...currentState, section: "miscelanea", miscId: mid, tabId: "" };
@@ -3118,7 +3118,7 @@
         miscId: nextMiscId,
         tabId:
           nextMiscId === "misc_bc" &&
-          (nextTabId === "blockchain" || nextTabId === "bigdata" || nextTabId === "refs")
+          (nextTabId === "blockchain" || nextTabId === "bigdata" || nextTabId === "glossary" || nextTabId === "refs")
             ? nextTabId
             : ""
       };
@@ -3305,6 +3305,11 @@
                             ${bcTopic === "bigdata" ? bcAsideTreeHtml : ""}
                           </div>
                           <a
+                            href="#miscelanea/misc_bc/glossary"
+                            class="bc-bd-aside-nav__link${bcTopic === "glossary" ? " is-active" : ""}"
+                            data-bc-topic="glossary"
+                          >GLOSARIO</a>
+                          <a
                             href="#miscelanea/misc_bc/refs"
                             class="bc-bd-aside-nav__link${bcTopic === "refs" ? " is-active" : ""}"
                             data-bc-topic="refs"
@@ -3371,6 +3376,7 @@
                         <div class="bc-bd-lede" id="bc-bd-lede"></div>
                       </div>
                       <div id="bc-bd-columns" class="bc-bd-columns${bcTopic ? " bc-bd-columns--single" : ""}" aria-live="polite"${bcTopic ? "" : " hidden"}></div>
+                      <div class="bc-bd-glossary" id="bc-bd-glossary" hidden></div>
                       <footer class="soft-skills-refs bc-bd-refs" id="bc-bd-refs" hidden></footer>
                   </div>
                 `
@@ -3399,7 +3405,7 @@
         const mid = String(it.id || "").trim();
         const tab = String(currentState.tabId || "").trim();
         const inBcSub =
-          mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "refs");
+          mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs");
         if (inBcSub) {
           currentState = { ...currentState, section: "miscelanea", miscId: mid, tabId: "" };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: false });
@@ -4289,11 +4295,13 @@
         const hubEl = document.getElementById("bc-bd-hub");
         const ledeEl = document.getElementById("bc-bd-lede");
         const colsEl = document.getElementById("bc-bd-columns");
+        const glossaryEl = document.getElementById("bc-bd-glossary");
         const refsEl = document.getElementById("bc-bd-refs");
         const assetV = escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim());
         const activeTopic =
-          bcTopic === "blockchain" || bcTopic === "bigdata" || bcTopic === "refs" ? bcTopic : "";
+          bcTopic === "blockchain" || bcTopic === "bigdata" || bcTopic === "glossary" || bcTopic === "refs" ? bcTopic : "";
         const showHub = !activeTopic;
+        const showGlossaryOnly = activeTopic === "glossary";
         const showRefsOnly = activeTopic === "refs";
         const showColumnTopic = activeTopic === "blockchain" || activeTopic === "bigdata";
 
@@ -4319,7 +4327,7 @@
 
         const openBcTopic = (topic, sectionId) => {
           const t = String(topic || "").trim();
-          if (t !== "blockchain" && t !== "bigdata" && t !== "refs") return;
+          if (t !== "blockchain" && t !== "bigdata" && t !== "glossary" && t !== "refs") return;
           const sid = String(sectionId || "").trim();
           currentState = { ...currentState, section: "miscelanea", miscId: "misc_bc", tabId: t };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: true }).then(() => {
@@ -4531,6 +4539,38 @@
                   <strong>PRÓXIMAMENTE</strong>
                 </div>
               `;
+          }
+        }
+
+        if (glossaryEl instanceof HTMLElement) {
+          const glossary = Array.isArray(pack?.glossary)
+            ? pack.glossary
+                .map((g) => ({
+                  term: String(g?.term || "").trim(),
+                  def: String(g?.def || "").trim()
+                }))
+                .filter((g) => g.term && g.def)
+                .sort((a, b) => a.term.localeCompare(b.term, "es", { sensitivity: "base" }))
+            : [];
+          if (!showGlossaryOnly || !glossary.length) {
+            glossaryEl.hidden = true;
+            glossaryEl.innerHTML = "";
+          } else {
+            glossaryEl.hidden = false;
+            glossaryEl.innerHTML = `
+              <h3 class="bc-bd-glossary__title">Glosario</h3>
+              <dl class="bc-bd-glossary__grid">
+                ${glossary
+                  .map(
+                    (g) => `
+                  <div class="bc-bd-glossary__item">
+                    <dt class="bc-bd-glossary__term">${escapeHtml(g.term)}</dt>
+                    <dd class="bc-bd-glossary__def">${escapeHtml(g.def)}</dd>
+                  </div>`
+                  )
+                  .join("")}
+              </dl>
+            `;
           }
         }
 
