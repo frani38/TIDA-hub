@@ -4411,18 +4411,28 @@
           ledeEl.hidden = !ledeEl.innerHTML.trim();
         }
 
+        const openBcHub = () => {
+          currentState = { ...currentState, section: "miscelanea", miscId: "misc_bc", tabId: "" };
+          void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: false });
+          animateContentSwitch();
+        };
+
         tabPanelEl.querySelectorAll("[data-bc-topic]").forEach((el) => {
           el.addEventListener("click", (ev) => {
             ev.preventDefault();
-            const topic = el.getAttribute("data-bc-topic");
+            const topic = String(el.getAttribute("data-bc-topic") || "").trim();
             const sectionId = el.getAttribute("data-bc-section");
             if (sectionId) {
-              const t = String(topic || "").trim();
-              if (activeTopic === t) {
+              if (activeTopic === topic) {
                 scrollToBcSection(sectionId);
               } else {
-                openBcTopic(t, sectionId);
+                openBcTopic(topic, sectionId);
               }
+              return;
+            }
+            // Si el apartado con árbol ya está abierto, replegar y volver al hub.
+            if ((topic === "blockchain" || topic === "bigdata") && activeTopic === topic) {
+              openBcHub();
               return;
             }
             openBcTopic(topic);
