@@ -20,7 +20,7 @@ window.MYWEB_DATA = {
   siteMeta: {
     version: "1.9.33",
     updated: "2026-11-04",
-    assetBust: "6",
+    assetBust: "7",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },
@@ -1620,7 +1620,7 @@ window.MYWEB_DATA = {
   ],
 
   // Blockchain y Big Data (Miscelánea → BLOCKCHAIN Y BIG DATA)
-  // Imágenes didácticas en ./blockchain/. changelog → NOVEDADES (una entrada de sección).
+  // Imágenes didácticas en ./blockchain_bigdata/. changelog → NOVEDADES (una entrada de sección).
   blockchainBigData: {
     intro:
       "La {{BC_LINK}} (cadena de bloques) es, en términos técnicos, un <strong>libro mayor digital distribuido</strong>: un historial de registros agrupados en bloques, enlazados mediante <strong>funciones resumen criptográficas</strong> (<em>hash</em>) y mantenido por una red de nodos que solo aceptan actualizaciones según reglas de <strong>validación</strong> y <strong>consenso</strong>. Su valor no reside en «ser misterioso» ni en equivaler automáticamente a una criptomoneda, sino en ofrecer un registro <strong>compartido</strong>, <strong>auditable</strong> y difícil de alterar en silencio sin que el cambio quede expuesto. Implica nociones de integridad de datos, firma digital, claves públicas y privadas, incentivos de red y límites (escalabilidad, consumo, irreversibilidad práctica, riesgos de custodia).\n\nEl {{BD_LINK}} (macrodatos) designa escenarios en los que el <strong>volumen</strong>, la <strong>velocidad</strong> y/o la <strong>variedad</strong> de los datos —junto con la <strong>veracidad</strong> y el <strong>valor</strong> que se les atribuye— desbordan los métodos convencionales de gestión y análisis. No se reduce a «muchas filas»: exige pensar en tipologías (estructurados, semiestructurados, no estructurados), ciclos de captura–procesamiento–decisión, calidad del dato, privacidad y el peligro de confundir correlación con causalidad o cantidad con evidencia.\n\nBlockchain y big data se relacionan en el ecosistema digital contemporáneo: la primera aporta mecanismos para <strong>registrar y verificar</strong> estados o eventos con garantías criptográficas; el segundo aporta la capacidad de <strong>generar, almacenar y analizar</strong> masas de información heterogénea a gran escala. En la práctica pueden converger (p. ej. anclar huellas de grandes conjuntos de datos, trazabilidad de procesos alimentados por sensores, o analítica sobre ledgers públicos), pero no son intercambiables: una blockchain no «resuelve» por sí sola el análisis masivo, y el big data no garantiza por sí solo integridad distribuida ni consenso entre partes que no se confían.\n\nEstudiarlos con rigor es especialmente pertinente en <strong>Digitalización</strong> (4.º de ESO) y en <strong>Tecnologías Digitales Aplicadas I y II</strong> (1.º y 2.º de Bachillerato), materias orientadas a comprender sistemas digitales reales, sus fundamentos, sus aplicaciones y sus implicaciones éticas y sociales.",
@@ -1646,7 +1646,7 @@ window.MYWEB_DATA = {
             body:
               "Una blockchain es, en lo esencial, un <strong>libro mayor digital</strong> (<em>ledger</em>) mantenido de forma <strong>distribuida</strong>. Como resume el Banco de España al hablar de <strong>tecnología de registros distribuidos (DLT)</strong>, se trata de una base de datos de la que existen múltiples copias idénticas entre varios participantes, actualizadas de manera sincronizada <strong>por consenso</strong>, y no por una autoridad central que certifique cada asiento. La blockchain es el modo más conocido de implementar ese registro: las operaciones se agrupan en bloques enlazados en orden cronológico.\n\nLa diferencia con una base de datos distribuida «tradicional» es clave. En esta última, los participantes suelen confiar unos en otros y colaboran para mantener la consistencia. En un DLT, esa confianza total no existe —o hay intereses contrapuestos—, de modo que hace falta un mecanismo colectivo de verificación antes de compartir las actualizaciones. Por eso el valor del diseño no es «guardar un archivo en muchos sitios», sino <strong>acordar un historial común entre partes que no tienen por qué confiarse de antemano</strong>.\n\nSegún el informe de <strong>datos.gob.es</strong> «Descubriendo las claves de Blockchain», las transacciones entre pares se ordenan en bloques; cada bloque lleva su propia <strong>huella digital</strong> y la del predecesor, de forma que los eslabones quedan unidos criptográficamente. Cada participante conserva una copia de la cadena y las copias deben mantenerse sincronizadas: cualquier cambio en una copia individual ha de propagarse al resto. Alterar la cadena en silencio resulta comparable, en la metáfora del propio informe, a intentar resolver un cubo de Rubik: el desajuste se hace evidente.\n\nEn condiciones normales de red, el registro es <strong>tamper-evident</strong> (la alteración deja huella detectable) y, a medida que se añaden bloques, <strong>tamper-resistant</strong> (reescribir el pasado se vuelve cada vez más costoso). Los nodos solo aceptan bloques que cumplan las reglas de validación y de consenso. En síntesis: blockchain no es sinónimo de «dinero digital», sino un mecanismo de <strong>registro compartido, auditable y verificable</strong> entre participantes. La criptomoneda es una aplicación posible sobre esa base, no la definición del concepto.",
             image: {
-              src: "./blockchain/bc_topologias.svg",
+              src: "./blockchain_bigdata/bc_topologias.svg",
               alt: "Tres topologías de red: centralizada, descentralizada y distribuida",
               caption:
                 "Figura 1. Topologías centralizada, descentralizada y distribuida: la blockchain opera como red distribuida.",
@@ -1663,7 +1663,7 @@ window.MYWEB_DATA = {
             body:
               "Una <strong>función resumen criptográfica</strong> (<em>hash</em>) —por ejemplo SHA-256— transforma una entrada de tamaño arbitrario en una <strong>huella</strong> de longitud fija. Es <strong>determinista</strong>: la misma entrada produce siempre la misma salida. Es muy <strong>sensible al cambio</strong>: alterar un solo bit modifica radicalmente la huella. En diseños criptográficos adecuados resulta inviable recuperar la entrada a partir de la huella o encontrar otra entrada distinta con la misma huella (colisión). En material didáctico de datos.gob.es, el hash se presenta precisamente como la «huella digital única» que permite detectar manipulaciones.\n\nEn una blockchain, cada bloque suele reunir el conjunto de datos (transacciones), metadatos (marca temporal, versión, etc.) y, de forma crítica, la <strong>huella del bloque anterior</strong> (<em>previous hash</em>). Esa referencia construye la cadena. Si alguien modifica un bloque antiguo, su huella deja de coincidir con la que cita el bloque siguiente y la ruptura se propaga hacia adelante. Bajo operación normal el historial es esencialmente <strong>append-only</strong>: se añade al final; no se reescribe en silencio.\n\nEn Bitcoin, el bloque incluye además un <em>nonce</em> —un número que se ajusta hasta que el hash del bloque cumple un umbral de dificultad— y la raíz de un árbol de Merkle sobre las transacciones (<em>Tx_root</em>), que compacta la integridad del conjunto de operaciones del bloque. El whitepaper traducido de Nakamoto y las guías institucionales coinciden en que esta estructura permite a cualquier nodo verificar, con reglas públicas, si un candidato a bloque es coherente con el historial ya aceptado.\n\nImporta no confundir «detectar el cambio» con «decidir cuál es la versión válida». El hash hace evidente la inconsistencia; el <strong>consenso</strong> es quien resuelve, entre posibles historias concurrentes, cuál se considera canónica. Sin esa segunda pieza, la criptografía sola no basta para coordinar una red de pares.",
             image: {
-              src: "./blockchain/bc_hash_bloque.svg",
+              src: "./blockchain_bigdata/bc_hash_bloque.svg",
               alt: "Sensibilidad del hash y tres bloques encadenados por el hash anterior",
               caption:
                 "Figura 2. Hash sensible al cambio y encadenamiento de bloques (prev → hash).",
@@ -1680,7 +1680,7 @@ window.MYWEB_DATA = {
             body:
               "Sin autoridad central hace falta un <strong>modelo de consenso</strong>: un protocolo que permita a nodos mutuamente desconfiados acordar qué bloque se publica a continuación y cuál es la cadena válida si aparecen versiones concurrentes. El Banco de España recuerda que los algoritmos de consenso existen precisamente para garantizar que los registros de todos los participantes sean idénticos y que no se produzcan fraudes ni duplicidades sin detección.\n\nEn <strong>prueba de trabajo</strong> (<em>proof of work</em>), un nodo gana el derecho a publicar resolviendo un problema costoso en tiempo y energía —típicamente, buscar un <em>nonce</em> cuyo hash cumpla un umbral de dificultad—. Verificar la solución, en cambio, es barato. Ese asimetría (caro publicar, barato comprobar) es el núcleo del «minado» popularizado por Bitcoin. El propio análisis del BdE advierte el elevado consumo energético asociado y los tiempos de proceso, lo que ha impulsado la búsqueda de alternativas.\n\nEn <strong>prueba de participación</strong> (<em>proof of stake</em>) y en otros modelos (autoridad, identidad, tiempo transcurrido, turnos, etc.), la selección del publicador sigue otras reglas, con perfiles distintos de coste, seguridad y gobernanza. En redes <strong>permissioned</strong> (participantes autorizados), el consenso suele ser más ligero porque la identidad de quien publica está controlada y puede revocarse si hay mal comportamiento.\n\nEl consenso no elimina el conflicto: lo formaliza. Si compiten dos cadenas válidas, muchas redes eligen la que acumula más «trabajo» o peso según su regla (por ejemplo, la cadena más larga en PoW). Entender el consenso es entender <strong>quién escribe la historia compartida</strong>, con qué incentivos y con qué coste. Sin esa capa, el hash solo detecta inconsistencias; no decide cuál versión debe prevalecer.",
             image: {
-              src: "./blockchain/bc_consenso.svg",
+              src: "./blockchain_bigdata/bc_consenso.svg",
               alt: "Propuestas de nodos, regla de consenso y cadena aceptada",
               caption:
                 "Figura 3. Consenso: propuestas de nodos, regla (PoW/PoS) y cadena aceptada.",
@@ -1697,7 +1697,7 @@ window.MYWEB_DATA = {
             body:
               "Además del hash y del consenso, la mayoría de las blockchains de valor usan <strong>criptografía de clave pública</strong> (asimétrica). Cada participante dispone de un par: una <strong>clave privada</strong> (secreta) y una <strong>clave pública</strong> derivada de ella. Firmar digitalmente una transacción con la privada demuestra control sobre un activo o un derecho sin revelar el secreto; la red comprueba la firma con la pública. El BdE resume la utilidad de esta criptografía en tres capacidades: autenticar al remitente, garantizar la integridad del mensaje y, cuando se cifra, impedir que un tercero lea el contenido interceptado.\n\nLas <strong>direcciones</strong> suelen obtenerse a partir de la clave pública, a menudo tras funciones hash adicionales. Quien pierde la privada pierde, en la práctica, el control del activo asociado: no hay un servicio central de «recuperar contraseña». Quien la roba puede actuar en nombre de la víctima. Por eso la seguridad del sistema no reside solo en la cadena, sino en la <strong>custodia de secretos</strong>, en el software de cartera (<em>wallet</em>) y en la higiene operativa del usuario.\n\nINCIBE y otras guías de ciudadanía digital insisten en un punto pedagógico esencial: distinguir «dirección o clave pública visible» de «clave privada secreta». La transparencia del libro mayor no equivale a anonimato absoluto. La AEPD, al analizar ecosistemas blockchain reales, recuerda además que carteras, exploradores, emisores de credenciales y otras capas del ecosistema pueden debilitar propiedades teóricas —incluido el anonimato supuesto— si no se diseñan con rigor.\n\nEn el aula conviene trabajar metáforas controladas (nunca claves reales con valor) y catálogos de riesgos: phishing, falsos soportes, capturas de semillas de recuperación, o transferencias sin verificar carácter a carácter. La criptografía protege el protocolo; la custodia humana sigue siendo el eslabón débil más frecuente.",
             image: {
-              src: "./blockchain/bc_claves.svg",
+              src: "./blockchain_bigdata/bc_claves.svg",
               alt: "Clave privada, clave pública y dirección derivadas en cadena",
               caption:
                 "Figura 4. De la clave privada a la pública y a la dirección: qué se guarda en secreto y qué se puede mostrar.",
@@ -1714,7 +1714,7 @@ window.MYWEB_DATA = {
             body:
               "Una <strong>criptomoneda</strong> (por ejemplo Bitcoin) es una <strong>aplicación</strong> construida sobre una blockchain, no el sinónimo del concepto. El mismo tipo de registro puede servir para otros estados compartidos: notarización de documentos, trazabilidad de suministro, identidad digital o prototipos de votación. datos.gob.es remarca que blockchain nació ligada a Bitcoin, pero su finalidad más amplia es intercambiar y registrar información digital de forma descentralizada, reduciendo la dependencia de intermediarios cuando el diseño lo justifica.\n\nLos <strong>contratos inteligentes</strong> son programas almacenados en el libro mayor y ejecutados de forma coordinada por la red. Automatizan reglas del tipo «si se cumple la condición, se ejecuta la transferencia o el cambio de estado». El BdE los describe como código que facilita la verificación y ejecución del acuerdo subyacente sin intermediarios humanos en cada paso. No «entienden» el mundo físico: dependen de datos de entrada y, a menudo, de <strong>oráculos</strong> externos. Un error de código o un dato falso produce un resultado automáticamente incorrecto.\n\nConviene distinguir redes <strong>permissionless</strong> (públicas: cualquiera puede participar según las reglas) y <strong>permissioned</strong> (solo participantes autorizados). En las primeras suele hacer falta un sistema de incentivos fuerte (p. ej. recompensa por validar); en las segundas, al conocerse o autorizarse los nodos, el consenso puede ser más ligero y la gobernanza más explícita. NIST formula la misma distinción como redes abiertas frente a redes controladas por una autoridad o consorcio.\n\nCada caso de uso exige evaluar si transparencia, irreversibilidad, coste y privacidad encajan con el problema real. Anclar solo la <strong>huella hash</strong> de un documento en un registro distribuido aporta integridad verificable del fichero, pero no coloca automáticamente el contenido en la cadena ni resuelve, por sí solo, la autenticidad del emisor sin un marco de identidad.",
             image: {
-              src: "./blockchain/bc_contratos.svg",
+              src: "./blockchain_bigdata/bc_contratos.svg",
               alt: "Capas blockchain, criptomoneda y contrato inteligente; redes públicas y permissioned",
               caption:
                 "Figura 5. Capas del sistema y tipos de red (permissionless / permissioned).",
@@ -1731,7 +1731,7 @@ window.MYWEB_DATA = {
             body:
               "La blockchain no garantiza la «verdad» del mundo. Garantiza, en lo esencial, que el historial <strong>acordado por el protocolo</strong> es coherente y costoso de reescribir en silencio. El BdE enumera limitaciones estructurales frecuentes de los DLT: escalabilidad insuficiente, robustez aún en prueba en muchos despliegues, interoperabilidad incompleta con infraestructuras tradicionales, retos legales (p. ej. firmeza de transacciones), gobernanza imperfecta y, en algunos diseños, coste medioambiental elevado.\n\nSiguen existiendo riesgos operativos graves: pérdida o robo de claves, estafas sociales, vulnerabilidades de software y de contratos inteligentes, congestión y tasas elevadas, o bifurcaciones por conflictos de gobernanza. La <strong>irreversibilidad práctica</strong> de muchas operaciones exige cautela: corregir un error publicado puede ser imposible o muy caro. Tampoco es una solución universal de privacidad: en redes públicas el libro puede ser auditable por cualquiera, aunque las identidades reales estén seudonimizadas.\n\nLa <strong>AEPD</strong> ha documentado con especial claridad la tensión entre inmutabilidad y <strong>derecho de supresión</strong> del RGPD. Su nota técnica y prueba de concepto muestran que cumplir la norma es posible, pero exige gobernanza, medidas organizativas y técnicas específicas —y, sobre todo, <strong>protección de datos desde el diseño</strong>—, no eslóganes de «blockchain = cumplimiento». Además advierte que el ecosistema (carteras, exploradores, aplicaciones) puede alterar las propiedades teóricas del ledger.\n\nUn análisis serio separa el eslogan «usa blockchain» de afirmaciones como «es seguro», «es legal», «es ético» o «es eficiente», que deben demostrarse caso a caso. datos.gob.es también señala retos de adopción: talento cualificado, higiene de seguridad de la ciudadanía, marco regulatorio y resistencia al cambio. Pensamiento crítico, aquí, no es opcional: es parte del contenido.",
             image: {
-              src: "./blockchain/bc_limites.svg",
+              src: "./blockchain_bigdata/bc_limites.svg",
               alt: "Tabla visual de lo que la blockchain garantiza y lo que no",
               caption:
                 "Figura 6. Qué garantiza el protocolo y qué no se puede dar por supuesto.",
@@ -1754,7 +1754,7 @@ window.MYWEB_DATA = {
             body:
               "Se habla de <strong>big data</strong> (macrodatos) cuando el <strong>volumen</strong>, la <strong>velocidad</strong> o la <strong>variedad</strong> de los datos —o una combinación de ellos— superan lo que se gestiona de forma razonable con métodos convencionales: hojas de cálculo, bases pequeñas o procesos manuales. Entonces hacen falta infraestructuras, algoritmos y flujos específicos de captura, almacenamiento, procesamiento y análisis. datos.gob.es lo formula de modo directo: grandes conjuntos que no pueden tratarse de manera convencional porque desbordan las capacidades habituales de captura, gestión y procesamiento.\n\nLa <strong>AEPD</strong>, en su código de buenas prácticas para proyectos de big data, añade una definición operativa útil: el conjunto de tecnologías, algoritmos y sistemas empleados para recolectar datos a una escala y variedad no alcanzada hasta ahora, y para extraer información de valor mediante sistemas analíticos avanzados, a menudo con computación en paralelo. No se trata solo de «un archivo muy grande», sino de un <strong>ecosistema</strong> (tecnologías + métodos + organización).\n\n«Grande» es relativo al contexto tecnológico y a la pregunta que se quiere responder. Un conjunto puede ser enorme e inútil, o moderado y decisivo. El fenómeno incluye datos heterogéneos (sensores, texto, imágenes, clics, logs), a menudo generados de forma continua, y plantea retos de calidad, interoperabilidad, coste y gobernanza.\n\nConviene no confundir big data con <strong>datos abiertos</strong> ni con <strong>gobierno abierto</strong>. datos.gob.es explica que pueden solaparse —macrodatos abiertos gubernamentales, datos masivos privados no abiertos, datos públicos modestos pero muy útiles, etc.—, pero cada concepto responde a criterios distintos: escala técnica, reutilización jurídica/técnica, y participación ciudadana. Separarlos evita errores de análisis y de diseño de proyectos.",
             image: {
-              src: "./blockchain/bd_macrodatos.svg",
+              src: "./blockchain_bigdata/bd_macrodatos.svg",
               alt: "Volumen, velocidad y variedad que obligan a un ecosistema de macrodatos",
               caption:
                 "Figura 7. Umbral de macrodatos: volumen, velocidad y variedad frente a herramientas convencionales.",
@@ -1771,7 +1771,7 @@ window.MYWEB_DATA = {
             body:
               "Las tres V clásicas describen la escala operativa del problema. <strong>Volumen</strong>: magnitud de observaciones y variables; se pasa de manejar megabytes o gigabytes a terabytes y, con frecuencia, petabytes. <strong>Velocidad</strong>: ritmo de generación, actualización y necesidad de respuesta, hasta llegar en algunos casos al tiempo real. <strong>Variedad</strong>: diversidad de formatos, estructuras y fuentes —de tablas internas cuasi estáticas a flujos dinámicos procedentes de personas, máquinas y sensores—. Así lo detalla la AEPD al caracterizar el big data.\n\nA ellas se suman otras dimensiones de evaluación. <strong>Veracidad</strong> apunta a la calidad, exactitud, completitud, fiabilidad, sesgos y ruido de lo capturado. <strong>Valor</strong> pregunta por la relevancia real para una decisión o una pregunta científica: sin valor, el análisis es costoso e inútil. Algunos autores añaden también <strong>variabilidad</strong> (el significado de los datos cambia y aparecen inconsistencias que hay que gestionar).\n\nUn enfoque riguroso trata estas V como <strong>dimensiones acopladas</strong>, no como una checklist decorativa. Aumentar la velocidad puede degradar la veracidad; ampliar la variedad puede complicar el procesamiento; el volumen sin calidad engaña. No basta medir terabytes: hay que preguntar de dónde salen los datos, con qué frecuencia se actualizan, qué queda fuera de la muestra y si las variables miden de verdad el fenómeno de interés.\n\nEn el aula, contrastar «millones de opiniones en redes» (alta velocidad, veracidad frágil) con una encuesta pequeña bien diseñada ayuda a interiorizar la lección: el tamaño no sustituye al método. Documentar limitaciones es parte del análisis, no un apéndice opcional.",
             image: {
-              src: "./blockchain/bd_5v.svg",
+              src: "./blockchain_bigdata/bd_5v.svg",
               alt: "Cinco tarjetas: volumen, velocidad, variedad, veracidad y valor",
               caption:
                 "Figura 8. Las cinco V: escala (tres primeras) más calidad y utilidad (veracidad y valor).",
@@ -1788,7 +1788,7 @@ window.MYWEB_DATA = {
             body:
               "En big data conviene clasificar la información según su organización, porque esa tipología condiciona almacenamiento, consultas, herramientas y riesgos de error. Los datos <strong>estructurados</strong> siguen un esquema rígido: tablas con columnas tipadas (números, fechas, categorías). Son, en general, los más fáciles de consultar con herramientas relacionales o con hojas de cálculo cuando el volumen aún lo permite.\n\nLos <strong>semiestructurados</strong> tienen marcas o campos flexibles —JSON, XML, registros con atributos opcionales, ciertos logs—. Conservan algo de estructura, pero admiten variabilidad entre instancias. La AEPD señala explícitamente el paso histórico de datos estructurados internos a mezclas de estructurados, semiestructurados y no estructurados procedentes de múltiples fuentes.\n\nLos <strong>no estructurados</strong> —texto libre, audio, vídeo, imágenes, comentarios— carecen de esquema tabular inmediato. Suelen exigir extracción de características, etiquetado o modelos específicos antes del análisis cuantitativo. Un CSV limpio no se analiza igual que un corpus de mensajes o un flujo de vídeo.\n\nEn la práctica, muchos sistemas reales son <strong>híbridos</strong>: metadatos estructurados acompañan a contenidos no estructurados (por ejemplo, una imagen con marca temporal, geolocalización y etiquetas). Elegir mal el tipo de herramienta para el tipo de dato es una fuente habitual de conclusiones engañosas: la forma del dato no es un detalle técnico menor, es parte del método.",
             image: {
-              src: "./blockchain/bd_tipos.svg",
+              src: "./blockchain_bigdata/bd_tipos.svg",
               alt: "Comparativa de datos estructurados, semiestructurados y no estructurados",
               caption:
                 "Figura 9. Tres tipos de organización de datos y ejemplos típicos de cada uno.",
@@ -1805,7 +1805,7 @@ window.MYWEB_DATA = {
             body:
               "Un flujo típico de macrodatos incluye <strong>captura</strong> (sensores, formularios, APIs, logs, redes, dispositivos), <strong>ingesta y almacenamiento</strong>, <strong>procesamiento</strong> (limpieza, normalización, agregación, deduplicación), <strong>análisis</strong> (estadística descriptiva e inferencial, visualización y, a veces, aprendizaje automático) y <strong>decisión o comunicación</strong> de resultados. La AEPD enfatiza que el objetivo no es acumular datos, sino extraer información de valor con sistemas analíticos adecuados a la escala.\n\nCada etapa puede introducir o corregir error: un sensor mal calibrado, valores ausentes tratados sin criterio, variables confusoras, filtros opacos, o gráficos que sugieren causalidad donde solo hay correlación. Por eso el rigor exige <strong>trazabilidad metodológica</strong>: documentar origen, versiones, transformaciones aplicadas y límites de la conclusión. Sin ese ciclo consciente, el big data se convierte en acumulación opaca de cifras.\n\nTambién importa la <strong>conservación</strong>: el RGPD y las buenas prácticas de la AEPD recuerdan que los datos no deben guardarse más tiempo del necesario para la finalidad que motivó su recogida. En proyectos masivos, la tentación de «guardar por si acaso» choca frontalmente con minimización y con gestión del riesgo.\n\nEn didáctica conviene entrenar una distinción simple y exigente: <strong>hallazgo</strong> (qué se observa en los datos), <strong>interpretación</strong> (qué significa bajo ciertas hipótesis) y <strong>recomendación</strong> (qué acción se propone). Mezclar las tres sin aviso es una de las formas más frecuentes de vestir opinión con apariencia de evidencia.",
             image: {
-              src: "./blockchain/bd_ciclo.svg",
+              src: "./blockchain_bigdata/bd_ciclo.svg",
               alt: "Ciclo de vida: captura, almacén, proceso, análisis y decisión",
               caption:
                 "Figura 10. Ciclo de vida de los datos: cada etapa puede introducir o corregir error.",
@@ -1822,7 +1822,7 @@ window.MYWEB_DATA = {
             body:
               "Los macrodatos amplifican la capacidad de conocer y, a la vez, el riesgo de vigilar, discriminar o filtrar información sensible. En la Unión Europea, el <strong>Reglamento General de Protección de Datos (RGPD)</strong> fija principios como licitud, lealtad y transparencia, <strong>minimización</strong>, exactitud, limitación del plazo de conservación, integridad, confidencialidad y responsabilidad proactiva. También reconoce derechos de las personas (acceso, rectificación, oposición, supresión, entre otros).\n\nLa AEPD insiste en que el principio de minimización es especialmente crítico en big data: solo deben recogerse datos adecuados, pertinentes y limitados a fines determinados, explícitos y legítimos. La posibilidad de usos futuros <strong>no justifica</strong> recolectar «por si acaso» más datos de los necesarios para la finalidad primaria. Tampoco deben conservarse más tiempo del imprescindible.\n\nAdemás de la norma, importa la calidad ética del análisis. Un modelo entrenado con datos sesgados puede reproducir desigualdades aunque el volumen sea enorme. Anonimización y seudonimización reducen riesgos, pero no siempre eliminan la reidentificación; la AEPD recomienda valorarlas dentro de evaluaciones de impacto cuando el riesgo lo exija. La seguridad de la información —medidas técnicas y organizativas acordes al riesgo— forma parte del mismo paquete, no es un anexo.\n\nEl uso responsable combina cumplimiento normativo, diseño técnico cuidadoso y juicio humano sobre finalidades legítimas. Preguntas de aula útiles: ¿qué datos son personales?, ¿qué finalidad es legítima?, ¿qué sobra?, ¿quién decide y con qué transparencia? Sin esas preguntas, el discurso de «innovación con datos» se queda incompleto.",
             image: {
-              src: "./blockchain/bd_rgpd.svg",
+              src: "./blockchain_bigdata/bd_rgpd.svg",
               alt: "Principios del RGPD y preguntas guía para el aula",
               caption:
                 "Figura 11. Principios del RGPD y preguntas para valorar un uso responsable de datos.",
@@ -1839,7 +1839,7 @@ window.MYWEB_DATA = {
             body:
               "Hay aplicaciones relevantes de macrodatos en salud, movilidad, energía, industria, investigación científica, administración pública y analítica del aprendizaje. datos.gob.es recuerda que incluso conjuntos no masivos —por ejemplo, horarios de transporte— pueden generar valor social alto si se abren y reutilizan bien; y que, a la inversa, existen macrodatos privados de enorme valor comercial que no son abiertos. La escala técnica y el impacto público no siempre coinciden.\n\nEn todos los casos, <strong>más datos no implican automáticamente mejores decisiones</strong>. Hacen falta pregunta bien formulada, calidad del dato, método adecuado, interpretación humana y responsabilidad sobre los efectos. La guía de la AEPD sobre calidad de datos e inteligencia artificial refuerza la misma idea en el terreno de la exactitud e idoneidad: un sistema automatizado hereda —y puede amplificar— los defectos de sus datos de entrenamiento o de entrada.\n\nBig data e <strong>inteligencia artificial</strong> se relacionan con frecuencia, pero no son equivalentes. La IA puede entrenarse o alimentarse con macrodatos; el big data puede analizarse con estadística clásica y visualización sin modelos de aprendizaje automático. Separar ambos términos evita confusiones mediáticas y diseños pedagógicos imprecisos.\n\nLos límites típicos incluyen sesgo muestral, opacidad de pipelines, coste energético y de almacenamiento, y la falsa sensación de objetividad que producen los números grandes sin contexto. Una conclusión prudente en Bachillerato —y en cualquier informe serio— cita fuente, fecha de descarga, método y limitaciones: no solo el gráfico final.",
             image: {
-              src: "./blockchain/bd_ia_relacion.svg",
+              src: "./blockchain_bigdata/bd_ia_relacion.svg",
               alt: "Diagrama de solape entre Big Data e inteligencia artificial",
               caption:
                 "Figura 12. Big Data e IA se solapan, pero no son lo mismo; más datos no bastan.",
@@ -1855,44 +1855,54 @@ window.MYWEB_DATA = {
     ],
     refs: [
       {
-        label: "Banco de España — Tecnología de registros distribuidos (DLT): una introducción",
-        url: "https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/InformesBoletinesRevistas/ArticulosAnaliticos/2018/T4/descargar/Fich/beaa1804-art26.pdf"
+        label: "Tecnología de registros distribuidos (DLT): una introducción",
+        url: "https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/InformesBoletinesRevistas/ArticulosAnaliticos/2018/T4/descargar/Fich/beaa1804-art26.pdf",
+        icon: "./blockchain_bigdata/ref_bde.png"
       },
       {
-        label: "datos.gob.es — Descubriendo las claves de Blockchain (informe en español)",
-        url: "https://datos.gob.es/sites/default/files/documentacion/files/descubriendo_las_claves_de_blockchain.pdf"
+        label: "Descubriendo las claves de Blockchain (informe en español)",
+        url: "https://datos.gob.es/sites/default/files/documentacion/files/descubriendo_las_claves_de_blockchain.pdf",
+        icon: "./blockchain_bigdata/ref_datosgob.png"
       },
       {
-        label: "INCIBE — Blockchain sin intermediarios (infografía didáctica)",
-        url: "https://www.incibe.es/sites/default/files/docs/c10-pdf-infografia-blockchain-sin-intermediarios.pdf"
+        label: "Blockchain sin intermediarios (infografía didáctica)",
+        url: "https://www.incibe.es/sites/default/files/docs/c10-pdf-infografia-blockchain-sin-intermediarios.pdf",
+        icon: "./blockchain_bigdata/ref_incibe.svg"
       },
       {
-        label: "Nakamoto — Bitcoin: un sistema de dinero en efectivo electrónico peer-to-peer (traducción al español)",
-        url: "https://bitcoin.org/files/bitcoin-paper/bitcoin_es.pdf"
+        label: "Bitcoin: un sistema de dinero en efectivo electrónico peer-to-peer (traducción al español)",
+        url: "https://bitcoin.org/files/bitcoin-paper/bitcoin_es.pdf",
+        icon: "./blockchain_bigdata/ref_bitcoin.png"
       },
       {
-        label: "AEPD — Blockchain y el derecho de supresión (nota técnica / prueba de concepto)",
-        url: "https://www.aepd.es/guias/nota-tecnica-blockchain.pdf"
+        label: "Blockchain y el derecho de supresión (nota técnica / prueba de concepto)",
+        url: "https://www.aepd.es/guias/nota-tecnica-blockchain.pdf",
+        icon: "./blockchain_bigdata/ref_aepd.svg"
       },
       {
-        label: "AEPD — Código de buenas prácticas en protección de datos para proyectos Big Data",
-        url: "https://www.aepd.es/sites/default/files/2019-09/guia-codigo-de-buenas-practicas-proyectos-de-big-data.pdf"
+        label: "Código de buenas prácticas en protección de datos para proyectos Big Data",
+        url: "https://www.aepd.es/sites/default/files/2019-09/guia-codigo-de-buenas-practicas-proyectos-de-big-data.pdf",
+        icon: "./blockchain_bigdata/ref_aepd.svg"
       },
       {
-        label: "datos.gob.es — Datos abiertos, big data y gobierno abierto",
-        url: "https://datos.gob.es/es/noticias/datos-abiertos-big-data-y-gobierno-abierto-diferentes-tipos-de-datos"
+        label: "Datos abiertos, big data y gobierno abierto",
+        url: "https://datos.gob.es/es/noticias/datos-abiertos-big-data-y-gobierno-abierto-diferentes-tipos-de-datos",
+        icon: "./blockchain_bigdata/ref_datosgob.png"
       },
       {
-        label: "datos.gob.es — Nuevas tendencias y desafíos en el mundo de los datos",
-        url: "https://datos.gob.es/sites/default/files/documentacion/files/nuevas_tendencias_y_desafios_en_el_mundo_de_los_datos_0.pdf"
+        label: "Nuevas tendencias y desafíos en el mundo de los datos",
+        url: "https://datos.gob.es/sites/default/files/documentacion/files/nuevas_tendencias_y_desafios_en_el_mundo_de_los_datos_0.pdf",
+        icon: "./blockchain_bigdata/ref_datosgob.png"
       },
       {
         label: "Marco europeo DigComp (traducción al castellano — Asociación Somos Digital)",
-        url: "https://somos-digital.org/digcomp/"
+        url: "https://somos-digital.org/digcomp/",
+        icon: "./blockchain_bigdata/ref_digcomp.png"
       },
       {
-        label: "AEPD — Agencia Española de Protección de Datos (portal oficial)",
-        url: "https://www.aepd.es/"
+        label: "Portal oficial",
+        url: "https://www.aepd.es/",
+        icon: "./blockchain_bigdata/ref_aepd.svg"
       }
     ]
   },

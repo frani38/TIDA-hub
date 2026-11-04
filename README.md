@@ -16,7 +16,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 - **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación y entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
 - **PROYECTOS**: evidencias y trabajos que muestran aplicación real de los contenidos.
 - **LEGISLACIÓN**: normativa de referencia para el marco curricular (`data.js` → `legislation`); en móvil, columnas **Nacional** → **Asturias**.
-- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, **Blockchain y Big Data**, **Soft Skills**, etc.) según `data.js`. Soft Skills: 11 fichas (`softSkills` + imágenes en `softskills/`) con definición, ejemplos académico/laboral, filtro por dominio e ilustraciones; avisos en NOVEDADES vía `softSkills.changelog`. Blockchain y Big Data: intro + dos columnas teóricas/ejemplos (`blockchainBigData`, figuras en `blockchain/`) y referencias; aviso vía `blockchainBigData.changelog`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial). En móvil: título + ← VOLVER en la misma línea; al abrir un subapartado el scroll vuelve arriba (logo + filtros).
+- **MISCELÁNEA**: catálogo transversal (lecturas con portadas en `books/`, media, juegos, enlaces, **Hacking ético**, **Blockchain y Big Data**, **Soft Skills**, etc.) según `data.js`. Soft Skills: 11 fichas (`softSkills` + imágenes en `softskills/`) con definición, ejemplos académico/laboral, filtro por dominio e ilustraciones; avisos en NOVEDADES vía `softSkills.changelog`. Blockchain y Big Data: intro + dos columnas teóricas/ejemplos (`blockchainBigData`, figuras en `blockchain_bigdata/`) y referencias; aviso vía `blockchainBigData.changelog`. Atrás desde un subapartado vuelve al hub (`miscId` en el historial). En móvil: título + ← VOLVER en la misma línea; al abrir un subapartado el scroll vuelve arriba (logo + filtros).
 - **SOBRE MÍ**: contexto del autor/proyecto, imagen en `./image/` y **publicaciones académicas** (DOI/ISBN cuando aplica).
 - **AYUDA**: formulario de contacto con envío real vía **Web3Forms**; tras enviar, **Enviado** y retorno a INICIO. Política de privacidad en la propia sección (título AYUDA + ← VOLVER al margen en móvil; scroll al tope al abrir) y en **`privacidad.html`**.
 - Tipografías **Orbitron / Oxanium** embebidas en `./fonts/` (sin depender de Google Fonts).
@@ -79,7 +79,7 @@ Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP 
 - **`news`**, **`updates`**, **`legislation`**.
 - **`readings`**, **`games`**, **`media`** (Miscelánea; `addedAt` y portadas/imágenes locales).
 - **`softSkills`**: intro, `changelog` (NOVEDADES de sección), `items` (dominios, definición, ejemplos, `image` en `./softskills/`).
-- **`blockchainBigData`**: intro, `changelog`, `columns` (Blockchain / Big Data con secciones, ejemplos e imágenes en `./blockchain/`) y `refs`.
+- **`blockchainBigData`**: intro, `changelog`, `columns` (Blockchain / Big Data con secciones, ejemplos e imágenes en `./blockchain_bigdata/`) y `refs`.
 - **`siteSearchEntries`**, **`contentIndex`** (+ opcional **`contentIndexZones`**).
 - **`siteMeta`**: `version` y `updated` (pie del sitio y anti-caché de assets).
 

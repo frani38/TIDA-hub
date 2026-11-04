@@ -4413,7 +4413,8 @@
             ? pack.refs
                 .map((r) => ({
                   label: String(r?.label || "").trim(),
-                  url: String(r?.url || "").trim()
+                  url: String(r?.url || "").trim(),
+                  icon: String(r?.icon || "").trim()
                 }))
                 .filter((r) => r.label && r.url)
             : [];
@@ -4423,14 +4424,16 @@
           } else {
             refsEl.hidden = false;
             refsEl.innerHTML = `
-              <div class="bc-bd-refs-page">
-                <h3 class="bc-bd-column__title">Referencias</h3>
-                <ul class="soft-skills-refs__list soft-skills-refs__list--text bc-bd-refs-page__list">
+              <div class="bc-bd-refs-page soft-skills-refs">
+                <h3 class="bc-bd-column__title bc-bd-refs-page__title">Referencias</h3>
+                <ul class="soft-skills-refs__list bc-bd-refs-page__list">
                   ${refs
-                    .map(
-                      (r) =>
-                        `<li class="soft-skills-refs__item soft-skills-refs__item--text"><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`
-                    )
+                    .map((r) => {
+                      const iconHtml = r.icon
+                        ? `<img class="soft-skills-refs__icon" src="${escapeHtml(r.icon)}?v=${assetV}" alt="" loading="lazy" decoding="async" />`
+                        : "";
+                      return `<li class="soft-skills-refs__item">${iconHtml}<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`;
+                    })
                     .join("")}
                 </ul>
               </div>
