@@ -4582,11 +4582,15 @@
             const leftCol = glossary.slice(0, splitAt);
             const rightCol = glossary.slice(splitAt);
             glossaryEl.innerHTML = `
-              <h3 class="bc-bd-glossary__title">Glosario</h3>
-              <div class="bc-bd-glossary__grid">
-                <dl class="bc-bd-glossary__col">${renderGlossaryItems(leftCol)}</dl>
-                <dl class="bc-bd-glossary__col">${renderGlossaryItems(rightCol)}</dl>
-              </div>
+              <section class="bc-bd-column bc-bd-glossary__panel" aria-label="Glosario">
+                <h3 class="bc-bd-column__title">Glosario</h3>
+                <div class="bc-bd-column__sections">
+                  <div class="bc-bd-glossary__grid">
+                    <dl class="bc-bd-glossary__col">${renderGlossaryItems(leftCol)}</dl>
+                    <dl class="bc-bd-glossary__col">${renderGlossaryItems(rightCol)}</dl>
+                  </div>
+                </div>
+              </section>
             `;
           }
         }

@@ -4352,18 +4352,12 @@ body.theme-light .bc-bd-examples__list {
   box-sizing: border-box;
 }
 
-.bc-bd-glossary__title {
-  margin: 0 0 0.85rem;
-  font-family: var(--tech-font);
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--accent, #7aa2ff);
+.bc-bd-glossary__panel.bc-bd-column {
+  width: 100%;
 }
 
-body.theme-light .bc-bd-glossary__title {
-  color: #1d4ed8;
+.bc-bd-glossary__panel .bc-bd-column__sections {
+  gap: 0;
 }
 
 .bc-bd-glossary__grid {
@@ -4372,6 +4366,7 @@ body.theme-light .bc-bd-glossary__title {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 1.35rem;
   align-items: start;
+  width: 100%;
 }
 
 .bc-bd-glossary__col {
@@ -4386,14 +4381,14 @@ body.theme-light .bc-bd-glossary__title {
   margin: 0;
   padding: 0.65rem 0.75rem;
   border: 1px solid rgba(122, 162, 255, 0.2);
-  background: rgba(10, 18, 40, 0.14);
+  background: rgba(10, 18, 40, 0.18);
   box-sizing: border-box;
   min-width: 0;
 }
 
 body.theme-light .bc-bd-glossary__item {
   border-color: rgba(15, 23, 42, 0.12);
-  background: rgba(248, 250, 252, 0.92);
+  background: rgba(248, 250, 252, 0.9);
 }
 
 .bc-bd-glossary__term {
