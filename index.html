@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub</title>
-    <link rel="stylesheet" href="./styles.css?v=1.9.33-25" />
+    <link rel="stylesheet" href="./styles.css?v=1.9.33-26" />
     <script>
-      window.MYWEB_ASSET_V = "1.9.33-25";
+      window.MYWEB_ASSET_V = "1.9.33-26";
     </script>
     <script>
       (function () {
@@ -231,11 +231,11 @@
           <span class="footer-sep" aria-hidden="true">|</span>
           <span>PhD.Eng. Francisco Carnero Rodríguez</span>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <span id="site-version">v1.9.33-25</span>
+          <span id="site-version">v1.9.33-26</span>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <a href="./privacidad.html?v=1.9.33-25" class="footer-privacy-link">Privacidad y protección de datos</a>
+          <a href="./privacidad.html?v=1.9.33-26" class="footer-privacy-link">Privacidad y protección de datos</a>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <a href="./asistencia-ia.html?v=1.9.33-25" class="footer-ai-link">Asistencia IA</a>
+          <a href="./asistencia-ia.html?v=1.9.33-26" class="footer-ai-link">Asistencia IA</a>
         </div>
       </div>
     </footer>
@@ -255,12 +255,23 @@
               return r.text();
             })
             .then(function (txt) {
+              var ok = false;
               if (typeof window.MYWEB_injectDataJs === "function") {
-                window.MYWEB_injectDataJs(txt);
+                ok = window.MYWEB_injectDataJs(txt);
               } else {
-                var s = document.createElement("script");
-                s.text = txt;
-                document.body.appendChild(s);
+                try {
+                  new Function(txt);
+                  var s = document.createElement("script");
+                  s.text = txt;
+                  document.body.appendChild(s);
+                  ok = !!window.MYWEB_DATA;
+                } catch (e) {
+                  ok = false;
+                }
+              }
+              if (!ok || !window.MYWEB_DATA) {
+                console.error("data.js no disponible o inválido");
+                return;
               }
               loadApp(bust);
             })
@@ -269,20 +280,33 @@
             });
         }
         function bootAssets(bust, dataJsText) {
-          bust = String(bust || window.MYWEB_ASSET_V || "1.9.33-25");
+          bust = String(bust || window.MYWEB_ASSET_V || "1.9.33-26");
           window.MYWEB_ASSET_V = bust;
           if (typeof window.MYWEB_wireVersionedLinks === "function") {
             window.MYWEB_wireVersionedLinks(bust);
           }
           if (dataJsText && typeof window.MYWEB_injectDataJs === "function") {
-            window.MYWEB_injectDataJs(dataJsText);
+            if (!window.MYWEB_injectDataJs(dataJsText) || !window.MYWEB_DATA) {
+              console.error("data.js no disponible o inválido");
+              return;
+            }
             loadApp(bust);
             return;
           }
           if (dataJsText) {
-            var s = document.createElement("script");
-            s.text = dataJsText;
-            document.body.appendChild(s);
+            try {
+              new Function(dataJsText);
+              var s = document.createElement("script");
+              s.text = dataJsText;
+              document.body.appendChild(s);
+            } catch (e) {
+              console.error("data.js inválido", e);
+              return;
+            }
+            if (!window.MYWEB_DATA) {
+              console.error("data.js no definió MYWEB_DATA");
+              return;
+            }
             loadApp(bust);
             return;
           }
@@ -300,7 +324,7 @@
         });
         // Si version-boot falla o tarda, no bloquear la web.
         setTimeout(function () {
-          start(window.MYWEB_ASSET_V || "1.9.33-25", window.__MYWEB_DATA_JS_TEXT__ || "");
+          start(window.MYWEB_ASSET_V || "1.9.33-26", window.__MYWEB_DATA_JS_TEXT__ || "");
         }, 2500);
       })();
     </script>

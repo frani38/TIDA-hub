@@ -87,11 +87,23 @@
   function injectDataJs(jsText) {
     if (!jsText || !global.document) return false;
     try {
+      // Validar sintaxis antes de inyectar: un data.js roto dejaría la UI en
+      // «Bienvenido/a» vacío sin volver a pintar el contenido.
+      new Function(jsText);
+    } catch (e) {
+      try {
+        console.error("data.js inválido; no se inyecta.", e);
+      } catch (e2) {
+        /* ignore */
+      }
+      return false;
+    }
+    try {
       var s = global.document.createElement("script");
       s.type = "text/javascript";
       s.text = jsText;
       (global.document.body || global.document.head).appendChild(s);
-      return true;
+      return !!global.MYWEB_DATA;
     } catch (e) {
       return false;
     }
