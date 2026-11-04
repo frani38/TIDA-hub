@@ -1627,7 +1627,7 @@ window.MYWEB_DATA = {
     hubInlineImage: {
       src: "./image/Big Data y Blockchain.png",
       alt: "Ilustración de Big Data y Blockchain",
-      caption: ""
+      caption: "Creación propia con ChatGPT."
     },
     changelog: [
       {
