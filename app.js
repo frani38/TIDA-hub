@@ -4411,12 +4411,23 @@
         if (refsEl instanceof HTMLElement) {
           const refs = Array.isArray(pack?.refs)
             ? pack.refs
-                .map((r) => ({
-                  label: String(r?.label || "").trim(),
-                  url: String(r?.url || "").trim(),
-                  icon: String(r?.icon || "").trim()
-                }))
-                .filter((r) => r.label && r.url)
+                .map((r) => {
+                  const icon = String(r?.icon || "").trim();
+                  const linksRaw = Array.isArray(r?.links) ? r.links : null;
+                  const links = (linksRaw
+                    ? linksRaw
+                    : r?.label && r?.url
+                      ? [{ label: r.label, url: r.url }]
+                      : []
+                  )
+                    .map((l) => ({
+                      label: String(l?.label || "").trim(),
+                      url: String(l?.url || "").trim()
+                    }))
+                    .filter((l) => l.label && l.url);
+                  return { icon, links };
+                })
+                .filter((r) => r.links.length)
             : [];
           if (!showRefsOnly || !refs.length) {
             refsEl.hidden = true;
@@ -4431,8 +4442,14 @@
                     .map((r) => {
                       const iconHtml = r.icon
                         ? `<img class="soft-skills-refs__icon" src="${escapeHtml(r.icon)}?v=${assetV}" alt="" loading="lazy" decoding="async" />`
-                        : "";
-                      return `<li class="soft-skills-refs__item">${iconHtml}<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`;
+                        : `<span class="soft-skills-refs__icon" aria-hidden="true"></span>`;
+                      const linksHtml = r.links
+                        .map(
+                          (l) =>
+                            `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${allowBcHtml(l.label)}</a>`
+                        )
+                        .join("");
+                      return `<li class="soft-skills-refs__item${r.links.length > 1 ? " soft-skills-refs__item--multi" : ""}">${iconHtml}<div class="soft-skills-refs__links">${linksHtml}</div></li>`;
                     })
                     .join("")}
                 </ul>

@@ -3749,6 +3749,21 @@ body.theme-light .soft-skills-refs__title {
   min-width: 0;
 }
 
+.soft-skills-refs__item--multi {
+  align-items: start;
+}
+
+.soft-skills-refs__item--multi .soft-skills-refs__icon {
+  margin-top: 0.15rem;
+}
+
+.soft-skills-refs__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
 .soft-skills-refs__icon {
   height: 3.6rem;
   width: auto;
@@ -3764,6 +3779,15 @@ body.theme-light .soft-skills-refs__title {
   color: var(--accent, #7aa2ff);
   text-decoration: none;
   min-width: 0;
+}
+
+.soft-skills-refs__list a strong {
+  font-weight: 800;
+  color: inherit;
+}
+
+body.theme-light .soft-skills-refs__list a strong {
+  color: #0f3f9a;
 }
 
 .soft-skills-refs__list a:hover {
@@ -4245,7 +4269,7 @@ body.theme-light .bc-bd-examples__list {
   margin-top: 0.35rem;
 }
 
-/* Vista REFERENCIAS: mismo layout Soft Skills (título | lista con logos). */
+/* Vista REFERENCIAS: subtítulo arriba; lista debajo, sin solape, indentada hacia su mitad (como Soft Skills). */
 footer.bc-bd-refs.soft-skills-refs,
 .bc-bd-refs.soft-skills-refs {
   border-top: none;
@@ -4259,35 +4283,34 @@ footer.bc-bd-refs.soft-skills-refs,
   margin-top: 0;
   border-top: none;
   padding-top: 0;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  column-gap: 0;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
 }
 
 .bc-bd-refs-page__title.bc-bd-column__title {
   margin: 0;
   width: max-content;
   max-width: 100%;
-  align-self: start;
 }
 
 .bc-bd-refs-page__list.soft-skills-refs__list {
-  margin: 0 0 0 -4.6rem;
-  padding-top: 1.85rem;
+  /* Mitad aproximada del ancho del subtítulo «REFERENCIAS» (~8.5rem): logos bajo el centro. */
+  margin: 0 0 0 4.25rem;
+  padding-top: 0;
   padding-left: 0;
   list-style: none;
+  width: calc(100% - 4.25rem);
+  max-width: 100%;
+  box-sizing: border-box;
+  gap: 0.85rem;
 }
 
 @media (max-width: 720px) {
-  .bc-bd-refs-page.soft-skills-refs {
-    grid-template-columns: 1fr;
-    row-gap: 0.45rem;
-  }
-
   .bc-bd-refs-page__list.soft-skills-refs__list {
     margin-left: 0;
-    padding-top: 0.55rem;
+    width: 100%;
   }
 }
 
