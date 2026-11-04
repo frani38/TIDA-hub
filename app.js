@@ -4275,16 +4275,20 @@
             : "";
           const hubAlt = String(hubImg?.alt || "Big Data y Blockchain").trim();
           const hubCaption = String(hubImg?.caption || "").trim();
-          const figHtml = hubSrcFinal
-            ? `
-              <figure class="bc-bd-inline-fig bc-bd-inline-fig--right bc-bd-inline-fig--hero">
+          const paras = introParts.map((p) => `<p>${allowBcHtml(p)}</p>`).join("");
+          if (hubSrcFinal) {
+            ledeEl.classList.add("bc-bd-lede--split");
+            ledeEl.innerHTML = `
+              <div class="bc-bd-lede__copy">${paras}</div>
+              <figure class="bc-bd-lede__fig">
                 <img src="${escapeHtml(hubSrcFinal)}?v=${assetV}" alt="${escapeHtml(hubAlt)}" loading="lazy" decoding="async" />
                 ${hubCaption ? `<figcaption>${escapeHtml(hubCaption)}</figcaption>` : ""}
               </figure>
-            `
-            : "";
-          const paras = introParts.map((p) => `<p>${allowBcHtml(p)}</p>`).join("");
-          ledeEl.innerHTML = `${figHtml}${paras}`;
+            `;
+          } else {
+            ledeEl.classList.remove("bc-bd-lede--split");
+            ledeEl.innerHTML = paras;
+          }
           ledeEl.hidden = !ledeEl.innerHTML.trim();
         }
 
