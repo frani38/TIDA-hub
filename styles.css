@@ -4219,14 +4219,26 @@ body.theme-light .bc-bd-examples__list {
 }
 
 .bc-bd-refs {
-  margin-top: 1.35rem;
+  margin-top: 0.35rem;
 }
 
-/* Sin raya superior bajo las referencias de Blockchain/Big Data. */
+/* Vista REFERENCIAS: panel propio, sin raya ni grid del pie Soft Skills. */
 footer.bc-bd-refs.soft-skills-refs,
 .bc-bd-refs.soft-skills-refs {
   border-top: none;
-  padding-top: 0.35rem;
+  padding-top: 0;
+  display: block;
+  grid-template-columns: none;
+}
+
+.bc-bd-refs-page {
+  max-width: 920px;
+}
+
+.bc-bd-refs-page__list {
+  margin: 0.75rem 0 0 !important;
+  padding-top: 0 !important;
+  padding-left: 1.25rem !important;
 }
 
 @media (max-width: 980px) {

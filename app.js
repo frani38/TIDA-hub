@@ -1865,7 +1865,7 @@
     if (section === "miscelanea") {
       const mid = String(st.miscId || "").trim();
       const tab = String(st.tabId || "").trim();
-      if (mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata")) {
+      if (mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "refs")) {
         return `${base}#miscelanea/${encodeURIComponent(mid)}/${encodeURIComponent(tab)}`;
       }
       return mid ? `${base}#miscelanea/${encodeURIComponent(mid)}` : `${base}#miscelanea`;
@@ -2031,7 +2031,7 @@
         const parts = raw.slice("miscelanea/".length).split("/").filter(Boolean);
         miscId = decodeURIComponent(parts[0] || "");
         const maybeTab = decodeURIComponent(parts[1] || "");
-        if (miscId === "misc_bc" && (maybeTab === "blockchain" || maybeTab === "bigdata")) {
+        if (miscId === "misc_bc" && (maybeTab === "blockchain" || maybeTab === "bigdata" || maybeTab === "refs")) {
           tabId = maybeTab;
         }
       }
@@ -3108,7 +3108,11 @@
         ...currentState,
         section: "miscelanea",
         miscId: nextMiscId,
-        tabId: nextMiscId === "misc_bc" && (nextTabId === "blockchain" || nextTabId === "bigdata") ? nextTabId : ""
+        tabId:
+          nextMiscId === "misc_bc" &&
+          (nextTabId === "blockchain" || nextTabId === "bigdata" || nextTabId === "refs")
+            ? nextTabId
+            : ""
       };
       if (recordHistory) pushAppHistory();
       const isReadings = it.id === "misc_lr";
@@ -3245,6 +3249,11 @@
                             class="bc-bd-aside-nav__link${bcTopic === "bigdata" ? " is-active" : ""}"
                             data-bc-topic="bigdata"
                           >BIG DATA</a>
+                          <a
+                            href="#miscelanea/misc_bc/refs"
+                            class="bc-bd-aside-nav__link${bcTopic === "refs" ? " is-active" : ""}"
+                            data-bc-topic="refs"
+                          >REFERENCIAS</a>
                         </nav>
                       `
                       : ""
@@ -4207,12 +4216,15 @@
         const colsEl = document.getElementById("bc-bd-columns");
         const refsEl = document.getElementById("bc-bd-refs");
         const assetV = escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim());
-        const activeTopic = bcTopic === "blockchain" || bcTopic === "bigdata" ? bcTopic : "";
+        const activeTopic =
+          bcTopic === "blockchain" || bcTopic === "bigdata" || bcTopic === "refs" ? bcTopic : "";
         const showHub = !activeTopic;
+        const showRefsOnly = activeTopic === "refs";
+        const showColumnTopic = activeTopic === "blockchain" || activeTopic === "bigdata";
 
         const openBcTopic = (topic) => {
           const t = String(topic || "").trim();
-          if (t !== "blockchain" && t !== "bigdata") return;
+          if (t !== "blockchain" && t !== "bigdata" && t !== "refs") return;
           currentState = { ...currentState, section: "miscelanea", miscId: "misc_bc", tabId: t };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: true });
           animateContentSwitch();
@@ -4341,7 +4353,7 @@
 
         if (colsEl instanceof HTMLElement) {
           const columns = Array.isArray(pack?.columns) ? pack.columns : [];
-          if (showHub) {
+          if (!showColumnTopic) {
             colsEl.hidden = true;
             colsEl.innerHTML = "";
             colsEl.classList.remove("bc-bd-columns--single");
@@ -4376,21 +4388,23 @@
                 }))
                 .filter((r) => r.label && r.url)
             : [];
-          if (showHub || !refs.length) {
+          if (!showRefsOnly || !refs.length) {
             refsEl.hidden = true;
             refsEl.innerHTML = "";
           } else {
             refsEl.hidden = false;
             refsEl.innerHTML = `
-              <h4 class="soft-skills-refs__title">Referencias</h4>
-              <ul class="soft-skills-refs__list soft-skills-refs__list--text">
-                ${refs
-                  .map(
-                    (r) =>
-                      `<li class="soft-skills-refs__item soft-skills-refs__item--text"><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`
-                  )
-                  .join("")}
-              </ul>
+              <div class="bc-bd-refs-page">
+                <h3 class="bc-bd-column__title">Referencias</h3>
+                <ul class="soft-skills-refs__list soft-skills-refs__list--text bc-bd-refs-page__list">
+                  ${refs
+                    .map(
+                      (r) =>
+                        `<li class="soft-skills-refs__item soft-skills-refs__item--text"><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.label)}</a></li>`
+                    )
+                    .join("")}
+                </ul>
+              </div>
             `;
           }
         }
