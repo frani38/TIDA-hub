@@ -53,7 +53,7 @@ files["bc_topologias.svg"] = svg(
     f"""
   {MARKER}
   <text class="t title" x="500" y="36" text-anchor="middle">Topologias de red</text>
-  <text class="t s muted" x="500" y="58" text-anchor="middle">El blockchain opera como red distribuida de nodos con historial compartido</text>
+  <text class="t s muted" x="500" y="58" text-anchor="middle">La blockchain opera como red distribuida de nodos con historial compartido</text>
   {card(40, 90, 290, 280, "#fff")}
   <text class="t h" x="185" y="122" text-anchor="middle">Centralizada</text>
   <circle cx="185" cy="200" r="16" fill="#2563eb"/>
@@ -81,7 +81,7 @@ files["bc_topologias.svg"] = svg(
   <text class="t xs muted" x="500" y="348" text-anchor="middle">Varios centros locales</text>
   {card(670, 90, 290, 280, "#ecfdf5")}
   <text class="t h" x="815" y="122" text-anchor="middle">Distribuida</text>
-  <text class="t xs" x="815" y="142" text-anchor="middle" fill="#047857">(tipica del blockchain)</text>
+  <text class="t xs" x="815" y="142" text-anchor="middle" fill="#047857">(tipica de la blockchain)</text>
   <circle cx="745" cy="195" r="11" fill="#059669"/><circle cx="815" cy="175" r="11" fill="#059669"/>
   <circle cx="885" cy="195" r="11" fill="#059669"/><circle cx="760" cy="255" r="11" fill="#059669"/>
   <circle cx="830" cy="270" r="11" fill="#059669"/><circle cx="890" cy="250" r="11" fill="#059669"/>
@@ -275,7 +275,7 @@ files["bc_limites.svg"] = svg(
     1000,
     440,
     f"""
-  <text class="t title" x="500" y="34" text-anchor="middle">Que garantiza el blockchain… y que no</text>
+  <text class="t title" x="500" y="34" text-anchor="middle">Que garantiza la blockchain… y que no</text>
   <text class="t s muted" x="500" y="56" text-anchor="middle">Pensamiento critico: separar protocolo, mundo real y esloganes</text>
   {card(40, 85, 440, 320, "#ecfdf5")}
   <text class="t h" x="260" y="120" text-anchor="middle" fill="#047857">Si garantiza (en lo esencial)</text>

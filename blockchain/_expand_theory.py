@@ -8,13 +8,13 @@ DATA = ROOT / "data.js"
 
 BODIES = {
     "bc_que_es": (
-        "Un blockchain es, en lo esencial, un <strong>libro mayor digital</strong> "
+        "Una blockchain es, en lo esencial, un <strong>libro mayor digital</strong> "
         "(<em>ledger</em>) mantenido de forma <strong>distribuida</strong>. "
         "Como resume el Banco de España al hablar de <strong>tecnología de registros "
         "distribuidos (DLT)</strong>, se trata de una base de datos de la que existen "
         "múltiples copias idénticas entre varios participantes, actualizadas de manera "
         "sincronizada <strong>por consenso</strong>, y no por una autoridad central que "
-        "certifique cada asiento. El blockchain es el modo más conocido de implementar "
+        "certifique cada asiento. La blockchain es el modo más conocido de implementar "
         "ese registro: las operaciones se agrupan en bloques enlazados en orden cronológico.\n\n"
         "La diferencia con una base de datos distribuida «tradicional» es clave. En esta "
         "última, los participantes suelen confiar unos en otros y colaboran para mantener "
@@ -50,7 +50,7 @@ BODIES = {
         "entrada distinta con la misma huella (colisión). En material didáctico de "
         "datos.gob.es, el hash se presenta precisamente como la «huella digital única» "
         "que permite detectar manipulaciones.\n\n"
-        "En un blockchain, cada bloque suele reunir el conjunto de datos (transacciones), "
+        "En una blockchain, cada bloque suele reunir el conjunto de datos (transacciones), "
         "metadatos (marca temporal, versión, etc.) y, de forma crítica, la "
         "<strong>huella del bloque anterior</strong> (<em>previous hash</em>). Esa "
         "referencia construye la cadena. Si alguien modifica un bloque antiguo, su "
@@ -132,7 +132,7 @@ BODIES = {
     ),
     "bc_cripto_contratos": (
         "Una <strong>criptomoneda</strong> (por ejemplo Bitcoin) es una "
-        "<strong>aplicación</strong> construida sobre un blockchain, no el sinónimo "
+        "<strong>aplicación</strong> construida sobre una blockchain, no el sinónimo "
         "del concepto. El mismo tipo de registro puede servir para otros estados "
         "compartidos: notarización de documentos, trazabilidad de suministro, "
         "identidad digital o prototipos de votación. datos.gob.es remarca que "
@@ -163,7 +163,7 @@ BODIES = {
         "marco de identidad."
     ),
     "bc_limites": (
-        "El blockchain no garantiza la «verdad» del mundo. Garantiza, en lo "
+        "La blockchain no garantiza la «verdad» del mundo. Garantiza, en lo "
         "esencial, que el historial <strong>acordado por el protocolo</strong> es "
         "coherente y costoso de reescribir en silencio. El BdE enumera limitaciones "
         "estructurales frecuentes de los DLT: escalabilidad insuficiente, robustez "
