@@ -20,7 +20,7 @@ window.MYWEB_DATA = {
   siteMeta: {
     version: "1.9.33",
     updated: "2026-11-04",
-    assetBust: "12",
+    assetBust: "13",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },
@@ -1859,7 +1859,8 @@ window.MYWEB_DATA = {
         icon: "./blockchain_bigdata/ref_bde.png",
         links: [
           {
-            label: "Tecnología de registros distribuidos (DLT): una introducción.",
+            label:
+              "Tecnología de registros distribuidos (DLT): una introducción a fundamentos, tipologías y límites.",
             url: "https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/InformesBoletinesRevistas/ArticulosAnaliticos/2018/T4/descargar/Fich/beaa1804-art26.pdf"
           }
         ]
@@ -1868,15 +1869,15 @@ window.MYWEB_DATA = {
         icon: "./blockchain_bigdata/ref_datosgob.png",
         links: [
           {
-            label: "Descubriendo las claves de Blockchain (informe en español).",
+            label: "Descubriendo las claves de Blockchain: informe en español sobre conceptos y usos.",
             url: "https://datos.gob.es/sites/default/files/documentacion/files/descubriendo_las_claves_de_blockchain.pdf"
           },
           {
-            label: "Datos abiertos, big data y gobierno abierto.",
+            label: "Datos abiertos, big data y gobierno abierto: diferencias entre tipos de datos.",
             url: "https://datos.gob.es/es/noticias/datos-abiertos-big-data-y-gobierno-abierto-diferentes-tipos-de-datos"
           },
           {
-            label: "Nuevas tendencias y desafíos en el mundo de los datos.",
+            label: "Nuevas tendencias y desafíos en el mundo de los datos (informe).",
             url: "https://datos.gob.es/sites/default/files/documentacion/files/nuevas_tendencias_y_desafios_en_el_mundo_de_los_datos_0.pdf"
           }
         ]
@@ -1885,7 +1886,7 @@ window.MYWEB_DATA = {
         icon: "./blockchain_bigdata/ref_incibe.svg",
         links: [
           {
-            label: "Blockchain sin intermediarios (infografía didáctica).",
+            label: "Blockchain sin intermediarios: infografía didáctica de ciberseguridad.",
             url: "https://www.incibe.es/sites/default/files/docs/c10-pdf-infografia-blockchain-sin-intermediarios.pdf"
           }
         ]
@@ -1894,7 +1895,7 @@ window.MYWEB_DATA = {
         icon: "./blockchain_bigdata/ref_bitcoin.png",
         links: [
           {
-            label: "Bitcoin: white paper de Nakamoto (traducción al español).",
+            label: "Bitcoin: white paper de Satoshi Nakamoto (traducción al español).",
             url: "https://bitcoin.org/files/bitcoin-paper/bitcoin_es.pdf"
           }
         ]
@@ -1903,11 +1904,11 @@ window.MYWEB_DATA = {
         icon: "./blockchain_bigdata/ref_aepd.svg",
         links: [
           {
-            label: "Blockchain y el derecho de supresión (nota técnica).",
+            label: "Blockchain y el derecho de supresión: nota técnica / prueba de concepto.",
             url: "https://www.aepd.es/guias/nota-tecnica-blockchain.pdf"
           },
           {
-            label: "Buenas prácticas de protección de datos en proyectos Big Data.",
+            label: "Código de buenas prácticas de protección de datos para proyectos Big Data.",
             url: "https://www.aepd.es/sites/default/files/2019-09/guia-codigo-de-buenas-practicas-proyectos-de-big-data.pdf"
           },
           {
@@ -1920,7 +1921,7 @@ window.MYWEB_DATA = {
         icon: "./blockchain_bigdata/ref_digcomp.png",
         links: [
           {
-            label: "Marco europeo DigComp (traducción al castellano).",
+            label: "Marco europeo DigComp (traducción al castellano — Asociación Somos Digital).",
             url: "https://somos-digital.org/digcomp/"
           }
         ]
