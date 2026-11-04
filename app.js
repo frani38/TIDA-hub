@@ -3147,7 +3147,7 @@
                   loading="lazy"
                 />
               </button>
-            </div>
+              </div>
             ${
               isSoftSkills
                 ? `
@@ -4435,21 +4435,21 @@
           } else {
             refsEl.hidden = false;
             refsEl.innerHTML = `
-              <div class="bc-bd-refs-page soft-skills-refs">
+              <div class="bc-bd-refs-page">
                 <h3 class="bc-bd-column__title bc-bd-refs-page__title">Referencias</h3>
-                <ul class="soft-skills-refs__list bc-bd-refs-page__list">
+                <ul class="bc-bd-refs-page__list">
                   ${refs
                     .map((r) => {
                       const iconHtml = r.icon
-                        ? `<img class="soft-skills-refs__icon" src="${escapeHtml(r.icon)}?v=${assetV}" alt="" loading="lazy" decoding="async" />`
-                        : `<span class="soft-skills-refs__icon" aria-hidden="true"></span>`;
-                      const linksHtml = r.links
+                        ? `<img class="bc-bd-refs-page__icon" src="${escapeHtml(r.icon)}?v=${assetV}" alt="" loading="lazy" decoding="async" />`
+                        : `<span class="bc-bd-refs-page__icon" aria-hidden="true"></span>`;
+                      const linksHtml = `<ul class="bc-bd-refs-page__sublist">${r.links
                         .map(
                           (l) =>
-                            `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${allowBcHtml(l.label)}</a>`
+                            `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${allowBcHtml(l.label)}</a></li>`
                         )
-                        .join("");
-                      return `<li class="soft-skills-refs__item${r.links.length > 1 ? " soft-skills-refs__item--multi" : ""}">${iconHtml}<div class="soft-skills-refs__links">${linksHtml}</div></li>`;
+                        .join("")}</ul>`;
+                      return `<li class="bc-bd-refs-page__item">${iconHtml}${linksHtml}</li>`;
                     })
                     .join("")}
                 </ul>

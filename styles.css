@@ -4267,9 +4267,17 @@ body.theme-light .bc-bd-examples__list {
 
 .bc-bd-refs {
   margin-top: 0.35rem;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
 }
 
-/* Vista REFERENCIAS: subtítulo arriba; lista debajo, sin solape, indentada hacia su mitad (como Soft Skills). */
+.bc-bd-page:has(.bc-bd-refs:not([hidden])) {
+  width: 100%;
+  max-width: none;
+}
+
+/* Vista REFERENCIAS: ancho completo del panel; título a todo el ancho; sublista con checks. */
 footer.bc-bd-refs.soft-skills-refs,
 .bc-bd-refs.soft-skills-refs {
   border-top: none;
@@ -4278,39 +4286,130 @@ footer.bc-bd-refs.soft-skills-refs,
   grid-template-columns: none;
 }
 
-.bc-bd-refs-page.soft-skills-refs {
-  max-width: 960px;
-  margin-top: 0;
-  border-top: none;
-  padding-top: 0;
+.bc-bd-refs-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.55rem;
+  align-items: stretch;
+  gap: 0.75rem;
 }
 
 .bc-bd-refs-page__title.bc-bd-column__title {
   margin: 0;
-  width: max-content;
-  max-width: 100%;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
 }
 
-.bc-bd-refs-page__list.soft-skills-refs__list {
-  /* Mitad aproximada del ancho del subtítulo «REFERENCIAS» (~8.5rem): logos bajo el centro. */
-  margin: 0 0 0 4.25rem;
-  padding-top: 0;
-  padding-left: 0;
+.bc-bd-refs-page__list {
+  margin: 0;
+  padding: 0;
   list-style: none;
-  width: calc(100% - 4.25rem);
-  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
-  gap: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: var(--tech-font);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-soft, #c5d0e8);
+}
+
+.bc-bd-refs-page__item {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+  width: 100%;
+  min-width: 0;
+}
+
+.bc-bd-refs-page__icon {
+  height: 3.6rem;
+  width: auto;
+  max-width: 100%;
+  margin: 0.1rem auto 0;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  background: transparent;
+}
+
+.bc-bd-refs-page__sublist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.bc-bd-refs-page__sublist > li {
+  display: grid;
+  grid-template-columns: 1.15rem minmax(0, 1fr);
+  column-gap: 0.45rem;
+  align-items: start;
+  min-width: 0;
+}
+
+.bc-bd-refs-page__sublist > li::before {
+  content: "✓";
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--accent, #7aa2ff);
+}
+
+.bc-bd-refs-page__sublist a {
+  color: var(--accent, #7aa2ff);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.bc-bd-refs-page__sublist a:hover {
+  color: var(--accent-2, #97b8ff);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.bc-bd-refs-page__sublist a strong {
+  font-weight: 800;
+  color: inherit;
+}
+
+body.theme-light .bc-bd-refs-page__list {
+  color: #475569;
+}
+
+body.theme-light .bc-bd-refs-page__sublist > li::before {
+  color: #0f3f9a;
+}
+
+body.theme-light .bc-bd-refs-page__sublist a {
+  color: var(--accent, #2563eb);
+}
+
+body.theme-light .bc-bd-refs-page__sublist a:hover {
+  color: var(--accent-2, #3b82f6);
+}
+
+body.theme-light .bc-bd-refs-page__sublist a strong {
+  color: #0f3f9a;
 }
 
 @media (max-width: 720px) {
-  .bc-bd-refs-page__list.soft-skills-refs__list {
-    margin-left: 0;
-    width: 100%;
+  .bc-bd-refs-page__item {
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+  }
+
+  .bc-bd-refs-page__icon {
+    height: 3.2rem;
   }
 }
 
