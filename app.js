@@ -4248,26 +4248,14 @@
           const hubCaption = String(hubImg?.caption || "").trim();
           const figHtml = hubSrcFinal
             ? `
-              <figure class="bc-bd-inline-fig bc-bd-inline-fig--mid">
+              <figure class="bc-bd-inline-fig bc-bd-inline-fig--right bc-bd-inline-fig--hero">
                 <img src="${escapeHtml(hubSrcFinal)}?v=${assetV}" alt="${escapeHtml(hubAlt)}" loading="lazy" decoding="async" />
                 ${hubCaption ? `<figcaption>${escapeHtml(hubCaption)}</figcaption>` : ""}
               </figure>
             `
             : "";
-          const p1 = introParts[0] ? `<p>${allowBcHtml(introParts[0])}</p>` : "";
-          const p2 = introParts[1] ? `<p>${allowBcHtml(introParts[1])}</p>` : "";
-          const restParas = introParts
-            .slice(2)
-            .map((p) => `<p>${allowBcHtml(p)}</p>`)
-            .join("");
-          ledeEl.innerHTML = `
-            <div class="bc-bd-lede-top">
-              <div class="bc-bd-lede-col">${p1}</div>
-              ${figHtml}
-              <div class="bc-bd-lede-col">${p2}</div>
-            </div>
-            ${restParas ? `<div class="bc-bd-lede-rest">${restParas}</div>` : ""}
-          `;
+          const paras = introParts.map((p) => `<p>${allowBcHtml(p)}</p>`).join("");
+          ledeEl.innerHTML = `${figHtml}${paras}`;
           ledeEl.hidden = !ledeEl.innerHTML.trim();
         }
 
