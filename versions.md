@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.31**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.32**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -799,6 +799,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Blockchain y Big Data: página introductoria (dos párrafos + imágenes) y enlaces bajo el logo a cada apartado.
 
+## 1.9.32
+
+- Blockchain y Big Data: imágenes de `image/` intercaladas en la intro (estilo revista); menú lateral en mayúsculas y alineado a la izquierda.
+
 ---
 
 ## Convención (recordatorio)
@@ -998,3 +1002,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.29** | Pie: badges WCAG/CC también en Privacidad y Asistencia IA |
 | **1.9.30** | Asistencia IA: marca más pequeña; pie WCAG/CC; versión canónica tras notas editoriales |
 | **1.9.31** | Blockchain/Big Data: intro + navegación a cada apartado |
+| **1.9.32** | Blockchain/Big Data: fotos en intro + menú lateral mayúsculas |
