@@ -4401,17 +4401,14 @@
                 : "";
               if (!title && !body) return "";
               return `
-                <details class="bc-bd-section" id="${escapeHtml(String(sec?.id || "").trim())}">
-                  <summary class="bc-bd-section__summary">
-                    <span class="bc-bd-section__title">${escapeHtml(title || "Apartado")}</span>
-                    <span class="bc-bd-section__chevron" aria-hidden="true"></span>
-                  </summary>
+                <article class="bc-bd-section" id="${escapeHtml(String(sec?.id || "").trim())}">
+                  <h4 class="bc-bd-section__title">${escapeHtml(title || "Apartado")}</h4>
                   <div class="bc-bd-section__content">
                     ${bodyHtml}
                     ${figureHtml}
                     ${examplesHtml}
                   </div>
-                </details>
+                </article>
               `;
             })
             .join("");
