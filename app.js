@@ -4285,6 +4285,33 @@
                 ${hubCaption ? `<figcaption>${escapeHtml(hubCaption)}</figcaption>` : ""}
               </figure>
             `;
+            const copyEl = ledeEl.querySelector(".bc-bd-lede__copy");
+            const imgEl = ledeEl.querySelector(".bc-bd-lede__fig img");
+            const syncHubFigToCopy = () => {
+              if (!(copyEl instanceof HTMLElement) || !(imgEl instanceof HTMLElement)) return;
+              // En móvil el layout es apilado: altura natural.
+              if (window.matchMedia("(max-width: 980px)").matches) {
+                imgEl.style.height = "";
+                return;
+              }
+              const h = Math.round(copyEl.getBoundingClientRect().height);
+              if (h > 0) imgEl.style.height = `${h}px`;
+            };
+            const imgReady = () => {
+              syncHubFigToCopy();
+              requestAnimationFrame(syncHubFigToCopy);
+            };
+            if (imgEl instanceof HTMLImageElement) {
+              if (imgEl.complete) imgReady();
+              else imgEl.addEventListener("load", imgReady, { once: true });
+            } else {
+              imgReady();
+            }
+            if (typeof ResizeObserver === "function" && copyEl) {
+              const ro = new ResizeObserver(() => syncHubFigToCopy());
+              ro.observe(copyEl);
+            }
+            window.addEventListener("resize", syncHubFigToCopy, { passive: true });
           } else {
             ledeEl.classList.remove("bc-bd-lede--split");
             ledeEl.innerHTML = paras;
