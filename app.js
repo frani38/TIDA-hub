@@ -4567,19 +4567,26 @@
             glossaryEl.innerHTML = "";
           } else {
             glossaryEl.hidden = false;
+            const renderGlossaryItems = (items) =>
+              items
+                .map(
+                  (g) => `
+                <div class="bc-bd-glossary__item">
+                  <dt class="bc-bd-glossary__term">${escapeHtml(g.term)}</dt>
+                  <dd class="bc-bd-glossary__def">${escapeHtml(g.def)}</dd>
+                </div>`
+                )
+                .join("");
+            // Orden A–Z: primero toda la columna izquierda, luego la derecha.
+            const splitAt = Math.ceil(glossary.length / 2);
+            const leftCol = glossary.slice(0, splitAt);
+            const rightCol = glossary.slice(splitAt);
             glossaryEl.innerHTML = `
               <h3 class="bc-bd-glossary__title">Glosario</h3>
-              <dl class="bc-bd-glossary__grid">
-                ${glossary
-                  .map(
-                    (g) => `
-                  <div class="bc-bd-glossary__item">
-                    <dt class="bc-bd-glossary__term">${escapeHtml(g.term)}</dt>
-                    <dd class="bc-bd-glossary__def">${escapeHtml(g.def)}</dd>
-                  </div>`
-                  )
-                  .join("")}
-              </dl>
+              <div class="bc-bd-glossary__grid">
+                <dl class="bc-bd-glossary__col">${renderGlossaryItems(leftCol)}</dl>
+                <dl class="bc-bd-glossary__col">${renderGlossaryItems(rightCol)}</dl>
+              </div>
             `;
           }
         }
