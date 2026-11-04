@@ -4416,9 +4416,9 @@ img.bc-bd-refs-page__icon[src*="ref_datosgob"] {
 
 .bc-bd-refs-page__cite {
   font-family: var(--tech-font);
-  font-weight: 800;
-  font-size: 0.78rem;
-  line-height: 1.45;
+  font-weight: 400;
+  font-size: 0.92rem;
+  line-height: 1.5;
   font-variant-numeric: tabular-nums;
   color: var(--accent, #7aa2ff);
   text-align: right;
@@ -4430,8 +4430,8 @@ img.bc-bd-refs-page__icon[src*="ref_datosgob"] {
   color: var(--accent, #7aa2ff);
   text-decoration: none;
   min-width: 0;
-  font-size: 0.82rem;
-  line-height: 1.45;
+  font-size: 0.92rem;
+  line-height: 1.5;
   font-weight: 400;
 }
 
