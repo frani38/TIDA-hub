@@ -4307,11 +4307,23 @@
             } else {
               imgReady();
             }
+            if (ledeEl.__bcHubFigCleanup) {
+              try {
+                ledeEl.__bcHubFigCleanup();
+              } catch {}
+            }
+            let ro = null;
             if (typeof ResizeObserver === "function" && copyEl) {
-              const ro = new ResizeObserver(() => syncHubFigToCopy());
+              ro = new ResizeObserver(() => syncHubFigToCopy());
               ro.observe(copyEl);
             }
             window.addEventListener("resize", syncHubFigToCopy, { passive: true });
+            ledeEl.__bcHubFigCleanup = () => {
+              window.removeEventListener("resize", syncHubFigToCopy);
+              try {
+                ro?.disconnect?.();
+              } catch {}
+            };
           } else {
             ledeEl.classList.remove("bc-bd-lede--split");
             ledeEl.innerHTML = paras;
