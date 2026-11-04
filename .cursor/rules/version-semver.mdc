@@ -62,6 +62,7 @@ Si un mismo commit mezcla **contenido o docs + cambio de la web**, sí se versio
 
 - Solo lectura, explicación o diagnóstico sin editar el sitio.
 - El usuario pide explícitamente no cambiar la versión.
+- **WIP activo — Blockchain y Big Data:** mientras se itera el diseño/contenido de esta sección (`misc_bc`, `blockchainBigData`, `app.js`/`styles.css`/`data.js`/`image/` ligados a ella), **no** incrementar `siteMeta.version` ni los fallbacks `vX.Y.Z`. Sí **commit + push**. Cuando el usuario indique que la sección está terminada como quiere, aplicar **un solo bump** (normalmente PATCH) que consolide el resultado, o el que corresponda si el cambio final es mayor.
 
 ## Ejemplos
 

@@ -807,6 +807,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Blockchain y Big Data: una sola imagen de intro («Big Data y Blockchain») arriba a la izquierda del texto.
 
+### Nota (sin bump)
+
+- Mientras se itera Blockchain y Big Data hasta darla por terminada, los retoques de esa sección se publican **sin** subir `siteMeta.version` (un solo bump al cerrar el WIP).
+
 ---
 
 ## Convención (recordatorio)
