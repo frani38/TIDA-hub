@@ -4344,6 +4344,7 @@
           const colTitle = String(col?.title || "").trim();
           const colId = String(col?.id || "").trim();
           const sections = Array.isArray(col?.sections) ? col.sections : [];
+          let sectionNum = 0;
           const sectionsHtml = sections
             .map((sec) => {
               const title = String(sec?.title || "").trim();
@@ -4400,9 +4401,11 @@
                 `
                 : "";
               if (!title && !body) return "";
+              sectionNum += 1;
+              const titleDisplay = String(title || "Apartado").toLocaleUpperCase("es");
               return `
                 <article class="bc-bd-section" id="${escapeHtml(String(sec?.id || "").trim())}">
-                  <h4 class="bc-bd-section__title">${escapeHtml(title || "Apartado")}</h4>
+                  <h4 class="bc-bd-section__title"><span class="bc-bd-section__num">${sectionNum}.</span> ${escapeHtml(titleDisplay)}</h4>
                   <div class="bc-bd-section__content">
                     ${bodyHtml}
                     ${figureHtml}

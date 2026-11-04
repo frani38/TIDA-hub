@@ -4105,9 +4105,16 @@ body.theme-light .bc-bd-section {
   font-family: var(--tech-font);
   font-size: 1rem;
   font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   color: var(--accent, #7aa2ff);
   line-height: 1.3;
   min-width: 0;
+}
+
+.bc-bd-section__num {
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.15em;
 }
 
 body.theme-light .bc-bd-section__title {
