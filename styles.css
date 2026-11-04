@@ -3898,9 +3898,19 @@ body.theme-light .soft-skills-refs {
   text-justify: inter-word;
 }
 
-.bc-bd-lede::after {
-  content: "";
-  display: table;
+.bc-bd-lede-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(160px, 28%) minmax(0, 1fr);
+  gap: 0.95rem 1.1rem;
+  align-items: start;
+  margin-bottom: 0.95rem;
+}
+
+.bc-bd-lede-col {
+  min-width: 0;
+}
+
+.bc-bd-lede-rest {
   clear: both;
 }
 
@@ -3908,7 +3918,7 @@ body.theme-light .soft-skills-refs {
   margin: 0;
 }
 
-.bc-bd-lede p + p {
+.bc-bd-lede-rest p + p {
   margin-top: 0.85rem;
 }
 
@@ -3916,24 +3926,17 @@ body.theme-light .bc-bd-lede {
   color: #334155;
 }
 
-/* Imagen de intro arriba a la derecha (texto fluye a la izquierda). */
+/* Imagen centrada entre los dos primeros párrafos. */
 .bc-bd-inline-fig {
-  margin: 0.1rem 0 0.85rem;
-  max-width: min(38%, 320px);
-  width: 38%;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  float: none;
 }
 
-.bc-bd-inline-fig--left {
-  float: none; /* no usar izquierda en esta sección */
-}
-
-.bc-bd-inline-fig--right,
-.bc-bd-inline-fig--hero,
-.bc-bd-lede > .bc-bd-inline-fig {
-  float: right !important;
-  margin-left: 1.1rem !important;
-  margin-right: 0 !important;
-  margin-top: 0.15rem;
+.bc-bd-inline-fig--mid {
+  justify-self: center;
+  align-self: start;
 }
 
 .bc-bd-inline-link {
@@ -4267,13 +4270,18 @@ footer.bc-bd-refs.soft-skills-refs,
     grid-template-columns: 1fr;
   }
 
+  .bc-bd-lede-top {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
   .bc-bd-inline-fig,
-  .bc-bd-inline-fig--right,
-  .bc-bd-inline-fig--hero {
-    float: none;
+  .bc-bd-inline-fig--mid {
     width: min(100%, 420px);
     max-width: 100%;
-    margin: 0.35rem auto 0.9rem;
+    margin: 0.15rem auto 0.35rem;
+    justify-self: center;
+    order: -1;
   }
 }
 
