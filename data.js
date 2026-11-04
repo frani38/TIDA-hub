@@ -18,8 +18,8 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.9.30",
-    updated: "2026-11-03",
+    version: "1.9.31",
+    updated: "2026-11-04",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },
@@ -1622,7 +1622,27 @@ window.MYWEB_DATA = {
   // Imágenes didácticas en ./blockchain/. changelog → NOVEDADES (una entrada de sección).
   blockchainBigData: {
     intro:
-      "El <strong>blockchain</strong> (cadena de bloques) es, en términos técnicos, un <strong>libro mayor digital distribuido</strong>: un historial de registros agrupados en bloques, enlazados mediante <strong>funciones resumen criptográficas</strong> (<em>hash</em>) y mantenido por una red de nodos que solo aceptan actualizaciones según reglas de <strong>validación</strong> y <strong>consenso</strong>. Su valor no reside en «ser misterioso» ni en equivaler automáticamente a una criptomoneda, sino en ofrecer un registro <strong>compartido</strong>, <strong>auditable</strong> y difícil de alterar en silencio sin que el cambio quede expuesto. Implica nociones de integridad de datos, firma digital, claves públicas y privadas, incentivos de red y límites (escalabilidad, consumo, irreversibilidad práctica, riesgos de custodia). Por su parte, el <strong>big data</strong> (macrodatos) designa escenarios en los que el <strong>volumen</strong>, la <strong>velocidad</strong> y/o la <strong>variedad</strong> de los datos —junto con la <strong>veracidad</strong> y el <strong>valor</strong> que se les atribuye— desbordan los métodos convencionales de gestión y análisis. No se reduce a «muchas filas»: exige pensar en tipologías (estructurados, semiestructurados, no estructurados), ciclos de captura–procesamiento–decisión, calidad del dato, privacidad y el peligro de confundir correlación con causalidad o cantidad con evidencia.\n\nAunque se presentan por separado, blockchain y big data se relacionan en el ecosistema digital contemporáneo: el primero aporta mecanismos para <strong>registrar y verificar</strong> estados o eventos con garantías criptográficas; el segundo aporta la capacidad de <strong>generar, almacenar y analizar</strong> masas de información heterogénea a gran escala. En la práctica pueden converger (p. ej. anclar huellas de grandes conjuntos de datos, trazabilidad de procesos alimentados por sensores, o analítica sobre ledgers públicos), pero no son intercambiables: un blockchain no «resuelve» por sí solo el análisis masivo, y el big data no garantiza por sí solo integridad distribuida ni consenso entre partes que no se confían. Estudiarlos con rigor es especialmente pertinente en <strong>Digitalización</strong> (4.º de ESO) y en <strong>Tecnologías Digitales Aplicadas I y II</strong> (1.º y 2.º de Bachillerato), materias orientadas a comprender sistemas digitales reales, sus fundamentos, sus aplicaciones y sus implicaciones éticas y sociales. Esta sección desarrolla ambos conceptos en columnas paralelas —teoría, figuras y propuestas de aula— y cierra con <strong>referencias en español</strong> (datos.gob.es, INCIBE, AEPD, DigComp en castellano y el whitepaper de Bitcoin traducido) para contrastar y ampliar lo aprendido.",
+      "El <strong>blockchain</strong> (cadena de bloques) es, en términos técnicos, un <strong>libro mayor digital distribuido</strong>: un historial de registros agrupados en bloques, enlazados mediante <strong>funciones resumen criptográficas</strong> (<em>hash</em>) y mantenido por una red de nodos que solo aceptan actualizaciones según reglas de <strong>validación</strong> y <strong>consenso</strong>. Su valor no reside en «ser misterioso» ni en equivaler automáticamente a una criptomoneda, sino en ofrecer un registro <strong>compartido</strong>, <strong>auditable</strong> y difícil de alterar en silencio sin que el cambio quede expuesto. Implica nociones de integridad de datos, firma digital, claves públicas y privadas, incentivos de red y límites (escalabilidad, consumo, irreversibilidad práctica, riesgos de custodia). Por su parte, el <strong>big data</strong> (macrodatos) designa escenarios en los que el <strong>volumen</strong>, la <strong>velocidad</strong> y/o la <strong>variedad</strong> de los datos —junto con la <strong>veracidad</strong> y el <strong>valor</strong> que se les atribuye— desbordan los métodos convencionales de gestión y análisis. No se reduce a «muchas filas»: exige pensar en tipologías (estructurados, semiestructurados, no estructurados), ciclos de captura–procesamiento–decisión, calidad del dato, privacidad y el peligro de confundir correlación con causalidad o cantidad con evidencia.\n\nAunque se presentan por separado, blockchain y big data se relacionan en el ecosistema digital contemporáneo: el primero aporta mecanismos para <strong>registrar y verificar</strong> estados o eventos con garantías criptográficas; el segundo aporta la capacidad de <strong>generar, almacenar y analizar</strong> masas de información heterogénea a gran escala. En la práctica pueden converger (p. ej. anclar huellas de grandes conjuntos de datos, trazabilidad de procesos alimentados por sensores, o analítica sobre ledgers públicos), pero no son intercambiables: un blockchain no «resuelve» por sí solo el análisis masivo, y el big data no garantiza por sí solo integridad distribuida ni consenso entre partes que no se confían. Estudiarlos con rigor es especialmente pertinente en <strong>Digitalización</strong> (4.º de ESO) y en <strong>Tecnologías Digitales Aplicadas I y II</strong> (1.º y 2.º de Bachillerato), materias orientadas a comprender sistemas digitales reales, sus fundamentos, sus aplicaciones y sus implicaciones éticas y sociales. Esta sección desarrolla ambos conceptos por separado —teoría, figuras y propuestas de aula—: elige <strong>Blockchain</strong> o <strong>Big Data</strong> debajo del icono (o en las imágenes) para entrar en cada contenido, y encontrarás al final <strong>referencias en español</strong> (datos.gob.es, INCIBE, AEPD, DigComp en castellano y el whitepaper de Bitcoin traducido) para contrastar y ampliar lo aprendido.",
+    hubConcepts: [
+      {
+        id: "blockchain",
+        title: "Blockchain",
+        image: {
+          src: "./blockchain/bc_topologias.svg",
+          alt: "Topologías de red: centralizada, descentralizada y distribuida",
+          caption: "Blockchain: registro distribuido entre nodos."
+        }
+      },
+      {
+        id: "bigdata",
+        title: "Big Data",
+        image: {
+          src: "./blockchain/bd_macrodatos.svg",
+          alt: "Volumen, velocidad y variedad de los macrodatos",
+          caption: "Big Data: volumen, velocidad y variedad de datos."
+        }
+      }
+    ],
     changelog: [
       {
         publishedAt: "2026-11-03T19:40",

@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.30**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.9.31**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -785,7 +785,7 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Asistencia IA: marca T·I·D·Ahub más pequeña en el texto; 3.º párrafo sin repetir el nombre.
 - Pie: badges WCAG/CC en Privacidad y Asistencia IA (1.9.29).
-- **Versión canónica actual:** tras aclarar el criterio editorial, se deja de bumpear por redacción pura; el pie vuelve a **1.9.30** (último cambio de producto/UI). Los ajustes de texto posteriores se anotan aquí sin número propio.
+- Tras aclarar el criterio editorial, se dejó de bumpear por redacción pura; el pie se fijó en **1.9.30** antes de los siguientes cambios de producto.
 
 ### Notas editoriales (sin bump; no son versiones)
 
@@ -794,6 +794,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 - 3.º párrafo: objetivos técnicos complejos y publicación en GitHub; «este trabajo» al servicio de la comunidad.
 - Párrafo de endoso: «la empleo en mi día a día como herramienta de trabajo…».
 - Criterio: solo redacción en Asistencia IA / Privacidad → commit/push **sin** subir `siteMeta.version`.
+
+## 1.9.31
+
+- Blockchain y Big Data: página introductoria (dos párrafos + imágenes) y enlaces bajo el logo a cada apartado.
 
 ---
 
@@ -993,3 +997,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.28** | Asistencia IA: párrafos 3–4 refundidos |
 | **1.9.29** | Pie: badges WCAG/CC también en Privacidad y Asistencia IA |
 | **1.9.30** | Asistencia IA: marca más pequeña; pie WCAG/CC; versión canónica tras notas editoriales |
+| **1.9.31** | Blockchain/Big Data: intro + navegación a cada apartado |

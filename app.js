@@ -1864,6 +1864,10 @@
     if (section === "legislacion") return `${base}#legislacion`;
     if (section === "miscelanea") {
       const mid = String(st.miscId || "").trim();
+      const tab = String(st.tabId || "").trim();
+      if (mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata")) {
+        return `${base}#miscelanea/${encodeURIComponent(mid)}/${encodeURIComponent(tab)}`;
+      }
       return mid ? `${base}#miscelanea/${encodeURIComponent(mid)}` : `${base}#miscelanea`;
     }
     if (section === "updates") return `${base}#updates`;
@@ -2021,7 +2025,16 @@
       return;
     }
     if (raw === "miscelanea" || raw.startsWith("miscelanea/")) {
-      const miscId = raw === "miscelanea" ? "" : decodeURIComponent(raw.slice("miscelanea/".length));
+      let miscId = "";
+      let tabId = "";
+      if (raw !== "miscelanea") {
+        const parts = raw.slice("miscelanea/".length).split("/").filter(Boolean);
+        miscId = decodeURIComponent(parts[0] || "");
+        const maybeTab = decodeURIComponent(parts[1] || "");
+        if (miscId === "misc_bc" && (maybeTab === "blockchain" || maybeTab === "bigdata")) {
+          tabId = maybeTab;
+        }
+      }
       restoreHistorySnapshot({
         myweb: 1,
         section: "miscelanea",
@@ -2029,7 +2042,7 @@
         levelId: "",
         materialId: "",
         unitId: "",
-        tabId: "",
+        tabId,
         miscId,
         aboutView: "",
         searchQuery: "",
@@ -3086,9 +3099,17 @@
       }
     };
 
-    const renderDetail = async (it, { recordHistory = true, expectFly = false } = {}) => {
+    const renderDetail = async (it, { recordHistory = true, expectFly = false, preserveTab = false } = {}) => {
       setMiscTitle(it.label);
-      currentState = { ...currentState, section: "miscelanea", miscId: String(it.id || "").trim() };
+      const nextMiscId = String(it.id || "").trim();
+      const keepBcTab = nextMiscId === "misc_bc" && preserveTab;
+      const nextTabId = keepBcTab ? String(currentState.tabId || "").trim() : "";
+      currentState = {
+        ...currentState,
+        section: "miscelanea",
+        miscId: nextMiscId,
+        tabId: nextMiscId === "misc_bc" && (nextTabId === "blockchain" || nextTabId === "bigdata") ? nextTabId : ""
+      };
       if (recordHistory) pushAppHistory();
       const isReadings = it.id === "misc_lr";
       const isGames = it.id === "misc_jt";
@@ -3096,6 +3117,7 @@
       const isSoftSkills = it.id === "misc_ss";
       const isBlockchainBigData = it.id === "misc_bc";
       const isMiscCatalog = isReadings || isGames || isMedia || isSoftSkills || isBlockchainBigData;
+      const bcTopic = isBlockchainBigData ? String(currentState.tabId || "").trim() : "";
       tabPanelEl.innerHTML = `
         <div class="misc-detail${isMiscCatalog ? " misc-detail--readings" : ""}">
           <aside class="misc-detail__aside${isMiscCatalog ? " misc-detail__aside--readings" : ""}" aria-label="${escapeHtml(it.label)}">
@@ -3210,7 +3232,22 @@
                         </label>
                       </div>
                     `
-                  : ""
+                    : isBlockchainBigData
+                      ? `
+                        <nav class="bc-bd-aside-nav" aria-label="Apartados de Blockchain y Big Data">
+                          <a
+                            href="#miscelanea/misc_bc/blockchain"
+                            class="bc-bd-aside-nav__link${bcTopic === "blockchain" ? " is-active" : ""}"
+                            data-bc-topic="blockchain"
+                          >Blockchain</a>
+                          <a
+                            href="#miscelanea/misc_bc/bigdata"
+                            class="bc-bd-aside-nav__link${bcTopic === "bigdata" ? " is-active" : ""}"
+                            data-bc-topic="bigdata"
+                          >Big Data</a>
+                        </nav>
+                      `
+                      : ""
             }
           </aside>
           <section class="misc-detail__content" aria-label="Contenido">
@@ -3265,9 +3302,12 @@
                 `
                 : isBlockchainBigData
                   ? `
-                    <div class="readings-page bc-bd-page" aria-label="Blockchain y Big Data">
-                      <div class="bc-bd-lede" id="bc-bd-lede"></div>
-                      <div id="bc-bd-columns" class="bc-bd-columns" aria-live="polite"></div>
+                    <div class="readings-page bc-bd-page" aria-label="Blockchain y Big Data" data-bc-view="${escapeHtml(bcTopic || "hub")}">
+                      <div class="bc-bd-hub" id="bc-bd-hub"${bcTopic ? " hidden" : ""}>
+                        <div class="bc-bd-lede" id="bc-bd-lede"></div>
+                        <div class="bc-bd-hub-concepts" id="bc-bd-hub-concepts" aria-label="Conceptos"></div>
+                      </div>
+                      <div id="bc-bd-columns" class="bc-bd-columns${bcTopic ? " bc-bd-columns--single" : ""}" aria-live="polite"${bcTopic ? "" : " hidden"}></div>
                       <footer class="soft-skills-refs bc-bd-refs" id="bc-bd-refs" hidden></footer>
                   </div>
                 `
@@ -4155,10 +4195,30 @@
             .replace(/&lt;em&gt;/gi, "<em>")
             .replace(/&lt;\/em&gt;/gi, "</em>");
 
+        const hubEl = document.getElementById("bc-bd-hub");
         const ledeEl = document.getElementById("bc-bd-lede");
+        const conceptsEl = document.getElementById("bc-bd-hub-concepts");
         const colsEl = document.getElementById("bc-bd-columns");
         const refsEl = document.getElementById("bc-bd-refs");
         const assetV = escapeHtml(String(window.MYWEB_ASSET_V || DATA.siteMeta?.version || "").trim());
+        const activeTopic = bcTopic === "blockchain" || bcTopic === "bigdata" ? bcTopic : "";
+        const showHub = !activeTopic;
+
+        const openBcTopic = (topic) => {
+          const t = String(topic || "").trim();
+          if (t !== "blockchain" && t !== "bigdata") return;
+          currentState = { ...currentState, section: "miscelanea", miscId: "misc_bc", tabId: t };
+          void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: true });
+          animateContentSwitch();
+          scrollToPageTop();
+        };
+
+        tabPanelEl.querySelectorAll("[data-bc-topic]").forEach((el) => {
+          el.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            openBcTopic(el.getAttribute("data-bc-topic"));
+          });
+        });
 
         if (ledeEl) {
           const introParts = intro
@@ -4171,99 +4231,148 @@
           ledeEl.hidden = !introParts.length;
         }
 
+        if (conceptsEl instanceof HTMLElement) {
+          const concepts = Array.isArray(pack?.hubConcepts) ? pack.hubConcepts : [];
+          conceptsEl.innerHTML = concepts
+            .map((c) => {
+              const id = String(c?.id || "").trim();
+              const title = String(c?.title || "").trim();
+              const img = c?.image && typeof c.image === "object" ? c.image : null;
+              const imgSrc = String(img?.src || "").trim();
+              const imgAlt = String(img?.alt || title).trim();
+              const imgCaption = String(img?.caption || "").trim();
+              if (!id || (id !== "blockchain" && id !== "bigdata")) return "";
+              return `
+                <button type="button" class="bc-bd-hub-card" data-bc-topic="${escapeHtml(id)}" aria-label="Abrir ${escapeHtml(title || id)}">
+                  <span class="bc-bd-hub-card__title">${escapeHtml(title || id)}</span>
+                  ${
+                    imgSrc
+                      ? `<img class="bc-bd-hub-card__img" src="${escapeHtml(imgSrc)}?v=${assetV}" alt="${escapeHtml(imgAlt)}" loading="lazy" decoding="async" />`
+                      : ""
+                  }
+                  ${imgCaption ? `<span class="bc-bd-hub-card__caption">${escapeHtml(imgCaption)}</span>` : ""}
+                </button>
+              `;
+            })
+            .join("");
+          conceptsEl.querySelectorAll("[data-bc-topic]").forEach((el) => {
+            el.addEventListener("click", (ev) => {
+              ev.preventDefault();
+              openBcTopic(el.getAttribute("data-bc-topic"));
+            });
+          });
+        }
+
+        if (hubEl instanceof HTMLElement) hubEl.hidden = !showHub;
+
+        const renderColumn = (col) => {
+          const colTitle = String(col?.title || "").trim();
+          const colId = String(col?.id || "").trim();
+          const sections = Array.isArray(col?.sections) ? col.sections : [];
+          const sectionsHtml = sections
+            .map((sec) => {
+              const title = String(sec?.title || "").trim();
+              const body = String(sec?.body || "").trim();
+              const examples = Array.isArray(sec?.examples)
+                ? sec.examples.map((e) => String(e || "").trim()).filter(Boolean)
+                : [];
+              const img = sec?.image && typeof sec.image === "object" ? sec.image : null;
+              const imgSrc = String(img?.src || "").trim();
+              const imgAlt = String(img?.alt || "").trim();
+              const imgCaption = String(img?.caption || "").trim();
+              const imgCredit = String(img?.credit || "").trim();
+              const imgCreditUrl = String(img?.creditUrl || "").trim();
+              const creditInner = imgCredit
+                ? imgCreditUrl
+                  ? `<a href="${escapeHtml(imgCreditUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(imgCredit)}</a>`
+                  : escapeHtml(imgCredit)
+                : "";
+              const creditHtml = creditInner
+                ? `<span class="bc-bd-figure__credit">(${creditInner})</span>`
+                : "";
+              const figureHtml = imgSrc
+                ? `
+                  <figure class="bc-bd-figure">
+                    <img class="bc-bd-figure__img" src="${escapeHtml(imgSrc)}?v=${assetV}" alt="${escapeHtml(imgAlt)}" loading="lazy" decoding="async" />
+                    ${
+                      imgCaption || creditHtml
+                        ? `<figcaption class="bc-bd-figure__caption">${imgCaption ? escapeHtml(imgCaption) : ""}${imgCaption && creditHtml ? " " : ""}${creditHtml}</figcaption>`
+                        : ""
+                    }
+                  </figure>
+                `
+                : "";
+              const bodyParts = body
+                .split(/\n\s*\n/)
+                .map((p) => String(p || "").trim())
+                .filter(Boolean);
+              const bodyHtml = bodyParts.length
+                ? `<div class="bc-bd-section__body">${bodyParts
+                    .map((p) => `<p>${allowBcHtml(p)}</p>`)
+                    .join("")}</div>`
+                : "";
+              const examplesHtml = examples.length
+                ? `
+                  <details class="bc-bd-examples">
+                    <summary class="bc-bd-examples__summary">
+                      <span class="bc-bd-examples__title">Ejemplos y propuestas de aula</span>
+                      <span class="bc-bd-examples__chevron" aria-hidden="true"></span>
+                    </summary>
+                    <ul class="bc-bd-examples__list">
+                      ${examples.map((ex) => `<li>${escapeHtml(ex)}</li>`).join("")}
+                    </ul>
+                  </details>
+                `
+                : "";
+              if (!title && !body) return "";
+              return `
+                <details class="bc-bd-section" id="${escapeHtml(String(sec?.id || "").trim())}">
+                  <summary class="bc-bd-section__summary">
+                    <span class="bc-bd-section__title">${escapeHtml(title || "Apartado")}</span>
+                    <span class="bc-bd-section__chevron" aria-hidden="true"></span>
+                  </summary>
+                  <div class="bc-bd-section__content">
+                    ${bodyHtml}
+                    ${figureHtml}
+                    ${examplesHtml}
+                  </div>
+                </details>
+              `;
+            })
+            .join("");
+          return `
+            <section class="bc-bd-column" data-bc-col="${escapeHtml(colId)}" aria-label="${escapeHtml(colTitle || colId)}">
+              <h3 class="bc-bd-column__title">${escapeHtml(colTitle || colId)}</h3>
+              <div class="bc-bd-column__sections">${sectionsHtml}</div>
+            </section>
+          `;
+        };
+
         if (colsEl instanceof HTMLElement) {
           const columns = Array.isArray(pack?.columns) ? pack.columns : [];
-          if (!columns.length) {
+          if (showHub) {
+            colsEl.hidden = true;
+            colsEl.innerHTML = "";
+            colsEl.classList.remove("bc-bd-columns--single");
+          } else if (!columns.length) {
+            colsEl.hidden = false;
+            colsEl.classList.add("bc-bd-columns--single");
             colsEl.innerHTML = `
               <div class="empty-state construction-notice">
                 <strong>PRÓXIMAMENTE</strong>
               </div>
             `;
           } else {
-            colsEl.innerHTML = columns
-              .map((col) => {
-                const colTitle = String(col?.title || "").trim();
-                const colId = String(col?.id || "").trim();
-                const sections = Array.isArray(col?.sections) ? col.sections : [];
-                const sectionsHtml = sections
-                  .map((sec) => {
-                    const title = String(sec?.title || "").trim();
-                    const body = String(sec?.body || "").trim();
-                    const examples = Array.isArray(sec?.examples)
-                      ? sec.examples.map((e) => String(e || "").trim()).filter(Boolean)
-                      : [];
-                    const img = sec?.image && typeof sec.image === "object" ? sec.image : null;
-                    const imgSrc = String(img?.src || "").trim();
-                    const imgAlt = String(img?.alt || "").trim();
-                    const imgCaption = String(img?.caption || "").trim();
-                    const imgCredit = String(img?.credit || "").trim();
-                    const imgCreditUrl = String(img?.creditUrl || "").trim();
-                    const creditInner = imgCredit
-                      ? imgCreditUrl
-                        ? `<a href="${escapeHtml(imgCreditUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(imgCredit)}</a>`
-                        : escapeHtml(imgCredit)
-                      : "";
-                    const creditHtml = creditInner
-                      ? `<span class="bc-bd-figure__credit">(${creditInner})</span>`
-                      : "";
-                    const figureHtml = imgSrc
-                      ? `
-                        <figure class="bc-bd-figure">
-                          <img class="bc-bd-figure__img" src="${escapeHtml(imgSrc)}?v=${assetV}" alt="${escapeHtml(imgAlt)}" loading="lazy" decoding="async" />
-                          ${
-                            imgCaption || creditHtml
-                              ? `<figcaption class="bc-bd-figure__caption">${imgCaption ? escapeHtml(imgCaption) : ""}${imgCaption && creditHtml ? " " : ""}${creditHtml}</figcaption>`
-                              : ""
-                          }
-                        </figure>
-                      `
-                      : "";
-                    const bodyParts = body
-                      .split(/\n\s*\n/)
-                      .map((p) => String(p || "").trim())
-                      .filter(Boolean);
-                    const bodyHtml = bodyParts.length
-                      ? `<div class="bc-bd-section__body">${bodyParts
-                          .map((p) => `<p>${allowBcHtml(p)}</p>`)
-                          .join("")}</div>`
-                      : "";
-                    const examplesHtml = examples.length
-                      ? `
-                        <details class="bc-bd-examples">
-                          <summary class="bc-bd-examples__summary">
-                            <span class="bc-bd-examples__title">Ejemplos y propuestas de aula</span>
-                            <span class="bc-bd-examples__chevron" aria-hidden="true"></span>
-                          </summary>
-                          <ul class="bc-bd-examples__list">
-                            ${examples.map((ex) => `<li>${escapeHtml(ex)}</li>`).join("")}
-                          </ul>
-                        </details>
-                      `
-                      : "";
-                    if (!title && !body) return "";
-                    return `
-                      <details class="bc-bd-section" id="${escapeHtml(String(sec?.id || "").trim())}">
-                        <summary class="bc-bd-section__summary">
-                          <span class="bc-bd-section__title">${escapeHtml(title || "Apartado")}</span>
-                          <span class="bc-bd-section__chevron" aria-hidden="true"></span>
-                        </summary>
-                        <div class="bc-bd-section__content">
-                          ${bodyHtml}
-                          ${figureHtml}
-                          ${examplesHtml}
-                        </div>
-                      </details>
-                    `;
-                  })
-                  .join("");
-                return `
-                  <section class="bc-bd-column" data-bc-col="${escapeHtml(colId)}" aria-label="${escapeHtml(colTitle || colId)}">
-                    <h3 class="bc-bd-column__title">${escapeHtml(colTitle || colId)}</h3>
-                    <div class="bc-bd-column__sections">${sectionsHtml}</div>
-                  </section>
-                `;
-              })
-              .join("");
+            const col = columns.find((c) => String(c?.id || "").trim() === activeTopic) || null;
+            colsEl.hidden = false;
+            colsEl.classList.add("bc-bd-columns--single");
+            colsEl.innerHTML = col
+              ? renderColumn(col)
+              : `
+                <div class="empty-state construction-notice">
+                  <strong>PRÓXIMAMENTE</strong>
+                </div>
+              `;
           }
         }
 
@@ -4276,7 +4385,7 @@
                 }))
                 .filter((r) => r.label && r.url)
             : [];
-          if (!refs.length) {
+          if (showHub || !refs.length) {
             refsEl.hidden = true;
             refsEl.innerHTML = "";
           } else {
@@ -4301,7 +4410,7 @@
     if (openMiscId) {
       const it = items.find((x) => x.id === openMiscId);
       if (it) {
-        void renderDetail(it, { recordHistory: false });
+        void renderDetail(it, { recordHistory: false, preserveTab: true });
         animateContentSwitch();
         return;
       }
