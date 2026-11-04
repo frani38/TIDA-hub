@@ -905,6 +905,20 @@ body:has(.misc-detail--readings) {
   overflow: visible;
 }
 
+/* REFERENCIAS BC/BD: el contenido cabe; no forzar lienzo de 780px (evita scroll fantasma). */
+.tab-panel:has(.bc-bd-page[data-bc-view="refs"]) {
+  min-height: 0;
+}
+
+.tab-panel:has(.bc-bd-page[data-bc-view="refs"]) .misc-detail--readings {
+  min-height: 0;
+  flex: 0 1 auto;
+}
+
+.tab-panel:has(.bc-bd-page[data-bc-view="refs"]) .readings-page.bc-bd-page {
+  min-height: 0;
+}
+
 .tab-panel:has(.help-privacy-panel) {
   margin-top: 0;
 }
