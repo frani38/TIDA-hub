@@ -4446,7 +4446,7 @@
                       const linksHtml = `<ul class="bc-bd-refs-page__sublist">${r.links
                         .map(
                           (l) =>
-                            `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${allowBcHtml(l.label)}</a></li>`
+                            `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a></li>`
                         )
                         .join("")}</ul>`;
                       return `<li class="bc-bd-refs-page__item">${iconHtml}${linksHtml}</li>`;

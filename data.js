@@ -20,7 +20,7 @@ window.MYWEB_DATA = {
   siteMeta: {
     version: "1.9.33",
     updated: "2026-11-04",
-    assetBust: "10",
+    assetBust: "11",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },
@@ -1860,7 +1860,7 @@ window.MYWEB_DATA = {
         links: [
           {
             label:
-              "Artículo analítico: <strong>tecnología de registros distribuidos (DLT)</strong> — introducción a fundamentos, tipologías y límites para situar la blockchain más allá del relato especulativo.",
+              "Artículo analítico: tecnología de registros distribuidos (DLT) — introducción a fundamentos, tipologías y límites para situar la blockchain más allá del relato especulativo.",
             url: "https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/InformesBoletinesRevistas/ArticulosAnaliticos/2018/T4/descargar/Fich/beaa1804-art26.pdf"
           }
         ]
@@ -1870,17 +1870,17 @@ window.MYWEB_DATA = {
         links: [
           {
             label:
-              "Informe en español: <strong>descubriendo las claves de Blockchain</strong> — conceptos, usos y matices para el aula y la ciudadanía digital.",
+              "Informe en español: descubriendo las claves de Blockchain — conceptos, usos y matices para el aula y la ciudadanía digital.",
             url: "https://datos.gob.es/sites/default/files/documentacion/files/descubriendo_las_claves_de_blockchain.pdf"
           },
           {
             label:
-              "Noticia-recurso: <strong>datos abiertos, big data y gobierno abierto</strong> — diferencias entre tipos de datos y su valor público.",
+              "Noticia-recurso: datos abiertos, big data y gobierno abierto — diferencias entre tipos de datos y su valor público.",
             url: "https://datos.gob.es/es/noticias/datos-abiertos-big-data-y-gobierno-abierto-diferentes-tipos-de-datos"
           },
           {
             label:
-              "Informe: <strong>nuevas tendencias y desafíos en el mundo de los datos</strong> — panorama de oportunidades y riesgos asociados al dato masivo.",
+              "Informe: nuevas tendencias y desafíos en el mundo de los datos — panorama de oportunidades y riesgos asociados al dato masivo.",
             url: "https://datos.gob.es/sites/default/files/documentacion/files/nuevas_tendencias_y_desafios_en_el_mundo_de_los_datos_0.pdf"
           }
         ]
@@ -1890,7 +1890,7 @@ window.MYWEB_DATA = {
         links: [
           {
             label:
-              "Infografía didáctica: <strong>Blockchain sin intermediarios</strong> — explicación visual orientada a ciberseguridad y confianza digital.",
+              "Infografía didáctica: Blockchain sin intermediarios — explicación visual orientada a ciberseguridad y confianza digital.",
             url: "https://www.incibe.es/sites/default/files/docs/c10-pdf-infografia-blockchain-sin-intermediarios.pdf"
           }
         ]
@@ -1900,7 +1900,7 @@ window.MYWEB_DATA = {
         links: [
           {
             label:
-              "Traducción al español del <strong>white paper</strong> de Satoshi Nakamoto: <strong>Bitcoin</strong> como sistema de dinero electrónico entre pares (origen histórico del concepto blockchain).",
+              "Traducción al español del white paper de Satoshi Nakamoto: Bitcoin como sistema de dinero electrónico entre pares (origen histórico del concepto blockchain).",
             url: "https://bitcoin.org/files/bitcoin-paper/bitcoin_es.pdf"
           }
         ]
@@ -1910,17 +1910,17 @@ window.MYWEB_DATA = {
         links: [
           {
             label:
-              "Nota técnica / prueba de concepto: <strong>blockchain y el derecho de supresión</strong> — tensión entre inmutabilidad del registro y derechos RGPD.",
+              "Nota técnica / prueba de concepto: blockchain y el derecho de supresión — tensión entre inmutabilidad del registro y derechos RGPD.",
             url: "https://www.aepd.es/guias/nota-tecnica-blockchain.pdf"
           },
           {
             label:
-              "Guía: <strong>código de buenas prácticas</strong> en protección de datos para proyectos de <strong>Big Data</strong> — criterios de privacidad desde el diseño.",
+              "Guía: código de buenas prácticas en protección de datos para proyectos de Big Data — criterios de privacidad desde el diseño.",
             url: "https://www.aepd.es/sites/default/files/2019-09/guia-codigo-de-buenas-practicas-proyectos-de-big-data.pdf"
           },
           {
             label:
-              "Portal institucional: normativa, guías y recursos oficiales de la <strong>Agencia Española de Protección de Datos</strong>.",
+              "Portal institucional: normativa, guías y recursos oficiales de la Agencia Española de Protección de Datos.",
             url: "https://www.aepd.es/"
           }
         ]
@@ -1930,7 +1930,7 @@ window.MYWEB_DATA = {
         links: [
           {
             label:
-              "Marco europeo <strong>DigComp</strong> (traducción al castellano — Asociación Somos Digital): competencia digital ciudadana vinculada a datos, información y ciudadanía crítica.",
+              "Marco europeo DigComp (traducción al castellano — Asociación Somos Digital): competencia digital ciudadana vinculada a datos, información y ciudadanía crítica.",
             url: "https://somos-digital.org/digcomp/"
           }
         ]

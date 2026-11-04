@@ -4314,7 +4314,7 @@ h3.bc-bd-refs-page__title {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1.45rem;
   /* Misma tipografía que Soft Skills */
   font-family: var(--tech-font);
   font-size: 0.82rem;
@@ -4325,7 +4325,7 @@ h3.bc-bd-refs-page__title {
 .bc-bd-refs-page__item {
   display: grid;
   grid-template-columns: 8.5rem minmax(0, 1fr);
-  column-gap: 0.75rem;
+  column-gap: 0.55rem;
   align-items: start;
   width: 100%;
   min-width: 0;
@@ -4334,12 +4334,14 @@ h3.bc-bd-refs-page__title {
 .bc-bd-refs-page__icon-wrap {
   width: 8.5rem;
   max-width: 8.5rem;
-  height: 3.6rem;
+  min-height: 3.6rem;
+  height: auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-end;
   overflow: hidden;
   flex: 0 0 auto;
+  box-sizing: border-box;
 }
 
 .bc-bd-refs-page__icon,
@@ -4350,9 +4352,20 @@ img.bc-bd-refs-page__icon {
   max-width: 100%;
   margin: 0;
   object-fit: contain;
-  object-position: center center;
+  object-position: right top;
   display: block;
   background: transparent;
+}
+
+/* Logo ancho (datos.gob.es): priorizar ancho de columna y altura contenida. */
+.bc-bd-refs-page__icon[src*="ref_datosgob"],
+img.bc-bd-refs-page__icon[src*="ref_datosgob"] {
+  height: auto;
+  max-height: 3.6rem;
+  width: 100%;
+  max-width: 8.5rem;
+  object-fit: contain;
+  object-position: right top;
 }
 
 .bc-bd-refs-page__sublist {
@@ -4396,11 +4409,6 @@ img.bc-bd-refs-page__icon {
   text-underline-offset: 0.12em;
 }
 
-.bc-bd-refs-page__sublist a strong {
-  font-weight: 800;
-  color: inherit;
-}
-
 body.theme-light .bc-bd-refs-page__list {
   color: #475569;
 }
@@ -4417,10 +4425,6 @@ body.theme-light .bc-bd-refs-page__sublist a:hover {
   color: var(--accent-2, #3b82f6);
 }
 
-body.theme-light .bc-bd-refs-page__sublist a strong {
-  color: #0f3f9a;
-}
-
 @media (max-width: 720px) {
   .bc-bd-refs-page__item {
     grid-template-columns: 6.5rem minmax(0, 1fr);
@@ -4429,13 +4433,19 @@ body.theme-light .bc-bd-refs-page__sublist a strong {
   .bc-bd-refs-page__icon-wrap {
     width: 6.5rem;
     max-width: 6.5rem;
-    height: 3.2rem;
+    min-height: 3.2rem;
   }
 
   .bc-bd-refs-page__icon,
   img.bc-bd-refs-page__icon {
     height: 3.2rem;
     max-height: 3.2rem;
+  }
+
+  .bc-bd-refs-page__icon[src*="ref_datosgob"],
+  img.bc-bd-refs-page__icon[src*="ref_datosgob"] {
+    max-height: 3.2rem;
+    max-width: 6.5rem;
   }
 }
 
