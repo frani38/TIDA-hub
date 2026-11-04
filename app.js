@@ -2838,17 +2838,25 @@
         <button type="button" class="help-title-back misc-title-back" aria-label="Volver">← VOLVER</button>`;
       const backBtn = unitTitleEl.querySelector(".misc-title-back");
       backBtn?.addEventListener("click", () => {
-        // Preferir historial del navegador (misma ruta que la flecha atrás).
-        try {
-          if (history.state?.myweb === 1 && String(history.state.miscId || "").trim()) {
-            history.back();
+        // Jerarquía: subapartado → hub de sección → hub Miscelánea (no history.back).
+        const mid = String(currentState.miscId || "").trim();
+        const tab = String(currentState.tabId || "").trim();
+        const inBcSub =
+          mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "refs");
+        if (inBcSub) {
+          const sectionIt = items.find((x) => x.id === mid);
+          currentState = { ...currentState, section: "miscelanea", miscId: mid, tabId: "" };
+          if (sectionIt) {
+            void renderDetail(sectionIt, { recordHistory: true, expectFly: false, preserveTab: false });
+            animateContentSwitch();
             return;
           }
-        } catch {}
-        currentState = { ...currentState, section: "miscelanea", miscId: "" };
+        }
+        currentState = { ...currentState, section: "miscelanea", miscId: "", tabId: "" };
         unitTitleEl.textContent = "MISCELÁNEA";
         renderMenu();
         pushAppHistory();
+        animateContentSwitch();
       });
     };
 
@@ -3126,14 +3134,19 @@
         <div class="misc-detail${isMiscCatalog ? " misc-detail--readings" : ""}">
           <aside class="misc-detail__aside${isMiscCatalog ? " misc-detail__aside--readings" : ""}" aria-label="${escapeHtml(it.label)}">
             <div class="misc-detail__card unit-material-card" role="presentation">
-              <div class="misc-card__icon unit-material-card__icon">
+              <button
+                type="button"
+                class="misc-detail__logo-btn misc-card__icon unit-material-card__icon"
+                aria-label="Inicio de ${escapeHtml(it.label)}"
+                title="Inicio de la sección"
+              >
                 <img
                   src="./icons/${escapeHtml(it.icon)}.png?v=${ICONS_VERSION}"
                   alt=""
                   decoding="async"
                   loading="lazy"
                 />
-              </div>
+              </button>
             </div>
             ${
               isSoftSkills
@@ -3337,6 +3350,22 @@
       requestAnimationFrame(() => scrollToPageTop());
       await syncMiscAsideAlignment();
       scrollToPageTop();
+
+      // Logo de sección → siempre al inicio (hub) de esa sección.
+      const logoBtn = tabPanelEl.querySelector(".misc-detail__logo-btn");
+      logoBtn?.addEventListener("click", () => {
+        const mid = String(it.id || "").trim();
+        const tab = String(currentState.tabId || "").trim();
+        const inBcSub =
+          mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "refs");
+        if (inBcSub) {
+          currentState = { ...currentState, section: "miscelanea", miscId: mid, tabId: "" };
+          void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: false });
+          animateContentSwitch();
+          return;
+        }
+        scrollToPageTop();
+      });
 
       if (isReadings) {
         const normalizeReading = (item) => {

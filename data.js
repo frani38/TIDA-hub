@@ -20,7 +20,7 @@ window.MYWEB_DATA = {
   siteMeta: {
     version: "1.9.33",
     updated: "2026-11-04",
-    assetBust: "5",
+    assetBust: "6",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },

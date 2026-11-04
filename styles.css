@@ -3223,6 +3223,20 @@ body.theme-light .construction-notice strong {
   gap: 1.1rem;
 }
 
+.misc-detail__logo-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  line-height: 0;
+}
+
+.misc-detail__logo-btn:focus-visible {
+  outline: 2px solid var(--accent, #2563eb);
+  outline-offset: 3px;
+}
+
 .misc-detail__content {
   min-width: 0;
 }
