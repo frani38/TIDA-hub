@@ -3961,9 +3961,9 @@ body.theme-light .bc-bd-lede {
 
 /* Imagen de intro arriba a la derecha (texto fluye a la izquierda). */
 .bc-bd-inline-fig {
-  margin: 0.1rem 0 0.85rem;
-  max-width: min(38%, 320px);
-  width: 38%;
+  margin: 0.1rem 0 0.95rem;
+  max-width: min(46%, 400px);
+  width: 46%;
 }
 
 .bc-bd-inline-fig--left {
@@ -3974,9 +3974,10 @@ body.theme-light .bc-bd-lede {
 .bc-bd-inline-fig--hero,
 .bc-bd-lede > .bc-bd-inline-fig {
   float: right !important;
-  margin-left: 1.1rem !important;
+  margin-left: 1.15rem !important;
   margin-right: 0 !important;
   margin-top: 0.15rem;
+  margin-bottom: 1rem !important;
 }
 
 .bc-bd-inline-link {
