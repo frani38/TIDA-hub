@@ -31,8 +31,21 @@
     }
   }
 
+  function wireStylesheet(ver) {
+    if (!ver || !global.document) return;
+    var links = global.document.querySelectorAll('link[rel="stylesheet"][href*="styles.css"]');
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      var href = String(link.getAttribute("href") || "");
+      if (!href) continue;
+      var next = withBust(href, ver);
+      if (next && next !== href) link.setAttribute("href", next);
+    }
+  }
+
   function wireVersionedLinks(ver) {
     if (!ver || !global.document) return;
+    wireStylesheet(ver);
     var nodes = global.document.querySelectorAll(
       'a[href*="privacidad.html"], a[href*="index.html"], a[href*="asistencia-ia.html"]'
     );

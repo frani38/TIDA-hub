@@ -4441,8 +4441,8 @@
                   ${refs
                     .map((r) => {
                       const iconHtml = r.icon
-                        ? `<img class="bc-bd-refs-page__icon" src="${escapeHtml(r.icon)}?v=${assetV}" alt="" loading="lazy" decoding="async" />`
-                        : `<span class="bc-bd-refs-page__icon" aria-hidden="true"></span>`;
+                        ? `<span class="bc-bd-refs-page__icon-wrap"><img class="bc-bd-refs-page__icon soft-skills-refs__icon" src="${escapeHtml(r.icon)}?v=${assetV}" alt="" loading="lazy" decoding="async" /></span>`
+                        : `<span class="bc-bd-refs-page__icon-wrap" aria-hidden="true"></span>`;
                       const linksHtml = `<ul class="bc-bd-refs-page__sublist">${r.links
                         .map(
                           (l) =>
