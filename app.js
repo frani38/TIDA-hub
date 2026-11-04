@@ -4238,6 +4238,10 @@
             .replace(
               /\{\{BD_LINK\}\}/g,
               '<a href="#miscelanea/misc_bc/bigdata" data-bc-topic="bigdata" class="bc-bd-inline-link"><strong>BIG DATA</strong></a>'
+            )
+            .replace(
+              /\[(\d+)\]/g,
+              '<a href="#miscelanea/misc_bc/refs" data-bc-topic="refs" class="bc-bd-cite">[$1]</a>'
             );
 
         const hubEl = document.getElementById("bc-bd-hub");
@@ -4477,6 +4481,7 @@
             refsEl.innerHTML = "";
           } else {
             refsEl.hidden = false;
+            let refNum = 0;
             refsEl.innerHTML = `
               <div class="bc-bd-refs-page soft-skills-refs">
                 <h3 class="soft-skills-refs__title bc-bd-refs-page__title">Referencias</h3>
@@ -4487,10 +4492,10 @@
                         ? `<span class="bc-bd-refs-page__icon-wrap"><img class="bc-bd-refs-page__icon soft-skills-refs__icon" src="${escapeHtml(r.icon)}?v=${assetV}" alt="" loading="lazy" decoding="async" /></span>`
                         : `<span class="bc-bd-refs-page__icon-wrap" aria-hidden="true"></span>`;
                       const linksHtml = `<ul class="bc-bd-refs-page__sublist">${r.links
-                        .map(
-                          (l) =>
-                            `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a></li>`
-                        )
+                        .map((l) => {
+                          refNum += 1;
+                          return `<li id="bc-ref-${refNum}"><span class="bc-bd-refs-page__cite">[${refNum}]</span><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a></li>`;
+                        })
                         .join("")}</ul>`;
                       return `<li class="bc-bd-refs-page__item">${iconHtml}${linksHtml}</li>`;
                     })
