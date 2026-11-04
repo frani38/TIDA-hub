@@ -4435,9 +4435,9 @@
           } else {
             refsEl.hidden = false;
             refsEl.innerHTML = `
-              <div class="bc-bd-refs-page">
-                <h3 class="bc-bd-column__title bc-bd-refs-page__title">Referencias</h3>
-                <ul class="bc-bd-refs-page__list">
+              <div class="bc-bd-refs-page soft-skills-refs">
+                <h3 class="soft-skills-refs__title bc-bd-refs-page__title">Referencias</h3>
+                <ul class="soft-skills-refs__list bc-bd-refs-page__list">
                   ${refs
                     .map((r) => {
                       const iconHtml = r.icon
