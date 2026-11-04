@@ -4192,7 +4192,12 @@
             .replace(/&lt;strong&gt;/gi, "<strong>")
             .replace(/&lt;\/strong&gt;/gi, "</strong>")
             .replace(/&lt;em&gt;/gi, "<em>")
-            .replace(/&lt;\/em&gt;/gi, "</em>");
+            .replace(/&lt;\/em&gt;/gi, "</em>")
+            .replace(
+              /&lt;a href="#miscelanea\/misc_bc\/(blockchain|bigdata)" data-bc-topic="\1" class="bc-bd-inline-link"&gt;/g,
+              '<a href="#miscelanea/misc_bc/$1" data-bc-topic="$1" class="bc-bd-inline-link">'
+            )
+            .replace(/&lt;\/a&gt;/g, "</a>");
 
         const hubEl = document.getElementById("bc-bd-hub");
         const ledeEl = document.getElementById("bc-bd-lede");
@@ -4211,13 +4216,6 @@
           scrollToPageTop();
         };
 
-        tabPanelEl.querySelectorAll("[data-bc-topic]").forEach((el) => {
-          el.addEventListener("click", (ev) => {
-            ev.preventDefault();
-            openBcTopic(el.getAttribute("data-bc-topic"));
-          });
-        });
-
         if (ledeEl) {
           const introParts = intro
             .split(/\n\s*\n/)
@@ -4235,7 +4233,7 @@
           const hubCaption = String(hubImg?.caption || "").trim();
           const figHtml = hubSrcFinal
             ? `
-              <figure class="bc-bd-inline-fig bc-bd-inline-fig--left bc-bd-inline-fig--hero">
+              <figure class="bc-bd-inline-fig bc-bd-inline-fig--right bc-bd-inline-fig--hero">
                 <img src="${escapeHtml(hubSrcFinal)}?v=${assetV}" alt="${escapeHtml(hubAlt)}" loading="lazy" decoding="async" />
                 ${hubCaption ? `<figcaption>${escapeHtml(hubCaption)}</figcaption>` : ""}
               </figure>
@@ -4245,6 +4243,13 @@
           ledeEl.innerHTML = `${figHtml}${paras}`;
           ledeEl.hidden = !ledeEl.innerHTML.trim();
         }
+
+        tabPanelEl.querySelectorAll("[data-bc-topic]").forEach((el) => {
+          el.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            openBcTopic(el.getAttribute("data-bc-topic"));
+          });
+        });
 
         if (hubEl instanceof HTMLElement) hubEl.hidden = !showHub;
 
