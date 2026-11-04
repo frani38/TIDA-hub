@@ -4223,37 +4223,27 @@
             .split(/\n\s*\n/)
             .map((p) => String(p || "").trim())
             .filter(Boolean);
-          const inlineImgs = Array.isArray(pack?.hubInlineImages) ? pack.hubInlineImages : [];
-          const figFor = (id, side) => {
-            const img = inlineImgs.find((x) => String(x?.id || "").trim() === id);
-            if (!img) return "";
-            const src = String(img.src || "").trim();
-            if (!src) return "";
-            const alt = String(img.alt || id).trim();
-            const caption = String(img.caption || "").trim();
-            const floatSide = String(img.float || side || "left").trim() === "right" ? "right" : "left";
-            return `
-              <figure class="bc-bd-inline-fig bc-bd-inline-fig--${floatSide}">
-                <img src="${escapeHtml(src)}?v=${assetV}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" />
-                ${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ""}
+          const hubImg = pack?.hubInlineImage && typeof pack.hubInlineImage === "object" ? pack.hubInlineImage : null;
+          const hubSrcRaw = String(hubImg?.src || "").trim();
+          const hubSrcFinal = hubSrcRaw
+            ? (() => {
+                const abs = hubSrcRaw.startsWith("./") ? hubSrcRaw.slice(2) : hubSrcRaw.replace(/^\//, "");
+                return `./${abs.split("/").map((seg) => encodeURIComponent(seg)).join("/")}`;
+              })()
+            : "";
+          const hubAlt = String(hubImg?.alt || "Big Data y Blockchain").trim();
+          const hubCaption = String(hubImg?.caption || "").trim();
+          const figHtml = hubSrcFinal
+            ? `
+              <figure class="bc-bd-inline-fig bc-bd-inline-fig--left bc-bd-inline-fig--hero">
+                <img src="${escapeHtml(hubSrcFinal)}?v=${assetV}" alt="${escapeHtml(hubAlt)}" loading="lazy" decoding="async" />
+                ${hubCaption ? `<figcaption>${escapeHtml(hubCaption)}</figcaption>` : ""}
               </figure>
-            `;
-          };
-          // Estilo revista: imagen izquierda con el 1.º párrafo; imagen derecha con el 2.º.
-          const chunks = [];
-          if (introParts[0]) {
-            chunks.push(figFor("blockchain", "left"));
-            chunks.push(`<p>${allowBcHtml(introParts[0])}</p>`);
-          }
-          if (introParts[1]) {
-            chunks.push(figFor("bigdata", "right"));
-            chunks.push(`<p>${allowBcHtml(introParts[1])}</p>`);
-          }
-          for (let i = 2; i < introParts.length; i += 1) {
-            chunks.push(`<p>${allowBcHtml(introParts[i])}</p>`);
-          }
-          ledeEl.innerHTML = chunks.join("");
-          ledeEl.hidden = !chunks.length;
+            `
+            : "";
+          const paras = introParts.map((p) => `<p>${allowBcHtml(p)}</p>`).join("");
+          ledeEl.innerHTML = `${figHtml}${paras}`;
+          ledeEl.hidden = !ledeEl.innerHTML.trim();
         }
 
         if (hubEl instanceof HTMLElement) hubEl.hidden = !showHub;
