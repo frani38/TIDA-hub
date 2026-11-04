@@ -3828,28 +3828,49 @@ body.theme-light .soft-skills-refs {
   font-family: var(--tech-font);
 }
 
+/* Alinear el menú al ancho/borde izquierdo del icono de la sección. */
+.misc-detail__aside--readings:has(.bc-bd-aside-nav) {
+  align-items: center;
+}
+
+.misc-detail__aside--readings:has(.bc-bd-aside-nav) .misc-detail__card {
+  width: var(--misc-detail-icon-size);
+  justify-content: center;
+}
+
 .bc-bd-aside-nav {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0.45rem;
-  margin-top: 0.15rem;
-  width: 100%;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+  width: var(--misc-detail-icon-size);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .bc-bd-aside-nav__link {
   display: block;
   width: 100%;
+  box-sizing: border-box;
   text-align: left;
   text-transform: uppercase;
   font-family: var(--tech-font);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
   color: #1d4ed8;
   text-decoration: none;
-  padding: 0.15rem 0;
+  padding: 0.12rem 0;
+  white-space: nowrap;
+}
+
+.bc-bd-aside-nav__link::before {
+  content: ">";
+  display: inline-block;
+  margin-right: 0.35em;
+  font-weight: 800;
 }
 
 .bc-bd-aside-nav__link:hover {
