@@ -3882,7 +3882,7 @@ body.theme-light .soft-skills-refs {
 }
 
 .misc-detail--readings:has(.bc-bd-aside-nav--tree) {
-  --misc-aside-w: max(calc(var(--misc-detail-icon-size) + 2.6rem), 20.5rem);
+  --misc-aside-w: max(calc(var(--misc-detail-icon-size) + 2.6rem), 16.5rem);
 }
 
 .bc-bd-aside-nav--tree {
