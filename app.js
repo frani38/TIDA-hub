@@ -4194,10 +4194,13 @@
             .replace(/&lt;em&gt;/gi, "<em>")
             .replace(/&lt;\/em&gt;/gi, "</em>")
             .replace(
-              /&lt;a href="#miscelanea\/misc_bc\/(blockchain|bigdata)" data-bc-topic="\1" class="bc-bd-inline-link"&gt;/g,
-              '<a href="#miscelanea/misc_bc/$1" data-bc-topic="$1" class="bc-bd-inline-link">'
+              /\{\{BC_LINK\}\}/g,
+              '<a href="#miscelanea/misc_bc/blockchain" data-bc-topic="blockchain" class="bc-bd-inline-link"><strong>BLOCKCHAIN</strong></a>'
             )
-            .replace(/&lt;\/a&gt;/g, "</a>");
+            .replace(
+              /\{\{BD_LINK\}\}/g,
+              '<a href="#miscelanea/misc_bc/bigdata" data-bc-topic="bigdata" class="bc-bd-inline-link"><strong>BIG DATA</strong></a>'
+            );
 
         const hubEl = document.getElementById("bc-bd-hub");
         const ledeEl = document.getElementById("bc-bd-lede");

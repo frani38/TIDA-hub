@@ -809,7 +809,7 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ### Nota (sin bump)
 
-- Mientras se itera Blockchain y Big Data hasta darla por terminada, los retoques de esa sección se publican **sin** subir `siteMeta.version` (un solo bump al cerrar el WIP).
+- Mientras se itera Blockchain y Big Data hasta darla por terminada, los retoques de esa sección se publican **sin** subir `siteMeta.version` (un solo bump al cerrar el WIP). Para forzar recarga de CSS/JS se usa `siteMeta.assetBust` (p. ej. `1.9.33-1`) sin cambiar el número del pie.
 
 ---
 

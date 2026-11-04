@@ -10,7 +10,10 @@
 
   function parseSiteVersion(jsText) {
     var m = String(jsText || "").match(/version:\s*"(\d+\.\d+\.\d+)"/);
-    return m ? m[1] : "";
+    if (!m) return "";
+    // Bust de CSS/JS sin cambiar la versión visible del pie (p. ej. WIP).
+    var b = String(jsText || "").match(/assetBust:\s*"([^"]+)"/);
+    return b && b[1] ? m[1] + "-" + b[1] : m[1];
   }
 
   function withBust(href, ver) {

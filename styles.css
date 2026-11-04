@@ -3902,11 +3902,16 @@ body.theme-light .bc-bd-lede {
   width: 38%;
 }
 
+.bc-bd-inline-fig--left {
+  float: none; /* no usar izquierda en esta sección */
+}
+
 .bc-bd-inline-fig--right,
-.bc-bd-inline-fig--hero {
-  float: right;
-  margin-left: 1.1rem;
-  margin-right: 0;
+.bc-bd-inline-fig--hero,
+.bc-bd-lede > .bc-bd-inline-fig {
+  float: right !important;
+  margin-left: 1.1rem !important;
+  margin-right: 0 !important;
   margin-top: 0.15rem;
 }
 
