@@ -3130,6 +3130,40 @@
       const isBlockchainBigData = it.id === "misc_bc";
       const isMiscCatalog = isReadings || isGames || isMedia || isSoftSkills || isBlockchainBigData;
       const bcTopic = isBlockchainBigData ? String(currentState.tabId || "").trim() : "";
+      const bcPack =
+        isBlockchainBigData && DATA.blockchainBigData && typeof DATA.blockchainBigData === "object"
+          ? DATA.blockchainBigData
+          : null;
+      const bcAsideTreeHtml = (() => {
+        if (bcTopic !== "blockchain" && bcTopic !== "bigdata") return "";
+        const col = Array.isArray(bcPack?.columns)
+          ? bcPack.columns.find((c) => String(c?.id || "").trim() === bcTopic)
+          : null;
+        const sections = Array.isArray(col?.sections) ? col.sections : [];
+        let n = 0;
+        const items = sections
+          .map((sec) => {
+            const sid = String(sec?.id || "").trim();
+            const title = String(sec?.title || "").trim();
+            if (!sid || !title) return "";
+            n += 1;
+            const label = `${n}. ${title}`.toLocaleUpperCase("es");
+            return `<li>
+              <a
+                href="#miscelanea/misc_bc/${escapeHtml(bcTopic)}"
+                class="bc-bd-aside-nav__sublink"
+                data-bc-topic="${escapeHtml(bcTopic)}"
+                data-bc-section="${escapeHtml(sid)}"
+              >${escapeHtml(label)}</a>
+            </li>`;
+          })
+          .filter(Boolean)
+          .join("");
+        if (!items) return "";
+        return `<ul class="bc-bd-aside-nav__tree" aria-label="Apartados de ${
+          bcTopic === "blockchain" ? "Blockchain" : "Big Data"
+        }">${items}</ul>`;
+      })();
       tabPanelEl.innerHTML = `
         <div class="misc-detail${isMiscCatalog ? " misc-detail--readings" : ""}">
           <aside class="misc-detail__aside${isMiscCatalog ? " misc-detail__aside--readings" : ""}" aria-label="${escapeHtml(it.label)}">
@@ -3251,17 +3285,25 @@
                     `
                     : isBlockchainBigData
                       ? `
-                        <nav class="bc-bd-aside-nav" aria-label="Apartados de Blockchain y Big Data">
-                          <a
-                            href="#miscelanea/misc_bc/blockchain"
-                            class="bc-bd-aside-nav__link${bcTopic === "blockchain" ? " is-active" : ""}"
-                            data-bc-topic="blockchain"
-                          >BLOCKCHAIN</a>
-                          <a
-                            href="#miscelanea/misc_bc/bigdata"
-                            class="bc-bd-aside-nav__link${bcTopic === "bigdata" ? " is-active" : ""}"
-                            data-bc-topic="bigdata"
-                          >BIG DATA</a>
+                        <nav class="bc-bd-aside-nav${
+                          bcTopic === "blockchain" || bcTopic === "bigdata" ? " bc-bd-aside-nav--tree" : ""
+                        }" aria-label="Apartados de Blockchain y Big Data">
+                          <div class="bc-bd-aside-nav__branch">
+                            <a
+                              href="#miscelanea/misc_bc/blockchain"
+                              class="bc-bd-aside-nav__link${bcTopic === "blockchain" ? " is-active" : ""}"
+                              data-bc-topic="blockchain"
+                            >BLOCKCHAIN</a>
+                            ${bcTopic === "blockchain" ? bcAsideTreeHtml : ""}
+                          </div>
+                          <div class="bc-bd-aside-nav__branch">
+                            <a
+                              href="#miscelanea/misc_bc/bigdata"
+                              class="bc-bd-aside-nav__link${bcTopic === "bigdata" ? " is-active" : ""}"
+                              data-bc-topic="bigdata"
+                            >BIG DATA</a>
+                            ${bcTopic === "bigdata" ? bcAsideTreeHtml : ""}
+                          </div>
                           <a
                             href="#miscelanea/misc_bc/refs"
                             class="bc-bd-aside-nav__link${bcTopic === "refs" ? " is-active" : ""}"
@@ -4255,13 +4297,39 @@
         const showRefsOnly = activeTopic === "refs";
         const showColumnTopic = activeTopic === "blockchain" || activeTopic === "bigdata";
 
-        const openBcTopic = (topic) => {
+        const scrollToBcSection = (sectionId) => {
+          const sid = String(sectionId || "").trim();
+          if (!sid) return;
+          const go = () => {
+            const target = document.getElementById(sid);
+            if (!(target instanceof HTMLElement)) return false;
+            try {
+              target.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
+            } catch {
+              target.scrollIntoView();
+            }
+            return true;
+          };
+          if (go()) return;
+          requestAnimationFrame(() => {
+            if (go()) return;
+            setTimeout(go, 60);
+          });
+        };
+
+        const openBcTopic = (topic, sectionId) => {
           const t = String(topic || "").trim();
           if (t !== "blockchain" && t !== "bigdata" && t !== "refs") return;
+          const sid = String(sectionId || "").trim();
           currentState = { ...currentState, section: "miscelanea", miscId: "misc_bc", tabId: t };
-          void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: true });
+          void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: true }).then(() => {
+            if (sid) {
+              requestAnimationFrame(() => scrollToBcSection(sid));
+            } else {
+              scrollToPageTop();
+            }
+          });
           animateContentSwitch();
-          scrollToPageTop();
         };
 
         if (ledeEl) {
@@ -4338,7 +4406,18 @@
         tabPanelEl.querySelectorAll("[data-bc-topic]").forEach((el) => {
           el.addEventListener("click", (ev) => {
             ev.preventDefault();
-            openBcTopic(el.getAttribute("data-bc-topic"));
+            const topic = el.getAttribute("data-bc-topic");
+            const sectionId = el.getAttribute("data-bc-section");
+            if (sectionId) {
+              const t = String(topic || "").trim();
+              if (activeTopic === t) {
+                scrollToBcSection(sectionId);
+              } else {
+                openBcTopic(t, sectionId);
+              }
+              return;
+            }
+            openBcTopic(topic);
           });
         });
 
