@@ -3327,7 +3327,7 @@
                     <div class="readings-page bc-bd-page" aria-label="Blockchain y Big Data" data-bc-view="${escapeHtml(bcTopic || "hub")}">
                       <div class="bc-bd-hub" id="bc-bd-hub"${bcTopic ? " hidden" : ""}>
                         <div class="bc-bd-lede" id="bc-bd-lede"></div>
-                        <nav class="bc-bd-hub-map" id="bc-bd-hub-map" aria-label="Mapa de acceso a la sección"></nav>
+                        <section class="bc-bd-hub-contrast" id="bc-bd-hub-contrast" aria-label="Contraste Blockchain y Big Data"></section>
                       </div>
                       <div id="bc-bd-columns" class="bc-bd-columns${bcTopic ? " bc-bd-columns--single" : ""}" aria-live="polite"${bcTopic ? "" : " hidden"}></div>
                       <footer class="soft-skills-refs bc-bd-refs" id="bc-bd-refs" hidden></footer>
@@ -4289,59 +4289,41 @@
           ledeEl.hidden = !ledeEl.innerHTML.trim();
         }
 
-        const hubMapEl = document.getElementById("bc-bd-hub-map");
-        if (hubMapEl instanceof HTMLElement) {
-          const sectionTitles = (colId) => {
-            const col = (Array.isArray(pack?.columns) ? pack.columns : []).find(
-              (c) => String(c?.id || "").trim() === colId
-            );
-            return (Array.isArray(col?.sections) ? col.sections : [])
-              .map((s) => String(s?.title || "").trim())
-              .filter(Boolean)
-              .slice(0, 5);
-          };
-          const topicListHtml = (titles) =>
-            titles.length
-              ? `<ul class="bc-bd-hub-map__topics">${titles
-                  .map((t) => `<li>${escapeHtml(t)}</li>`)
-                  .join("")}</ul>`
-              : "";
-          const bcTitles = sectionTitles("blockchain");
-          const bdTitles = sectionTitles("bigdata");
-          hubMapEl.innerHTML = `
-            <div class="bc-bd-hub-map__grid">
-              <a
-                href="#miscelanea/misc_bc/blockchain"
-                class="bc-bd-hub-map__card"
-                data-bc-topic="blockchain"
-              >
-                <h4 class="bc-bd-hub-map__card-title">Blockchain</h4>
-                <p class="bc-bd-hub-map__card-lede">Registro compartido, criptografía y consenso entre pares que no tienen por qué confiarse de antemano.</p>
-                ${topicListHtml(bcTitles)}
-                <span class="bc-bd-hub-map__cta">Abrir apartado →</span>
-              </a>
-              <a
-                href="#miscelanea/misc_bc/bigdata"
-                class="bc-bd-hub-map__card"
-                data-bc-topic="bigdata"
-              >
-                <h4 class="bc-bd-hub-map__card-title">Big Data</h4>
-                <p class="bc-bd-hub-map__card-lede">Volumen, velocidad y variedad: analizar datos masivos con criterio, calidad y privacidad.</p>
-                ${topicListHtml(bdTitles)}
-                <span class="bc-bd-hub-map__cta">Abrir apartado →</span>
-              </a>
-            </div>
-            <a
-              href="#miscelanea/misc_bc/refs"
-              class="bc-bd-hub-map__refs"
-              data-bc-topic="refs"
-            >
-              <span class="bc-bd-hub-map__refs-label">Referencias</span>
-              <span class="bc-bd-hub-map__refs-text">Fuentes institucionales (BdE, datos.gob.es, INCIBE, AEPD, DigComp…) para ampliar y citar.</span>
-              <span class="bc-bd-hub-map__cta">Abrir →</span>
-            </a>
-          `;
-          hubMapEl.hidden = !showHub;
+        const hubContrastEl = document.getElementById("bc-bd-hub-contrast");
+        if (hubContrastEl instanceof HTMLElement) {
+          const contrast =
+            pack?.hubContrast && typeof pack.hubContrast === "object" ? pack.hubContrast : null;
+          const bcItems = Array.isArray(contrast?.blockchain)
+            ? contrast.blockchain.map((x) => String(x || "").trim()).filter(Boolean)
+            : [];
+          const bdItems = Array.isArray(contrast?.bigdata)
+            ? contrast.bigdata.map((x) => String(x || "").trim()).filter(Boolean)
+            : [];
+          const footnote = String(contrast?.footnote || "").trim();
+          if (bcItems.length || bdItems.length) {
+            const colHtml = (title, items) => `
+              <div class="bc-bd-hub-contrast__col">
+                <h4 class="bc-bd-hub-contrast__title">
+                  <span class="bc-bd-hub-contrast__title-main">${escapeHtml(title)}</span>
+                  <span class="bc-bd-hub-contrast__title-hint">aporta</span>
+                </h4>
+                <ul class="bc-bd-hub-contrast__list">
+                  ${items.map((t) => `<li>${escapeHtml(t)}</li>`).join("")}
+                </ul>
+              </div>
+            `;
+            hubContrastEl.innerHTML = `
+              <div class="bc-bd-hub-contrast__grid">
+                ${colHtml("Blockchain", bcItems)}
+                ${colHtml("Big Data", bdItems)}
+              </div>
+              ${footnote ? `<p class="bc-bd-hub-contrast__footnote">${escapeHtml(footnote)}</p>` : ""}
+            `;
+            hubContrastEl.hidden = !showHub;
+          } else {
+            hubContrastEl.innerHTML = "";
+            hubContrastEl.hidden = true;
+          }
         }
 
         tabPanelEl.querySelectorAll("[data-bc-topic]").forEach((el) => {

@@ -20,7 +20,7 @@ window.MYWEB_DATA = {
   siteMeta: {
     version: "1.9.33",
     updated: "2026-11-04",
-    assetBust: "15",
+    assetBust: "16",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },
@@ -1628,6 +1628,22 @@ window.MYWEB_DATA = {
       src: "./image/Big Data y Blockchain.png",
       alt: "Ilustración de Big Data y Blockchain",
       caption: "Creación propia con ChatGPT."
+    },
+    /* Banda de contraste en el hub (solo intro; sin referencias). */
+    hubContrast: {
+      blockchain: [
+        "Un registro compartido y auditable entre partes que no tienen por qué confiarse.",
+        "Integridad criptográfica: hash, bloques encadenados y detección de alteraciones.",
+        "Consenso para acordar qué historial es válido en la red.",
+        "Límites claros: no es «verdad del mundo» ni sinónimo de criptomoneda."
+      ],
+      bigdata: [
+        "Escenarios de volumen, velocidad y/o variedad que desbordan métodos convencionales.",
+        "Tipologías de datos y ciclo captura → procesamiento → decisión.",
+        "Calidad del dato: correlación ≠ causalidad; cantidad ≠ evidencia.",
+        "Privacidad y uso responsable (RGPD) desde el diseño del análisis."
+      ],
+      footnote: "Pertinente en Digitalización (4.º ESO) y Tecnologías Digitales Aplicadas I y II (Bachillerato)."
     },
     changelog: [
       {
