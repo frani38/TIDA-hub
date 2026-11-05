@@ -518,7 +518,7 @@ body.theme-light header .header-search .search-action-btn:hover {
 /* Secciones de un viewport: el scroll (si hay) sigue en #tab-panel, no en .app. */
 body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
 body:has(.about-section) .app,
-body:has(.misc-grid):not(:has(.misc-detail)) .app {
+body:has(.codex-grid):not(:has(.codex-detail)) .app {
   overflow: hidden;
 }
 
@@ -868,18 +868,18 @@ body.theme-light #unit-title {
   color: var(--text-soft);
 }
 
-.tab-panel:has(.misc-detail) {
-  /* En vistas tipo CODEX, alinear contenido con el bloque fijo izquierdo */
+.tab-panel:has(.codex-detail) {
+  /* En vistas tipo CÓDEX, alinear contenido con el bloque fijo izquierdo */
   margin-top: 0.25rem;
 }
 
 /* LECTURAS: no bloquear scroll de página; altura mínima del lienzo fijo. */
-body:has(.misc-detail--readings) {
+body:has(.codex-detail--readings) {
   overflow-x: auto;
   overflow-y: auto;
 }
 
-.tab-panel:has(.misc-detail--readings) {
+.tab-panel:has(.codex-detail--readings) {
   min-height: max(
     var(--site-canvas-main-h),
     calc(100vh - var(--home-news-top, 0px) - var(--footer-h))
@@ -890,17 +890,17 @@ body:has(.misc-detail--readings) {
   flex-direction: column;
 }
 
-.tab-panel:has(.misc-detail--readings) .misc-detail--readings {
+.tab-panel:has(.codex-detail--readings) .codex-detail--readings {
   flex: 1 1 auto;
   min-height: var(--site-canvas-main-h);
 }
 
-.tab-panel:has(.misc-detail--readings) .readings-page {
+.tab-panel:has(.codex-detail--readings) .readings-page {
   height: auto;
   min-height: var(--site-canvas-main-h);
 }
 
-.tab-panel:has(.misc-detail--readings) .misc-detail__content {
+.tab-panel:has(.codex-detail--readings) .codex-detail__content {
   height: auto;
   overflow: visible;
 }
@@ -912,9 +912,9 @@ body:has(.misc-detail--readings) {
   min-height: 0;
 }
 
-.tab-panel:has(.bc-bd-page[data-bc-view="hub"]) .misc-detail--readings,
-.tab-panel:has(.bc-bd-page[data-bc-view="glossary"]) .misc-detail--readings,
-.tab-panel:has(.bc-bd-page[data-bc-view="refs"]) .misc-detail--readings {
+.tab-panel:has(.bc-bd-page[data-bc-view="hub"]) .codex-detail--readings,
+.tab-panel:has(.bc-bd-page[data-bc-view="glossary"]) .codex-detail--readings,
+.tab-panel:has(.bc-bd-page[data-bc-view="refs"]) .codex-detail--readings {
   min-height: 0;
   flex: 0 1 auto;
 }
@@ -936,12 +936,12 @@ body:has(.misc-detail--readings) {
 
 /*
   Secciones que caben en un viewport: sin scroll de página
-  (INICIO bienvenida, CODEX hub, SOBRE MÍ).
+  (INICIO bienvenida, CÓDEX hub, SOBRE MÍ).
   Detalles largos (p. ej. lecturas) o HISTÓRICO no entran aquí.
 */
 html:has(.content-card.is-home):not(:has(.home-split.is-archive)),
 html:has(.about-section),
-html:has(.misc-grid):not(:has(.misc-detail)) {
+html:has(.codex-grid):not(:has(.codex-detail)) {
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -949,7 +949,7 @@ html:has(.misc-grid):not(:has(.misc-detail)) {
 
 body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
 body:has(.about-section),
-body:has(.misc-grid):not(:has(.misc-detail)) {
+body:has(.codex-grid):not(:has(.codex-detail)) {
   height: 100vh;
   max-height: 100vh;
   min-height: 0;
@@ -958,7 +958,7 @@ body:has(.misc-grid):not(:has(.misc-detail)) {
 }
 
 .tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)),
-.tab-panel:has(.misc-grid):not(:has(.misc-detail)) {
+.tab-panel:has(.codex-grid):not(:has(.codex-detail)) {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -2890,7 +2890,7 @@ a.news-title-link:hover {
 
 /* Cierre del mensaje de bienvenida: centrado (el bloque hereda justificado del .empty-state.welcome) */
 .welcome-copy > .welcome-intro:last-child {
-  margin-top: 1.85rem; /* ~una línea extra respecto al párrafo anterior (CODEX) */
+  margin-top: 1.85rem; /* ~una línea extra respecto al párrafo anterior (CÓDEX) */
   text-align: center;
   text-justify: auto;
   color: #2563eb; /* mismo azul que .welcome-brand (T·I·D·A) */
@@ -3136,88 +3136,88 @@ body.theme-light .construction-notice strong {
   color: #3b2a00;
 }
 
-/* CODEX: accesos por iconos (2 filas: 6 + 5) — tamaños fijos del lienzo */
-.misc-grid {
+/* CÓDEX: accesos por iconos (2 filas: 6 + 5) — tamaños fijos del lienzo */
+.codex-grid {
   display: grid;
   gap: 2.1rem;
   max-width: 1800px;
   margin: 0 auto;
   padding: 0.4rem 1.25rem;
-  --misc-icon-size: 12.7rem;
+  --codex-icon-size: 12.7rem;
 }
 
-.misc-row {
+.codex-row {
   display: grid;
   gap: 1.35rem;
   width: 100%;
   justify-content: center; /* centrar cada fila en el contenedor */
 }
 
-.misc-row--top {
-  grid-template-columns: repeat(6, var(--misc-icon-size));
+.codex-row--top {
+  grid-template-columns: repeat(6, var(--codex-icon-size));
   column-gap: 2rem;
 }
 
-.misc-row--bottom {
-  grid-template-columns: repeat(5, var(--misc-icon-size));
+.codex-row--bottom {
+  grid-template-columns: repeat(5, var(--codex-icon-size));
   column-gap: 2rem;
 }
 
 
-.misc-card {
+.codex-card {
   max-width: none; /* sobrescribe .unit-material-card */
   gap: 1.1rem; /* separa texto del icono (evita “pegado” con sombra) */
-  width: var(--misc-icon-size);
+  width: var(--codex-icon-size);
 }
 
-.misc-card__label {
+.codex-card__label {
   font-size: 1.18rem;
   line-height: 1.15;
   letter-spacing: 0.06em;
 }
 
-/* Iconos un poco más grandes en CODEX */
-.misc-card .unit-material-card__icon {
+/* Iconos un poco más grandes en CÓDEX */
+.codex-card .unit-material-card__icon {
   /* +20% aprox sobre el tamaño anterior */
-  width: var(--misc-icon-size);
-  height: var(--misc-icon-size);
+  width: var(--codex-icon-size);
+  height: var(--codex-icon-size);
 }
 
-.misc-panel {
+.codex-panel {
   margin-top: 1.1rem;
 }
 
-/* CODEX: vista de sección seleccionada (bloque a la izquierda + contenido) */
-.misc-detail {
+/* CÓDEX: vista de sección seleccionada (bloque a la izquierda + contenido) */
+.codex-detail {
   position: relative;
-  --misc-icon-size: 12.7rem;
-  --misc-detail-icon-size: var(--misc-icon-size);
-  --misc-aside-w: calc(var(--misc-detail-icon-size) + 1.2rem);
-  --misc-aside-gap: 1.6rem;
-  padding: 0.4rem 1.25rem 0.4rem calc(var(--misc-aside-w) + var(--misc-aside-gap));
+  --codex-icon-size: 12.7rem;
+  --codex-detail-icon-size: var(--codex-icon-size);
+  --codex-aside-w: calc(var(--codex-detail-icon-size) + 1.2rem);
+  --codex-aside-gap: 1.6rem;
+  padding: 0.4rem 1.25rem 0.4rem calc(var(--codex-aside-w) + var(--codex-aside-gap));
   max-width: 100%;
   margin: 0;
   box-sizing: border-box;
 }
 
-.misc-detail--readings {
+.codex-detail--readings {
   /* Un poco más ancho para que "ORDEN" no se recorte */
-  --misc-aside-w: calc(var(--misc-detail-icon-size) + 2.6rem);
+  --codex-aside-w: calc(var(--codex-detail-icon-size) + 2.6rem);
 }
 
-.misc-detail__aside {
+.codex-detail__aside {
   /* Absolute al lienzo (no fixed al viewport): no se despega con scroll horizontal. */
   position: absolute;
   left: 0;
   top: 0;
-  width: var(--misc-aside-w);
+  width: var(--codex-aside-w);
   padding: 0.4rem 0.6rem;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
 }
 
-.misc-detail__aside--readings {
+.codex-detail__aside--readings {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
@@ -3230,11 +3230,11 @@ body.theme-light .construction-notice strong {
   gap: 0.75rem;
 }
 
-.misc-detail__aside--readings .readings-filter {
+.codex-detail__aside--readings .readings-filter {
   min-width: 0;
 }
 
-.misc-detail__card {
+.codex-detail__card {
   max-width: none;
   width: auto;
   flex-direction: row;
@@ -3243,7 +3243,7 @@ body.theme-light .construction-notice strong {
   gap: 1.1rem;
 }
 
-.misc-detail__logo-btn {
+.codex-detail__logo-btn {
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
@@ -3252,16 +3252,16 @@ body.theme-light .construction-notice strong {
   line-height: 0;
 }
 
-.misc-detail__logo-btn:focus-visible {
+.codex-detail__logo-btn:focus-visible {
   outline: 2px solid var(--accent, #2563eb);
   outline-offset: 3px;
 }
 
-.misc-detail__content {
+.codex-detail__content {
   min-width: 0;
 }
 
-/* LECTURAS RECOMENDADAS (CODEX) */
+/* LECTURAS RECOMENDADAS (CÓDEX) */
 .readings-page {
   max-width: 100%;
   margin: 0;
@@ -3398,7 +3398,7 @@ body.theme-light .construction-notice strong {
   min-width: 0;
 }
 
-/* Soft Skills (CODEX) */
+/* Soft Skills (CÓDEX) */
 .soft-skills-page {
   max-width: 100%;
   width: 100%;
@@ -3864,12 +3864,12 @@ body.theme-light .soft-skills-refs {
 }
 
 /* Alinear el menú al ancho/borde izquierdo del icono de la sección. */
-.misc-detail__aside--readings:has(.bc-bd-aside-nav) {
+.codex-detail__aside--readings:has(.bc-bd-aside-nav) {
   align-items: center;
 }
 
-.misc-detail__aside--readings:has(.bc-bd-aside-nav) .misc-detail__card {
-  width: var(--misc-detail-icon-size);
+.codex-detail__aside--readings:has(.bc-bd-aside-nav) .codex-detail__card {
+  width: var(--codex-detail-icon-size);
   justify-content: center;
 }
 
@@ -3879,13 +3879,13 @@ body.theme-light .soft-skills-refs {
   align-items: stretch;
   gap: 0.4rem;
   margin-top: 0.2rem;
-  width: var(--misc-detail-icon-size);
+  width: var(--codex-detail-icon-size);
   max-width: 100%;
   box-sizing: border-box;
 }
 
-.misc-detail--readings:has(.bc-bd-aside-nav--tree) {
-  --misc-aside-w: max(calc(var(--misc-detail-icon-size) + 2.6rem), 16.5rem);
+.codex-detail--readings:has(.bc-bd-aside-nav--tree) {
+  --codex-aside-w: max(calc(var(--codex-detail-icon-size) + 2.6rem), 16.5rem);
 }
 
 .bc-bd-aside-nav--tree {
@@ -4947,13 +4947,13 @@ body.theme-light .reading-badge {
 }
 
 /* En la vista seleccionada, reutilizar la escala de DOCENCIA (icono + label) */
-.misc-detail .unit-material-card__icon {
-  width: var(--misc-detail-icon-size);
-  height: var(--misc-detail-icon-size);
+.codex-detail .unit-material-card__icon {
+  width: var(--codex-detail-icon-size);
+  height: var(--codex-detail-icon-size);
   flex: 0 0 auto; /* evita que el icono se encoja en el layout en fila */
 }
 
-.misc-detail .unit-material-card__label {
+.codex-detail .unit-material-card__label {
   font-size: 1.05rem;
   line-height: 1.1;
   min-height: 0;
@@ -4967,19 +4967,19 @@ body.theme-light .reading-badge {
 }
 
 /* Evita que el icono final "parpadee" antes de la animación. */
-.misc-fly-target-hidden .misc-detail__aside .unit-material-card__icon {
+.codex-fly-target-hidden .codex-detail__aside .unit-material-card__icon {
   visibility: hidden;
 }
 
 @media (max-width: 980px) and (hover: none) and (pointer: coarse) {
-  .misc-detail {
+  .codex-detail {
     padding-left: clamp(0.5rem, 2vw, 1.25rem);
   }
-  .misc-detail__aside {
+  .codex-detail__aside {
     position: static;
     width: auto;
   }
-  .misc-detail__card {
+  .codex-detail__card {
     margin: 0 auto;
   }
 }
@@ -5291,7 +5291,7 @@ html.site-desktop-fit,
 html.site-desktop-fit.updates-archive,
 html.site-desktop-fit:has(.content-card.is-home):not(:has(.home-split.is-archive)),
 html.site-desktop-fit:has(.about-section),
-html.site-desktop-fit:has(.misc-grid):not(:has(.misc-detail)) {
+html.site-desktop-fit:has(.codex-grid):not(:has(.codex-detail)) {
   min-width: 0 !important;
   width: 100%;
   height: 100%;
@@ -5304,7 +5304,7 @@ html.site-desktop-fit body,
 html.site-desktop-fit.updates-archive body,
 html.site-desktop-fit body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
 html.site-desktop-fit body:has(.about-section),
-html.site-desktop-fit body:has(.misc-grid):not(:has(.misc-detail)),
+html.site-desktop-fit body:has(.codex-grid):not(:has(.codex-detail)),
 html.site-desktop-fit body:has(.home-split.is-archive) {
   zoom: var(--site-fit-scale, 1);
   height: 100vh;
@@ -5320,7 +5320,7 @@ html.site-desktop-fit.updates-archive .app,
 html.site-desktop-fit body:has(.home-split.is-archive) .app,
 html.site-desktop-fit body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
 html.site-desktop-fit body:has(.about-section) .app,
-html.site-desktop-fit body:has(.misc-grid):not(:has(.misc-detail)) .app {
+html.site-desktop-fit body:has(.codex-grid):not(:has(.codex-detail)) .app {
   overflow-x: auto !important;
   overflow-y: auto !important;
   flex: 1 1 auto;
@@ -5348,7 +5348,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   html.site-desktop-fit.updates-archive body,
   html.site-desktop-fit body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
   html.site-desktop-fit body:has(.about-section),
-  html.site-desktop-fit body:has(.misc-grid):not(:has(.misc-detail)),
+  html.site-desktop-fit body:has(.codex-grid):not(:has(.codex-detail)),
   html.site-desktop-fit body:has(.home-split.is-archive) {
     zoom: unset;
     transform: scale(var(--site-fit-scale, 1));
@@ -5361,7 +5361,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   Ventana < 1680px con lienzo de escritorio (antes del bloque táctil):
   scroll H+V en el viewport (html) si aún no hay site-desktop-fit.
   Debe ganar a las reglas html:has(...)/body:has(...) que ocultan overflow-y
-  en INICIO / SOBRE MÍ / CODEX hub. El bloque táctil (después) lo anula.
+  en INICIO / SOBRE MÍ / CÓDEX hub. El bloque táctil (después) lo anula.
   =============================================================================
 */
 
@@ -5370,7 +5370,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   html.updates-archive,
   html:has(.content-card.is-home):not(:has(.home-split.is-archive)),
   html:has(.about-section),
-  html:has(.misc-grid):not(:has(.misc-detail)) {
+  html:has(.codex-grid):not(:has(.codex-detail)) {
     height: auto;
     min-height: 100%;
     max-height: none;
@@ -5382,7 +5382,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   html.updates-archive body,
   body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
   body:has(.about-section),
-  body:has(.misc-grid):not(:has(.misc-detail)),
+  body:has(.codex-grid):not(:has(.codex-detail)),
   body:has(.home-split.is-archive) {
     height: auto;
     max-height: none;
@@ -5395,7 +5395,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   body:has(.home-split.is-archive) .app,
   body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
   body:has(.about-section) .app,
-  body:has(.misc-grid):not(:has(.misc-detail)) .app {
+  body:has(.codex-grid):not(:has(.codex-detail)) .app {
     overflow: visible !important;
     flex: 1 0 auto;
     min-height: 0;
@@ -5404,7 +5404,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
 
   /* Evitar barras verticales anidadas “dentro” del lienzo de 1680px. */
   .tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)),
-  .tab-panel:has(.misc-grid):not(:has(.misc-detail)),
+  .tab-panel:has(.codex-grid):not(:has(.codex-detail)),
   .tab-panel:has(.about-section),
   body:has(.home-split.is-archive) #tab-panel,
   html.updates-archive #tab-panel {
@@ -5490,16 +5490,16 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
 
   body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
   body:has(.about-section) .app,
-  body:has(.misc-grid):not(:has(.misc-detail)) .app,
+  body:has(.codex-grid):not(:has(.codex-detail)) .app,
   html.updates-archive .app,
   body:has(.home-split.is-archive) .app {
     overflow: visible;
   }
 
-  /* Desbloquear “viewport único” de INICIO / CODEX hub / Sobre mí */
+  /* Desbloquear “viewport único” de INICIO / CÓDEX hub / Sobre mí */
   html:has(.content-card.is-home):not(:has(.home-split.is-archive)),
   html:has(.about-section),
-  html:has(.misc-grid):not(:has(.misc-detail)) {
+  html:has(.codex-grid):not(:has(.codex-detail)) {
     height: auto;
     overflow-x: hidden;
     overflow-y: auto;
@@ -5507,7 +5507,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
 
   body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
   body:has(.about-section),
-  body:has(.misc-grid):not(:has(.misc-detail)) {
+  body:has(.codex-grid):not(:has(.codex-detail)) {
     height: auto;
     max-height: none;
     min-height: 100vh;
@@ -5532,7 +5532,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
 
   .tab-panel:has(.empty-state.welcome):not(:has(.home-split.is-archive)),
   .tab-panel:has(.about-section),
-  .tab-panel:has(.misc-grid):not(:has(.misc-detail)) {
+  .tab-panel:has(.codex-grid):not(:has(.codex-detail)) {
     overflow-x: hidden;
     overflow-y: visible;
     min-height: 0;
@@ -5865,48 +5865,48 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     column-gap: 0.45rem;
   }
 
-  /* CODEX hub */
-  .misc-grid {
-    --misc-icon-size: clamp(5.5rem, 18vw, 9rem);
+  /* CÓDEX hub */
+  .codex-grid {
+    --codex-icon-size: clamp(5.5rem, 18vw, 9rem);
     gap: 1.25rem;
     padding: 0.35rem 0.25rem 1rem;
     max-width: 100%;
   }
 
-  .misc-row--top,
-  .misc-row--bottom {
-    grid-template-columns: repeat(3, minmax(0, var(--misc-icon-size)));
+  .codex-row--top,
+  .codex-row--bottom {
+    grid-template-columns: repeat(3, minmax(0, var(--codex-icon-size)));
     column-gap: clamp(0.65rem, 2.5vw, 1.25rem);
     row-gap: 1rem;
     justify-content: center;
   }
 
-  .misc-card {
-    width: var(--misc-icon-size);
+  .codex-card {
+    width: var(--codex-icon-size);
     min-height: var(--touch-target-min);
   }
 
-  .misc-card__label {
+  .codex-card__label {
     font-size: clamp(0.72rem, 2.4vw, 0.95rem);
   }
 
-  /* CODEX detalle: aside arriba, contenido abajo */
-  .misc-detail,
-  .misc-detail--readings {
+  /* CÓDEX detalle: aside arriba, contenido abajo */
+  .codex-detail,
+  .codex-detail--readings {
     padding: 0.35rem 0.2rem 1rem;
-    --misc-detail-icon-size: clamp(7.25rem, 42vw, 10.5rem);
-    --misc-aside-w: auto;
+    --codex-detail-icon-size: clamp(7.25rem, 42vw, 10.5rem);
+    --codex-aside-w: auto;
     max-width: 100%;
     overflow-x: clip;
   }
 
-  body:has(.misc-detail--readings) {
+  body:has(.codex-detail--readings) {
     overflow-x: hidden;
   }
 
   /* Título + VOLVER siempre en la misma línea (VOLVER al margen derecho) */
-  body:has(.misc-detail) .content-card h2#unit-title,
-  body:has(.misc-detail) .content-card #unit-title,
+  body:has(.codex-detail) .content-card h2#unit-title,
+  body:has(.codex-detail) .content-card #unit-title,
   body:has(.about-publications) .content-card h2#unit-title,
   body:has(.about-publications) .content-card #unit-title {
     display: flex;
@@ -5921,7 +5921,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   }
 
   /*
-    AYUDA / privacidad: mismo layout título+VOLVER que CODEX,
+    AYUDA / privacidad: mismo layout título+VOLVER que CÓDEX,
     pero sin reducir el tamaño del título de sección.
   */
   body:has(.help-privacy-panel) .content-card h2#unit-title,
@@ -5937,7 +5937,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     box-sizing: border-box;
   }
 
-  body:has(.misc-detail) #unit-title .misc-section-heading,
+  body:has(.codex-detail) #unit-title .codex-section-heading,
   body:has(.about-publications) #unit-title .about-section-heading,
   body:has(.help-privacy-panel) #unit-title .help-section-heading {
     flex: 1 1 auto;
@@ -5947,8 +5947,8 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     text-overflow: ellipsis;
   }
 
-  body:has(.misc-detail) #unit-title .help-title-back,
-  body:has(.misc-detail) #unit-title .misc-title-back,
+  body:has(.codex-detail) #unit-title .help-title-back,
+  body:has(.codex-detail) #unit-title .codex-title-back,
   body:has(.about-publications) #unit-title .help-title-back,
   body:has(.about-publications) #unit-title .about-title-back,
   body:has(.help-privacy-panel) #unit-title .help-title-back,
@@ -5963,8 +5963,8 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     border-width: 1px;
   }
 
-  .misc-detail__aside,
-  .misc-detail__aside--readings {
+  .codex-detail__aside,
+  .codex-detail__aside--readings {
     position: static;
     width: 100%;
     max-width: 100%;
@@ -5977,25 +5977,25 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     align-items: center;
   }
 
-  .misc-detail__card {
+  .codex-detail__card {
     margin: 0 auto;
   }
 
-  .misc-detail .unit-material-card__icon {
-    width: var(--misc-detail-icon-size);
-    height: var(--misc-detail-icon-size);
+  .codex-detail .unit-material-card__icon {
+    width: var(--codex-detail-icon-size);
+    height: var(--codex-detail-icon-size);
   }
 
-  .misc-detail .unit-material-card__label {
+  .codex-detail .unit-material-card__label {
     min-height: 0;
   }
 
   html {
-    --misc-aside-top: 0px;
-    --misc-aside-left: 0px;
+    --codex-aside-top: 0px;
+    --codex-aside-left: 0px;
   }
 
-  .misc-detail__content {
+  .codex-detail__content {
     width: 100%;
     min-width: 0;
     max-width: 100%;
@@ -6161,7 +6161,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   .help-field textarea,
   .help-submit,
   .help-title-back,
-  .misc-title-back {
+  .codex-title-back {
     min-height: var(--touch-target-min);
   }
 
@@ -6226,9 +6226,9 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     grid-template-columns: 1fr;
   }
 
-  .misc-row--top,
-  .misc-row--bottom {
-    grid-template-columns: repeat(2, minmax(0, var(--misc-icon-size)));
+  .codex-row--top,
+  .codex-row--bottom {
+    grid-template-columns: repeat(2, minmax(0, var(--codex-icon-size)));
   }
 
   .brand-title {
@@ -6301,8 +6301,8 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     font-size: clamp(0.5rem, 2.85vw, 0.92rem);
   }
 
-  body:has(.misc-detail) .content-card h2#unit-title,
-  body:has(.misc-detail) .content-card #unit-title,
+  body:has(.codex-detail) .content-card h2#unit-title,
+  body:has(.codex-detail) .content-card #unit-title,
   body:has(.about-publications) .content-card h2#unit-title,
   body:has(.about-publications) .content-card #unit-title {
     font-size: clamp(0.52rem, 2.7vw, 0.82rem);
@@ -6316,8 +6316,8 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     gap: 0.3rem;
   }
 
-  body:has(.misc-detail) #unit-title .help-title-back,
-  body:has(.misc-detail) #unit-title .misc-title-back,
+  body:has(.codex-detail) #unit-title .help-title-back,
+  body:has(.codex-detail) #unit-title .codex-title-back,
   body:has(.about-publications) #unit-title .help-title-back,
   body:has(.about-publications) #unit-title .about-title-back,
   body:has(.help-privacy-panel) #unit-title .help-title-back,
@@ -6327,9 +6327,9 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     min-height: 0;
   }
 
-  .misc-detail,
-  .misc-detail--readings {
-    --misc-detail-icon-size: clamp(7rem, 52vw, 9.5rem);
+  .codex-detail,
+  .codex-detail--readings {
+    --codex-detail-icon-size: clamp(7rem, 52vw, 9.5rem);
   }
 
   .reading-title {
@@ -6350,19 +6350,19 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     font-size: 0.72rem;
   }
 
-  .misc-row--top,
-  .misc-row--bottom {
+  .codex-row--top,
+  .codex-row--bottom {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
   }
 
-  .misc-grid {
-    --misc-icon-size: min(42vw, 9.5rem);
+  .codex-grid {
+    --codex-icon-size: min(42vw, 9.5rem);
   }
 
-  .misc-card {
+  .codex-card {
     width: 100%;
-    max-width: var(--misc-icon-size);
+    max-width: var(--codex-icon-size);
     margin-inline: auto;
   }
 

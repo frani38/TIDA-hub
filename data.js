@@ -8,8 +8,8 @@
 // Búsqueda rápida (cabecera):
 // - siteSearchEntries: añade filas { section, title, meta, haystack, navTarget } para cualquier
 //   página o bloque nuevo (haystack = todo el texto que debe poder encontrarse).
-// - contentIndex: subapartados por zona (misc, books, about, help). Cada ítem { id, title, description?,
-//   keywords?, subSection? } se indexa solo; al crear CODEX → misc, PROYECTOS → books, etc.
+// - contentIndex: subapartados por zona (codex, books, about, help). Cada ítem { id, title, description?,
+//   keywords?, subSection? } se indexa solo; al crear CÓDEX → codex, PROYECTOS → books, etc.
 
 window.MYWEB_DATA = {
   /*
@@ -18,7 +18,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.10.0",
+    version: "1.10.1",
     updated: "2026-11-05",
     assetBust: "",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
@@ -367,14 +367,14 @@ window.MYWEB_DATA = {
   // Novedades/mejoras de la web (panel NOVEDADES).
   // Formato:
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Etiqueta breve", text: "Texto descriptivo (enlazable)",
-  //   navTarget?: "misc"|"docencia"|..., miscId?: "misc_lr", readingId?/gameId?/mediaId?, url? }
+  //   navTarget?: "codex"|"docencia"|..., codexId?: "codex_lr", readingId?/gameId?/mediaId?, url? }
   // Regla de enlace: la etiqueta queda en texto normal; el hipervínculo es siempre el texto descriptivo
   // (título del libro/juego/media, blurb Soft Skills, o `text` en avisos manuales).
   // Los libros/juegos/media con `addedAt` generan entradas automáticas LIBRO:/JUEGO:/MEDIA:.
   // Soft Skills: avisos de sección vía softSkills.changelog (un aviso por cambio, no por ficha).
   updates: [],
 
-  // Lecturas recomendadas (CODEX → LECTURAS RECOMENDADAS)
+  // Lecturas recomendadas (CÓDEX → LECTURAS RECOMENDADAS)
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.
   // cover: ruta local recomendada (por ejemplo: "./assets/books/<id>.jpg")
   readings: [
@@ -1619,7 +1619,7 @@ window.MYWEB_DATA = {
     }
   ],
 
-  // Blockchain y Big Data (CODEX → BLOCKCHAIN Y BIG DATA)
+  // Blockchain y Big Data (CÓDEX → BLOCKCHAIN Y BIG DATA)
   // Imágenes didácticas en ./blockchain_bigdata/. changelog → NOVEDADES (una entrada de sección).
   blockchainBigData: {
     intro:
@@ -1632,7 +1632,7 @@ window.MYWEB_DATA = {
     changelog: [
       {
         publishedAt: "2026-11-03T19:40",
-        text: "Nuevo apartado Blockchain y Big Data en CODEX: teoría en dos columnas, ejemplos didácticos, figuras y referencias técnicas."
+        text: "Nuevo apartado Blockchain y Big Data en CÓDEX: teoría en dos columnas, ejemplos didácticos, figuras y referencias técnicas."
       }
     ],
     columns: [
@@ -2136,7 +2136,7 @@ window.MYWEB_DATA = {
     ]
   },
 
-  // Soft Skills (CODEX → SOFT SKILLS)
+  // Soft Skills (CÓDEX → SOFT SKILLS)
   // image: ficha visual en ./softskills/
   // changelog: avisos de sección en NOVEDADES → «Soft Skills: {text}» (uno por cambio, no por ficha).
   // domains canónicos: cognición | colaboración | comunicación | autogestión | digital
@@ -2146,7 +2146,7 @@ window.MYWEB_DATA = {
     changelog: [
       {
         publishedAt: "2026-11-03T12:30",
-        text: "Nuevo apartado Soft Skills en CODEX: fichas de competencias humanas con definición, ejemplos educativo/laboral, filtro por dominio y referencias internacionales."
+        text: "Nuevo apartado Soft Skills en CÓDEX: fichas de competencias humanas con definición, ejemplos educativo/laboral, filtro por dominio y referencias internacionales."
       }
     ],
     items: [
@@ -2412,7 +2412,7 @@ window.MYWEB_DATA = {
     ]
   },
 
-  // Juegos (CODEX → JUEGOS)
+  // Juegos (CÓDEX → JUEGOS)
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.
   games: [
     {
@@ -2439,7 +2439,7 @@ window.MYWEB_DATA = {
     }
   ],
 
-  // Media (CODEX → MEDIA)
+  // Media (CÓDEX → MEDIA)
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.
   // poster: ruta local recomendada (por ejemplo: "./media/<id>.jpg")
   media: [
@@ -2592,22 +2592,22 @@ window.MYWEB_DATA = {
   ],
 
   // Entradas manuales para la búsqueda rápida (cualquier sección o texto que añadas a la web).
-  // navTarget: home | docencia | legislacion | help | about | books | misc | privacy
+  // navTarget: home | docencia | legislacion | help | about | books | codex | privacy
   siteSearchEntries: [],
 
   // Subapartados indexados automáticamente (añade objetos cuando crees contenido bajo cada menú).
   // Cada ítem: { id, title, description?, keywords?, subSection? } — subSection aparece en la ruta del resultado.
-  // Ejemplo en misc:
+  // Ejemplo en codex:
   // { id: "enlaces", title: "Enlaces útiles", subSection: "General", description: "...", keywords: "..." }
   contentIndex: {
-    misc: [],
+    codex: [],
     books: [],
     about: [],
     help: []
   },
 
   // Si añades nuevas claves en contentIndex (p. ej. videos: []), declara aquí la etiqueta y el menú destino:
-  // contentIndexZones: { videos: { label: "VIDEOS", navTarget: "misc" } }
+  // contentIndexZones: { videos: { label: "VIDEOS", navTarget: "codex" } }
   contentIndexZones: {}
 };
 

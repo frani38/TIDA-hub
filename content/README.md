@@ -59,9 +59,9 @@ Si falta un fichero, el enlace puede abrir una URL inexistente hasta que exista.
 | Carpeta | Uso |
 | --- | --- |
 | `content/<unitId>/` | Materiales DOCENCIA por unidad |
-| `books/` | Portadas de **Lecturas** (CODEX) |
-| `softskills/` | Ilustraciones de fichas **Soft Skills** (CODEX) |
-| `icons/` | Iconos de hub CODEX / DOCENCIA |
+| `books/` | Portadas de **Lecturas** (CÓDEX) |
+| `softskills/` | Ilustraciones de fichas **Soft Skills** (CÓDEX) |
+| `icons/` | Iconos de hub CÓDEX / DOCENCIA |
 | `banners/`, `image/`, `logo/` | Identidad y decoración |
 
 Visión general: `README.md`. Publicación: `github_TIDAhub.md`. Historial: `versions.md`.

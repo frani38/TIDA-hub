@@ -75,7 +75,7 @@
     materialId: "",
     unitId: "",
     tabId: "",
-    miscId: "",
+    codexId: "",
     aboutView: "",
     docenciaCollapsed: false,
     searchQuery: ""
@@ -160,7 +160,7 @@
               nacional y de la comunidad autónoma donde actualmente imparto docencia, Principado de Asturias.
             </p>
             <p class="welcome-intro">
-              Además, en <strong>CODEX</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hacking Ético, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
+              Además, en <strong>CÓDEX</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hacking Ético, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
             </p>
             <p class="welcome-intro">
               ¡Qué tengas buena experiencia de navegación por este espacio vivo y en constante mejora y actualización!
@@ -608,8 +608,8 @@
                       if (externalUrl) {
                         return `href="${escapeHtml(externalUrl)}" target="_blank" rel="noopener noreferrer"`;
                       }
-                      const canLinkMisc =
-                        Boolean(u.__miscId) &&
+                      const canLinkCodex =
+                        Boolean(u.__codexId) &&
                         (Boolean(u.__readingId) ||
                           Boolean(u.__gameId) ||
                           Boolean(u.__mediaId) ||
@@ -617,8 +617,8 @@
                           u.__kind === "manual" ||
                           u.__kind === "softskills" ||
                           u.__kind === "blockchain");
-                      if (canLinkMisc) {
-                        return `href="#" data-misc-id="${escapeHtml(u.__miscId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}" data-soft-skill-id="${escapeHtml(u.__softSkillId || "")}"`;
+                      if (canLinkCodex) {
+                        return `href="#" data-codex-id="${escapeHtml(u.__codexId || "")}" data-reading-id="${escapeHtml(u.__readingId || "")}" data-game-id="${escapeHtml(u.__gameId || "")}" data-media-id="${escapeHtml(u.__mediaId || "")}" data-soft-skill-id="${escapeHtml(u.__softSkillId || "")}"`;
                       }
                       if (u.__navTarget) {
                         return `href="#" data-nav-target="${escapeHtml(u.__navTarget)}"`;
@@ -707,14 +707,14 @@
           markUpdateItemSeen(key);
           clearUnseenClass(key);
         }
-        const miscId = String(a.getAttribute("data-misc-id") || "").trim();
+        const codexId = String(a.getAttribute("data-codex-id") || "").trim();
         const readingId = String(a.getAttribute("data-reading-id") || "").trim();
         const gameId = String(a.getAttribute("data-game-id") || "").trim();
         const mediaId = String(a.getAttribute("data-media-id") || "").trim();
         const softSkillId = String(a.getAttribute("data-soft-skill-id") || "").trim();
         const navTarget = String(a.getAttribute("data-nav-target") || "").trim();
-        if (miscId) {
-          navigateToMiscContent({ miscId, readingId, gameId, mediaId, softSkillId });
+        if (codexId) {
+          navigateToCodexContent({ codexId, readingId, gameId, mediaId, softSkillId });
           return;
         }
         if (navTarget) applySearchNavTarget(navTarget);
@@ -897,7 +897,7 @@
 
     const pickNavFields = (it) => ({
       __navTarget: String(it?.navTarget || "").trim(),
-      __miscId: String(it?.miscId || "").trim(),
+      __codexId: String(it?.codexId || "").trim(),
       __readingId: String(it?.readingId || "").trim(),
       __gameId: String(it?.gameId || "").trim(),
       __mediaId: String(it?.mediaId || "").trim(),
@@ -940,7 +940,7 @@
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "reading",
           __bookTitle: title,
-          __miscId: "misc_lr",
+          __codexId: "codex_lr",
           __readingId: id
         };
       })
@@ -965,7 +965,7 @@
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "game",
           __gameTitle: title,
-          __miscId: "misc_jt",
+          __codexId: "codex_jt",
           __gameId: id
         };
       })
@@ -990,13 +990,13 @@
           __ms: parsePublishedAtToMs(n.publishedAt),
           __kind: "media",
           __mediaTitle: title,
-          __miscId: "misc_av",
+          __codexId: "codex_av",
           __mediaId: id
         };
       })
       .filter(Boolean);
 
-    // Avisos de sección CODEX: __priority menor = más reciente (mismo instante).
+    // Avisos de sección CÓDEX: __priority menor = más reciente (mismo instante).
     // Registrar primero las secciones más nuevas para darles prioridad más baja.
     const sectionChangelogUpdates = [];
     let sectionPriority = 0;
@@ -1027,7 +1027,7 @@
         __ms: parsePublishedAtToMs(n.publishedAt),
         __kind: "blockchain",
         __blockchainBlurb: text,
-        __miscId: "misc_bc"
+        __codexId: "codex_bc"
       };
     });
 
@@ -1048,7 +1048,7 @@
         __ms: parsePublishedAtToMs(n.publishedAt),
         __kind: "softskills",
         __softSkillsBlurb: text,
-        __miscId: "misc_ss"
+        __codexId: "codex_ss"
       };
     });
 
@@ -1269,7 +1269,7 @@
   }
 
   const DEFAULT_CONTENT_INDEX_ZONES = {
-    misc: { label: "CODEX", navTarget: "misc" },
+    codex: { label: "CÓDEX", navTarget: "codex" },
     books: { label: "PROYECTOS", navTarget: "books" },
     about: { label: "SOBRE MÍ", navTarget: "about" },
     help: { label: "AYUDA", navTarget: "help" }
@@ -1361,20 +1361,20 @@
     return hits;
   }
 
-  function collectMiscMenuSearchHits(tokens) {
+  function collectCodexMenuSearchHits(tokens) {
     if (!tokens.length) return [];
     const items = [
-      { id: "misc_3d", label: "DISEÑO E IMPRESIÓN 3D", keywords: "diseño impresion 3d" },
-      { id: "misc_pr", label: "PROGRAMACIÓN Y ROBÓTICA", keywords: "programacion robotica" },
-      { id: "misc_iot", label: "IoT", keywords: "iot internet de las cosas sensores domotica" },
-      { id: "misc_ia", label: "IA", keywords: "inteligencia artificial" },
-      { id: "misc_sw", label: "HACKING ÉTICO", keywords: "hacking etico ético ciberseguridad seguridad pentesting" },
-      { id: "misc_bc", label: "BLOCKCHAIN Y BIG DATA", keywords: "blockchain big data cadena bloques datos" },
-      { id: "misc_ss", label: "SOFT SKILLS", keywords: "habilidades blandas soft skills comunicacion equipo feedback" },
-      { id: "misc_lr", label: "LECTURAS RECOMENDADAS", keywords: "libros lecturas" },
-      { id: "misc_av", label: "MEDIA", keywords: "media audiovisual audio video av" },
-      { id: "misc_jt", label: "JUEGOS", keywords: "juegos gamificacion" },
-      { id: "misc_ei", label: "ENLACES DE INTERÉS", keywords: "enlaces enlaces de interes" }
+      { id: "codex_3d", label: "DISEÑO E IMPRESIÓN 3D", keywords: "diseño impresion 3d" },
+      { id: "codex_pr", label: "PROGRAMACIÓN Y ROBÓTICA", keywords: "programacion robotica" },
+      { id: "codex_iot", label: "IoT", keywords: "iot internet de las cosas sensores domotica" },
+      { id: "codex_ia", label: "IA", keywords: "inteligencia artificial" },
+      { id: "codex_sw", label: "HACKING ÉTICO", keywords: "hacking etico ético ciberseguridad seguridad pentesting" },
+      { id: "codex_bc", label: "BLOCKCHAIN Y BIG DATA", keywords: "blockchain big data cadena bloques datos" },
+      { id: "codex_ss", label: "SOFT SKILLS", keywords: "habilidades blandas soft skills comunicacion equipo feedback" },
+      { id: "codex_lr", label: "LECTURAS RECOMENDADAS", keywords: "libros lecturas" },
+      { id: "codex_av", label: "MEDIA", keywords: "media audiovisual audio video av" },
+      { id: "codex_jt", label: "JUEGOS", keywords: "juegos gamificacion" },
+      { id: "codex_ei", label: "ENLACES DE INTERÉS", keywords: "enlaces enlaces de interes" }
     ];
     const hits = [];
     for (const it of items) {
@@ -1382,23 +1382,23 @@
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
-        section: "CODEX",
+        section: "CÓDEX",
         title: it.label,
-        meta: "Subapartado en CODEX",
-        navTarget: "misc",
-        miscId: it.id
+        meta: "Subapartado en CÓDEX",
+        navTarget: "codex",
+        codexId: it.id
       });
     }
     return hits;
   }
 
-  function collectMiscContentSearchHits(tokens) {
+  function collectCodexContentSearchHits(tokens) {
     if (!tokens.length) return [];
     const hits = [];
 
-    // Índice de contenido genérico de CODEX (data.js → contentIndex.misc)
-    const miscIndex = Array.isArray(DATA.contentIndex?.misc) ? DATA.contentIndex.misc : [];
-    for (const it of miscIndex) {
+    // Índice de contenido genérico de CÓDEX (data.js → contentIndex.codex)
+    const codexIndex = Array.isArray(DATA.contentIndex?.codex) ? DATA.contentIndex.codex : [];
+    for (const it of codexIndex) {
       if (!it || typeof it !== "object") continue;
       const title = String(it.title || "").trim();
       if (!title) continue;
@@ -1408,18 +1408,18 @@
       const id = String(it.id || "").trim();
       const hay = `${title} ${sub} ${keywords} ${desc} ${id}`;
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
-      const miscId = String(it.miscId || "").trim(); // opcional: permite abrir directamente la tarjeta correcta
+      const codexId = String(it.codexId || "").trim(); // opcional: permite abrir directamente la tarjeta correcta
       hits.push({
         kind: "nav",
-        section: sub ? `CODEX · ${sub}` : "CODEX",
+        section: sub ? `CÓDEX · ${sub}` : "CÓDEX",
         title,
-        meta: desc || keywords || "Contenido en CODEX",
-        navTarget: "misc",
-        miscId: miscId || ""
+        meta: desc || keywords || "Contenido en CÓDEX",
+        navTarget: "codex",
+        codexId: codexId || ""
       });
     }
 
-    // Blockchain y Big Data (CODEX → BLOCKCHAIN Y BIG DATA)
+    // Blockchain y Big Data (CÓDEX → BLOCKCHAIN Y BIG DATA)
     const bcPackSearch = DATA.blockchainBigData && typeof DATA.blockchainBigData === "object" ? DATA.blockchainBigData : null;
     if (bcPackSearch) {
       const introHay = String(bcPackSearch.intro || "").trim();
@@ -1439,17 +1439,17 @@
           if (!searchHaystackMatchesTokens(tokens, hay)) continue;
           hits.push({
             kind: "nav",
-            section: "CODEX · BLOCKCHAIN Y BIG DATA",
+            section: "CÓDEX · BLOCKCHAIN Y BIG DATA",
             title: colTitle ? `${colTitle}: ${title}` : title,
             meta: "Blockchain y Big Data",
-            navTarget: "misc",
-            miscId: "misc_bc"
+            navTarget: "codex",
+            codexId: "codex_bc"
           });
         }
       }
     }
 
-    // Soft Skills (CODEX → SOFT SKILLS)
+    // Soft Skills (CÓDEX → SOFT SKILLS)
     const softPack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
     const softItems = Array.isArray(softPack?.items) ? softPack.items : Array.isArray(DATA.softSkills) ? DATA.softSkills : [];
     for (const s of softItems) {
@@ -1470,16 +1470,16 @@
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
-        section: "CODEX · SOFT SKILLS",
+        section: "CÓDEX · SOFT SKILLS",
         title,
         meta: "Soft skill",
-        navTarget: "misc",
-        miscId: "misc_ss",
+        navTarget: "codex",
+        codexId: "codex_ss",
         softSkillId: id
       });
     }
 
-    // Lecturas recomendadas (CODEX → LECTURAS RECOMENDADAS)
+    // Lecturas recomendadas (CÓDEX → LECTURAS RECOMENDADAS)
     const readingsRaw = Array.isArray(DATA.readings) ? DATA.readings : [];
     for (const r of readingsRaw) {
       const id = String(r?.id || "").trim();
@@ -1494,16 +1494,16 @@
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
-        section: "CODEX · LECTURAS RECOMENDADAS",
+        section: "CÓDEX · LECTURAS RECOMENDADAS",
         title,
         meta: `${authors}${authors && year ? " - " : ""}${year}`.trim(),
-        navTarget: "misc",
-        miscId: "misc_lr",
+        navTarget: "codex",
+        codexId: "codex_lr",
         readingId: id
       });
     }
 
-    // Juegos (CODEX → JUEGOS)
+    // Juegos (CÓDEX → JUEGOS)
     const gamesRaw = Array.isArray(DATA.games) ? DATA.games : [];
     for (const g of gamesRaw) {
       const id = String(g?.id || "").trim();
@@ -1517,11 +1517,11 @@
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
-        section: "CODEX · JUEGOS",
+        section: "CÓDEX · JUEGOS",
         title,
         meta: manufacturer ? `${manufacturer}${language ? ` (${language})` : ""}` : language ? `(${language})` : "",
-        navTarget: "misc",
-        miscId: "misc_jt",
+        navTarget: "codex",
+        codexId: "codex_jt",
         gameId: id
       });
     }
@@ -1542,8 +1542,8 @@
     const dataJsHits = [
       ...collectSiteSearchEntriesHits(tokens),
       ...collectContentIndexSearchHits(tokens),
-      ...collectMiscMenuSearchHits(tokens),
-      ...collectMiscContentSearchHits(tokens)
+      ...collectCodexMenuSearchHits(tokens),
+      ...collectCodexContentSearchHits(tokens)
     ];
     const docenciaHits = collectDocenciaSearchHits(tokens);
     const newsHits = collectNewsSearchHits(tokens);
@@ -1551,16 +1551,16 @@
     showGlobalSearchPage(raw, { dataJsHits, docenciaHits, newsHits, lawHits });
   }
 
-  /** Abre CODEX → subapartado y, si hay id, hace scroll hasta la ficha. */
-  function navigateToMiscContent({ miscId, readingId, gameId, mediaId, softSkillId } = {}) {
-    const mid = String(miscId || "").trim();
+  /** Abre CÓDEX → subapartado y, si hay id, hace scroll hasta la ficha. */
+  function navigateToCodexContent({ codexId, readingId, gameId, mediaId, softSkillId } = {}) {
+    const mid = String(codexId || "").trim();
     if (!mid) {
-      applySearchNavTarget("misc");
+      applySearchNavTarget("codex");
       return;
     }
-    applySearchNavTarget("misc");
+    applySearchNavTarget("codex");
     const openAndScroll = () => {
-      const b = document.querySelector(`button.misc-card[data-misc-id="${CSS.escape(mid)}"]`);
+      const b = document.querySelector(`button.codex-card[data-codex-id="${CSS.escape(mid)}"]`);
       if (b instanceof HTMLButtonElement) b.click();
 
       const rid = String(readingId || "").trim();
@@ -1618,7 +1618,7 @@
       booksBtnEl?.click();
       return;
     }
-    if (t === "misc" || t === "codex") {
+    if (t === "codex") {
       codexBtnEl?.click();
       return;
     }
@@ -1762,9 +1762,9 @@
       btn.addEventListener("click", () => {
         if (row.kind === "nav") {
           const hit = row.hit;
-          if (hit?.navTarget === "misc" && hit?.miscId) {
-            navigateToMiscContent({
-              miscId: hit.miscId,
+          if (hit?.navTarget === "codex" && hit?.codexId) {
+            navigateToCodexContent({
+              codexId: hit.codexId,
               readingId: hit.readingId,
               gameId: hit.gameId,
               mediaId: hit.mediaId,
@@ -1809,7 +1809,7 @@
       materialId: "",
       unitId: "",
       tabId: "",
-      miscId: "",
+      codexId: "",
       aboutView: "",
       searchQuery: "",
       docenciaCollapsed: false
@@ -1825,7 +1825,7 @@
       materialId: currentState.materialId || "",
       unitId: currentState.unitId || "",
       tabId: currentState.tabId || "",
-      miscId: (currentState.section || "") === "codex" ? currentState.miscId || "" : "",
+      codexId: (currentState.section || "") === "codex" ? currentState.codexId || "" : "",
       aboutView: (currentState.section || "") === "about" ? currentState.aboutView || "" : "",
       searchQuery: currentState.searchQuery || "",
       docenciaCollapsed: !!currentState.docenciaCollapsed
@@ -1840,7 +1840,7 @@
       st.materialId || "",
       st.unitId || "",
       st.tabId || "",
-      st.miscId || "",
+      st.codexId || "",
       st.aboutView || "",
       st.searchQuery || ""
     ].join("|");
@@ -1863,9 +1863,9 @@
     if (section === "books") return `${base}#books`;
     if (section === "legislacion") return `${base}#legislacion`;
     if (section === "codex") {
-      const mid = String(st.miscId || "").trim();
+      const mid = String(st.codexId || "").trim();
       const tab = String(st.tabId || "").trim();
-      if (mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs")) {
+      if (mid === "codex_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs")) {
         return `${base}#codex/${encodeURIComponent(mid)}/${encodeURIComponent(tab)}`;
       }
       return mid ? `${base}#codex/${encodeURIComponent(mid)}` : `${base}#codex`;
@@ -1939,7 +1939,7 @@
       materialId: st.materialId || "",
       unitId: st.unitId || "",
       tabId: st.tabId || "",
-      miscId: st.miscId || "",
+      codexId: st.codexId || "",
       aboutView: st.aboutView || "",
       searchQuery: st.searchQuery || "",
       docenciaCollapsed: !!st.docenciaCollapsed
@@ -1982,7 +1982,7 @@
     }
     if (section === "codex") {
       setActiveMenu(codexBtnEl);
-      showCodexSection({ openMiscId: currentState.miscId || "" });
+      showCodexSection({ openCodexId: currentState.codexId || "" });
       return;
     }
     if (section === "updates") {
@@ -2024,22 +2024,14 @@
       restoreHistorySnapshot({ ...snapshotHistoryState(), section: "home", levelId: "", materialId: "", unitId: "", tabId: "", searchQuery: "" });
       return;
     }
-    const isCodexHash =
-      raw === "codex" ||
-      raw.startsWith("codex/") ||
-      raw === "miscelanea" ||
-      raw.startsWith("miscelanea/");
-    if (isCodexHash) {
-      let miscId = "";
+    if (raw === "codex" || raw.startsWith("codex/")) {
+      let codexId = "";
       let tabId = "";
-      const codexRaw = raw.startsWith("miscelanea")
-        ? "codex" + raw.slice("miscelanea".length)
-        : raw;
-      if (codexRaw !== "codex") {
-        const parts = codexRaw.slice("codex/".length).split("/").filter(Boolean);
-        miscId = decodeURIComponent(parts[0] || "");
+      if (raw !== "codex") {
+        const parts = raw.slice("codex/".length).split("/").filter(Boolean);
+        codexId = decodeURIComponent(parts[0] || "");
         const maybeTab = decodeURIComponent(parts[1] || "");
-        if (miscId === "misc_bc" && (maybeTab === "blockchain" || maybeTab === "bigdata" || maybeTab === "glossary" || maybeTab === "refs")) {
+        if (codexId === "codex_bc" && (maybeTab === "blockchain" || maybeTab === "bigdata" || maybeTab === "glossary" || maybeTab === "refs")) {
           tabId = maybeTab;
         }
       }
@@ -2051,7 +2043,7 @@
         materialId: "",
         unitId: "",
         tabId,
-        miscId,
+        codexId,
         aboutView: "",
         searchQuery: "",
         docenciaCollapsed: false
@@ -2067,7 +2059,7 @@
         materialId: "",
         unitId: "",
         tabId: "",
-        miscId: "",
+        codexId: "",
         aboutView: raw === "about/publicaciones" ? "publicaciones" : "",
         searchQuery: "",
         docenciaCollapsed: false
@@ -2083,7 +2075,7 @@
         materialId: "",
         unitId: "",
         tabId: "",
-        miscId: "",
+        codexId: "",
         aboutView: "",
         searchQuery: "",
         docenciaCollapsed: false
@@ -2811,57 +2803,57 @@
   }
 
   function showCodexSection(opts = {}) {
-    const openMiscId = String(opts?.openMiscId || "").trim();
+    const openCodexId = String(opts?.openCodexId || "").trim();
     contentCardEl?.classList.remove("is-home");
     toggleDocenciaMenu(false);
     toggleContentCard(true);
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
     setUnitTitleCompact(false);
-    unitTitleEl.textContent = "CODEX";
+    unitTitleEl.textContent = "CÓDEX";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
     consumeWelcomeReveal();
     // Alinear el icono lateral de detalle con la "M" del título (se recalcula al entrar en detalle).
-    document.documentElement.style.removeProperty("--misc-aside-top");
-    document.documentElement.style.removeProperty("--misc-aside-left");
-    document.documentElement.classList.remove("misc-fly-target-hidden");
+    document.documentElement.style.removeProperty("--codex-aside-top");
+    document.documentElement.style.removeProperty("--codex-aside-left");
+    document.documentElement.classList.remove("codex-fly-target-hidden");
     const items = [
-      { id: "misc_3d", label: "DISEÑO E IMPRESIÓN 3D", labelHtml: "DISEÑO<br />E<br />IMPRESIÓN 3D", icon: "3D" },
-      { id: "misc_pr", label: "PROGRAMACIÓN Y ROBÓTICA", labelHtml: "PROGRAMACIÓN<br />Y<br />ROBÓTICA", icon: "PR" },
-      { id: "misc_iot", label: "IoT", icon: "IoT" },
-      { id: "misc_ia", label: "IA", icon: "IA" },
-      { id: "misc_sw", label: "HACKING ÉTICO", labelHtml: "HACKING<br />ÉTICO", icon: "hacking" },
-      { id: "misc_bc", label: "BLOCKCHAIN Y BIG DATA", labelHtml: "BLOCKCHAIN<br />Y<br />BIG DATA", icon: "BC" },
-      { id: "misc_ss", label: "SOFT SKILLS", labelHtml: "SOFT<br />SKILLS", icon: "SS" },
-      { id: "misc_lr", label: "LECTURAS RECOMENDADAS", icon: "LR" },
-      { id: "misc_av", label: "MEDIA", icon: "MD" },
-      { id: "misc_jt", label: "JUEGOS", icon: "JT" },
-      { id: "misc_ei", label: "ENLACES DE INTERÉS", labelHtml: "ENLACES<br />DE<br />INTERÉS", icon: "EI" }
+      { id: "codex_3d", label: "DISEÑO E IMPRESIÓN 3D", labelHtml: "DISEÑO<br />E<br />IMPRESIÓN 3D", icon: "3D" },
+      { id: "codex_pr", label: "PROGRAMACIÓN Y ROBÓTICA", labelHtml: "PROGRAMACIÓN<br />Y<br />ROBÓTICA", icon: "PR" },
+      { id: "codex_iot", label: "IoT", icon: "IoT" },
+      { id: "codex_ia", label: "IA", icon: "IA" },
+      { id: "codex_sw", label: "HACKING ÉTICO", labelHtml: "HACKING<br />ÉTICO", icon: "hacking" },
+      { id: "codex_bc", label: "BLOCKCHAIN Y BIG DATA", labelHtml: "BLOCKCHAIN<br />Y<br />BIG DATA", icon: "BC" },
+      { id: "codex_ss", label: "SOFT SKILLS", labelHtml: "SOFT<br />SKILLS", icon: "SS" },
+      { id: "codex_lr", label: "LECTURAS RECOMENDADAS", icon: "LR" },
+      { id: "codex_av", label: "MEDIA", icon: "MD" },
+      { id: "codex_jt", label: "JUEGOS", icon: "JT" },
+      { id: "codex_ei", label: "ENLACES DE INTERÉS", labelHtml: "ENLACES<br />DE<br />INTERÉS", icon: "EI" }
     ];
 
-    const setMiscTitle = (sectionTitle) => {
+    const setCodexTitle = (sectionTitle) => {
       setUnitTitleCompact(false);
-      unitTitleEl.innerHTML = `<span class="misc-section-heading">CODEX / ${escapeHtml(sectionTitle)}</span>
-        <button type="button" class="help-title-back misc-title-back" aria-label="Volver">← VOLVER</button>`;
-      const backBtn = unitTitleEl.querySelector(".misc-title-back");
+      unitTitleEl.innerHTML = `<span class="codex-section-heading">CÓDEX / ${escapeHtml(sectionTitle)}</span>
+        <button type="button" class="help-title-back codex-title-back" aria-label="Volver">← VOLVER</button>`;
+      const backBtn = unitTitleEl.querySelector(".codex-title-back");
       backBtn?.addEventListener("click", () => {
-        // Jerarquía: subapartado → hub de sección → hub CODEX (no history.back).
-        const mid = String(currentState.miscId || "").trim();
+        // Jerarquía: subapartado → hub de sección → hub CÓDEX (no history.back).
+        const mid = String(currentState.codexId || "").trim();
         const tab = String(currentState.tabId || "").trim();
         const inBcSub =
-          mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs");
+          mid === "codex_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs");
         if (inBcSub) {
           const sectionIt = items.find((x) => x.id === mid);
-          currentState = { ...currentState, section: "codex", miscId: mid, tabId: "" };
+          currentState = { ...currentState, section: "codex", codexId: mid, tabId: "" };
           if (sectionIt) {
             void renderDetail(sectionIt, { recordHistory: true, expectFly: false, preserveTab: false });
             animateContentSwitch();
             return;
           }
         }
-        currentState = { ...currentState, section: "codex", miscId: "", tabId: "" };
-        unitTitleEl.textContent = "CODEX";
+        currentState = { ...currentState, section: "codex", codexId: "", tabId: "" };
+        unitTitleEl.textContent = "CÓDEX";
         renderMenu();
         pushAppHistory();
         animateContentSwitch();
@@ -2869,8 +2861,8 @@
     };
 
     const renderCard = (it) => `
-      <button type="button" class="misc-card unit-material-card" data-misc-id="${escapeHtml(it.id)}">
-        <div class="misc-card__icon unit-material-card__icon">
+      <button type="button" class="codex-card unit-material-card" data-codex-id="${escapeHtml(it.id)}">
+        <div class="codex-card__icon unit-material-card__icon">
           <img
             src="./icons/${escapeHtml(it.icon)}.png?v=${ICONS_VERSION}"
             alt=""
@@ -2878,7 +2870,7 @@
             loading="lazy"
           />
         </div>
-        <span class="misc-card__label unit-material-card__label">${it.labelHtml || escapeHtml(it.label)}</span>
+        <span class="codex-card__label unit-material-card__label">${it.labelHtml || escapeHtml(it.label)}</span>
       </button>
     `;
 
@@ -2896,12 +2888,12 @@
       }
     };
 
-    const syncMiscAsideAlignment = () =>
+    const syncCodexAsideAlignment = () =>
       new Promise((resolve) => {
         // En tablet/móvil el aside va en flujo estático: no medir ni desplazar.
         if (isCompactViewport()) {
-          document.documentElement.style.removeProperty("--misc-aside-top");
-          document.documentElement.style.removeProperty("--misc-aside-left");
+          document.documentElement.style.removeProperty("--codex-aside-top");
+          document.documentElement.style.removeProperty("--codex-aside-left");
           resolve();
           return;
         }
@@ -2909,7 +2901,7 @@
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             const titleRect = unitTitleEl?.getBoundingClientRect?.();
-            const asideEl = tabPanelEl?.querySelector?.(".misc-detail__aside");
+            const asideEl = tabPanelEl?.querySelector?.(".codex-detail__aside");
             const iconWrapEl = asideEl?.querySelector?.(".unit-material-card__icon");
             if (!titleRect || !Number.isFinite(titleRect.left) || !Number.isFinite(titleRect.bottom) || !asideEl || !iconWrapEl) {
               resolve();
@@ -2918,7 +2910,7 @@
 
             // 1) Vertical: colocar el marco del icono por debajo del título (sin solapar).
             const top = Math.round(titleRect.bottom + 10);
-            document.documentElement.style.setProperty("--misc-aside-top", `${top}px`);
+            document.documentElement.style.setProperty("--codex-aside-top", `${top}px`);
 
             // 2) Horizontal: alinear el borde izquierdo del marco del icono con la "M" (inicio del título).
             const iconRect = iconWrapEl.getBoundingClientRect();
@@ -2933,7 +2925,7 @@
             const desiredLeft = dx; // el aside estaba en left:0, movemos lo necesario
             const maxLeft = Math.max(0, viewportW - asideRect.width);
             const clampedLeft = Math.min(Math.max(0, Math.round(desiredLeft)), Math.round(maxLeft));
-            document.documentElement.style.setProperty("--misc-aside-left", `${clampedLeft}px`);
+            document.documentElement.style.setProperty("--codex-aside-left", `${clampedLeft}px`);
 
             // Un frame extra para que estas variables afecten al layout antes de animar.
             requestAnimationFrame(() => resolve());
@@ -2958,24 +2950,24 @@
       }
     };
 
-    const revealMiscFlyTarget = () => {
-      document.documentElement.classList.remove("misc-fly-target-hidden");
+    const revealCodexFlyTarget = () => {
+      document.documentElement.classList.remove("codex-fly-target-hidden");
     };
 
     const flyIconTo = async ({ fromRect, fromIconHtml, fromRadius, toIconWrapEl }) => {
       cleanupFly();
       if (!fromRect || !fromIconHtml || !toIconWrapEl) {
-        revealMiscFlyTarget();
+        revealCodexFlyTarget();
         return;
       }
       if (prefersReducedMotion() || isCompactViewport()) {
-        revealMiscFlyTarget();
+        revealCodexFlyTarget();
         return;
       }
 
       const toRect = toIconWrapEl.getBoundingClientRect();
       if (!fromRect.width || !fromRect.height || !toRect.width || !toRect.height) {
-        revealMiscFlyTarget();
+        revealCodexFlyTarget();
         return;
       }
 
@@ -2984,7 +2976,7 @@
       flyWrap.innerHTML = fromIconHtml;
       const clone = flyWrap.firstElementChild;
       if (!clone) {
-        revealMiscFlyTarget();
+        revealCodexFlyTarget();
         return;
       }
       clone.style.position = "fixed";
@@ -3024,7 +3016,7 @@
       } catch {
         // cancelado
       } finally {
-        revealMiscFlyTarget();
+        revealCodexFlyTarget();
         // Corrección final: si el layout se ha movido (fuentes/cálculos), ajustar el clon al destino real.
         try {
           const toRect2 = toIconWrapEl.getBoundingClientRect();
@@ -3080,27 +3072,27 @@
 
     const renderMenu = () => {
       setUnitTitleCompact(false);
-      unitTitleEl.textContent = "CODEX";
-      document.documentElement.style.removeProperty("--misc-aside-top");
-      document.documentElement.style.removeProperty("--misc-aside-left");
-      document.documentElement.classList.remove("misc-fly-target-hidden");
-      const topRow = items.filter((x) => ["misc_3d", "misc_pr", "misc_iot", "misc_ia", "misc_sw", "misc_bc"].includes(x.id));
-      const bottomRow = items.filter((x) => ["misc_ss", "misc_lr", "misc_av", "misc_jt", "misc_ei"].includes(x.id));
+      unitTitleEl.textContent = "CÓDEX";
+      document.documentElement.style.removeProperty("--codex-aside-top");
+      document.documentElement.style.removeProperty("--codex-aside-left");
+      document.documentElement.classList.remove("codex-fly-target-hidden");
+      const topRow = items.filter((x) => ["codex_3d", "codex_pr", "codex_iot", "codex_ia", "codex_sw", "codex_bc"].includes(x.id));
+      const bottomRow = items.filter((x) => ["codex_ss", "codex_lr", "codex_av", "codex_jt", "codex_ei"].includes(x.id));
       tabPanelEl.innerHTML = `
-        <nav class="misc-grid" aria-label="Accesos de CODEX">
-          <div class="misc-row misc-row--top">
+        <nav class="codex-grid" aria-label="Accesos de CÓDEX">
+          <div class="codex-row codex-row--top">
             ${topRow.map(renderCard).join("")}
           </div>
-          <div class="misc-row misc-row--bottom">
+          <div class="codex-row codex-row--bottom">
             ${bottomRow.map(renderCard).join("")}
           </div>
         </nav>
       `;
       scrollToPageTop();
 
-      for (const btn of tabPanelEl.querySelectorAll(".misc-card")) {
+      for (const btn of tabPanelEl.querySelectorAll(".codex-card")) {
         btn.addEventListener("click", async () => {
-          const id = btn.getAttribute("data-misc-id") || "";
+          const id = btn.getAttribute("data-codex-id") || "";
           const it = items.find((x) => x.id === id);
           if (!it) return;
           const fromIconWrapEl = btn.querySelector(".unit-material-card__icon");
@@ -3109,34 +3101,34 @@
           const fromRadius = fromIconWrapEl ? getComputedStyle(fromIconWrapEl).borderRadius : "";
 
           await renderDetail(it, { recordHistory: true, expectFly: true });
-          const toIconWrapEl = tabPanelEl.querySelector(".misc-detail__aside .unit-material-card__icon");
+          const toIconWrapEl = tabPanelEl.querySelector(".codex-detail__aside .unit-material-card__icon");
           flyIconTo({ fromRect, fromIconHtml, fromRadius, toIconWrapEl });
         });
       }
     };
 
     const renderDetail = async (it, { recordHistory = true, expectFly = false, preserveTab = false } = {}) => {
-      setMiscTitle(it.label);
-      const nextMiscId = String(it.id || "").trim();
-      const keepBcTab = nextMiscId === "misc_bc" && preserveTab;
+      setCodexTitle(it.label);
+      const nextCodexId = String(it.id || "").trim();
+      const keepBcTab = nextCodexId === "codex_bc" && preserveTab;
       const nextTabId = keepBcTab ? String(currentState.tabId || "").trim() : "";
       currentState = {
         ...currentState,
         section: "codex",
-        miscId: nextMiscId,
+        codexId: nextCodexId,
         tabId:
-          nextMiscId === "misc_bc" &&
+          nextCodexId === "codex_bc" &&
           (nextTabId === "blockchain" || nextTabId === "bigdata" || nextTabId === "glossary" || nextTabId === "refs")
             ? nextTabId
             : ""
       };
       if (recordHistory) pushAppHistory();
-      const isReadings = it.id === "misc_lr";
-      const isGames = it.id === "misc_jt";
-      const isMedia = it.id === "misc_av";
-      const isSoftSkills = it.id === "misc_ss";
-      const isBlockchainBigData = it.id === "misc_bc";
-      const isMiscCatalog = isReadings || isGames || isMedia || isSoftSkills || isBlockchainBigData;
+      const isReadings = it.id === "codex_lr";
+      const isGames = it.id === "codex_jt";
+      const isMedia = it.id === "codex_av";
+      const isSoftSkills = it.id === "codex_ss";
+      const isBlockchainBigData = it.id === "codex_bc";
+      const isCodexCatalog = isReadings || isGames || isMedia || isSoftSkills || isBlockchainBigData;
       const bcTopic = isBlockchainBigData ? String(currentState.tabId || "").trim() : "";
       const bcPack =
         isBlockchainBigData && DATA.blockchainBigData && typeof DATA.blockchainBigData === "object"
@@ -3158,7 +3150,7 @@
             const label = `${n}. ${title}`.toLocaleUpperCase("es");
             return `<li>
               <a
-                href="#codex/misc_bc/${escapeHtml(bcTopic)}"
+                href="#codex/codex_bc/${escapeHtml(bcTopic)}"
                 class="bc-bd-aside-nav__sublink"
                 data-bc-topic="${escapeHtml(bcTopic)}"
                 data-bc-section="${escapeHtml(sid)}"
@@ -3173,12 +3165,12 @@
         }">${items}</ul>`;
       })();
       tabPanelEl.innerHTML = `
-        <div class="misc-detail${isMiscCatalog ? " misc-detail--readings" : ""}">
-          <aside class="misc-detail__aside${isMiscCatalog ? " misc-detail__aside--readings" : ""}" aria-label="${escapeHtml(it.label)}">
-            <div class="misc-detail__card unit-material-card" role="presentation">
+        <div class="codex-detail${isCodexCatalog ? " codex-detail--readings" : ""}">
+          <aside class="codex-detail__aside${isCodexCatalog ? " codex-detail__aside--readings" : ""}" aria-label="${escapeHtml(it.label)}">
+            <div class="codex-detail__card unit-material-card" role="presentation">
               <button
                 type="button"
-                class="misc-detail__logo-btn misc-card__icon unit-material-card__icon"
+                class="codex-detail__logo-btn codex-card__icon unit-material-card__icon"
                 aria-label="Inicio de ${escapeHtml(it.label)}"
                 title="Inicio de la sección"
               >
@@ -3298,7 +3290,7 @@
                         }" aria-label="Apartados de Blockchain y Big Data">
                           <div class="bc-bd-aside-nav__branch">
                             <a
-                              href="#codex/misc_bc/blockchain"
+                              href="#codex/codex_bc/blockchain"
                               class="bc-bd-aside-nav__link${bcTopic === "blockchain" ? " is-active" : ""}"
                               data-bc-topic="blockchain"
                             >BLOCKCHAIN</a>
@@ -3306,19 +3298,19 @@
                           </div>
                           <div class="bc-bd-aside-nav__branch">
                             <a
-                              href="#codex/misc_bc/bigdata"
+                              href="#codex/codex_bc/bigdata"
                               class="bc-bd-aside-nav__link${bcTopic === "bigdata" ? " is-active" : ""}"
                               data-bc-topic="bigdata"
                             >BIG DATA</a>
                             ${bcTopic === "bigdata" ? bcAsideTreeHtml : ""}
                           </div>
                           <a
-                            href="#codex/misc_bc/glossary"
+                            href="#codex/codex_bc/glossary"
                             class="bc-bd-aside-nav__link${bcTopic === "glossary" ? " is-active" : ""}"
                             data-bc-topic="glossary"
                           >GLOSARIO</a>
                           <a
-                            href="#codex/misc_bc/refs"
+                            href="#codex/codex_bc/refs"
                             class="bc-bd-aside-nav__link${bcTopic === "refs" ? " is-active" : ""}"
                             data-bc-topic="refs"
                           >REFERENCIAS</a>
@@ -3327,7 +3319,7 @@
                       : ""
             }
           </aside>
-          <section class="misc-detail__content" aria-label="Contenido">
+          <section class="codex-detail__content" aria-label="Contenido">
             ${
               isReadings
                 ? `
@@ -3399,23 +3391,23 @@
       `;
       // Solo ocultar el icono destino si habrá animación de vuelo desde el hub.
       // En recarga/hash/historial, sin vuelo, debe verse desde el primer frame.
-      if (expectFly) document.documentElement.classList.add("misc-fly-target-hidden");
-      else revealMiscFlyTarget();
+      if (expectFly) document.documentElement.classList.add("codex-fly-target-hidden");
+      else revealCodexFlyTarget();
       // Si se abrió la tarjeta desde abajo del hub, el scroll residual deja la vista a mitad de lista.
       scrollToPageTop();
       requestAnimationFrame(() => scrollToPageTop());
-      await syncMiscAsideAlignment();
+      await syncCodexAsideAlignment();
       scrollToPageTop();
 
       // Logo de sección → siempre al inicio (hub) de esa sección.
-      const logoBtn = tabPanelEl.querySelector(".misc-detail__logo-btn");
+      const logoBtn = tabPanelEl.querySelector(".codex-detail__logo-btn");
       logoBtn?.addEventListener("click", () => {
         const mid = String(it.id || "").trim();
         const tab = String(currentState.tabId || "").trim();
         const inBcSub =
-          mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs");
+          mid === "codex_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs");
         if (inBcSub) {
-          currentState = { ...currentState, section: "codex", miscId: mid, tabId: "" };
+          currentState = { ...currentState, section: "codex", codexId: mid, tabId: "" };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: false });
           animateContentSwitch();
           return;
@@ -4289,15 +4281,15 @@
             .replace(/&lt;\/em&gt;/gi, "</em>")
             .replace(
               /\{\{BC_LINK\}\}/g,
-              '<a href="#codex/misc_bc/blockchain" data-bc-topic="blockchain" class="bc-bd-inline-link"><strong>BLOCKCHAIN</strong></a>'
+              '<a href="#codex/codex_bc/blockchain" data-bc-topic="blockchain" class="bc-bd-inline-link"><strong>BLOCKCHAIN</strong></a>'
             )
             .replace(
               /\{\{BD_LINK\}\}/g,
-              '<a href="#codex/misc_bc/bigdata" data-bc-topic="bigdata" class="bc-bd-inline-link"><strong>BIG DATA</strong></a>'
+              '<a href="#codex/codex_bc/bigdata" data-bc-topic="bigdata" class="bc-bd-inline-link"><strong>BIG DATA</strong></a>'
             )
             .replace(
               /\[(\d+)\]/g,
-              '<a href="#codex/misc_bc/refs" data-bc-topic="refs" class="bc-bd-cite">[$1]</a>'
+              '<a href="#codex/codex_bc/refs" data-bc-topic="refs" class="bc-bd-cite">[$1]</a>'
             );
 
         const hubEl = document.getElementById("bc-bd-hub");
@@ -4337,7 +4329,7 @@
           const t = String(topic || "").trim();
           if (t !== "blockchain" && t !== "bigdata" && t !== "glossary" && t !== "refs") return;
           const sid = String(sectionId || "").trim();
-          currentState = { ...currentState, section: "codex", miscId: "misc_bc", tabId: t };
+          currentState = { ...currentState, section: "codex", codexId: "codex_bc", tabId: t };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: true }).then(() => {
             if (sid) {
               requestAnimationFrame(() => scrollToBcSection(sid));
@@ -4420,7 +4412,7 @@
         }
 
         const openBcHub = () => {
-          currentState = { ...currentState, section: "codex", miscId: "misc_bc", tabId: "" };
+          currentState = { ...currentState, section: "codex", codexId: "codex_bc", tabId: "" };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: false });
           animateContentSwitch();
         };
@@ -4658,15 +4650,15 @@
     };
 
     // Vista inicial: hub o subapartado (p. ej. al restaurar historial / hash).
-    if (openMiscId) {
-      const it = items.find((x) => x.id === openMiscId);
+    if (openCodexId) {
+      const it = items.find((x) => x.id === openCodexId);
       if (it) {
         void renderDetail(it, { recordHistory: false, preserveTab: true });
         animateContentSwitch();
         return;
       }
     }
-    currentState = { ...currentState, section: "codex", miscId: "" };
+    currentState = { ...currentState, section: "codex", codexId: "" };
     renderMenu();
     animateContentSwitch();
   }
@@ -5193,7 +5185,7 @@
   if (codexBtnEl) {
     codexBtnEl.addEventListener("click", () => {
       setActiveMenu(codexBtnEl);
-      currentState = { ...currentState, section: "codex", miscId: "" };
+      currentState = { ...currentState, section: "codex", codexId: "" };
       showCodexSection();
       pushAppHistory();
     });
@@ -5314,7 +5306,7 @@
         materialId: "",
         unitId: "",
         tabId: "",
-        miscId: "",
+        codexId: "",
         searchQuery: ""
       };
       setActiveMenu(homeBtnEl);

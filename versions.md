@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.0**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.1**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -115,7 +115,7 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ## 1.1.13
 
-- NOVEDADES: el título de cada entrada (LIBRO / JUEGO / MEDIA, y avisos manuales con `navTarget`/`miscId`/`url`) es hipervínculo al elemento en su sección (p. ej. ficha en Miscelánea).
+- NOVEDADES: el título de cada entrada (LIBRO / JUEGO / MEDIA, y avisos manuales con `navTarget`/`codexId`/`url`) es hipervínculo al elemento en su sección (p. ej. ficha en Miscelánea).
 
 ## 1.1.14
 
@@ -196,7 +196,7 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ## 1.1.33
 
-- Historial del navegador: al abrir un subapartado de Miscelánea (p. ej. Lecturas) se registra `miscId` en `history`/`#miscelanea/…`, así atrás vuelve al hub de Miscelánea (no salta a INICIO). Misma lógica en restaurar hash/popstate; ← VOLVER de privacidad usa `history.back()` cuando corresponde.
+- Historial del navegador: al abrir un subapartado de Miscelánea (p. ej. Lecturas) se registra `codexId` en `history`/`#codex/…`, así atrás vuelve al hub de Miscelánea (no salta a INICIO). Misma lógica en restaurar hash/popstate; ← VOLVER de privacidad usa `history.back()` cuando corresponde.
 
 ## 1.1.34
 
@@ -270,7 +270,7 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 ## 1.2.14
 
-- Documentación alineada con la línea **1.2.x**: `README.md`, `github_TIDAhub.md`, `content/README.md`, `versions.md` e informe LaTeX local (`#_Informe/Informe_MyWeb.tex`) — layout híbrido, WCAG/reflow, historial `miscId`, Web3Forms Pro/free.
+- Documentación alineada con la línea **1.2.x**: `README.md`, `github_TIDAhub.md`, `content/README.md`, `versions.md` e informe LaTeX local (`#_Informe/Informe_MyWeb.tex`) — layout híbrido, WCAG/reflow, historial `codexId`, Web3Forms Pro/free.
 
 ## 1.2.15
 
@@ -811,11 +811,16 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Mientras se itera Blockchain y Big Data hasta darla por terminada, los retoques de esa sección se publican **sin** subir `siteMeta.version` (un solo bump al cerrar el WIP). Para forzar recarga de CSS/JS se usa `siteMeta.assetBust` (p. ej. `1.9.33-1`) sin cambiar el número del pie.
 
+## 1.10.1
+
+- Ortografía del menú: **CÓDEX** (con tilde).
+- Limpieza de código: ids `codex_*` / `codexId`, clases `.codex-*`, `navTarget: "codex"`, `contentIndex.codex`; se elimina la compatibilidad `#miscelanea/…`.
+
 ## 1.10.0
 
-- La sección **Miscelánea** pasa a llamarse **CODEX** (menú, títulos, búsqueda, documentación e informe).
-- Rutas/hashes `#codex/…` (se mantienen compatibles los antiguos `#miscelanea/…`).
-- `navTarget` interno `misc` sigue válido; también se acepta `codex`.
+- La sección **Miscelánea** pasa a llamarse **CÓDEX** (menú, títulos, búsqueda, documentación e informe).
+- Rutas/hashes `#codex/…` (se mantienen compatibles los antiguos `#codex/…`).
+- Hashes `#codex/…` (con compatibilidad temporal de `#miscelanea/…` en 1.10.0).
 
 ---
 
@@ -1018,4 +1023,5 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.9.31** | Blockchain/Big Data: intro + navegación a cada apartado |
 | **1.9.32** | Blockchain/Big Data: fotos en intro + menú lateral mayúsculas |
 | **1.9.33** | Blockchain/Big Data: imagen única de intro arriba a la izquierda |
-| **1.10.0** | Miscelánea renombrada a CODEX (UI, hashes y docs) |
+| **1.10.0** | Miscelánea renombrada a CÓDEX (UI, hashes y docs) |
+| **1.10.1** | CÓDEX con tilde; ids/clases internas `codex*` sin legacy `#miscelanea` |
