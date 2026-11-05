@@ -4488,6 +4488,7 @@
                     .map((p) => `<p>${allowBcHtml(p)}</p>`)
                     .join("")}</div>`
                 : "";
+              const examplesCols = examples.length === 2 ? " bc-bd-examples__list--cols" : "";
               const examplesHtml = examples.length
                 ? `
                   <details class="bc-bd-examples">
@@ -4495,8 +4496,8 @@
                       <span class="bc-bd-examples__title">Ejemplos y propuestas de aula</span>
                       <span class="bc-bd-examples__chevron" aria-hidden="true"></span>
                     </summary>
-                    <ul class="bc-bd-examples__list">
-                      ${examples.map((ex) => `<li>${escapeHtml(ex)}</li>`).join("")}
+                    <ul class="bc-bd-examples__list${examplesCols}">
+                      ${examples.map((ex) => `<li>${allowBcHtml(ex)}</li>`).join("")}
                     </ul>
                   </details>
                 `

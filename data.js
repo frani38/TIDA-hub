@@ -20,7 +20,7 @@ window.MYWEB_DATA = {
   siteMeta: {
     version: "1.9.33",
     updated: "2026-11-04",
-    assetBust: "38",
+    assetBust: "39",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },
@@ -1653,8 +1653,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Diario compartido (4.º ESO / Bachillerato). La clase mantiene un registro visible: cada equipo añade una entrada fechada y nadie puede borrar las anteriores sin que el resto lo note. Después se compara con un cuaderno guardado por una sola persona (registro centralizado) y se debate dónde aparecen problemas de confianza, error o manipulación.",
-              "Esquema de arquitecturas. El alumnado dibuja tres topologías —centralizada, descentralizada y distribuida— y sitúa la blockchain en una de ellas. Debe explicar por qué «subir el archivo a la nube» no garantiza por sí solo las mismas propiedades de integridad."
+              "<strong>4.º ESO — Diario compartido.</strong> Organización: la clase se reparte en 4 equipos. Material: pizarra o documento compartido visible para todos. Realización: (1) cada equipo añade, por turnos, una entrada fechada (quién, qué, cuándo); (2) nadie puede borrar entradas ajenas; (3) un equipo intenta «corregir» en silencio una entrada antigua y el resto debe detectar el cambio; (4) se compara con un cuaderno guardado solo por una persona (registro centralizado). Entrega: media página con dos diferencias observadas entre ambos modelos y un ejemplo de problema de confianza en cada uno.",
+              "<strong>1.º BCH — Esquema de topologías.</strong> Individual o en pareja. Realización: (1) dibujar tres topologías (centralizada, descentralizada y distribuida) con al menos 5 nodos cada una; (2) situar la blockchain en una de ellas y justificarlo en 4–6 líneas; (3) explicar por escrito por qué «subir un archivo a la nube» no garantiza por sí solo las mismas propiedades de integridad que un registro distribuido. Entrega: lámina A4 o digital con los tres esquemas + justificación."
             ]
           },
           {
@@ -1670,8 +1670,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Laboratorio de hash. Con una calculadora SHA-256 (online, Python o JavaScript) el alumnado obtiene la huella de una frase corta, cambia una sola letra o un espacio y compara el resultado. El objetivo es vivir la sensibilidad al cambio y relacionarla con la detección de manipulación.",
-              "Cadena en la pizarra. Se dibujan tres bloques encadenados (0 → 1 → 2), cada uno con un hash inventado del anterior. Se simula una alteración del Bloque 1 y se pregunta qué hay que recalcular para recuperar la coherencia. Se cierra con: «si el hash detecta el cambio, ¿quién decide cuál es la versión válida?» (puente al consenso)."
+              "<strong>4.º ESO — Laboratorio de hash.</strong> Por parejas, con calculadora SHA-256 (web, Python o JavaScript). Realización: (1) obtener la huella de una frase corta y anotarla; (2) cambiar una sola letra o un espacio y obtener la nueva huella; (3) comparar ambas y describir qué ha cambiado; (4) relacionar el resultado con la detección de manipulación en un registro. Entrega: tabla con frase original, frase modificada, ambas huellas y una conclusión de 3–5 líneas.",
+              "<strong>1.º BCH — Cadena en la pizarra.</strong> Actividad guiada en gran grupo y cierre individual. Realización: (1) dibujar tres bloques encadenados (0 → 1 → 2), cada uno con un hash inventado del anterior; (2) simular una alteración del Bloque 1; (3) marcar qué hashes dejan de ser válidos y qué habría que recalcular; (4) responder por escrito: «si el hash detecta el cambio, ¿quién decide cuál es la versión válida?». Entrega: esquema anotado + respuesta argumentada (5–8 líneas)."
             ]
           },
           {
@@ -1687,8 +1687,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Simulación de nodos. La clase se divide en equipos. Cada uno propone el «siguiente bloque» (ficha con datos y un nonce). Solo se acepta el que cumpla una regla pública y fácil de comprobar —por ejemplo, que la suma de dígitos del nonce más el texto sea múltiplo de 7—. Si hay empate, se aplica una regla de desempate anunciada de antemano. Después se reflexiona: ¿fue justo?, ¿fue costoso?, ¿quién pudo «minar» más veces?",
-              "Debate (Bachillerato). Se comparan prueba de trabajo y prueba de participación en coste energético, accesibilidad y riesgo de centralización. Cada equipo aporta dos argumentos a favor y dos en contra, citando al menos una de las referencias numeradas de esta sección."
+              "<strong>1.º BCH — Simulación de nodos.</strong> Grupos de 3–4. Material: fichas «bloque» (texto + nonce). Realización: (1) acordar una regla pública fácil de comprobar (p. ej. la suma de dígitos del nonce más el texto es múltiplo de 7); (2) cada grupo propone el siguiente bloque; (3) la clase verifica y acepta solo el que cumpla la regla; (4) si hay empate, aplicar una regla de desempate anunciada al inicio; (5) reflexionar: ¿fue justo?, ¿fue costoso?, ¿quién pudo «minar» más?. Entrega: ficha de grupo con bloques propuestos, resultado de la verificación y tres conclusiones.",
+              "<strong>2.º BCH — Debate PoW frente a PoS.</strong> Equipos de 4 (roles a favor/en contra o rotativos). Realización: (1) comparar prueba de trabajo y prueba de participación en coste energético, accesibilidad y riesgo de centralización; (2) cada equipo prepara 2 argumentos a favor y 2 en contra; (3) citar al menos una referencia numerada de esta sección; (4) exponer en 3 minutos y responder a una réplica. Entrega: guion escrito del equipo con argumentos, citas y una postura final justificada."
             ]
           },
           {
@@ -1704,8 +1704,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Analogía controlada. Cada alumno recibe un «código secreto» (privada simulada) y un «código público» visible. Solo quien conoce el secreto puede autorizar un movimiento en un tablero compartido; el resto comprueba que la autorización es coherente con el código público. Es una metáfora: no se usan claves reales ni carteras con valor.",
-              "Cartel de riesgos. En equipos se elabora una infografía con cinco buenas prácticas (no compartir la privada, no fotografiar semillas de recuperación, desconfiar de enlaces, verificar direcciones carácter a carácter en transferencias grandes, preferir entornos de prueba) y cinco estafas frecuentes (phishing, falsos soportes, airdrops engañosos). Se presenta en breve al grupo."
+              "<strong>4.º ESO — Analogía controlada.</strong> Individual + tablero compartido. Importante: no usar claves reales ni carteras con valor. Realización: (1) cada alumno recibe un «código secreto» (privada simulada) y un «código público» visible; (2) solo quien conoce el secreto puede autorizar un movimiento en el tablero; (3) el resto comprueba que la autorización es coherente con el código público; (4) se discute qué pasaría si se pierde o se filtra el secreto. Entrega: esquema privado/público/dirección + tres riesgos de custodia en una lista.",
+              "<strong>1.º BCH — Cartel de riesgos.</strong> Equipos de 3. Realización: (1) elaborar una infografía con 5 buenas prácticas (no compartir la privada, no fotografiar semillas de recuperación, desconfiar de enlaces, verificar direcciones carácter a carácter, preferir entornos de prueba) y 5 estafas frecuentes (phishing, falsos soportes, airdrops engañosos, etc.); (2) presentar oralmente en 2 minutos. Entrega: cartel digital o mural + guion de la presentación."
             ]
           },
           {
@@ -1721,8 +1721,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Caso del certificado. Se compara un PDF enviado por correo con un escenario en el que solo se publica la <strong>huella hash</strong> del documento en un registro distribuido. El alumnado explica qué se gana (integridad verificable) y qué no: el contenido no está «en la cadena» si solo se ancla el hash, y la autenticidad del emisor no se resuelve sola sin un marco de identidad.",
-              "Límites del contrato inteligente. Se inventa una regla («si llega el material, se paga») y se identifica qué datos del mundo real harían falta, quién los aportaría y qué fallos (retraso, fraude, sensor averiado) romperían la automatización. Conclusión esperada: el código no sustituye la calidad de la información de entrada."
+              "<strong>1.º BCH — Caso del certificado.</strong> Parejas. Realización: (1) comparar un PDF enviado por correo con un escenario en el que solo se publica la huella hash del documento en un registro distribuido; (2) completar una tabla «qué se gana / qué no se gana»; (3) explicar si el contenido está «en la cadena» y si la autenticidad del emisor queda resuelta sin un marco de identidad. Entrega: tabla + párrafo de conclusión (8–10 líneas).",
+              "<strong>2.º BCH — Límites del contrato inteligente.</strong> Grupos de 3–4. Realización: (1) inventar una regla («si llega el material, se paga»); (2) listar qué datos del mundo real harían falta y quién los aportaría (posible oráculo); (3) identificar al menos tres fallos (retraso, fraude, sensor averiado) y explicar cómo romperían la automatización; (4) redactar una conclusión: el código no sustituye la calidad de la información de entrada. Entrega: informe de 1 página con regla, datos, fallos y conclusión."
             ]
           },
           {
@@ -1738,8 +1738,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Análisis crítico de noticia (ESO / Bachillerato). En parejas se elige una pieza periodística sobre blockchain, se subrayan afirmaciones técnicas y se clasifican en correctas, exageradas, confusas o no comprobables. Se entrega una ficha breve con la clasificación y una reformulación más precisa de al menos dos frases.",
-              "Contraejemplos. Se listan tres problemas para los que un libro mayor distribuido es mala herramienta —por ejemplo, borrado sencillo por derecho al olvido sin diseño específico, datos personales masivos en claro, o sistemas que exigen correcciones frecuentes por error humano—. Cada uno se justifica con una propiedad técnica que choca con el requisito."
+              "<strong>4.º ESO — Análisis crítico de noticia.</strong> Parejas. Realización: (1) elegir una noticia sobre blockchain; (2) subrayar afirmaciones técnicas; (3) clasificarlas en correctas, exageradas, confusas o no comprobables; (4) reformular con más precisión al menos dos frases. Entrega: ficha con la clasificación y las dos reformulaciones.",
+              "<strong>2.º BCH — Contraejemplos.</strong> Individual o pareja. Realización: (1) proponer tres problemas para los que un libro mayor distribuido es mala herramienta (p. ej. borrado sencillo por derecho al olvido sin diseño específico, datos personales masivos en claro, sistemas que exigen correcciones frecuentes); (2) justificar cada uno con una propiedad técnica que choca con el requisito; (3) indicar una alternativa más adecuada cuando sea posible. Entrega: tabla de tres filas (problema / propiedad que choca / alternativa)."
             ]
           }
         ]
@@ -1761,8 +1761,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Contraste de escalas. Se comparan (1) las calificaciones de un grupo en una evaluación y (2) los registros diarios de uso de una plataforma a escala de muchos centros. El alumnado explica qué cambia en herramientas, tiempo de análisis, riesgos de privacidad y tipo de conclusiones. No se trata de elegir cuál es «mejor», sino de reconocer umbrales distintos de complejidad.",
-              "Pregunta del cuaderno. «¿Este conjunto es grande para nuestra pregunta, o solo es ruidoso?». Cada equipo responde con criterios de tamaño, actualización y utilidad, y propone un ejemplo propio (deporte, transporte, redes sociales, meteorología)."
+              "<strong>4.º ESO — Contraste de escalas.</strong> Parejas. Realización: (1) comparar (A) las calificaciones de un grupo en una evaluación y (B) los registros diarios de uso de una plataforma a escala de muchos centros; (2) explicar qué cambia en herramientas, tiempo de análisis, riesgos de privacidad y tipo de conclusiones; (3) no elegir cuál es «mejor», sino reconocer umbrales distintos de complejidad. Entrega: cuadro comparativo de 4 criterios + conclusión breve.",
+              "<strong>1.º BCH — ¿Grande o ruidoso?</strong> Equipos de 3. Realización: (1) responder: «¿este conjunto es grande para nuestra pregunta, o solo es ruidoso?»; (2) usar criterios de tamaño, actualización y utilidad; (3) proponer un ejemplo propio (deporte, transporte, redes sociales o meteorología) y aplicarle esos criterios. Entrega: ficha de equipo con pregunta, criterios, ejemplo y veredicto argumentado."
             ]
           },
           {
@@ -1778,8 +1778,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Ficha de las cinco V (4.º ESO / 1.º Bachillerato). Con un dataset abierto (AEMET, transporte, estadísticas oficiales) se completan evidencias concretas para cada V —números, fechas, tipos de campo, limitaciones documentadas—. Se entrega la ficha y una conclusión de cinco líneas sobre si el dataset sirve para la pregunta del equipo.",
-              "Volumen frente a calidad. Se presenta un caso hipotético de «millones de opiniones en redes» (alta velocidad, bajo control de veracidad) frente a una encuesta pequeña bien diseñada. Se debate cuándo el volumen no compensa la falta de calidad y cómo documentar esa limitación en un informe."
+              "<strong>4.º ESO — Ficha de las cinco V.</strong> Parejas, con un dataset abierto (AEMET, transporte u otra fuente oficial). Realización: (1) formular una pregunta concreta que el dataset podría responder; (2) completar evidencias para volumen, velocidad, variedad, veracidad y valor (números, fechas, tipos de campo, limitaciones); (3) concluir en cinco líneas si el dataset sirve para esa pregunta. Entrega: ficha cumplimentada + conclusión.",
+              "<strong>1.º BCH — Volumen frente a calidad.</strong> Debate en grupos de 4. Realización: (1) analizar el caso «millones de opiniones en redes» (alta velocidad, bajo control de veracidad) frente a una encuesta pequeña bien diseñada; (2) argumentar cuándo el volumen no compensa la falta de calidad; (3) redactar cómo se documentaría esa limitación en un informe. Entrega: acta del debate (pros/contras) + párrafo de documentación de limitaciones."
             ]
           },
           {
@@ -1795,8 +1795,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Tres paquetes de evidencia. Se reparte una tabla de temperaturas, un fragmento JSON de una API pública y un conjunto de textos o comentarios. En grupos se clasifica cada paquete, se listan herramientas adecuadas (hoja de cálculo, script, nube de palabras, etc.) y se señala un riesgo típico de interpretación errónea.",
-              "De texto a tabla (Bachillerato). A partir de una noticia breve se construyen datos estructurados (entidades, fechas, lugares) con una tabla acordada por la clase. Después se reflexiona qué se pierde al estructurar y qué se gana para el análisis."
+              "<strong>4.º ESO — Tres paquetes de evidencia.</strong> Grupos de 3. Material: una tabla de temperaturas, un fragmento JSON de una API pública y un conjunto de textos/comentarios. Realización: (1) clasificar cada paquete (estructurado / semiestructurado / no estructurado); (2) proponer una herramienta adecuada para cada uno; (3) señalar un riesgo típico de interpretación errónea. Entrega: tabla de tres columnas (tipo / herramienta / riesgo).",
+              "<strong>1.º BCH — De texto a tabla.</strong> Individual o pareja. Realización: (1) partir de una noticia breve; (2) acordar un esquema de tabla (entidades, fechas, lugares u otros campos); (3) extraer datos estructurados de la noticia; (4) reflexionar qué se pierde al estructurar y qué se gana para el análisis. Entrega: tabla resultante + reflexión de 6–8 líneas."
             ]
           },
           {
@@ -1812,8 +1812,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Proyecto de centro (2–3 sesiones). Se mide un fenómeno accesible (ocupación de un espacio, ruido en un pasillo, consumo estimado, tiempos de espera). El alumnado describe cada etapa del ciclo, anexa datos brutos y limpios, y redacta una conclusión que distinga hallazgo, interpretación y recomendación.",
-              "Mini-laboratorio de falacias. Se muestran dos series temporales que «suben juntas» y se piden al menos tres explicaciones alternativas a «A causa B» (causalidad inversa, variable oculta, coincidencia). Se evalúa la calidad del razonamiento, no una «respuesta única»."
+              "<strong>1.º BCH — Proyecto de centro (2–3 sesiones).</strong> Equipos de 3–4. Realización: (1) medir un fenómeno accesible (ocupación de un espacio, ruido, consumo estimado o tiempos de espera); (2) describir cada etapa del ciclo (captura → almacén → proceso → análisis → decisión); (3) anexar una muestra de datos brutos y de datos limpios; (4) redactar una conclusión que distinga hallazgo, interpretación y recomendación. Entrega: informe breve con etapas, anexos y conclusión tripartita.",
+              "<strong>2.º BCH — Mini-laboratorio de falacias.</strong> Parejas. Realización: (1) observar dos series temporales que «suben juntas»; (2) proponer al menos tres explicaciones alternativas a «A causa B» (causalidad inversa, variable oculta, coincidencia u otras); (3) indicar qué dato adicional haría falta para discriminar entre ellas. Entrega: ficha con las tres explicaciones, el dato adicional propuesto y una reflexión sobre correlación frente a causalidad. Se valora el razonamiento, no una respuesta única."
             ]
           },
           {
@@ -1829,8 +1829,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "App educativa hipotética. Una plataforma registra cada clic, el tiempo de permanencia y la localización. En equipos se identifican datos personales, finalidades legítimas, qué sobra (minimización) y qué derechos tendría el usuario. Se entrega un dictamen de una página con recomendaciones concretas.",
-              "Debate (1.º / 2.º Bachillerato). Publicidad personalizada frente a privacidad, con roles de empresa de datos, persona usuaria y regulador. Cada rol aporta tres argumentos con vocabulario de derechos digitales; un equipo moderador resume acuerdos y desacuerdos."
+              "<strong>1.º BCH — App educativa hipotética.</strong> Equipos de 3. Caso: una plataforma registra cada clic, el tiempo de permanencia y la localización. Realización: (1) identificar qué datos son personales; (2) señalar finalidades legítimas posibles; (3) indicar qué sobra según minimización; (4) listar derechos del usuario según el RGPD; (5) proponer recomendaciones concretas. Entrega: dictamen de una página.",
+              "<strong>2.º BCH — Debate publicidad frente a privacidad.</strong> Roles: empresa de datos, persona usuaria y regulador (más un equipo moderador). Realización: (1) cada rol prepara tres argumentos con vocabulario de derechos digitales; (2) debate oral de 10–12 minutos; (3) el moderador resume acuerdos y desacuerdos. Entrega: guion del rol + acta del moderador con conclusiones."
             ]
           },
           {
@@ -1846,8 +1846,8 @@ window.MYWEB_DATA = {
               credit: "Elaboración propia para T·I·D·A hub (material didáctico)."
             },
             examples: [
-              "Logística en tiempo real. A partir de un caso de replanificación de rutas con datos de tráfico, el alumnado dibuja el ciclo de datos y señala dónde intervienen velocidad y valor, y dónde puede fallar la veracidad (sensor averiado, incidente no reportado).",
-              "Trabajo con estadísticas públicas (INE u otra fuente oficial). Se formula una pregunta, se descargan datos, se citan fuente y fecha, se produce un gráfico y una conclusión prudente. Rúbrica: claridad de la pregunta, trazabilidad, calidad gráfica y honestidad sobre limitaciones."
+              "<strong>1.º BCH — Logística en tiempo real.</strong> Parejas. Caso: replanificación de rutas con datos de tráfico. Realización: (1) dibujar el ciclo de datos del caso; (2) marcar dónde intervienen velocidad y valor; (3) señalar dónde puede fallar la veracidad (sensor averiado, incidente no reportado, etc.); (4) proponer una medida de control. Entrega: diagrama anotado + párrafo de riesgos.",
+              "<strong>2.º BCH — Estadísticas públicas.</strong> Individual o pareja, con INE u otra fuente oficial. Realización: (1) formular una pregunta; (2) descargar datos y citar fuente y fecha; (3) producir un gráfico; (4) redactar una conclusión prudente con limitaciones. Rúbrica: claridad de la pregunta, trazabilidad, calidad gráfica y honestidad sobre límites. Entrega: pregunta + datos citados + gráfico + conclusión."
             ]
           }
         ]
