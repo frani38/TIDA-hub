@@ -9,7 +9,7 @@
 // - siteSearchEntries: añade filas { section, title, meta, haystack, navTarget } para cualquier
 //   página o bloque nuevo (haystack = todo el texto que debe poder encontrarse).
 // - contentIndex: subapartados por zona (misc, books, about, help). Cada ítem { id, title, description?,
-//   keywords?, subSection? } se indexa solo; al crear MISCELÁNEA → misc, PROYECTOS → books, etc.
+//   keywords?, subSection? } se indexa solo; al crear CODEX → misc, PROYECTOS → books, etc.
 
 window.MYWEB_DATA = {
   /*
@@ -18,9 +18,9 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.9.33",
-    updated: "2026-11-04",
-    assetBust: "39",
+    version: "1.10.0",
+    updated: "2026-11-05",
+    assetBust: "",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
     mourningRibbon: false,
   },
@@ -374,7 +374,7 @@ window.MYWEB_DATA = {
   // Soft Skills: avisos de sección vía softSkills.changelog (un aviso por cambio, no por ficha).
   updates: [],
 
-  // Lecturas recomendadas (Miscelánea → LECTURAS RECOMENDADAS)
+  // Lecturas recomendadas (CODEX → LECTURAS RECOMENDADAS)
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.
   // cover: ruta local recomendada (por ejemplo: "./assets/books/<id>.jpg")
   readings: [
@@ -1619,7 +1619,7 @@ window.MYWEB_DATA = {
     }
   ],
 
-  // Blockchain y Big Data (Miscelánea → BLOCKCHAIN Y BIG DATA)
+  // Blockchain y Big Data (CODEX → BLOCKCHAIN Y BIG DATA)
   // Imágenes didácticas en ./blockchain_bigdata/. changelog → NOVEDADES (una entrada de sección).
   blockchainBigData: {
     intro:
@@ -1632,7 +1632,7 @@ window.MYWEB_DATA = {
     changelog: [
       {
         publishedAt: "2026-11-03T19:40",
-        text: "Nuevo apartado Blockchain y Big Data en Miscelánea: teoría en dos columnas, ejemplos didácticos, figuras y referencias técnicas."
+        text: "Nuevo apartado Blockchain y Big Data en CODEX: teoría en dos columnas, ejemplos didácticos, figuras y referencias técnicas."
       }
     ],
     columns: [
@@ -2136,7 +2136,7 @@ window.MYWEB_DATA = {
     ]
   },
 
-  // Soft Skills (Miscelánea → SOFT SKILLS)
+  // Soft Skills (CODEX → SOFT SKILLS)
   // image: ficha visual en ./softskills/
   // changelog: avisos de sección en NOVEDADES → «Soft Skills: {text}» (uno por cambio, no por ficha).
   // domains canónicos: cognición | colaboración | comunicación | autogestión | digital
@@ -2146,7 +2146,7 @@ window.MYWEB_DATA = {
     changelog: [
       {
         publishedAt: "2026-11-03T12:30",
-        text: "Nuevo apartado Soft Skills en Miscelánea: fichas de competencias humanas con definición, ejemplos educativo/laboral, filtro por dominio y referencias internacionales."
+        text: "Nuevo apartado Soft Skills en CODEX: fichas de competencias humanas con definición, ejemplos educativo/laboral, filtro por dominio y referencias internacionales."
       }
     ],
     items: [
@@ -2412,7 +2412,7 @@ window.MYWEB_DATA = {
     ]
   },
 
-  // Juegos (Miscelánea → JUEGOS)
+  // Juegos (CODEX → JUEGOS)
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.
   games: [
     {
@@ -2439,7 +2439,7 @@ window.MYWEB_DATA = {
     }
   ],
 
-  // Media (Miscelánea → MEDIA)
+  // Media (CODEX → MEDIA)
   // `addedAt` se usa para ordenar/mostrar primero lo más reciente.
   // poster: ruta local recomendada (por ejemplo: "./media/<id>.jpg")
   media: [

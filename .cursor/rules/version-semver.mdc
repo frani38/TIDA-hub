@@ -71,5 +71,5 @@ Si un mismo commit mezcla **contenido o docs + cambio de la web**, sí se versio
 - Reescribir un párrafo de Asistencia IA o Privacidad (solo texto) → commit/push, **sin** subir versión.
 - Actualizar solo `README.md` / informe → commit/push, **sin** subir versión.
 - Corregir un solape CSS o el pie de Privacidad/Asistencia IA → **PATCH**.
-- Nueva sección completa de Miscelánea (código/UI) → **MINOR**.
+- Nueva sección completa de CODEX (código/UI) → **MINOR**.
 - Rediseño total del layout → **MAJOR**.

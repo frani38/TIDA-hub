@@ -41,9 +41,9 @@
   const legislacionBtnEl = document.getElementById("legislacion-btn");
   const booksBtnEl = document.getElementById("books-btn");
   const helpBtnEl = document.getElementById("help-btn");
-  const miscelaneaBtnEl = document.getElementById("miscelanea-btn");
+  const codexBtnEl = document.getElementById("codex-btn");
   const updatesBtnEl = document.getElementById("updates-btn");
-  const navButtons = [homeBtnEl, updatesBtnEl, docenciaBtnEl, legislacionBtnEl, booksBtnEl, miscelaneaBtnEl, aboutBtnEl, helpBtnEl].filter(Boolean);
+  const navButtons = [homeBtnEl, updatesBtnEl, docenciaBtnEl, legislacionBtnEl, booksBtnEl, codexBtnEl, aboutBtnEl, helpBtnEl].filter(Boolean);
   const levels = Array.isArray(DATA.levels) ? DATA.levels : [];
 
   const UPDATES_LAST_SEEN_HASH_KEY = "myweb_updates_last_seen_hash_v1"; // legado (migración)
@@ -160,7 +160,7 @@
               nacional y de la comunidad autónoma donde actualmente imparto docencia, Principado de Asturias.
             </p>
             <p class="welcome-intro">
-              Además, en <strong>MISCELÁNEA</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hacking Ético, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
+              Además, en <strong>CODEX</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hacking Ético, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
             </p>
             <p class="welcome-intro">
               ¡Qué tengas buena experiencia de navegación por este espacio vivo y en constante mejora y actualización!
@@ -996,7 +996,7 @@
       })
       .filter(Boolean);
 
-    // Avisos de sección Miscelánea: __priority menor = más reciente (mismo instante).
+    // Avisos de sección CODEX: __priority menor = más reciente (mismo instante).
     // Registrar primero las secciones más nuevas para darles prioridad más baja.
     const sectionChangelogUpdates = [];
     let sectionPriority = 0;
@@ -1269,7 +1269,7 @@
   }
 
   const DEFAULT_CONTENT_INDEX_ZONES = {
-    misc: { label: "MISCELÁNEA", navTarget: "misc" },
+    misc: { label: "CODEX", navTarget: "misc" },
     books: { label: "PROYECTOS", navTarget: "books" },
     about: { label: "SOBRE MÍ", navTarget: "about" },
     help: { label: "AYUDA", navTarget: "help" }
@@ -1382,9 +1382,9 @@
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
-        section: "MISCELÁNEA",
+        section: "CODEX",
         title: it.label,
-        meta: "Subapartado en Miscelánea",
+        meta: "Subapartado en CODEX",
         navTarget: "misc",
         miscId: it.id
       });
@@ -1396,7 +1396,7 @@
     if (!tokens.length) return [];
     const hits = [];
 
-    // Índice de contenido genérico de Miscelánea (data.js → contentIndex.misc)
+    // Índice de contenido genérico de CODEX (data.js → contentIndex.misc)
     const miscIndex = Array.isArray(DATA.contentIndex?.misc) ? DATA.contentIndex.misc : [];
     for (const it of miscIndex) {
       if (!it || typeof it !== "object") continue;
@@ -1411,15 +1411,15 @@
       const miscId = String(it.miscId || "").trim(); // opcional: permite abrir directamente la tarjeta correcta
       hits.push({
         kind: "nav",
-        section: sub ? `MISCELÁNEA · ${sub}` : "MISCELÁNEA",
+        section: sub ? `CODEX · ${sub}` : "CODEX",
         title,
-        meta: desc || keywords || "Contenido en Miscelánea",
+        meta: desc || keywords || "Contenido en CODEX",
         navTarget: "misc",
         miscId: miscId || ""
       });
     }
 
-    // Blockchain y Big Data (Miscelánea → BLOCKCHAIN Y BIG DATA)
+    // Blockchain y Big Data (CODEX → BLOCKCHAIN Y BIG DATA)
     const bcPackSearch = DATA.blockchainBigData && typeof DATA.blockchainBigData === "object" ? DATA.blockchainBigData : null;
     if (bcPackSearch) {
       const introHay = String(bcPackSearch.intro || "").trim();
@@ -1439,7 +1439,7 @@
           if (!searchHaystackMatchesTokens(tokens, hay)) continue;
           hits.push({
             kind: "nav",
-            section: "MISCELÁNEA · BLOCKCHAIN Y BIG DATA",
+            section: "CODEX · BLOCKCHAIN Y BIG DATA",
             title: colTitle ? `${colTitle}: ${title}` : title,
             meta: "Blockchain y Big Data",
             navTarget: "misc",
@@ -1449,7 +1449,7 @@
       }
     }
 
-    // Soft Skills (Miscelánea → SOFT SKILLS)
+    // Soft Skills (CODEX → SOFT SKILLS)
     const softPack = DATA.softSkills && typeof DATA.softSkills === "object" ? DATA.softSkills : null;
     const softItems = Array.isArray(softPack?.items) ? softPack.items : Array.isArray(DATA.softSkills) ? DATA.softSkills : [];
     for (const s of softItems) {
@@ -1470,7 +1470,7 @@
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
-        section: "MISCELÁNEA · SOFT SKILLS",
+        section: "CODEX · SOFT SKILLS",
         title,
         meta: "Soft skill",
         navTarget: "misc",
@@ -1479,7 +1479,7 @@
       });
     }
 
-    // Lecturas recomendadas (Miscelánea → LECTURAS RECOMENDADAS)
+    // Lecturas recomendadas (CODEX → LECTURAS RECOMENDADAS)
     const readingsRaw = Array.isArray(DATA.readings) ? DATA.readings : [];
     for (const r of readingsRaw) {
       const id = String(r?.id || "").trim();
@@ -1494,7 +1494,7 @@
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
-        section: "MISCELÁNEA · LECTURAS RECOMENDADAS",
+        section: "CODEX · LECTURAS RECOMENDADAS",
         title,
         meta: `${authors}${authors && year ? " - " : ""}${year}`.trim(),
         navTarget: "misc",
@@ -1503,7 +1503,7 @@
       });
     }
 
-    // Juegos (Miscelánea → JUEGOS)
+    // Juegos (CODEX → JUEGOS)
     const gamesRaw = Array.isArray(DATA.games) ? DATA.games : [];
     for (const g of gamesRaw) {
       const id = String(g?.id || "").trim();
@@ -1517,7 +1517,7 @@
       if (!searchHaystackMatchesTokens(tokens, hay)) continue;
       hits.push({
         kind: "nav",
-        section: "MISCELÁNEA · JUEGOS",
+        section: "CODEX · JUEGOS",
         title,
         meta: manufacturer ? `${manufacturer}${language ? ` (${language})` : ""}` : language ? `(${language})` : "",
         navTarget: "misc",
@@ -1551,7 +1551,7 @@
     showGlobalSearchPage(raw, { dataJsHits, docenciaHits, newsHits, lawHits });
   }
 
-  /** Abre Miscelánea → subapartado y, si hay id, hace scroll hasta la ficha. */
+  /** Abre CODEX → subapartado y, si hay id, hace scroll hasta la ficha. */
   function navigateToMiscContent({ miscId, readingId, gameId, mediaId, softSkillId } = {}) {
     const mid = String(miscId || "").trim();
     if (!mid) {
@@ -1618,8 +1618,8 @@
       booksBtnEl?.click();
       return;
     }
-    if (t === "misc") {
-      miscelaneaBtnEl?.click();
+    if (t === "misc" || t === "codex") {
+      codexBtnEl?.click();
       return;
     }
     if (t === "privacy") {
@@ -1825,7 +1825,7 @@
       materialId: currentState.materialId || "",
       unitId: currentState.unitId || "",
       tabId: currentState.tabId || "",
-      miscId: (currentState.section || "") === "miscelanea" ? currentState.miscId || "" : "",
+      miscId: (currentState.section || "") === "codex" ? currentState.miscId || "" : "",
       aboutView: (currentState.section || "") === "about" ? currentState.aboutView || "" : "",
       searchQuery: currentState.searchQuery || "",
       docenciaCollapsed: !!currentState.docenciaCollapsed
@@ -1862,13 +1862,13 @@
     }
     if (section === "books") return `${base}#books`;
     if (section === "legislacion") return `${base}#legislacion`;
-    if (section === "miscelanea") {
+    if (section === "codex") {
       const mid = String(st.miscId || "").trim();
       const tab = String(st.tabId || "").trim();
       if (mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs")) {
-        return `${base}#miscelanea/${encodeURIComponent(mid)}/${encodeURIComponent(tab)}`;
+        return `${base}#codex/${encodeURIComponent(mid)}/${encodeURIComponent(tab)}`;
       }
-      return mid ? `${base}#miscelanea/${encodeURIComponent(mid)}` : `${base}#miscelanea`;
+      return mid ? `${base}#codex/${encodeURIComponent(mid)}` : `${base}#codex`;
     }
     if (section === "updates") return `${base}#updates`;
     if (section === "search") {
@@ -1980,9 +1980,9 @@
       showLegislacionSection();
       return;
     }
-    if (section === "miscelanea") {
-      setActiveMenu(miscelaneaBtnEl);
-      showMiscelaneaSection({ openMiscId: currentState.miscId || "" });
+    if (section === "codex") {
+      setActiveMenu(codexBtnEl);
+      showCodexSection({ openMiscId: currentState.miscId || "" });
       return;
     }
     if (section === "updates") {
@@ -2024,11 +2024,19 @@
       restoreHistorySnapshot({ ...snapshotHistoryState(), section: "home", levelId: "", materialId: "", unitId: "", tabId: "", searchQuery: "" });
       return;
     }
-    if (raw === "miscelanea" || raw.startsWith("miscelanea/")) {
+    const isCodexHash =
+      raw === "codex" ||
+      raw.startsWith("codex/") ||
+      raw === "miscelanea" ||
+      raw.startsWith("miscelanea/");
+    if (isCodexHash) {
       let miscId = "";
       let tabId = "";
-      if (raw !== "miscelanea") {
-        const parts = raw.slice("miscelanea/".length).split("/").filter(Boolean);
+      const codexRaw = raw.startsWith("miscelanea")
+        ? "codex" + raw.slice("miscelanea".length)
+        : raw;
+      if (codexRaw !== "codex") {
+        const parts = codexRaw.slice("codex/".length).split("/").filter(Boolean);
         miscId = decodeURIComponent(parts[0] || "");
         const maybeTab = decodeURIComponent(parts[1] || "");
         if (miscId === "misc_bc" && (maybeTab === "blockchain" || maybeTab === "bigdata" || maybeTab === "glossary" || maybeTab === "refs")) {
@@ -2037,7 +2045,7 @@
       }
       restoreHistorySnapshot({
         myweb: 1,
-        section: "miscelanea",
+        section: "codex",
         stageId: "",
         levelId: "",
         materialId: "",
@@ -2802,7 +2810,7 @@
     animateContentSwitch();
   }
 
-  function showMiscelaneaSection(opts = {}) {
+  function showCodexSection(opts = {}) {
     const openMiscId = String(opts?.openMiscId || "").trim();
     contentCardEl?.classList.remove("is-home");
     toggleDocenciaMenu(false);
@@ -2810,7 +2818,7 @@
     tabPanelEl.dataset.unitId = "";
     unitTagEl.textContent = "";
     setUnitTitleCompact(false);
-    unitTitleEl.textContent = "MISCELÁNEA";
+    unitTitleEl.textContent = "CODEX";
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
     consumeWelcomeReveal();
@@ -2834,26 +2842,26 @@
 
     const setMiscTitle = (sectionTitle) => {
       setUnitTitleCompact(false);
-      unitTitleEl.innerHTML = `<span class="misc-section-heading">MISCELÁNEA / ${escapeHtml(sectionTitle)}</span>
+      unitTitleEl.innerHTML = `<span class="misc-section-heading">CODEX / ${escapeHtml(sectionTitle)}</span>
         <button type="button" class="help-title-back misc-title-back" aria-label="Volver">← VOLVER</button>`;
       const backBtn = unitTitleEl.querySelector(".misc-title-back");
       backBtn?.addEventListener("click", () => {
-        // Jerarquía: subapartado → hub de sección → hub Miscelánea (no history.back).
+        // Jerarquía: subapartado → hub de sección → hub CODEX (no history.back).
         const mid = String(currentState.miscId || "").trim();
         const tab = String(currentState.tabId || "").trim();
         const inBcSub =
           mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs");
         if (inBcSub) {
           const sectionIt = items.find((x) => x.id === mid);
-          currentState = { ...currentState, section: "miscelanea", miscId: mid, tabId: "" };
+          currentState = { ...currentState, section: "codex", miscId: mid, tabId: "" };
           if (sectionIt) {
             void renderDetail(sectionIt, { recordHistory: true, expectFly: false, preserveTab: false });
             animateContentSwitch();
             return;
           }
         }
-        currentState = { ...currentState, section: "miscelanea", miscId: "", tabId: "" };
-        unitTitleEl.textContent = "MISCELÁNEA";
+        currentState = { ...currentState, section: "codex", miscId: "", tabId: "" };
+        unitTitleEl.textContent = "CODEX";
         renderMenu();
         pushAppHistory();
         animateContentSwitch();
@@ -3072,14 +3080,14 @@
 
     const renderMenu = () => {
       setUnitTitleCompact(false);
-      unitTitleEl.textContent = "MISCELÁNEA";
+      unitTitleEl.textContent = "CODEX";
       document.documentElement.style.removeProperty("--misc-aside-top");
       document.documentElement.style.removeProperty("--misc-aside-left");
       document.documentElement.classList.remove("misc-fly-target-hidden");
       const topRow = items.filter((x) => ["misc_3d", "misc_pr", "misc_iot", "misc_ia", "misc_sw", "misc_bc"].includes(x.id));
       const bottomRow = items.filter((x) => ["misc_ss", "misc_lr", "misc_av", "misc_jt", "misc_ei"].includes(x.id));
       tabPanelEl.innerHTML = `
-        <nav class="misc-grid" aria-label="Accesos de Miscelánea">
+        <nav class="misc-grid" aria-label="Accesos de CODEX">
           <div class="misc-row misc-row--top">
             ${topRow.map(renderCard).join("")}
           </div>
@@ -3114,7 +3122,7 @@
       const nextTabId = keepBcTab ? String(currentState.tabId || "").trim() : "";
       currentState = {
         ...currentState,
-        section: "miscelanea",
+        section: "codex",
         miscId: nextMiscId,
         tabId:
           nextMiscId === "misc_bc" &&
@@ -3150,7 +3158,7 @@
             const label = `${n}. ${title}`.toLocaleUpperCase("es");
             return `<li>
               <a
-                href="#miscelanea/misc_bc/${escapeHtml(bcTopic)}"
+                href="#codex/misc_bc/${escapeHtml(bcTopic)}"
                 class="bc-bd-aside-nav__sublink"
                 data-bc-topic="${escapeHtml(bcTopic)}"
                 data-bc-section="${escapeHtml(sid)}"
@@ -3290,7 +3298,7 @@
                         }" aria-label="Apartados de Blockchain y Big Data">
                           <div class="bc-bd-aside-nav__branch">
                             <a
-                              href="#miscelanea/misc_bc/blockchain"
+                              href="#codex/misc_bc/blockchain"
                               class="bc-bd-aside-nav__link${bcTopic === "blockchain" ? " is-active" : ""}"
                               data-bc-topic="blockchain"
                             >BLOCKCHAIN</a>
@@ -3298,19 +3306,19 @@
                           </div>
                           <div class="bc-bd-aside-nav__branch">
                             <a
-                              href="#miscelanea/misc_bc/bigdata"
+                              href="#codex/misc_bc/bigdata"
                               class="bc-bd-aside-nav__link${bcTopic === "bigdata" ? " is-active" : ""}"
                               data-bc-topic="bigdata"
                             >BIG DATA</a>
                             ${bcTopic === "bigdata" ? bcAsideTreeHtml : ""}
                           </div>
                           <a
-                            href="#miscelanea/misc_bc/glossary"
+                            href="#codex/misc_bc/glossary"
                             class="bc-bd-aside-nav__link${bcTopic === "glossary" ? " is-active" : ""}"
                             data-bc-topic="glossary"
                           >GLOSARIO</a>
                           <a
-                            href="#miscelanea/misc_bc/refs"
+                            href="#codex/misc_bc/refs"
                             class="bc-bd-aside-nav__link${bcTopic === "refs" ? " is-active" : ""}"
                             data-bc-topic="refs"
                           >REFERENCIAS</a>
@@ -3407,7 +3415,7 @@
         const inBcSub =
           mid === "misc_bc" && (tab === "blockchain" || tab === "bigdata" || tab === "glossary" || tab === "refs");
         if (inBcSub) {
-          currentState = { ...currentState, section: "miscelanea", miscId: mid, tabId: "" };
+          currentState = { ...currentState, section: "codex", miscId: mid, tabId: "" };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: false });
           animateContentSwitch();
           return;
@@ -4281,15 +4289,15 @@
             .replace(/&lt;\/em&gt;/gi, "</em>")
             .replace(
               /\{\{BC_LINK\}\}/g,
-              '<a href="#miscelanea/misc_bc/blockchain" data-bc-topic="blockchain" class="bc-bd-inline-link"><strong>BLOCKCHAIN</strong></a>'
+              '<a href="#codex/misc_bc/blockchain" data-bc-topic="blockchain" class="bc-bd-inline-link"><strong>BLOCKCHAIN</strong></a>'
             )
             .replace(
               /\{\{BD_LINK\}\}/g,
-              '<a href="#miscelanea/misc_bc/bigdata" data-bc-topic="bigdata" class="bc-bd-inline-link"><strong>BIG DATA</strong></a>'
+              '<a href="#codex/misc_bc/bigdata" data-bc-topic="bigdata" class="bc-bd-inline-link"><strong>BIG DATA</strong></a>'
             )
             .replace(
               /\[(\d+)\]/g,
-              '<a href="#miscelanea/misc_bc/refs" data-bc-topic="refs" class="bc-bd-cite">[$1]</a>'
+              '<a href="#codex/misc_bc/refs" data-bc-topic="refs" class="bc-bd-cite">[$1]</a>'
             );
 
         const hubEl = document.getElementById("bc-bd-hub");
@@ -4329,7 +4337,7 @@
           const t = String(topic || "").trim();
           if (t !== "blockchain" && t !== "bigdata" && t !== "glossary" && t !== "refs") return;
           const sid = String(sectionId || "").trim();
-          currentState = { ...currentState, section: "miscelanea", miscId: "misc_bc", tabId: t };
+          currentState = { ...currentState, section: "codex", miscId: "misc_bc", tabId: t };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: true }).then(() => {
             if (sid) {
               requestAnimationFrame(() => scrollToBcSection(sid));
@@ -4412,7 +4420,7 @@
         }
 
         const openBcHub = () => {
-          currentState = { ...currentState, section: "miscelanea", miscId: "misc_bc", tabId: "" };
+          currentState = { ...currentState, section: "codex", miscId: "misc_bc", tabId: "" };
           void renderDetail(it, { recordHistory: true, expectFly: false, preserveTab: false });
           animateContentSwitch();
         };
@@ -4658,7 +4666,7 @@
         return;
       }
     }
-    currentState = { ...currentState, section: "miscelanea", miscId: "" };
+    currentState = { ...currentState, section: "codex", miscId: "" };
     renderMenu();
     animateContentSwitch();
   }
@@ -5182,11 +5190,11 @@
     });
   }
 
-  if (miscelaneaBtnEl) {
-    miscelaneaBtnEl.addEventListener("click", () => {
-      setActiveMenu(miscelaneaBtnEl);
-      currentState = { ...currentState, section: "miscelanea", miscId: "" };
-      showMiscelaneaSection();
+  if (codexBtnEl) {
+    codexBtnEl.addEventListener("click", () => {
+      setActiveMenu(codexBtnEl);
+      currentState = { ...currentState, section: "codex", miscId: "" };
+      showCodexSection();
       pushAppHistory();
     });
   }

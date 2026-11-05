@@ -869,7 +869,7 @@ body.theme-light #unit-title {
 }
 
 .tab-panel:has(.misc-detail) {
-  /* En vistas tipo Miscelánea, alinear contenido con el bloque fijo izquierdo */
+  /* En vistas tipo CODEX, alinear contenido con el bloque fijo izquierdo */
   margin-top: 0.25rem;
 }
 
@@ -936,7 +936,7 @@ body:has(.misc-detail--readings) {
 
 /*
   Secciones que caben en un viewport: sin scroll de página
-  (INICIO bienvenida, MISCELÁNEA hub, SOBRE MÍ).
+  (INICIO bienvenida, CODEX hub, SOBRE MÍ).
   Detalles largos (p. ej. lecturas) o HISTÓRICO no entran aquí.
 */
 html:has(.content-card.is-home):not(:has(.home-split.is-archive)),
@@ -2890,7 +2890,7 @@ a.news-title-link:hover {
 
 /* Cierre del mensaje de bienvenida: centrado (el bloque hereda justificado del .empty-state.welcome) */
 .welcome-copy > .welcome-intro:last-child {
-  margin-top: 1.85rem; /* ~una línea extra respecto al párrafo anterior (MISCELÁNEA) */
+  margin-top: 1.85rem; /* ~una línea extra respecto al párrafo anterior (CODEX) */
   text-align: center;
   text-justify: auto;
   color: #2563eb; /* mismo azul que .welcome-brand (T·I·D·A) */
@@ -3136,7 +3136,7 @@ body.theme-light .construction-notice strong {
   color: #3b2a00;
 }
 
-/* MISCELÁNEA: accesos por iconos (2 filas: 6 + 5) — tamaños fijos del lienzo */
+/* CODEX: accesos por iconos (2 filas: 6 + 5) — tamaños fijos del lienzo */
 .misc-grid {
   display: grid;
   gap: 2.1rem;
@@ -3176,7 +3176,7 @@ body.theme-light .construction-notice strong {
   letter-spacing: 0.06em;
 }
 
-/* Iconos un poco más grandes en MISCELÁNEA */
+/* Iconos un poco más grandes en CODEX */
 .misc-card .unit-material-card__icon {
   /* +20% aprox sobre el tamaño anterior */
   width: var(--misc-icon-size);
@@ -3187,7 +3187,7 @@ body.theme-light .construction-notice strong {
   margin-top: 1.1rem;
 }
 
-/* MISCELÁNEA: vista de sección seleccionada (bloque a la izquierda + contenido) */
+/* CODEX: vista de sección seleccionada (bloque a la izquierda + contenido) */
 .misc-detail {
   position: relative;
   --misc-icon-size: 12.7rem;
@@ -3261,7 +3261,7 @@ body.theme-light .construction-notice strong {
   min-width: 0;
 }
 
-/* LECTURAS RECOMENDADAS (Miscelánea) */
+/* LECTURAS RECOMENDADAS (CODEX) */
 .readings-page {
   max-width: 100%;
   margin: 0;
@@ -3398,7 +3398,7 @@ body.theme-light .construction-notice strong {
   min-width: 0;
 }
 
-/* Soft Skills (Miscelánea) */
+/* Soft Skills (CODEX) */
 .soft-skills-page {
   max-width: 100%;
   width: 100%;
@@ -5361,7 +5361,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   Ventana < 1680px con lienzo de escritorio (antes del bloque táctil):
   scroll H+V en el viewport (html) si aún no hay site-desktop-fit.
   Debe ganar a las reglas html:has(...)/body:has(...) que ocultan overflow-y
-  en INICIO / SOBRE MÍ / MISCELÁNEA hub. El bloque táctil (después) lo anula.
+  en INICIO / SOBRE MÍ / CODEX hub. El bloque táctil (después) lo anula.
   =============================================================================
 */
 
@@ -5496,7 +5496,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     overflow: visible;
   }
 
-  /* Desbloquear “viewport único” de INICIO / Miscelánea hub / Sobre mí */
+  /* Desbloquear “viewport único” de INICIO / CODEX hub / Sobre mí */
   html:has(.content-card.is-home):not(:has(.home-split.is-archive)),
   html:has(.about-section),
   html:has(.misc-grid):not(:has(.misc-detail)) {
@@ -5865,7 +5865,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     column-gap: 0.45rem;
   }
 
-  /* Miscelánea hub */
+  /* CODEX hub */
   .misc-grid {
     --misc-icon-size: clamp(5.5rem, 18vw, 9rem);
     gap: 1.25rem;
@@ -5890,7 +5890,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
     font-size: clamp(0.72rem, 2.4vw, 0.95rem);
   }
 
-  /* Miscelánea detalle: aside arriba, contenido abajo */
+  /* CODEX detalle: aside arriba, contenido abajo */
   .misc-detail,
   .misc-detail--readings {
     padding: 0.35rem 0.2rem 1rem;
@@ -5921,7 +5921,7 @@ html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-ne
   }
 
   /*
-    AYUDA / privacidad: mismo layout título+VOLVER que Miscelánea,
+    AYUDA / privacidad: mismo layout título+VOLVER que CODEX,
     pero sin reducir el tamaño del título de sección.
   */
   body:has(.help-privacy-panel) .content-card h2#unit-title,
