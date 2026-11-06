@@ -821,7 +821,7 @@
     if (levelLabel) parts.push(levelLabel);
     if (materialLabel) parts.push(materialLabel);
     if (unitLabel) parts.push(unitLabel);
-    docenciaMenuTitleEl.textContent = parts.length ? parts.join(" / ") : "SELECCIONA...";
+    docenciaMenuTitleEl.textContent = parts.length ? parts.join(" / ") : "SELECCIONA:";
   }
 
   function toggleContentCard(show) {
