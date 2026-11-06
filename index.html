@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub</title>
-    <link rel="stylesheet" href="./styles.css?v=1.10.13" />
+    <link rel="stylesheet" href="./styles.css?v=1.10.14" />
     <script>
-      window.MYWEB_ASSET_V = "1.10.13";
+      window.MYWEB_ASSET_V = "1.10.14";
     </script>
     <script>
       (function () {
@@ -69,10 +69,14 @@
             </button>
             <button id="legislacion-btn" class="home-btn header-home-btn" type="button" aria-label="Ir a Legislación">
               <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                <!-- Martillo + bloque de golpe bajo la cabeza. -->
+                <!-- Mazo: cabeza con extremos más anchos + mango + bloque de golpe. -->
                 <g transform="rotate(-42 11.2 10.8)">
-                  <rect x="1.6" y="9.5" width="13.6" height="3.4" rx="0.5" fill="currentColor" />
-                  <rect x="13.4" y="5.6" width="4.8" height="11.2" rx="0.6" fill="currentColor" />
+                  <rect x="1.4" y="9.55" width="11.8" height="3.3" rx="0.5" fill="currentColor" />
+                  <!-- Cabeza: centro más estrecho, extremos engrosados -->
+                  <path
+                    d="M12.6 7.1h2.2v10.2h-2.2V7.1zm-1.55-.95h5.3v2.55h-5.3V6.15zm-1.55 9.15h5.3v2.55h-5.3v-2.55z"
+                    fill="currentColor"
+                  />
                 </g>
                 <rect x="13.2" y="17.4" width="8.4" height="3.8" rx="0.55" fill="currentColor" />
               </svg>
@@ -234,11 +238,11 @@
           <span class="footer-sep" aria-hidden="true">|</span>
           <span>PhD.Eng. Francisco Carnero Rodríguez</span>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <span id="site-version">v1.10.13</span>
+          <span id="site-version">v1.10.14</span>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <a href="./privacidad.html?v=1.10.13" class="footer-privacy-link">Privacidad y protección de datos</a>
+          <a href="./privacidad.html?v=1.10.14" class="footer-privacy-link">Privacidad y protección de datos</a>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <a href="./asistencia-ia.html?v=1.10.13" class="footer-ai-link">Asistencia IA</a>
+          <a href="./asistencia-ia.html?v=1.10.14" class="footer-ai-link">Asistencia IA</a>
         </div>
       </div>
     </footer>
@@ -283,7 +287,7 @@
             });
         }
         function bootAssets(bust, dataJsText) {
-          bust = String(bust || window.MYWEB_ASSET_V || "1.10.13");
+          bust = String(bust || window.MYWEB_ASSET_V || "1.10.14");
           window.MYWEB_ASSET_V = bust;
           if (typeof window.MYWEB_wireVersionedLinks === "function") {
             window.MYWEB_wireVersionedLinks(bust);
@@ -327,7 +331,7 @@
         });
         // Si version-boot falla o tarda, no bloquear la web.
         setTimeout(function () {
-          start(window.MYWEB_ASSET_V || "1.10.13", window.__MYWEB_DATA_JS_TEXT__ || "");
+          start(window.MYWEB_ASSET_V || "1.10.14", window.__MYWEB_DATA_JS_TEXT__ || "");
         }, 2500);
       })();
     </script>
