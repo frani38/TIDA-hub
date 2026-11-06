@@ -6073,6 +6073,12 @@ body.ai-assist-page .help-privacy.ai-assist-card,
     min-width: 0;
   }
 
+  /* Asistencia IA: mismo ancho útil que Privacidad (sin el margen extra del shell en PC). */
+  body.ai-assist-page .ai-assist-shell {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .privacy-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
