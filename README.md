@@ -2,8 +2,8 @@
 
 Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada** (ESO y Bachillerato): organiza la **docencia por unidades** y, además, centraliza **noticias, novedades, proyectos, legislación, CÓDEX, contacto y recursos de apoyo**. No se limita a un repositorio de apuntes: es un espacio de divulgación y consulta con varias secciones independientes.
 
-- **Repositorio:** [github.com/frani38/TIDA-hub](https://github.com/frani38/TIDA-hub)
-- **Web publicada (GitHub Pages):** [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/)
+- **Repositorio:** [github.com/frani38/TIDAhub](https://github.com/frani38/TIDAhub)
+- **Web publicada (GitHub Pages):** [frani38.github.io/TIDAhub](https://frani38.github.io/TIDAhub/)
 - Guía de puesta en marcha online: **`github_TIDAhub.md`**
 - Historial de versiones: **`versions.md`**
 - Versión actual del pie: ver `data.js` → `siteMeta.version` (p. ej. **1.10.1**)
@@ -37,7 +37,7 @@ No usa framework ni paso de compilación: HTML + CSS + JS en el navegador (`vers
 ## Estructura de carpetas (resumen)
 
 ```text
-MyWeb/   (repo TIDA-hub)
+MyWeb/   (repo TIDAhub)
 ├── index.html
 ├── privacidad.html
 ├── styles.css

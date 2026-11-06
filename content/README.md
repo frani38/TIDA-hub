@@ -34,7 +34,7 @@ Ejemplo: `./content/<unitId>/teoria.pdf` (relativo a la raíz del sitio).
 1. Crea el `unitId` (p. ej. `tei1_up01`) y regístralo en `data.js` dentro de la materia.
 2. Crea `content/<unitId>/`.
 3. Añade piezas de los cuatro apartados (preferible visual/sintético; PDF si aporta) o configura rutas en la unidad.
-4. `git commit` + `git push` a `main` → [frani38.github.io/TIDA-hub](https://frani38.github.io/TIDA-hub/).
+4. `git commit` + `git push` a `main` → [frani38.github.io/TIDAhub](https://frani38.github.io/TIDAhub/).
 
 Si falta un fichero, el enlace puede abrir una URL inexistente hasta que exista.
 

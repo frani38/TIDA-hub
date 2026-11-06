@@ -1,8 +1,8 @@
 # Puesta en marcha de T·I·D·A hub en GitHub Pages
 
 Guía del proceso real usado para publicar este proyecto online con **Git for Windows**, cuenta **GitHub** y **GitHub Pages**.  
-Sitio resultante: **https://frani38.github.io/TIDA-hub/**  
-Repositorio: **https://github.com/frani38/TIDA-hub**
+Sitio resultante: **https://frani38.github.io/TIDAhub/**  
+Repositorio: **https://github.com/frani38/TIDAhub**
 
 ---
 
@@ -38,7 +38,7 @@ GitHub Pages sirve el contenido estático del repo. Cada `git push` a `main` act
 
 4. **Editor** (Cursor / VS Code) con la carpeta del proyecto abierta  
    - Ruta local de trabajo típica: `c:\KEEP OUT\MAKERS\Web\MyWeb`  
-   - El remoto apunta al repo **TIDA-hub** (el nombre público del producto es T·I·D·A hub).
+   - El remoto apunta al repo **TIDAhub** (el nombre público del producto es T·I·D·A hub).
 
 ---
 
@@ -47,7 +47,7 @@ GitHub Pages sirve el contenido estático del repo. Cada `git push` a `main` act
 ### Opción A — Desde la web de GitHub
 
 1. Entra en https://github.com/new  
-2. **Repository name:** `TIDA-hub`  
+2. **Repository name:** `TIDAhub`  
 3. Público (necesario para Pages gratis en cuentas personales sin otras opciones de pago).  
 4. No hace falta inicializar con README si ya tienes el proyecto en local (evita conflictos).  
 5. Crea el repositorio.
@@ -56,7 +56,7 @@ GitHub Pages sirve el contenido estático del repo. Cada `git push` a `main` act
 
 ```bat
 gh auth login
-gh repo create TIDA-hub --public --source=. --remote=origin --push
+gh repo create TIDAhub --public --source=. --remote=origin --push
 ```
 
 (Ejecutar desde la carpeta del proyecto si aún no existe el remoto.)
@@ -76,7 +76,7 @@ git status
 Si aún no hay remoto:
 
 ```bat
-git remote add origin https://github.com/frani38/TIDA-hub.git
+git remote add origin https://github.com/frani38/TIDAhub.git
 git branch -M main
 git push -u origin main
 ```
@@ -102,10 +102,10 @@ git push origin main
 URL del sitio (proyecto en subruta del usuario):
 
 ```text
-https://frani38.github.io/TIDA-hub/
+https://frani38.github.io/TIDAhub/
 ```
 
-Importante: las rutas del sitio son **relativas** (`./styles.css`, `./app.js`, `./content/...`). Así funcionan tanto en local como bajo `/TIDA-hub/`.
+Importante: las rutas del sitio son **relativas** (`./styles.css`, `./app.js`, `./content/...`). Así funcionan tanto en local como bajo `/TIDAhub/`.
 
 ---
 
@@ -175,7 +175,7 @@ Ventajas frente al antiguo `mailto:`: el visitante **no necesita** tener un clie
 1. Si es la primera vez, aparece **Create Your First Form**.  
 2. Rellena, por ejemplo:  
    - **Form Name:** `TIDA hub AYUDA`  
-   - **Website URL:** `frani38.github.io/TIDA-hub`  
+   - **Website URL:** `frani38.github.io/TIDAhub`  
      (para pruebas locales puedes usar también `localhost`)  
 3. Pulsa **Create Form**.  
 4. En el siguiente paso copia la **Access Key** (UUID, p. ej. `f8614300-23c6-4018-a6cd-…`).  
@@ -237,7 +237,7 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 
 ### 7.8. Comprobar que funciona
 
-1. Ctrl+F5 en https://frani38.github.io/TIDA-hub/  
+1. Ctrl+F5 en https://frani38.github.io/TIDAhub/  
 2. **AYUDA** → envía un mensaje de prueba.  
 3. Debe aparecer **Enviado** y volver al mensaje de bienvenida.  
 4. Revisa la bandeja (y spam) de `franciscojcr@educastur.org`.  
@@ -272,7 +272,7 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 | Síntoma | Qué revisar |
 | --- | --- |
 | La web no cambia tras el push | Actions/Pages; Ctrl+F5; ¿push a `main`? |
-| 404 en `…/TIDA-hub/` | Pages activado en `main` / root; nombre del repo |
+| 404 en `…/TIDAhub/` | Pages activado en `main` / root; nombre del repo |
 | CSS/JS/iconos antiguos | Comprobar que `MYWEB_ASSET_V` / `siteMeta.version` se bumpeó; Ctrl+F5 |
 | Noticias/libros no aparecen | `version-boot.js` debe cargar `data.js` sin caché; Ctrl+F5; ¿push a `main`? |
 | Web cortada en PC estrecho | Debe haber scroll H+V con lienzo 1680px (no reflow móvil); Ctrl+F5 |
@@ -288,12 +288,12 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 
 1. Instalar Git for Windows.  
 2. Tener cuenta GitHub (`frani38`).  
-3. Crear repo vacío `TIDA-hub`.  
+3. Crear repo vacío `TIDAhub`.  
 4. En la carpeta del proyecto: `remote add` + `push` de `main`.  
 5. Activar Pages (`main` / `/`).  
 6. Registrar Web3Forms, crear formulario, pegar Access Key en `data.js` (§7).  
 7. Revisar panel Web3Forms (Restrict to Domains solo si tienes Pro; si no, honeypot basta).  
-8. Push final y probar AYUDA + https://frani38.github.io/TIDA-hub/  
+8. Push final y probar AYUDA + https://frani38.github.io/TIDAhub/  
 
 ---
 
