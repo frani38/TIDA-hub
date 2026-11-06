@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>T·I·D·Ahub</title>
-    <link rel="stylesheet" href="./styles.css?v=1.10.14" />
+    <link rel="stylesheet" href="./styles.css?v=1.10.15" />
     <script>
-      window.MYWEB_ASSET_V = "1.10.14";
+      window.MYWEB_ASSET_V = "1.10.15";
     </script>
     <script>
       (function () {
@@ -69,16 +69,24 @@
             </button>
             <button id="legislacion-btn" class="home-btn header-home-btn" type="button" aria-label="Ir a Legislación">
               <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                <!-- Mazo: cabeza con extremos más anchos + mango + bloque de golpe. -->
-                <g transform="rotate(-42 11.2 10.8)">
-                  <rect x="1.4" y="9.55" width="11.8" height="3.3" rx="0.5" fill="currentColor" />
-                  <!-- Cabeza: centro más estrecho, extremos engrosados -->
+                <!-- Mazo tipo juez: cabeza en carrete, mango afilado, bloque de golpe. -->
+                <g transform="rotate(-40 12 11)">
+                  <!-- Mango: fino junto a la cabeza, más grueso en la empuñadura -->
                   <path
-                    d="M12.6 7.1h2.2v10.2h-2.2V7.1zm-1.55-.95h5.3v2.55h-5.3V6.15zm-1.55 9.15h5.3v2.55h-5.3v-2.55z"
+                    d="M2.1 9.55 13.35 9.15v3.9L2.1 12.65c-.9-.35-.9-1.75 0-3.1z"
+                    fill="currentColor"
+                  />
+                  <!-- Cabeza en carrete (extremos más anchos que el centro) -->
+                  <path
+                    d="M12.4 5.4h5v2h-1.05v7.4H17.4v2h-5v-2h1.05V7.4H12.4z"
                     fill="currentColor"
                   />
                 </g>
-                <rect x="13.2" y="17.4" width="8.4" height="3.8" rx="0.55" fill="currentColor" />
+                <!-- Bloque de golpe -->
+                <path
+                  d="M12.15 17.4h9v1.5h.7v2.2h-10.4v-2.2h.7z"
+                  fill="currentColor"
+                />
               </svg>
               LEGISLACIÓN
             </button>
@@ -238,11 +246,11 @@
           <span class="footer-sep" aria-hidden="true">|</span>
           <span>PhD.Eng. Francisco Carnero Rodríguez</span>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <span id="site-version">v1.10.14</span>
+          <span id="site-version">v1.10.15</span>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <a href="./privacidad.html?v=1.10.14" class="footer-privacy-link">Privacidad y protección de datos</a>
+          <a href="./privacidad.html?v=1.10.15" class="footer-privacy-link">Privacidad y protección de datos</a>
           <span class="footer-sep" aria-hidden="true">|</span>
-          <a href="./asistencia-ia.html?v=1.10.14" class="footer-ai-link">Asistencia IA</a>
+          <a href="./asistencia-ia.html?v=1.10.15" class="footer-ai-link">Asistencia IA</a>
         </div>
       </div>
     </footer>
@@ -287,7 +295,7 @@
             });
         }
         function bootAssets(bust, dataJsText) {
-          bust = String(bust || window.MYWEB_ASSET_V || "1.10.14");
+          bust = String(bust || window.MYWEB_ASSET_V || "1.10.15");
           window.MYWEB_ASSET_V = bust;
           if (typeof window.MYWEB_wireVersionedLinks === "function") {
             window.MYWEB_wireVersionedLinks(bust);
@@ -331,7 +339,7 @@
         });
         // Si version-boot falla o tarda, no bloquear la web.
         setTimeout(function () {
-          start(window.MYWEB_ASSET_V || "1.10.14", window.__MYWEB_DATA_JS_TEXT__ || "");
+          start(window.MYWEB_ASSET_V || "1.10.15", window.__MYWEB_DATA_JS_TEXT__ || "");
         }, 2500);
       })();
     </script>
