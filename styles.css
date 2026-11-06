@@ -4031,6 +4031,7 @@ body.theme-light .bc-bd-aside-nav__tree {
   object-fit: cover;
   object-position: center center;
   border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 12px;
   background: #ffffff;
 }
 
