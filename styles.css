@@ -5178,9 +5178,9 @@ body.theme-light .theme-switch-btn.active {
   font-weight: 500;
 }
 
-/* Bloque centrado: más ancho que el título, con margen respecto a los bordes. */
+/* Misma geometría que Privacidad: título que puede bajar de línea + scroll en .tab-panel. */
 body.ai-assist-page .content-card {
-  align-items: center;
+  align-items: stretch;
 }
 
 body.ai-assist-page .ai-assist-shell {
@@ -5190,36 +5190,41 @@ body.ai-assist-page .ai-assist-shell {
   width: min(70rem, calc(100% - 4rem));
   max-width: 100%;
   min-width: 0;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   min-height: 0;
+  height: 100%;
   margin-inline: auto;
+  overflow: hidden;
 }
 
 body.ai-assist-page #unit-title.privacy-block-heading {
-  width: max-content;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 0.35rem;
   flex: 0 0 auto;
   letter-spacing: 0.035em;
-  line-height: 1.15;
-  white-space: nowrap;
-  overflow-x: auto;
-  text-wrap: nowrap;
+  line-height: 1.25;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
   text-align: center;
-  font-size: clamp(0.78rem, 1.55vw, 1.12rem);
+  font-size: clamp(0.92rem, 3.2vw, 1.2rem);
+  box-sizing: border-box;
 }
 
-/* Cuadro a todo el ancho del shell (ya con aire lateral); sin scroll vertical. */
+/* Cuadro a todo el ancho del shell; scroll vertical como en privacidad.html. */
 body.ai-assist-page .tab-panel {
   display: block;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   width: 100%;
   min-width: 0;
+  min-height: 0;
   align-self: stretch;
   margin-top: 1.35rem;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
+  overscroll-behavior: auto;
 }
 
 body.ai-assist-page .privacy-stack {

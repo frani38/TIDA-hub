@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.3**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.4**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -811,6 +811,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Mientras se itera Blockchain y Big Data hasta darla por terminada, los retoques de esa sección se publican **sin** subir `siteMeta.version` (un solo bump al cerrar el WIP). Para forzar recarga de CSS/JS se usa `siteMeta.assetBust` (p. ej. `1.9.33-1`) sin cambiar el número del pie.
 
+## 1.10.4
+
+- Asistencia IA (móvil/tablet): el título puede bajar de línea y el recuadro admite scroll vertical, como Privacidad.
+
 ## 1.10.3
 
 - PC: se desactiva el encaje/zoom `site-desktop-fit`. Ventana &lt; 1680px mantiene el lienzo original con scroll H+V (sin afectar pantalla completa ni móvil/tablet).
@@ -1035,3 +1039,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.10.1** | CÓDEX con tilde; ids/clases internas `codex*` sin legacy `#miscelanea` |
 | **1.10.2** | PROYECTOS: icono de engranaje en el menú |
 | **1.10.3** | PC estrecho: scroll H+V sin zoom (quita site-desktop-fit) |
+| **1.10.4** | Asistencia IA móvil: título multilínea + scroll del recuadro |
