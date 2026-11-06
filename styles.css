@@ -269,8 +269,8 @@ body {
   --footer-h: 58px;
   /*
     Escritorio (PC): lienzo de diseño 1680px.
-    Si el viewport CSS es más estrecho (p. ej. 1920×1080 @ escala OS 125% ≈ 1536px),
-    html.site-desktop-fit + --site-fit-scale encajan el lienzo (version-boot.js).
+    Ventana más estrecha: se mantiene el tamaño original + scroll H+V
+    (@media max-width: 1679.98px). Sin zoom/encaje.
     Móvil/tablet (táctil): --site-min-width pasa a 0 vía media (hover:none)+(pointer:coarse).
   */
   --site-min-width: 1680px;
@@ -5282,86 +5282,11 @@ body.ai-assist-page .help-privacy.ai-assist-card,
 
 /*
   =============================================================================
-  PC: encaje del lienzo 1680 al ancho CSS (html.site-desktop-fit, vía JS).
-  Prioridad sobre el bloque de scroll H de ventana estrecha.
-  =============================================================================
-*/
-
-html.site-desktop-fit,
-html.site-desktop-fit.updates-archive,
-html.site-desktop-fit:has(.content-card.is-home):not(:has(.home-split.is-archive)),
-html.site-desktop-fit:has(.about-section),
-html.site-desktop-fit:has(.codex-grid):not(:has(.codex-detail)) {
-  min-width: 0 !important;
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
-}
-
-html.site-desktop-fit body,
-html.site-desktop-fit.updates-archive body,
-html.site-desktop-fit body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
-html.site-desktop-fit body:has(.about-section),
-html.site-desktop-fit body:has(.codex-grid):not(:has(.codex-detail)),
-html.site-desktop-fit body:has(.home-split.is-archive) {
-  zoom: var(--site-fit-scale, 1);
-  height: 100vh;
-  max-height: 100vh;
-  min-height: 0;
-  overflow: hidden;
-  min-width: var(--site-min-width);
-  width: var(--site-min-width);
-}
-
-html.site-desktop-fit .app,
-html.site-desktop-fit.updates-archive .app,
-html.site-desktop-fit body:has(.home-split.is-archive) .app,
-html.site-desktop-fit body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
-html.site-desktop-fit body:has(.about-section) .app,
-html.site-desktop-fit body:has(.codex-grid):not(:has(.codex-detail)) .app {
-  overflow-x: auto !important;
-  overflow-y: auto !important;
-  flex: 1 1 auto;
-  min-height: 0;
-  height: auto;
-}
-
-html.site-desktop-fit .content-card.is-home {
-  min-height: 0;
-}
-
-html.site-desktop-fit .home-news,
-html.site-desktop-fit .content-card.is-home:has(.home-split.is-archive) .home-news {
-  position: absolute;
-  top: 0;
-  right: -1rem;
-  left: auto;
-  bottom: auto;
-  height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
-  max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
-}
-
-@supports not (zoom: 1) {
-  html.site-desktop-fit body,
-  html.site-desktop-fit.updates-archive body,
-  html.site-desktop-fit body:has(.content-card.is-home):not(:has(.home-split.is-archive)),
-  html.site-desktop-fit body:has(.about-section),
-  html.site-desktop-fit body:has(.codex-grid):not(:has(.codex-detail)),
-  html.site-desktop-fit body:has(.home-split.is-archive) {
-    zoom: unset;
-    transform: scale(var(--site-fit-scale, 1));
-    transform-origin: top left;
-  }
-}
-
-/*
-  =============================================================================
-  Ventana < 1680px con lienzo de escritorio (antes del bloque táctil):
-  scroll H+V en el viewport (html) si aún no hay site-desktop-fit.
+  Ventana PC < 1680px con lienzo de escritorio:
+  tamaño original + scroll H+V en el viewport (html).
   Debe ganar a las reglas html:has(...)/body:has(...) que ocultan overflow-y
   en INICIO / SOBRE MÍ / CÓDEX hub. El bloque táctil (después) lo anula.
+  (El antiguo site-desktop-fit / zoom quedó desactivado a propósito.)
   =============================================================================
 */
 

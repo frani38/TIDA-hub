@@ -11,7 +11,7 @@ Hub web **estático** de **Tecnología, Ingeniería y Digitalización Aplicada**
 ## Objetivo del proyecto
 
 - **DOCENCIA**: navegación **etapa → nivel → materia → unidad**. En cada unidad se mantienen los cuatro apartados **Teoría**, **Actividades**, **Prácticas** y **Recursos**, pero el material deja de ser el PDF clásico de apuntes/ejercicios “al uso”. El enfoque es **visual y sintético**: piezas centradas en los puntos clave de cada tema (infografías, pósters, láminas o capturas de presentación, esquemas, y también PDF cuando aporte), a menudo elaboradas con **aplicaciones de IA**, alojadas bajo `/content/<unitId>/`.
-- **INICIO**: bienvenida (revelado tipo cortina) y panel de **últimas noticias** (`data.js` → `news`), con histórico por años/meses. Lienzo de diseño **1680px** en PC; si el viewport CSS es menor (p. ej. 1920×1080 @ escala OS 125% ≈ 1536px) se **encaja** automáticamente (`site-desktop-fit`). El **reflow** compacto (WCAG 2.2 AA) solo en **móvil/tablet táctil**.
+- **INICIO**: bienvenida (revelado tipo cortina) y panel de **últimas noticias** (`data.js` → `news`), con histórico por años/meses. Lienzo de diseño **1680px** en PC; si la ventana es más estrecha se mantiene el tamaño y aparecen **scroll H+V**. El **reflow** compacto (WCAG 2.2 AA) solo en **móvil/tablet táctil**.
 - **NOVEDADES**: avisos manuales (`updates`) y altas automáticas de **LIBRO / JUEGO / MEDIA**; títulos enlazan a la ficha en CÓDEX; resalte azul por entrada no visitada.
 - **Búsqueda rápida** (cabecera): resultados globales (docencia, noticias, legislación y entradas indexadas en `data.js`), sin duplicar enlaces genéricos del menú.
 - **PROYECTOS**: evidencias y trabajos que muestran aplicación real de los contenidos.
@@ -42,7 +42,7 @@ MyWeb/   (repo TIDA-hub)
 ├── privacidad.html
 ├── styles.css
 ├── app.js
-├── version-boot.js    # data.js sin caché + encaje PC (site-desktop-fit)
+├── version-boot.js    # data.js sin caché + anti-caché de assets
 ├── data.js
 ├── README.md
 ├── versions.md
@@ -86,7 +86,7 @@ Abrir `index.html` directamente puede funcionar; es preferible un servidor HTTP 
 ## Comportamiento destacado
 
 - **Historial del navegador**: tras cada carga/recarga se parte de **INICIO**; atrás/adelante recorren las secciones visitadas en esa sesión (History API + hashes). Desde un subapartado de CÓDEX, atrás vuelve al **hub** de CÓDEX. Desde INICIO, atrás puede salir del sitio (comportamiento normal del navegador).
-- **Layout híbrido (1.5.0+)**: lienzo de diseño **1680px** en PC. Viewport CSS más estrecho → encaje `site-desktop-fit` (no cortar NOTICIAS; no pasar a móvil). **Reflow** compacto solo en táctil (`hover: none` + `pointer: coarse`): cabecera adaptable, noticias apiladas, CÓDEX/legislación/privacidad en una columna, pie **static**, objetivos táctiles ≥44px.
+- **Layout híbrido**: lienzo de diseño **1680px** en PC; ventana más estrecha → scroll H+V sin reflow. **Reflow** compacto solo en táctil (`hover: none` + `pointer: coarse`): cabecera adaptable, noticias apiladas, CÓDEX/legislación/privacidad en una columna, pie **static**, objetivos táctiles ≥44px.
 - **Títulos (móvil)**: CÓDEX / publicaciones / privacidad desde AYUDA: título + ← VOLVER en una fila (en privacidad el título AYUDA **no** se reduce).
 - **Placeholders** EN CONSTRUCCIÓN / PRÓXIMAMENTE: tipografía contenida (`clamp`), sin desborde en pantallas estrechas.
 - **Scroll**: al cambiar de vista en CÓDEX, publicaciones o privacidad desde AYUDA se resetea al tope; `history.scrollRestoration = "manual"`. Rueda del ratón: si hay barra activa, mueve el contenedor principal (también en `privacidad.html`). Paneles anidados (p. ej. NOTICIAS) conservan scroll propio.

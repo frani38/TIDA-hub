@@ -135,33 +135,16 @@
   global.MYWEB_injectDataJs = injectDataJs;
 
   /**
-   * PC: si el ancho CSS del viewport es < 1680 (p. ej. 1920×1080 @ escala OS 125% ≈ 1536px),
-   * encaja el lienzo de escritorio con zoom en lugar de cortarlo o forzar scroll horizontal.
-   * No aplica en móvil/tablet táctil (ahí sigue el reflow compacto).
+   * PC: el lienzo de escritorio se mantiene a 1680px; si la ventana es más estrecha
+   * aparecen scroll H+V (CSS @media max-width 1679.98px). No se aplica zoom/encaje.
+   * Móvil/tablet táctil: reflow compacto (sin site-desktop-fit).
+   * La API se conserva por si el HTML/CSS antiguo aún la llama.
    */
-  var SITE_DESKTOP_MIN_W = 1680;
   function syncDesktopFitScale() {
     var root = global.document && global.document.documentElement;
     if (!root) return;
-    var touch = false;
-    try {
-      touch = !!global.matchMedia && global.matchMedia("(hover: none) and (pointer: coarse)").matches;
-    } catch (e) {
-      touch = false;
-    }
-    if (touch) {
-      root.classList.remove("site-desktop-fit");
-      root.style.removeProperty("--site-fit-scale");
-      return;
-    }
-    var vw = Math.max(1, global.innerWidth || root.clientWidth || 1);
-    if (vw >= SITE_DESKTOP_MIN_W) {
-      root.classList.remove("site-desktop-fit");
-      root.style.removeProperty("--site-fit-scale");
-      return;
-    }
-    root.style.setProperty("--site-fit-scale", String(vw / SITE_DESKTOP_MIN_W));
-    root.classList.add("site-desktop-fit");
+    root.classList.remove("site-desktop-fit");
+    root.style.removeProperty("--site-fit-scale");
   }
   function armDesktopFitScale() {
     syncDesktopFitScale();

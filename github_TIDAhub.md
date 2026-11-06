@@ -257,7 +257,7 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 ## 8. Decisiones de diseño ligadas al hosting
 
 - **Sin backend:** ideal para Pages; contacto externalizado (Web3Forms).  
-- **Layout híbrido (1.5.0+):** lienzo de diseño 1680px en PC; si el viewport CSS es más estrecho (p. ej. Full HD con escala OS 125%), se encaja con `site-desktop-fit` en lugar de cortar el contenido. El layout compacto solo en dispositivos táctiles (`hover: none` + `pointer: coarse`).  
+- **Layout híbrido:** lienzo de diseño 1680px en PC; ventana más estrecha → scroll H+V (sin zoom). El layout compacto solo en dispositivos táctiles (`hover: none` + `pointer: coarse`).  
 - **Móvil/tablet:** cabecera y lema adaptativos; CÓDEX con título+VOLVER en una línea, iconos de sección dimensionados y scroll al tope al abrir subapartados; avisos EN CONSTRUCCIÓN / PRÓXIMAMENTE con tipografía contenida; pie no fijo.  
 - **Soft Skills (1.6.x–1.8.x):** fichas en CÓDEX (`data.js` → `softSkills`, imágenes en `softskills/`), filtro por dominio, tags en la barra del título, colores naturales sin filtros CSS; NOVEDADES de sección vía `changelog`.
 - **Blockchain y Big Data (1.9.0):** CÓDEX (`blockchainBigData`), intro + columnas paralelas, figuras en `blockchain_bigdata/`, referencias NIST/DigComp/AEPD; aviso en NOVEDADES vía `changelog`.  
@@ -275,7 +275,7 @@ Si cambias de proveedor de mensajería, actualiza esos textos a la vez que el c�
 | 404 en `…/TIDA-hub/` | Pages activado en `main` / root; nombre del repo |
 | CSS/JS/iconos antiguos | Comprobar que `MYWEB_ASSET_V` / `siteMeta.version` se bumpeó; Ctrl+F5 |
 | Noticias/libros no aparecen | `version-boot.js` debe cargar `data.js` sin caché; Ctrl+F5; ¿push a `main`? |
-| Web cortada en Full HD @ 125% | Viewport CSS ≈1536px &lt; 1680: desde **1.5.0** debe encajar (`site-desktop-fit`); Ctrl+F5 |
+| Web cortada en PC estrecho | Debe haber scroll H+V con lienzo 1680px (no reflow móvil); Ctrl+F5 |
 | Iconos o portadas muy lentos | Tamaño de ficheros en `icons/` / `books/`; preferir PNG/JPG ligeros |
 | Pie con versión antigua | Caché de HTML/assets; forzar recarga tras publicar (`?v=` / Ctrl+F5) |
 | AYUDA no envía | Ver §7.9 (clave, dominio, cupo, spam) |
