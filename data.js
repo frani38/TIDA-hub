@@ -1,10 +1,3 @@
-// Datos del árbol de navegación: Nivel -> Materia -> Unidades.
-// Este archivo se consume desde app.js.
-//
-// Materiales por unidad (PDF): coloca los archivos en /content/<unitId>/
-// con los nombres definidos en sectionTabs (pdfFile), salvo que la unidad
-// defina un mapa opcional pdfs: { teoria: "otro-nombre.pdf", ... }.
-//
 // Búsqueda rápida (cabecera):
 // - siteSearchEntries: añade filas { section, title, meta, haystack, navTarget } para cualquier
 //   página o bloque nuevo (haystack = todo el texto que debe poder encontrarse).
