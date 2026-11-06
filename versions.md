@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.6**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.7**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -811,6 +811,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Mientras se itera Blockchain y Big Data hasta darla por terminada, los retoques de esa sección se publican **sin** subir `siteMeta.version` (un solo bump al cerrar el WIP). Para forzar recarga de CSS/JS se usa `siteMeta.assetBust` (p. ej. `1.9.33-1`) sin cambiar el número del pie.
 
+## 1.10.7
+
+- LEGISLACIÓN: icono del menú sustituido por dos espadas cruzadas (más legible a tamaño pequeño).
+
 ## 1.10.6
 
 - LEGISLACIÓN: icono del menú sustituido por una balanza.
@@ -1050,3 +1054,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.10.4** | Asistencia IA móvil: título multilínea + scroll del recuadro |
 | **1.10.5** | Asistencia IA móvil: ancho del recuadro igual que Privacidad |
 | **1.10.6** | LEGISLACIÓN: icono de balanza en el menú |
+| **1.10.7** | LEGISLACIÓN: icono de espadas cruzadas |
