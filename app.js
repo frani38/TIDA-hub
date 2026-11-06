@@ -17,8 +17,6 @@
   const unitSearchBtnEl = document.getElementById("unit-search-btn");
   const quickSearchFormEl = document.getElementById("quick-search-form");
   const searchResultsEl = document.getElementById("search-results");
-  const docenciaToggleBtnEl = document.getElementById("docencia-toggle-btn");
-  const docenciaMenuTitleEl = document.querySelector(".docencia-menu-title");
   const unitTagEl = document.getElementById("unit-tag");
   const unitTitleEl = document.getElementById("unit-title");
   const breadcrumbsEl = document.getElementById("breadcrumbs");
@@ -77,7 +75,6 @@
     tabId: "",
     codexId: "",
     aboutView: "",
-    docenciaCollapsed: false,
     searchQuery: ""
   };
 
@@ -790,38 +787,6 @@
   function toggleDocenciaMenu(show) {
     if (!docenciaMenuEl) return;
     docenciaMenuEl.classList.toggle("is-hidden", !show);
-  }
-
-  function setDocenciaCollapsed(collapsed) {
-    if (!docenciaMenuEl || !docenciaToggleBtnEl) return;
-    docenciaMenuEl.classList.toggle("is-collapsed", collapsed);
-    docenciaToggleBtnEl.setAttribute("aria-expanded", String(!collapsed));
-    docenciaToggleBtnEl.setAttribute(
-      "aria-label",
-      collapsed ? "Desplegar panel de docencia" : "Plegar panel de docencia"
-    );
-    docenciaToggleBtnEl.textContent = collapsed ? "▸" : "▾";
-    currentState.docenciaCollapsed = collapsed;
-  }
-
-  function getSelectedLabel(selectEl) {
-    if (!selectEl || !selectEl.value) return "";
-    const opt = selectEl.selectedOptions && selectEl.selectedOptions[0];
-    return opt && opt.textContent ? opt.textContent.trim() : "";
-  }
-
-  function updateDocenciaMenuTitle() {
-    if (!docenciaMenuTitleEl) return;
-    const parts = [];
-    const stageLabel = stageSelectEl?.value ? STAGE_OPTIONS[stageSelectEl.value] : "";
-    const levelLabel = getSelectedLabel(levelSelectEl);
-    const materialLabel = getSelectedLabel(materialSelectEl);
-    const unitLabel = getSelectedLabel(unitSelectEl);
-    if (stageLabel) parts.push(stageLabel);
-    if (levelLabel) parts.push(levelLabel);
-    if (materialLabel) parts.push(materialLabel);
-    if (unitLabel) parts.push(unitLabel);
-    docenciaMenuTitleEl.textContent = parts.length ? parts.join(" / ") : "SELECCIONA:";
   }
 
   function toggleContentCard(show) {
@@ -1811,8 +1776,7 @@
       tabId: "",
       codexId: "",
       aboutView: "",
-      searchQuery: "",
-      docenciaCollapsed: false
+      searchQuery: ""
     };
   }
 
@@ -1827,8 +1791,7 @@
       tabId: currentState.tabId || "",
       codexId: (currentState.section || "") === "codex" ? currentState.codexId || "" : "",
       aboutView: (currentState.section || "") === "about" ? currentState.aboutView || "" : "",
-      searchQuery: currentState.searchQuery || "",
-      docenciaCollapsed: !!currentState.docenciaCollapsed
+      searchQuery: currentState.searchQuery || ""
     };
   }
 
@@ -1941,8 +1904,7 @@
       tabId: st.tabId || "",
       codexId: st.codexId || "",
       aboutView: st.aboutView || "",
-      searchQuery: st.searchQuery || "",
-      docenciaCollapsed: !!st.docenciaCollapsed
+      searchQuery: st.searchQuery || ""
     };
 
     const section = currentState.section;
@@ -2008,8 +1970,6 @@
       setActiveMenu(docenciaBtnEl);
       toggleDocenciaMenu(true);
       toggleContentCard(false);
-      setDocenciaCollapsed(false);
-      updateDocenciaMenuTitle();
       progressIndicatorEl.textContent = "Docencia";
       if (searchResultsEl) searchResultsEl.innerHTML = "";
       return;
@@ -2045,8 +2005,7 @@
         tabId,
         codexId,
         aboutView: "",
-        searchQuery: "",
-        docenciaCollapsed: false
+        searchQuery: ""
       });
       return;
     }
@@ -2061,8 +2020,7 @@
         tabId: "",
         codexId: "",
         aboutView: raw === "about/publicaciones" ? "publicaciones" : "",
-        searchQuery: "",
-        docenciaCollapsed: false
+        searchQuery: ""
       });
       return;
     }
@@ -2077,8 +2035,7 @@
         tabId: "",
         codexId: "",
         aboutView: "",
-        searchQuery: "",
-        docenciaCollapsed: false
+        searchQuery: ""
       });
       return;
     }
@@ -4949,7 +4906,6 @@
     // Evitar repetir Etapa/Nivel/Materia en la tarjeta central.
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    updateDocenciaMenuTitle();
     consumeWelcomeReveal();
     tabPanelEl.innerHTML = `
       <div class="empty-state construction-notice">
@@ -4970,9 +4926,6 @@
     // Evitar repetir Etapa/Nivel/Materia/Unidad (ya se muestra el título).
     breadcrumbsEl.textContent = "";
     progressIndicatorEl.textContent = "";
-    updateDocenciaMenuTitle();
-    // Al tener selección completa, plegar el panel automáticamente (sin esperar a cargar Markdown).
-    setDocenciaCollapsed(true);
 
     tabPanelEl.dataset.unitId = unit.id;
     const tab = String(tabId || "").trim();
@@ -5019,7 +4972,6 @@
     consumeWelcomeReveal();
     toggleContentCard(false);
     currentState = { ...currentState, section: "docencia", stageId, levelId: "", materialId: "", unitId: "" };
-    updateDocenciaMenuTitle();
   }
 
   function onLevelChanged() {
@@ -5039,7 +4991,6 @@
       materialId: "",
       unitId: ""
     };
-    updateDocenciaMenuTitle();
   }
 
   function onMaterialChanged() {
@@ -5066,7 +5017,6 @@
       materialId: material.id,
       unitId: ""
     };
-    updateDocenciaMenuTitle();
   }
 
   function onUnitChanged() {
@@ -5139,8 +5089,6 @@
       consumeWelcomeReveal();
       toggleDocenciaMenu(true);
       toggleContentCard(false);
-      setDocenciaCollapsed(false);
-      updateDocenciaMenuTitle();
       progressIndicatorEl.textContent = "Docencia";
       if (searchResultsEl) searchResultsEl.innerHTML = "";
       currentState = {
@@ -5224,12 +5172,6 @@
     }
   });
 
-
-  if (docenciaToggleBtnEl) {
-    docenciaToggleBtnEl.addEventListener("click", () => {
-      setDocenciaCollapsed(!docenciaMenuEl.classList.contains("is-collapsed"));
-    });
-  }
 
   if (unitSearchEl) {
     unitSearchEl.addEventListener("input", () => {
