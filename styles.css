@@ -671,8 +671,14 @@ main {
 .content-card.is-home {
   position: relative;
   --home-news-w: 500px;
-  /* Margen lateral del texto en la zona blanca (izq. = hueco texto↔noticias). */
-  --home-news-gap: 2.5rem;
+  /* Ancho del bloque de bienvenida (más estrecho → más wrap y más altura). */
+  --welcome-max: 54rem;
+  /*
+    Reserva el panel NOTICIAS. Con news a right:-1rem (entra en el padding 1rem de .app),
+    padding-right = news-w deja 1rem de hueco texto↔noticias = padding izq. de .app.
+  */
+  padding-right: var(--home-news-w);
+  box-sizing: border-box;
 }
 
 /*
@@ -686,21 +692,20 @@ main {
   left: auto;
   right: auto;
   /* Misma caja vertical que el resto de secciones (#unit-title). */
-  margin: 0 0 0.45rem;
-  margin-left: var(--home-news-gap);
+  margin: 0 auto 0.45rem;
   padding: 0.12rem 0.25rem;
   z-index: 2;
   pointer-events: none;
   font-size: 1.85em;
   box-sizing: border-box;
-  /* news usa right:-1rem → restar 1rem para que el hueco derecho = --home-news-gap */
-  max-width: calc(100% - (var(--home-news-w) - 1rem + 2 * var(--home-news-gap)));
+  width: 100%;
+  max-width: var(--welcome-max);
 }
 
 /* HISTÓRICO: mismo anclaje del panel NOTICIAS (is-home), título usable */
 .content-card.is-home:has(.home-split.is-archive) #unit-title {
   pointer-events: auto;
-  max-width: calc(100% - (var(--home-news-w) - 1rem + 2 * var(--home-news-gap)));
+  max-width: var(--welcome-max);
 }
 
 .content-card.is-home #tab-panel {
@@ -768,7 +773,7 @@ main {
 body:has(.home-split.is-archive) #unit-title {
   display: inline-flex;
   width: fit-content;
-  max-width: calc(100% - (var(--home-news-w, 500px) - 1rem + 2 * var(--home-news-gap, 2.5rem)));
+  max-width: min(var(--welcome-max, 54rem), 100%);
 }
 
 body.theme-light #unit-title {
@@ -1733,9 +1738,8 @@ body.theme-light .help-form-status.is-error {
 
 .home-split.is-archive {
   padding-top: 0;
-  /* Mismos márgenes simétricos que INICIO (panel NOTICIAS fijo a la derecha). */
-  padding-left: var(--home-news-gap);
-  padding-right: calc(var(--home-news-w) - 1rem + var(--home-news-gap));
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /*
@@ -1759,11 +1763,11 @@ body.theme-light .help-form-status.is-error {
 
 .home-split {
   --home-news-w: 500px;
-  --home-news-gap: 2.5rem;
+  --welcome-max: 54rem;
   display: block;
-  /* Márgenes simétricos: izq. = hueco texto↔noticias (compensa right:-1rem del panel). */
-  padding-left: var(--home-news-gap);
-  padding-right: calc(var(--home-news-w) - 1rem + var(--home-news-gap));
+  /* La reserva del panel y el centrado del texto viven en .content-card.is-home. */
+  padding-left: 0;
+  padding-right: 0;
   box-sizing: border-box;
 }
 
@@ -1948,8 +1952,7 @@ body:has(.home-split.is-archive) {
   flex: 1 1 auto;
   min-height: 0;
   --home-news-w: 500px;
-  --home-news-gap: 2.5rem;
-  /* Ancho completo del content-card; márgenes simétricos vía padding */
+  --welcome-max: 54rem;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -2477,10 +2480,12 @@ a.year-result-title-link:hover {
 .welcome-copy {
   position: relative;
   min-width: 0;
-  /* El centrado lateral lo dan los paddings simétricos de .home-split. */
-  max-width: none;
-  margin: 0;
+  width: 100%;
+  max-width: var(--welcome-max, 54rem);
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* Lazo negro temporal (marca de agua detrás del texto; no altera el layout). */
@@ -5622,6 +5627,7 @@ body.ai-assist-page .help-privacy.ai-assist-card,
 
   .content-card.is-home {
     min-height: 0;
+    padding-right: 0;
   }
 
   .home-news {
