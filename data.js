@@ -2451,6 +2451,17 @@ window.MYWEB_DATA = {
   // poster: ruta local recomendada (por ejemplo: "./media/<id>.jpg")
   media: [
     {
+      id: "silk_road_atrapado_en_la_dark_web",
+      addedAt: "2026-11-07",
+      themes: ["Películas"],
+      poster: "./media/0008.jpg",
+      title: "Silk Road: atrapado en la dark web",
+      year: 2021,
+      age: "+16",
+      description:
+        "Inspirada en hechos reales (en concreto, en un reportaje de Rolling Stone de David Kushner), la película cuenta la historia de Ross Ulbricht, un joven idealista de espíritu libertario que crea Silk Road, una web clandestina en la darknet dedicada a la venta de drogas y otros productos ilegales. Lo que empieza como un experimento convencido de ser un ejemplo de libertad y mercado libre escala de forma imparable hasta convertirse en una plataforma multimillonaria que desafía a las autoridades. En paralelo, Rick Bowden, un veterano agente de la DEA con problemas personales que apenas domina la tecnología, es reasignado a la unidad de cibercrimen y comienza a investigar el sitio haciéndose pasar por usuario corriente. La película va trenzando ambas trayectorias —el creador que se va deslizando hacia la paranoia y el exceso, y el agente fuera de su elemento que insiste donde nadie le toma en serio— hasta el inevitable choque entre ambos mundos."
+    },
+    {
       id: "anonymous",
       addedAt: "2026-11-07",
       themes: ["Películas"],
