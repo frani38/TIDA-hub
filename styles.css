@@ -3295,6 +3295,8 @@ body.theme-light .construction-notice strong {
   background: rgba(255, 255, 255, 0.06);
   font-family: var(--tech-font);
   box-sizing: border-box;
+  /* Anclas desde NOVEDADES/búsqueda: no quedar bajo el título fijo. */
+  scroll-margin-top: calc(var(--unit-title-spacer, 3.75rem) + 0.35rem);
 }
 
 .game-card {
@@ -3410,6 +3412,7 @@ body.theme-light .soft-skills-lede {
   box-sizing: border-box;
   align-items: stretch;
   font-family: var(--tech-font);
+  scroll-margin-top: calc(var(--unit-title-spacer, 3.75rem) + 0.35rem);
 }
 
 body.theme-light .soft-skill-card {
@@ -4122,7 +4125,7 @@ body.theme-light .bc-bd-column__title {
   overflow: visible;
   padding: 0.65rem 0.85rem 0.85rem;
   box-sizing: border-box;
-  scroll-margin-top: 4.5rem;
+  scroll-margin-top: calc(var(--unit-title-spacer, 3.75rem) + 0.35rem);
 }
 
 body.theme-light .bc-bd-section {

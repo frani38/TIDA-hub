@@ -491,7 +491,7 @@
               !!window.matchMedia &&
               window.matchMedia("(max-width: 1679.98px) and (hover: none) and (pointer: coarse)").matches;
             if (compact && yearResultsEl instanceof HTMLElement) {
-              yearResultsEl.scrollIntoView({ block: "start", behavior: "smooth" });
+              scrollElementBelowSectionChrome(yearResultsEl, { behavior: "smooth" });
             } else {
               scrollToPageTop();
             }
@@ -817,6 +817,78 @@
       if (appEl) appEl.scrollTop = 0;
     } catch {
       // ignore
+    }
+  }
+
+  function getNearestVerticalScroller(el) {
+    let node = el?.parentElement || null;
+    while (node && node !== document.documentElement) {
+      if (node instanceof HTMLElement) {
+        const oy = window.getComputedStyle(node).overflowY;
+        if (
+          (oy === "auto" || oy === "scroll" || oy === "overlay") &&
+          node.scrollHeight > node.clientHeight + 1
+        ) {
+          return node;
+        }
+      }
+      node = node.parentElement;
+    }
+    const appEl = document.querySelector(".app");
+    if (appEl instanceof HTMLElement && appEl.scrollHeight > appEl.clientHeight + 1) return appEl;
+    return document.scrollingElement || document.documentElement;
+  }
+
+  function getSectionChromeBottom() {
+    if (unitTitleEl && !unitTitleEl.hidden) {
+      try {
+        const cs = window.getComputedStyle(unitTitleEl);
+        if (cs.display !== "none" && cs.visibility !== "hidden") {
+          const b = unitTitleEl.getBoundingClientRect().bottom;
+          if (Number.isFinite(b) && b > 0) return b;
+        }
+      } catch {
+        // ignore
+      }
+    }
+    const headerEl = document.querySelector("header");
+    return headerEl ? headerEl.getBoundingClientRect().bottom : 0;
+  }
+
+  /**
+   * Lleva un ancla/ficha justo debajo del título fijo (+ VOLVER),
+   * sin tapar el contenido (hipervínculos de NOVEDADES, búsqueda, etc.).
+   */
+  function scrollElementBelowSectionChrome(el, { behavior = "smooth", gap = 14 } = {}) {
+    if (!(el instanceof HTMLElement)) return;
+    try {
+      syncSectionTitleDock();
+    } catch {
+      // ignore (puede llamarse antes de definir sync en orden de init)
+    }
+    const desiredTop = Math.round(getSectionChromeBottom() + gap);
+    const delta = Math.round(el.getBoundingClientRect().top - desiredTop);
+    if (Math.abs(delta) < 2) return;
+    const scroller = getNearestVerticalScroller(el);
+    try {
+      if (
+        !scroller ||
+        scroller === document.documentElement ||
+        scroller === document.body ||
+        scroller === document.scrollingElement
+      ) {
+        window.scrollBy({ top: delta, left: 0, behavior });
+      } else if (typeof scroller.scrollBy === "function") {
+        scroller.scrollBy({ top: delta, left: 0, behavior });
+      } else {
+        scroller.scrollTop += delta;
+      }
+    } catch {
+      try {
+        el.scrollIntoView({ block: "start", inline: "nearest", behavior });
+      } catch {
+        el.scrollIntoView();
+      }
     }
   }
 
@@ -1588,6 +1660,45 @@
     showGlobalSearchPage(raw, { dataJsHits, docenciaHits, newsHits, lawHits });
   }
 
+  /** Foco pendiente a una ficha CÓDEX (NOVEDADES/búsqueda). Se aplica tras el render, no antes del scrollToPageTop. */
+  let pendingCodexFocusSelector = "";
+
+  function codexFocusSelectorFromIds({ readingId, gameId, mediaId, softSkillId } = {}) {
+    const rid = String(readingId || "").trim();
+    const gid = String(gameId || "").trim();
+    const avid = String(mediaId || "").trim();
+    const ssid = String(softSkillId || "").trim();
+    if (rid) return `.reading-card[data-reading-id="${CSS.escape(rid)}"]`;
+    if (gid) return `.reading-card[data-game-id="${CSS.escape(gid)}"]`;
+    if (avid) return `.reading-card[data-media-id="${CSS.escape(avid)}"]`;
+    if (ssid) return `.soft-skill-card[data-soft-skill-id="${CSS.escape(ssid)}"]`;
+    return "";
+  }
+
+  function applyPendingCodexFocus({ attempts = 20, delayMs = 50 } = {}) {
+    const selector = pendingCodexFocusSelector;
+    if (!selector) return;
+    const tryScroll = (triesLeft) => {
+      if (pendingCodexFocusSelector !== selector) return;
+      const card = document.querySelector(selector);
+      if (card instanceof HTMLElement) {
+        pendingCodexFocusSelector = "";
+        scrollElementBelowSectionChrome(card, { behavior: "auto" });
+        requestAnimationFrame(() => {
+          scrollElementBelowSectionChrome(card, { behavior: "smooth" });
+          setTimeout(() => scrollElementBelowSectionChrome(card, { behavior: "auto" }), 360);
+        });
+        return;
+      }
+      if (triesLeft <= 0) {
+        pendingCodexFocusSelector = "";
+        return;
+      }
+      setTimeout(() => tryScroll(triesLeft - 1), delayMs);
+    };
+    tryScroll(attempts);
+  }
+
   /** Abre CÓDEX → subapartado y, si hay id, hace scroll hasta la ficha. */
   function navigateToCodexContent({ codexId, readingId, gameId, mediaId, softSkillId } = {}) {
     const mid = String(codexId || "").trim();
@@ -1595,36 +1706,13 @@
       applySearchNavTarget("codex");
       return;
     }
+    pendingCodexFocusSelector = codexFocusSelectorFromIds({ readingId, gameId, mediaId, softSkillId });
     applySearchNavTarget("codex");
     const openAndScroll = () => {
       const b = document.querySelector(`button.codex-card[data-codex-id="${CSS.escape(mid)}"]`);
       if (b instanceof HTMLButtonElement) b.click();
-
-      const rid = String(readingId || "").trim();
-      const gid = String(gameId || "").trim();
-      const avid = String(mediaId || "").trim();
-      const ssid = String(softSkillId || "").trim();
-      const selector = rid
-        ? `.reading-card[data-reading-id="${CSS.escape(rid)}"]`
-        : gid
-          ? `.reading-card[data-game-id="${CSS.escape(gid)}"]`
-          : avid
-            ? `.reading-card[data-media-id="${CSS.escape(avid)}"]`
-            : ssid
-              ? `.soft-skill-card[data-soft-skill-id="${CSS.escape(ssid)}"]`
-              : "";
-      if (!selector) return;
-
-      const tryScroll = (triesLeft) => {
-        const card = document.querySelector(selector);
-        if (card instanceof HTMLElement) {
-          card.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
-          return;
-        }
-        if (triesLeft <= 0) return;
-        setTimeout(() => tryScroll(triesLeft - 1), 60);
-      };
-      setTimeout(() => tryScroll(16), 140);
+      // Fallback si el render no encola el foco (p. ej. ya estábamos en ese detalle).
+      setTimeout(() => applyPendingCodexFocus(), 180);
     };
     requestAnimationFrame(() => requestAnimationFrame(openAndScroll));
   }
@@ -3448,6 +3536,10 @@
       bindCodexAsideAlignment();
       scrollToPageTop();
       scheduleCodexAsideAlignment();
+      // Tras fijar el top: ancla desde NOVEDADES/búsqueda (si la hay).
+      if (pendingCodexFocusSelector) {
+        requestAnimationFrame(() => applyPendingCodexFocus());
+      }
 
       // Logo de sección → siempre al inicio (hub) de esa sección.
       const logoBtn = tabPanelEl.querySelector(".codex-detail__logo-btn");
@@ -4358,20 +4450,22 @@
         const scrollToBcSection = (sectionId) => {
           const sid = String(sectionId || "").trim();
           if (!sid) return;
-          const go = () => {
+          const go = (behavior = "smooth") => {
             const target = document.getElementById(sid);
             if (!(target instanceof HTMLElement)) return false;
-            try {
-              target.scrollIntoView({ block: "start", inline: "nearest", behavior: "smooth" });
-            } catch {
-              target.scrollIntoView();
-            }
+            scrollElementBelowSectionChrome(target, { behavior });
             return true;
           };
-          if (go()) return;
+          if (go("auto")) {
+            requestAnimationFrame(() => {
+              go("smooth");
+              setTimeout(() => go("auto"), 320);
+            });
+            return;
+          }
           requestAnimationFrame(() => {
-            if (go()) return;
-            setTimeout(go, 60);
+            if (go("smooth")) return;
+            setTimeout(() => go("smooth"), 60);
           });
         };
 
