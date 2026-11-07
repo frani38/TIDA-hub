@@ -5287,6 +5287,12 @@
   materialSelectEl.addEventListener("change", onMaterialChanged);
   unitSelectEl.addEventListener("change", onUnitChanged);
 
+  if (brandLogoEl && homeBtnEl) {
+    brandLogoEl.addEventListener("click", () => {
+      homeBtnEl.click();
+    });
+  }
+
   if (homeBtnEl) {
     homeBtnEl.addEventListener("click", () => {
       setActiveMenu(homeBtnEl);
