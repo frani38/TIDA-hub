@@ -4678,7 +4678,6 @@
             .join("");
           return `
             <section class="bc-bd-column" data-bc-col="${escapeHtml(colId)}" aria-label="${escapeHtml(colTitle || colId)}">
-              <h3 class="bc-bd-column__title">${escapeHtml(colTitle || colId)}</h3>
               <div class="bc-bd-column__sections">${sectionsHtml}</div>
             </section>
           `;
