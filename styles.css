@@ -817,8 +817,13 @@ body.theme-light #unit-title {
   margin-top: 0.25rem;
 }
 
-/* LECTURAS: no bloquear scroll de página; altura mínima del lienzo fijo. */
+/* LECTURAS / catálogos CÓDEX: scroll en .app (como el resto) para que el aside sticky funcione. */
 body:has(.codex-detail--readings) {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+body:has(.codex-detail--readings) .app {
   overflow-x: auto;
   overflow-y: auto;
 }
@@ -3151,7 +3156,11 @@ body.theme-light .construction-notice strong {
   --codex-detail-icon-size: var(--codex-icon-size);
   --codex-aside-w: calc(var(--codex-detail-icon-size) + 1.2rem);
   --codex-aside-gap: 1.6rem;
-  padding: 0.4rem 1.25rem 0.4rem calc(var(--codex-aside-w) + var(--codex-aside-gap));
+  display: grid;
+  grid-template-columns: var(--codex-aside-w) minmax(0, 1fr);
+  column-gap: var(--codex-aside-gap);
+  align-items: start;
+  padding: 0.4rem 1.25rem 0.4rem 0.15rem;
   max-width: 100%;
   margin: 0;
   box-sizing: border-box;
@@ -3163,15 +3172,26 @@ body.theme-light .construction-notice strong {
 }
 
 .codex-detail__aside {
-  /* Absolute al lienzo (no fixed al viewport): no se despega con scroll horizontal. */
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: var(--codex-aside-w);
+  /*
+    Sticky en el scroller .app: logo + filtros/nav quedan fijos;
+    solo se mueve el contenido de la derecha.
+    top bajo el título de sección sticky (#unit-title).
+  */
+  position: sticky;
+  top: 3.35rem;
+  left: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(100vh - var(--footer-h) - 4.1rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0.4rem 0.6rem;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  z-index: 4;
+  align-self: start;
 }
 
 .codex-detail__aside--readings {
@@ -4931,11 +4951,15 @@ body.theme-light .reading-badge {
 
 @media (max-width: 980px) and (hover: none) and (pointer: coarse) {
   .codex-detail {
+    display: block;
     padding-left: clamp(0.5rem, 2vw, 1.25rem);
   }
   .codex-detail__aside {
     position: static;
+    top: auto;
     width: auto;
+    max-height: none;
+    overflow: visible;
   }
   .codex-detail__card {
     margin: 0 auto;
@@ -5782,6 +5806,7 @@ body.ai-assist-page .help-privacy.ai-assist-card,
   /* CÓDEX detalle: aside arriba, contenido abajo */
   .codex-detail,
   .codex-detail--readings {
+    display: block;
     padding: 0.35rem 0.2rem 1rem;
     --codex-detail-icon-size: clamp(7.25rem, 42vw, 10.5rem);
     --codex-aside-w: auto;
