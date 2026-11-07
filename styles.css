@@ -810,6 +810,32 @@ body.theme-light #unit-title {
   margin-top: 0.25rem;
 }
 
+/*
+  CÓDEX: al abrir, el contenido queda más bajo que cuando se hace scroll
+  (spacer +18px, miga vacía, margen del panel y paddings superiores).
+  El scroll lo sube hasta el borde pintado del título (sombra de 10px).
+  Esa es la altura de partida en todas las secciones.
+*/
+body:has(.codex-detail) .content-card {
+  padding-top: calc(var(--unit-title-spacer, 0px) - var(--codex-start-pull, 0px));
+}
+
+body:has(.codex-detail) .crumb:empty {
+  margin-bottom: 0;
+}
+
+body:has(.codex-detail) .tab-panel {
+  margin-top: 0;
+}
+
+body:has(.codex-detail) .codex-detail {
+  padding-top: 10px;
+}
+
+body:has(.codex-detail) .readings-page {
+  padding-top: 0;
+}
+
 /* LECTURAS / catálogos CÓDEX: scroll en .app (como el resto) para que el aside sticky funcione. */
 body:has(.codex-detail--readings) {
   overflow-x: auto;

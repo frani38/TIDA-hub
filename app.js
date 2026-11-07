@@ -922,6 +922,7 @@
     document.documentElement.style.removeProperty("--unit-title-left");
     document.documentElement.style.removeProperty("--unit-title-width");
     document.documentElement.style.removeProperty("--unit-title-spacer");
+    document.documentElement.style.removeProperty("--codex-start-pull");
   }
 
   /** Ancla #unit-title (y VOLVER) bajo la cabecera en todas las secciones. */
@@ -933,6 +934,7 @@
     }
     if (unitTitleEl.hidden || window.getComputedStyle(unitTitleEl).display === "none") {
       document.documentElement.style.setProperty("--unit-title-spacer", "0px");
+      document.documentElement.style.removeProperty("--codex-start-pull");
       return;
     }
     const headerEl = document.querySelector("header");
@@ -961,6 +963,8 @@
     const titleH = Math.round(unitTitleEl.getBoundingClientRect().height || unitTitleEl.offsetHeight || 0);
     /* Hueco extra bajo el título fixed (evita que lecturas/MEDIA/BC se peguen al scroll). */
     document.documentElement.style.setProperty("--unit-title-spacer", `${titleH > 0 ? titleH + 18 : 0}px`);
+    /* CÓDEX anula esos 18px: el bloque debe abrir ya en la línea del scroll. */
+    document.documentElement.style.setProperty("--codex-start-pull", "18px");
   }
 
   let sectionChromeRaf = 0;
