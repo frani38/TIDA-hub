@@ -232,6 +232,13 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-11-06T07:42",
+      title:
+        "Descubren una vulnerabilidad en APT de Debian y Ubuntu que permite instalar malware con privilegios de administrador",
+      text: "CVE-2026-109518 (CVSS 7,7) afecta al gestor de paquetes APT: un atacante en la red o un espejo malicioso puede sustituir un paquete tras su verificación y lograr ejecución como root. Impacta sobre todo a Debian 12+ y Ubuntu 22.04+ (reintentos activos por defecto). Debian y Canonical ya publicaron parches; conviene actualizar APT cuanto antes.",
+      url: "https://computerhoy.20minutos.es/ciberseguridad/descubren-una-vulnerabilidad-apt-debian-ubuntu-linux-que-permite-ejecutar-malware-con-privilegios-administrador_7057595_0.html",
+    },
+    {
       publishedAt: "2026-11-02T09:22",
       title:
         "Un hackeo a Binance afecta a US$6.300 millones en activos digitales, el mayor robo de criptomonedas conocido",
