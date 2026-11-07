@@ -750,14 +750,15 @@ main {
   z-index: 25;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 0.28rem 0.25rem 0.2rem;
+  /* Más aire inferior: el contenido al hacer scroll no se pega al rótulo. */
+  padding: 0.28rem 0.25rem 0.72rem;
   align-self: stretch;
   box-sizing: border-box;
   line-height: 1.2;
   overflow: visible;
   background: #0a0f1f;
   backdrop-filter: none;
-  box-shadow: 0 -2px 0 #0a0f1f;
+  box-shadow: 0 -2px 0 #0a0f1f, 0 10px 0 #0a0f1f;
 }
 
 /* En modo HISTÓRICO (INICIO), no solapar el panel fijo de noticias (derecha). */
@@ -770,7 +771,7 @@ body:has(.home-split.is-archive) #unit-title {
 body.theme-light #unit-title {
   background: #f4f6f9;
   color: #0f3f9a;
-  box-shadow: 0 -2px 0 #f4f6f9;
+  box-shadow: 0 -2px 0 #f4f6f9, 0 10px 0 #f4f6f9;
 }
 
 .content-card h2:empty {
@@ -4081,6 +4082,44 @@ body.theme-light .bc-bd-lede__fig figcaption {
   width: 100%;
 }
 
+/*
+  Topic BLOCKCHAIN / BIG DATA: el rótulo de columna queda fijo;
+  solo hace scroll el bloque de subapartados.
+*/
+body:has(.bc-bd-columns--single) .app {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tab-panel:has(.bc-bd-columns--single) {
+  height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+  max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
+  min-height: 0;
+  overflow: hidden;
+}
+
+.tab-panel:has(.bc-bd-columns--single) .codex-detail--readings,
+.tab-panel:has(.bc-bd-columns--single) .codex-detail__content,
+.tab-panel:has(.bc-bd-columns--single) .readings-page.bc-bd-page,
+.tab-panel:has(.bc-bd-columns--single) .bc-bd-columns--single {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.tab-panel:has(.bc-bd-columns--single) .codex-detail--readings {
+  min-height: 0;
+}
+
+.tab-panel:has(.bc-bd-columns--single) .readings-page.bc-bd-page {
+  min-height: 0;
+  padding-bottom: 0.35rem;
+}
+
 .bc-bd-column {
   min-width: 0;
   width: 100%;
@@ -4088,6 +4127,17 @@ body.theme-light .bc-bd-lede__fig figcaption {
   border: 1px solid rgba(122, 162, 255, 0.18);
   background: rgba(10, 18, 40, 0.22);
   padding: 0.85rem 0.9rem 1rem;
+}
+
+.bc-bd-columns--single .bc-bd-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  padding-bottom: 0.55rem;
 }
 
 body.theme-light .bc-bd-column {
@@ -4107,6 +4157,14 @@ body.theme-light .bc-bd-column {
   background: #0b2a5c;
 }
 
+.bc-bd-columns--single .bc-bd-column__title {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 12;
+  margin-bottom: 0.65rem;
+  box-shadow: 0 8px 0 #0b2a5c;
+}
+
 body.theme-light .bc-bd-column__title {
   color: #ffffff;
   background: #0b2a5c;
@@ -4118,6 +4176,17 @@ body.theme-light .bc-bd-column__title {
   gap: 1.15rem;
 }
 
+.bc-bd-columns--single .bc-bd-column__sections {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-top: 0.35rem;
+  padding-bottom: 1.1rem;
+  scroll-padding-top: 0.5rem;
+}
+
 .bc-bd-section {
   border: 1px solid rgba(122, 162, 255, 0.2);
   background: rgba(10, 18, 40, 0.18);
@@ -4126,6 +4195,11 @@ body.theme-light .bc-bd-column__title {
   padding: 0.65rem 0.85rem 0.85rem;
   box-sizing: border-box;
   scroll-margin-top: calc(var(--unit-title-spacer, 3.75rem) + 0.35rem);
+}
+
+.bc-bd-columns--single .bc-bd-section {
+  /* El scroll es interno a .bc-bd-column__sections (bajo el rótulo fijo). */
+  scroll-margin-top: 0.65rem;
 }
 
 body.theme-light .bc-bd-section {
@@ -5813,6 +5887,35 @@ body.ai-assist-page .help-privacy.ai-assist-card,
 
   body:has(.codex-detail--readings) {
     overflow-x: hidden;
+  }
+
+  /* Móvil: BC/BD topic vuelve al scroll de documento (sin panel interno fijo). */
+  body:has(.bc-bd-columns--single) .app {
+    overflow: visible;
+  }
+
+  .tab-panel:has(.bc-bd-columns--single),
+  .tab-panel:has(.bc-bd-columns--single) .codex-detail--readings,
+  .tab-panel:has(.bc-bd-columns--single) .codex-detail__content,
+  .tab-panel:has(.bc-bd-columns--single) .readings-page.bc-bd-page,
+  .tab-panel:has(.bc-bd-columns--single) .bc-bd-columns--single,
+  .bc-bd-columns--single .bc-bd-column {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    display: block;
+  }
+
+  .bc-bd-columns--single .bc-bd-column__title {
+    position: sticky;
+    top: var(--home-news-top, 0px);
+    z-index: 12;
+    box-shadow: 0 6px 0 #0b2a5c;
+  }
+
+  .bc-bd-columns--single .bc-bd-column__sections {
+    overflow: visible;
+    padding-top: 0.25rem;
   }
 
   /* Título + VOLVER siempre en la misma línea (VOLVER al margen derecho) */

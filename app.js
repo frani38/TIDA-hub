@@ -840,26 +840,40 @@
   }
 
   function getSectionChromeBottom() {
+    let bottom = 0;
     if (unitTitleEl && !unitTitleEl.hidden) {
       try {
         const cs = window.getComputedStyle(unitTitleEl);
         if (cs.display !== "none" && cs.visibility !== "hidden") {
           const b = unitTitleEl.getBoundingClientRect().bottom;
-          if (Number.isFinite(b) && b > 0) return b;
+          if (Number.isFinite(b) && b > 0) bottom = b;
         }
       } catch {
         // ignore
       }
     }
-    const headerEl = document.querySelector("header");
-    return headerEl ? headerEl.getBoundingClientRect().bottom : 0;
+    if (!bottom) {
+      const headerEl = document.querySelector("header");
+      bottom = headerEl ? headerEl.getBoundingClientRect().bottom : 0;
+    }
+    // Vista topic BC/BD: el rótulo BLOCKCHAIN/BIG DATA también tapa el ancla.
+    try {
+      const colTitle = document.querySelector(".bc-bd-columns--single .bc-bd-column__title");
+      if (colTitle instanceof HTMLElement) {
+        const cb = colTitle.getBoundingClientRect().bottom;
+        if (Number.isFinite(cb) && cb > bottom) bottom = cb;
+      }
+    } catch {
+      // ignore
+    }
+    return bottom;
   }
 
   /**
    * Lleva un ancla/ficha justo debajo del título fijo (+ VOLVER),
    * sin tapar el contenido (hipervínculos de NOVEDADES, búsqueda, etc.).
    */
-  function scrollElementBelowSectionChrome(el, { behavior = "smooth", gap = 14 } = {}) {
+  function scrollElementBelowSectionChrome(el, { behavior = "smooth", gap = 18 } = {}) {
     if (!(el instanceof HTMLElement)) return;
     try {
       syncSectionTitleDock();
@@ -945,7 +959,8 @@
     document.documentElement.style.setProperty("--unit-title-width", `${Math.max(0, width)}px`);
 
     const titleH = Math.round(unitTitleEl.getBoundingClientRect().height || unitTitleEl.offsetHeight || 0);
-    document.documentElement.style.setProperty("--unit-title-spacer", `${titleH > 0 ? titleH + 8 : 0}px`);
+    /* Hueco extra bajo el título fixed (evita que lecturas/MEDIA/BC se peguen al scroll). */
+    document.documentElement.style.setProperty("--unit-title-spacer", `${titleH > 0 ? titleH + 18 : 0}px`);
   }
 
   let sectionChromeRaf = 0;
