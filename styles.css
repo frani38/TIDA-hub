@@ -688,13 +688,13 @@ main {
   z-index: 2;
   pointer-events: none;
   font-size: 1.85em;
-  max-width: calc(100% - (var(--home-news-w, 460px) + 2rem));
+  max-width: calc(100% - (var(--home-news-w, 500px) + 2rem));
 }
 
 /* HISTÓRICO: mismo anclaje del panel NOTICIAS (is-home), título usable */
 .content-card.is-home:has(.home-split.is-archive) #unit-title {
   pointer-events: auto;
-  max-width: calc(100% - (var(--home-news-w, 460px) + 2rem));
+  max-width: calc(100% - (var(--home-news-w, 500px) + 2rem));
 }
 
 .content-card.is-home #tab-panel {
@@ -760,7 +760,7 @@ main {
 
 /* En modo HISTÓRICO (INICIO), no solapar el panel fijo de noticias (derecha). */
 body:has(.home-split.is-archive) #unit-title {
-  --home-news-w: 460px;
+  --home-news-w: 500px;
   display: inline-flex;
   width: fit-content;
   max-width: calc(100% - (var(--home-news-w) + 2rem));
@@ -1743,8 +1743,8 @@ body.theme-light .help-form-status.is-error {
   right: 1rem;
   left: auto;
   bottom: auto;
-  width: var(--home-news-w, 460px);
-  max-width: var(--home-news-w, 460px);
+  width: var(--home-news-w, 500px);
+  max-width: var(--home-news-w, 500px);
   height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
   max-height: calc(100vh - var(--home-news-top, 0px) - var(--footer-h));
   overflow: auto;
@@ -1752,7 +1752,7 @@ body.theme-light .help-form-status.is-error {
 }
 
 .home-split {
-  --home-news-w: 460px;
+  --home-news-w: 500px;
   --home-news-gap: 2rem;
   display: block;
   /* Reservar espacio para el bloque de noticias (derecha), gap fijo sin vw. */
@@ -1939,7 +1939,7 @@ body:has(.home-split.is-archive) {
 .tab-panel:has(.home-split.is-archive) .home-split.is-archive {
   flex: 1 1 auto;
   min-height: 0;
-  --home-news-w: 460px;
+  --home-news-w: 500px;
   --home-news-gap: 2rem;
   /* Ancho completo del content-card; el hueco del panel lo da padding-right */
   width: 100%;
