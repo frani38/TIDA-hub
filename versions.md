@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.18**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.19**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -811,6 +811,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Mientras se itera Blockchain y Big Data hasta darla por terminada, los retoques de esa sección se publican **sin** subir `siteMeta.version` (un solo bump al cerrar el WIP). Para forzar recarga de CSS/JS se usa `siteMeta.assetBust` (p. ej. `1.9.33-1`) sin cambiar el número del pie.
 
+## 1.10.19
+
+- INICIO: panel NOTICIAS un poco más ancho (400px → 460px).
+
 ## 1.10.18
 
 - CÓDEX: actualiza el icono de Diseño e Impresión 3D (`icons/3D.png`).
@@ -1110,3 +1114,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.10.16** | DOCENCIA: SELECCIONA: en lugar de SELECCIONA... |
 | **1.10.17** | DOCENCIA: sin cabecera SELECCIONA ni plegado |
 | **1.10.18** | CÓDEX: icono Impresión 3D actualizado |
+| **1.10.19** | INICIO: panel NOTICIAS más ancho (460px) |
