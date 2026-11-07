@@ -3201,7 +3201,7 @@ body.theme-light .construction-notice strong {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 0.15rem 0.6rem 0.4rem;
+  padding: 4px 0.6rem 0.4rem;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -3232,6 +3232,8 @@ body.theme-light .construction-notice strong {
   align-items: center;
   justify-content: center;
   gap: 1.1rem;
+  /* El logotipo arranca a la misma altura que el contenido; el aire de debajo se conserva. */
+  padding-top: 0;
 }
 
 .codex-detail__logo-btn {

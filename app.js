@@ -3040,22 +3040,35 @@
               return;
             }
 
-            // Bajo el título fixed (medido), no arrastrar con el scroll del contenido.
-            const top = Math.round(titleRect.bottom + 10);
-            document.documentElement.style.setProperty("--codex-aside-top", `${top}px`);
-
             const iconRect = iconWrapEl.getBoundingClientRect();
             const asideRect = asideEl.getBoundingClientRect();
-            if (!Number.isFinite(iconRect.left) || !Number.isFinite(asideRect.left) || !Number.isFinite(asideRect.width)) {
+            const contentEl = tabPanelEl.querySelector(".codex-detail__content");
+            const contentRect = contentEl?.getBoundingClientRect?.();
+            if (
+              !Number.isFinite(iconRect.left) ||
+              !Number.isFinite(iconRect.top) ||
+              !Number.isFinite(asideRect.left) ||
+              !Number.isFinite(asideRect.width)
+            ) {
               resolve();
               return;
             }
+
+            // El logotipo abre a la misma altura que el contenido (bajo la sombra del título).
+            const iconOffsetTop = iconRect.top - asideRect.top;
+            const top = Math.round(titleRect.bottom + 10 - iconOffsetTop);
+            document.documentElement.style.setProperty("--codex-aside-top", `${top}px`);
+
+            // Centrado en el hueco entre el título de sección y el bloque de contenido.
+            const gutterLeft = titleRect.left;
+            const gutterRight = contentRect && Number.isFinite(contentRect.left) ? contentRect.left : titleRect.right;
             const iconOffsetInAside = iconRect.left - asideRect.left;
-            const desiredLeft = Math.round(titleRect.left - iconOffsetInAside);
-            const viewportW = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-            const maxLeft = Math.max(0, viewportW - asideRect.width);
-            const clampedLeft = Math.min(Math.max(0, desiredLeft), Math.round(maxLeft));
-            document.documentElement.style.setProperty("--codex-aside-left", `${clampedLeft}px`);
+            const iconLeft = gutterLeft + Math.max(0, gutterRight - gutterLeft - iconRect.width) / 2;
+            let asideLeft = Math.round(iconLeft - iconOffsetInAside);
+            const clearance = 8;
+            const maxLeft = Math.max(0, Math.round(gutterRight - asideRect.width - clearance));
+            asideLeft = Math.min(Math.max(0, asideLeft), maxLeft);
+            document.documentElement.style.setProperty("--codex-aside-left", `${asideLeft}px`);
 
             requestAnimationFrame(() => resolve());
           });
