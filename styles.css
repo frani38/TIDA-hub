@@ -2477,10 +2477,14 @@ a.year-result-title-link:hover {
 .welcome-copy {
   position: relative;
   min-width: 0;
-  /* Toda la zona blanca (márgenes 1rem izq./der. vía .app + padding-right del card). */
+  /*
+    Un poco de aire respecto al borde izquierdo y al panel NOTICIAS,
+    sin estrechar tanto como para partir la frase de cierre.
+  */
   width: 100%;
-  max-width: none;
-  margin: 0;
+  max-width: calc(100% - 3.5rem);
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
   box-sizing: border-box;
 }

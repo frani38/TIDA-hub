@@ -1,6 +1,6 @@
 # Historial de versiones — T·I·D·A hub
 
-Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.24**).
+Registro de modificaciones y mejoras desde la publicación inicial (**1.0**) hasta la versión actual del pie (`data.js` → `siteMeta.version`, hoy **1.10.25**).
 
 Formato: **MAJOR.MINOR.PATCH** (desde 1.1.0). Fuente de verdad: `data.js`. Documentación alineada en `README.md`, `github_TIDAhub.md`, `content/README.md` e `#_Informe/Informe_MyWeb.tex`.
 
@@ -811,6 +811,10 @@ Cambios publicados en `main` tras 1.0 y consolidados conceptualmente en la líne
 
 - Mientras se itera Blockchain y Big Data hasta darla por terminada, los retoques de esa sección se publican **sin** subir `siteMeta.version` (un solo bump al cerrar el WIP). Para forzar recarga de CSS/JS se usa `siteMeta.assetBust` (p. ej. `1.9.33-1`) sin cambiar el número del pie.
 
+## 1.10.25
+
+- INICIO: un poco más de aire lateral en el texto de bienvenida.
+
 ## 1.10.24
 
 - INICIO: bienvenida a ancho completo de la zona; título BIENVENIDO/A a la izquierda; cierre en una línea.
@@ -1140,3 +1144,4 @@ Nota: **1.1.16** y **1.1.17** fueron bumps por contenido; **1.5.1** fue el últi
 | **1.10.22** | INICIO: márgenes simétricos del texto de bienvenida |
 | **1.10.23** | INICIO: bienvenida centrada y más estrecha |
 | **1.10.24** | INICIO: bienvenida ancha, título a la izquierda |
+| **1.10.25** | INICIO: aire lateral en texto de bienvenida |
