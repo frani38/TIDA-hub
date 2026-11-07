@@ -749,6 +749,7 @@
     // Borde inferior exacto de la cabecera (lo usan sticky title y paneles).
     // Se actualiza también fuera de INICIO: en AYUDA/privacidad evita huecos con texto entrecortado.
     document.documentElement.style.setProperty("--home-news-top", `${rect.bottom}px`);
+    scheduleSectionChromeSync();
   }
 
   /** Bienvenida: revelado tipo cortina de izquierda a derecha. */
@@ -817,6 +818,77 @@
     } catch {
       // ignore
     }
+  }
+
+  function isCompactViewport() {
+    try {
+      return (
+        !!window.matchMedia &&
+        window.matchMedia("(max-width: 1679.98px) and (hover: none) and (pointer: coarse)").matches
+      );
+    } catch {
+      return false;
+    }
+  }
+
+  function clearSectionTitleDock() {
+    document.documentElement.style.removeProperty("--unit-title-top");
+    document.documentElement.style.removeProperty("--unit-title-left");
+    document.documentElement.style.removeProperty("--unit-title-width");
+    document.documentElement.style.removeProperty("--unit-title-spacer");
+  }
+
+  /** Ancla #unit-title (y VOLVER) bajo la cabecera en todas las secciones. */
+  function syncSectionTitleDock() {
+    if (!unitTitleEl || !contentCardEl) return;
+    if (isCompactViewport()) {
+      clearSectionTitleDock();
+      return;
+    }
+    if (unitTitleEl.hidden || window.getComputedStyle(unitTitleEl).display === "none") {
+      document.documentElement.style.setProperty("--unit-title-spacer", "0px");
+      return;
+    }
+    const headerEl = document.querySelector("header");
+    const appEl = document.querySelector(".app");
+    if (!headerEl || !appEl) return;
+
+    const headerBottom = Math.round(headerEl.getBoundingClientRect().bottom);
+    const appRect = appEl.getBoundingClientRect();
+    const appCs = window.getComputedStyle(appEl);
+    const padL = parseFloat(appCs.paddingLeft) || 0;
+    const padR = parseFloat(appCs.paddingRight) || 0;
+    let left = Math.round(appRect.left + padL);
+    let width = Math.round(appRect.width - padL - padR);
+
+    if (contentCardEl.classList.contains("is-home")) {
+      const cardRect = contentCardEl.getBoundingClientRect();
+      const cardPadR = parseFloat(window.getComputedStyle(contentCardEl).paddingRight) || 0;
+      left = Math.round(cardRect.left);
+      width = Math.max(0, Math.round(cardRect.width - cardPadR));
+    }
+
+    document.documentElement.style.setProperty("--unit-title-top", `${headerBottom}px`);
+    document.documentElement.style.setProperty("--unit-title-left", `${left}px`);
+    document.documentElement.style.setProperty("--unit-title-width", `${Math.max(0, width)}px`);
+
+    const titleH = Math.round(unitTitleEl.getBoundingClientRect().height || unitTitleEl.offsetHeight || 0);
+    document.documentElement.style.setProperty("--unit-title-spacer", `${titleH > 0 ? titleH + 8 : 0}px`);
+  }
+
+  let sectionChromeRaf = 0;
+  function scheduleSectionChromeSync() {
+    if (sectionChromeRaf) return;
+    sectionChromeRaf = requestAnimationFrame(() => {
+      sectionChromeRaf = 0;
+      syncSectionTitleDock();
+      // Si hay aside de CÓDEX, realinearlo tras el título.
+      try {
+        window.dispatchEvent(new CustomEvent("myweb:section-chrome-sync"));
+      } catch {
+        // ignore
+      }
+    });
   }
 
   /** Títulos largos de DOCENCIA (materia/unidad): tipografía compacta en móvil. */
@@ -2834,17 +2906,6 @@
     let flyEl = null;
     let flyAnim = null;
 
-    const isCompactViewport = () => {
-      try {
-        return (
-          !!window.matchMedia &&
-          window.matchMedia("(max-width: 1679.98px) and (hover: none) and (pointer: coarse)").matches
-        );
-      } catch {
-        return false;
-      }
-    };
-
     let asideAlignRaf = 0;
     let asideAlignBound = false;
 
@@ -2862,26 +2923,18 @@
           resolve();
           return;
         }
-        // Esperar a que el DOM pinte y el layout se estabilice antes de medir.
+        syncSectionTitleDock();
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             const titleRect = unitTitleEl?.getBoundingClientRect?.();
             const iconWrapEl = asideEl.querySelector?.(".unit-material-card__icon");
-            if (!titleRect || !Number.isFinite(titleRect.left) || !Number.isFinite(titleRect.bottom) || !iconWrapEl) {
+            if (!titleRect || !Number.isFinite(titleRect.left) || !iconWrapEl) {
               resolve();
               return;
             }
 
-            /*
-              Fixed al viewport. top ESTABLE: cabecera + alto del título + margen.
-              No usar titleRect.bottom en scroll: si el título no es sticky, bajaba
-              y arrastraba el aside fuera de pantalla (síntoma de las capturas).
-            */
-            const headerBottom = Math.round(
-              document.querySelector("header")?.getBoundingClientRect?.().bottom || 0
-            );
-            const titleH = Math.round(unitTitleEl.offsetHeight || titleRect.height || 56);
-            const top = Math.round(headerBottom + titleH + 10);
+            // Bajo el título fixed (medido), no arrastrar con el scroll del contenido.
+            const top = Math.round(titleRect.bottom + 10);
             document.documentElement.style.setProperty("--codex-aside-top", `${top}px`);
 
             const iconRect = iconWrapEl.getBoundingClientRect();
@@ -2891,7 +2944,6 @@
               return;
             }
             const iconOffsetInAside = iconRect.left - asideRect.left;
-            // titleRect.left sigue siendo válido en X aunque el título esté fuera por arriba.
             const desiredLeft = Math.round(titleRect.left - iconOffsetInAside);
             const viewportW = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
             const maxLeft = Math.max(0, viewportW - asideRect.width);
@@ -2911,22 +2963,21 @@
       });
     };
 
+    const onSectionChromeSync = () => {
+      if (tabPanelEl?.querySelector?.(".codex-detail__aside")) scheduleCodexAsideAlignment();
+    };
+
     const unbindCodexAsideAlignment = () => {
       if (!asideAlignBound) return;
       asideAlignBound = false;
-      window.removeEventListener("resize", scheduleCodexAsideAlignment);
-      window.removeEventListener("scroll", scheduleCodexAsideAlignment, true);
-      document.querySelector(".app")?.removeEventListener("scroll", scheduleCodexAsideAlignment);
+      window.removeEventListener("myweb:section-chrome-sync", onSectionChromeSync);
     };
 
     const bindCodexAsideAlignment = () => {
       unbindCodexAsideAlignment();
       if (isCompactViewport()) return;
       asideAlignBound = true;
-      window.addEventListener("resize", scheduleCodexAsideAlignment);
-      // capture: html o .app pueden ser el scroller según el ancho de ventana
-      window.addEventListener("scroll", scheduleCodexAsideAlignment, true);
-      document.querySelector(".app")?.addEventListener("scroll", scheduleCodexAsideAlignment);
+      window.addEventListener("myweb:section-chrome-sync", onSectionChromeSync);
     };
 
     const cleanupFly = () => {
@@ -5098,6 +5149,30 @@
   window.addEventListener("resize", syncBrandLogoSize);
   window.addEventListener("resize", syncHomeNewsDock);
   window.addEventListener("load", syncHomeNewsDock);
+
+  // Título de sección fixed: re-medir bajo cabecera al redimensionar / cambiar vista.
+  window.addEventListener("resize", scheduleSectionChromeSync);
+  window.addEventListener("load", scheduleSectionChromeSync);
+  if (unitTitleEl) {
+    const titleDockObserver = new MutationObserver(() => scheduleSectionChromeSync());
+    titleDockObserver.observe(unitTitleEl, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+      attributes: true,
+      attributeFilter: ["class", "hidden", "style"]
+    });
+  }
+  if (contentCardEl) {
+    const cardDockObserver = new MutationObserver(() => scheduleSectionChromeSync());
+    cardDockObserver.observe(contentCardEl, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+  }
+  scheduleSectionChromeSync();
+  requestAnimationFrame(() => scheduleSectionChromeSync());
+  setTimeout(scheduleSectionChromeSync, 80);
   stageSelectEl.addEventListener("change", onStageChanged);
   levelSelectEl.addEventListener("change", onLevelChanged);
   materialSelectEl.addEventListener("change", onMaterialChanged);

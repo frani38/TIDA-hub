@@ -658,6 +658,8 @@ main {
   border: 0;
   border-radius: 0;
   padding: 0;
+  /* Reserva el alto del título fixed para que el contenido no quede debajo. */
+  padding-top: var(--unit-title-spacer, 0px);
   box-shadow: none;
   width: 100%;
   flex: 1 1 auto;
@@ -666,6 +668,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  box-sizing: border-box;
 }
 
 .content-card.is-home {
@@ -680,25 +683,12 @@ main {
 }
 
 /*
-  Título de inicio en flujo normal (no absolute):
-  así el texto de bienvenida NUNCA puede meterse debajo al acortar la ventana.
-  El panel de noticias sigue absolute a la derecha.
-  Alineación: arriba a la izquierda, como el resto de títulos de sección.
+  INICIO: mismo título fixed que el resto; sin interacción (salvo HISTÓRICO).
 */
 .content-card.is-home #unit-title {
-  position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
-  /* Misma caja vertical que el resto de secciones (#unit-title). */
-  margin: 0 0 0.45rem;
   padding: 0.12rem 0.25rem;
-  z-index: 2;
   pointer-events: none;
   font-size: 1.85em;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: none;
 }
 
 /* HISTÓRICO: mismo anclaje del panel NOTICIAS (is-home), título usable */
@@ -748,17 +738,19 @@ main {
   text-transform: uppercase;
 }
 
-/* Título de sección sticky respecto al scroller .app (no al viewport).
-   top:0 = pegado al borde superior de la zona central (cabecera ya está fuera de .app).
-   Antes top:var(--home-news-top) dejaba el título flotando a media altura. */
+/*
+  Título de sección (+ VOLVER) fixed bajo la cabecera.
+  sticky fallaba con el scroll del lienzo; top/left/width los fija app.js.
+*/
 #unit-title {
-  position: sticky;
-  top: 0;
-  z-index: 20;
+  position: fixed;
+  top: var(--unit-title-top, 0px);
+  left: var(--unit-title-left, 0px);
+  width: var(--unit-title-width, 100%);
+  z-index: 25;
   margin-top: 0;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0;
   padding: 0.28rem 0.25rem 0.2rem;
-  width: 100%;
   align-self: stretch;
   box-sizing: border-box;
   line-height: 1.2;
@@ -5391,9 +5383,16 @@ body.ai-assist-page .help-privacy.ai-assist-card,
     overflow: visible;
   }
 
-  /* Móvil: scroll en documento + cabecera sticky → el título debe quedar bajo el header. */
+  /* Móvil: título en flujo/sticky bajo cabecera (no fixed de escritorio). */
   #unit-title {
+    position: sticky;
     top: var(--home-news-top, 0px);
+    left: auto;
+    width: 100%;
+  }
+
+  .content-card {
+    padding-top: 0;
   }
 
   body:has(.content-card.is-home):not(:has(.home-split.is-archive)) .app,
