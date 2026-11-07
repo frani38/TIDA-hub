@@ -232,6 +232,13 @@ window.MYWEB_DATA = {
   // { publishedAt: "YYYY-MM-DDTHH:mm", title: "Título", text: "Texto breve", url: "https://..." }
   news: [
     {
+      publishedAt: "2026-11-07T09:22",
+      title:
+        "Policía Nacional: WhatsApp puede instalar malware en el móvil si la descarga automática está activa",
+      text: "La Policía Nacional alerta de malware que circula por WhatsApp camuflado en vídeos e imágenes virales. Con la descarga automática activada (ajuste frecuente por defecto), el archivo llega a la galería sin que el usuario lo pida; al abrirlo puede infectar el dispositivo. Recomiendan desactivarla en Ajustes → Almacenamiento y datos y desconfiar de permisos excesivos.",
+      url: "https://computerhoy.20minutos.es/ciberseguridad/policia-nacional-confirma-tu-whatsapp-puede-instalar-un-peligroso-virus-tu-movil-sin-que-te-des-cuenta_6923538_0.html",
+    },
+    {
       publishedAt: "2026-11-06T07:42",
       title:
         "Descubren una vulnerabilidad en APT de Debian y Ubuntu que permite instalar malware con privilegios de administrador",
