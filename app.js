@@ -157,7 +157,7 @@
               nacional y de la comunidad autónoma donde actualmente imparto docencia, Principado de Asturias.
             </p>
             <p class="welcome-intro">
-              Además, en <strong>CÓDEX</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hacking Ético y Ciberseguridad, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
+              Además, en <strong>CÓDEX</strong> encontrarás un espacio de recursos complementarios organizado por secciones: Diseño e Impresión 3D, Programación y Robótica, IoT, IA, Hacking y Ciberseguridad, Blockchain y Big Data, Soft Skills, Lecturas recomendadas, Media, Juegos y Enlaces de interés, entre otros. Es una selección personal pensada para explorar ideas, herramientas y contenidos de apoyo, ampliando materiales de divulgación, trabajo y aprendizaje en esos ámbitos.
             </p>
             <p class="welcome-intro">
               ¡Qué tengas buena experiencia de navegación por este espacio vivo y en constante mejora y actualización!
@@ -1492,7 +1492,7 @@
       { id: "codex_pr", label: "PROGRAMACIÓN Y ROBÓTICA", keywords: "programacion robotica" },
       { id: "codex_iot", label: "IoT", keywords: "iot internet de las cosas sensores domotica" },
       { id: "codex_ia", label: "IA", keywords: "inteligencia artificial" },
-      { id: "codex_sw", label: "HACKING ÉTICO Y CIBERSEGURIDAD", keywords: "hacking etico ético ciberseguridad seguridad pentesting" },
+      { id: "codex_sw", label: "HACKING Y CIBERSEGURIDAD", keywords: "hacking etico ético ciberseguridad seguridad pentesting" },
       { id: "codex_bc", label: "BLOCKCHAIN Y BIG DATA", keywords: "blockchain big data cadena bloques datos" },
       { id: "codex_ss", label: "SOFT SKILLS", keywords: "habilidades blandas soft skills comunicacion equipo feedback" },
       { id: "codex_lr", label: "LECTURAS RECOMENDADAS", keywords: "libros lecturas" },
@@ -2955,7 +2955,7 @@
       { id: "codex_pr", label: "PROGRAMACIÓN Y ROBÓTICA", labelHtml: "PROGRAMACIÓN<br />Y<br />ROBÓTICA", icon: "PR" },
       { id: "codex_iot", label: "IoT", icon: "IoT" },
       { id: "codex_ia", label: "IA", icon: "IA" },
-      { id: "codex_sw", label: "HACKING ÉTICO Y CIBERSEGURIDAD", labelHtml: "HACKING<br />ÉTICO Y<br />CIBERSEGURIDAD", icon: "hacking" },
+      { id: "codex_sw", label: "HACKING Y CIBERSEGURIDAD", labelHtml: "HACKING<br />Y<br />CIBERSEGURIDAD", icon: "hacking" },
       { id: "codex_bc", label: "BLOCKCHAIN Y BIG DATA", labelHtml: "BLOCKCHAIN<br />Y<br />BIG DATA", icon: "BC" },
       { id: "codex_ss", label: "SOFT SKILLS", labelHtml: "SOFT<br />SKILLS", icon: "SS" },
       { id: "codex_lr", label: "LECTURAS RECOMENDADAS", icon: "LR" },
