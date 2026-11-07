@@ -2872,8 +2872,16 @@
               return;
             }
 
-            // Fixed al viewport: bajo el título sticky y alineado a su borde izquierdo.
-            const top = Math.round(titleRect.bottom + 10);
+            /*
+              Fixed al viewport. top ESTABLE: cabecera + alto del título + margen.
+              No usar titleRect.bottom en scroll: si el título no es sticky, bajaba
+              y arrastraba el aside fuera de pantalla (síntoma de las capturas).
+            */
+            const headerBottom = Math.round(
+              document.querySelector("header")?.getBoundingClientRect?.().bottom || 0
+            );
+            const titleH = Math.round(unitTitleEl.offsetHeight || titleRect.height || 56);
+            const top = Math.round(headerBottom + titleH + 10);
             document.documentElement.style.setProperty("--codex-aside-top", `${top}px`);
 
             const iconRect = iconWrapEl.getBoundingClientRect();
@@ -2883,6 +2891,7 @@
               return;
             }
             const iconOffsetInAside = iconRect.left - asideRect.left;
+            // titleRect.left sigue siendo válido en X aunque el título esté fuera por arriba.
             const desiredLeft = Math.round(titleRect.left - iconOffsetInAside);
             const viewportW = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
             const maxLeft = Math.max(0, viewportW - asideRect.width);
