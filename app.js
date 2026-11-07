@@ -2845,6 +2845,9 @@
       }
     };
 
+    let asideAlignRaf = 0;
+    let asideAlignBound = false;
+
     const syncCodexAsideAlignment = () =>
       new Promise((resolve) => {
         // En tablet/móvil el aside va en flujo estático: no medir ni desplazar.
@@ -2854,41 +2857,68 @@
           resolve();
           return;
         }
+        const asideEl = tabPanelEl?.querySelector?.(".codex-detail__aside");
+        if (!asideEl) {
+          resolve();
+          return;
+        }
         // Esperar a que el DOM pinte y el layout se estabilice antes de medir.
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             const titleRect = unitTitleEl?.getBoundingClientRect?.();
-            const asideEl = tabPanelEl?.querySelector?.(".codex-detail__aside");
-            const iconWrapEl = asideEl?.querySelector?.(".unit-material-card__icon");
-            if (!titleRect || !Number.isFinite(titleRect.left) || !Number.isFinite(titleRect.bottom) || !asideEl || !iconWrapEl) {
+            const iconWrapEl = asideEl.querySelector?.(".unit-material-card__icon");
+            if (!titleRect || !Number.isFinite(titleRect.left) || !Number.isFinite(titleRect.bottom) || !iconWrapEl) {
               resolve();
               return;
             }
 
-            // 1) Vertical: colocar el marco del icono por debajo del título (sin solapar).
+            // Fixed al viewport: bajo el título sticky y alineado a su borde izquierdo.
             const top = Math.round(titleRect.bottom + 10);
             document.documentElement.style.setProperty("--codex-aside-top", `${top}px`);
 
-            // 2) Horizontal: alinear el borde izquierdo del marco del icono con la "M" (inicio del título).
             const iconRect = iconWrapEl.getBoundingClientRect();
             const asideRect = asideEl.getBoundingClientRect();
-            if (!Number.isFinite(iconRect.left) || !Number.isFinite(asideRect.width)) {
+            if (!Number.isFinite(iconRect.left) || !Number.isFinite(asideRect.left) || !Number.isFinite(asideRect.width)) {
               resolve();
               return;
             }
-            const dx = titleRect.left - iconRect.left;
-
+            const iconOffsetInAside = iconRect.left - asideRect.left;
+            const desiredLeft = Math.round(titleRect.left - iconOffsetInAside);
             const viewportW = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-            const desiredLeft = dx; // el aside estaba en left:0, movemos lo necesario
             const maxLeft = Math.max(0, viewportW - asideRect.width);
-            const clampedLeft = Math.min(Math.max(0, Math.round(desiredLeft)), Math.round(maxLeft));
+            const clampedLeft = Math.min(Math.max(0, desiredLeft), Math.round(maxLeft));
             document.documentElement.style.setProperty("--codex-aside-left", `${clampedLeft}px`);
 
-            // Un frame extra para que estas variables afecten al layout antes de animar.
             requestAnimationFrame(() => resolve());
           });
         });
       });
+
+    const scheduleCodexAsideAlignment = () => {
+      if (asideAlignRaf) return;
+      asideAlignRaf = requestAnimationFrame(() => {
+        asideAlignRaf = 0;
+        void syncCodexAsideAlignment();
+      });
+    };
+
+    const unbindCodexAsideAlignment = () => {
+      if (!asideAlignBound) return;
+      asideAlignBound = false;
+      window.removeEventListener("resize", scheduleCodexAsideAlignment);
+      window.removeEventListener("scroll", scheduleCodexAsideAlignment, true);
+      document.querySelector(".app")?.removeEventListener("scroll", scheduleCodexAsideAlignment);
+    };
+
+    const bindCodexAsideAlignment = () => {
+      unbindCodexAsideAlignment();
+      if (isCompactViewport()) return;
+      asideAlignBound = true;
+      window.addEventListener("resize", scheduleCodexAsideAlignment);
+      // capture: html o .app pueden ser el scroller según el ancho de ventana
+      window.addEventListener("scroll", scheduleCodexAsideAlignment, true);
+      document.querySelector(".app")?.addEventListener("scroll", scheduleCodexAsideAlignment);
+    };
 
     const cleanupFly = () => {
       try {
@@ -3030,6 +3060,7 @@
     const renderMenu = () => {
       setUnitTitleCompact(false);
       unitTitleEl.textContent = "CÓDEX";
+      unbindCodexAsideAlignment();
       document.documentElement.style.removeProperty("--codex-aside-top");
       document.documentElement.style.removeProperty("--codex-aside-left");
       document.documentElement.classList.remove("codex-fly-target-hidden");
@@ -3354,7 +3385,9 @@
       scrollToPageTop();
       requestAnimationFrame(() => scrollToPageTop());
       await syncCodexAsideAlignment();
+      bindCodexAsideAlignment();
       scrollToPageTop();
+      scheduleCodexAsideAlignment();
 
       // Logo de sección → siempre al inicio (hub) de esa sección.
       const logoBtn = tabPanelEl.querySelector(".codex-detail__logo-btn");

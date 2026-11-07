@@ -3156,11 +3156,8 @@ body.theme-light .construction-notice strong {
   --codex-detail-icon-size: var(--codex-icon-size);
   --codex-aside-w: calc(var(--codex-detail-icon-size) + 1.2rem);
   --codex-aside-gap: 1.6rem;
-  display: grid;
-  grid-template-columns: var(--codex-aside-w) minmax(0, 1fr);
-  column-gap: var(--codex-aside-gap);
-  align-items: start;
-  padding: 0.4rem 1.25rem 0.4rem 0.15rem;
+  /* Reserva hueco izquierdo: el aside va fixed y no ocupa flujo. */
+  padding: 0.4rem 1.25rem 0.4rem calc(var(--codex-aside-w) + var(--codex-aside-gap));
   max-width: 100%;
   margin: 0;
   box-sizing: border-box;
@@ -3173,25 +3170,23 @@ body.theme-light .construction-notice strong {
 
 .codex-detail__aside {
   /*
-    Sticky en el scroller .app: logo + filtros/nav quedan fijos;
-    solo se mueve el contenido de la derecha.
-    top bajo el título de sección sticky (#unit-title).
+    Fixed al viewport (sticky falla con el scroll del lienzo 1680 / overflow de .app).
+    top/left los fija app.js (--codex-aside-top / --codex-aside-left) bajo el título.
   */
-  position: sticky;
-  top: 3.35rem;
-  left: auto;
-  width: auto;
-  max-width: 100%;
-  max-height: calc(100vh - var(--footer-h) - 4.1rem);
+  position: fixed;
+  top: var(--codex-aside-top, 8.75rem);
+  left: var(--codex-aside-left, 1rem);
+  width: var(--codex-aside-w);
+  max-width: calc(100vw - 1.5rem);
+  max-height: calc(100vh - var(--codex-aside-top, 8.75rem) - var(--footer-h) - 0.65rem);
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 0.4rem 0.6rem;
+  padding: 0.15rem 0.6rem 0.4rem;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  z-index: 4;
-  align-self: start;
+  z-index: 18;
 }
 
 .codex-detail__aside--readings {
@@ -4951,13 +4946,14 @@ body.theme-light .reading-badge {
 
 @media (max-width: 980px) and (hover: none) and (pointer: coarse) {
   .codex-detail {
-    display: block;
     padding-left: clamp(0.5rem, 2vw, 1.25rem);
   }
   .codex-detail__aside {
     position: static;
     top: auto;
+    left: auto;
     width: auto;
+    max-width: none;
     max-height: none;
     overflow: visible;
   }
@@ -5806,7 +5802,6 @@ body.ai-assist-page .help-privacy.ai-assist-card,
   /* CÓDEX detalle: aside arriba, contenido abajo */
   .codex-detail,
   .codex-detail--readings {
-    display: block;
     padding: 0.35rem 0.2rem 1rem;
     --codex-detail-icon-size: clamp(7.25rem, 42vw, 10.5rem);
     --codex-aside-w: auto;
