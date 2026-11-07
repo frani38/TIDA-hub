@@ -321,23 +321,6 @@ header {
   background: transparent;
   color: inherit;
   overflow: visible;
-  padding: 0;
-  margin: 0;
-  line-height: 0;
-  font: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-.brand-logo:hover img {
-  opacity: 0.82;
-}
-
-.brand-logo:focus-visible {
-  outline: 2px solid #9fc0ff;
-  outline-offset: 3px;
 }
 
 .brand-logo img,
