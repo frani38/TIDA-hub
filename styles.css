@@ -671,8 +671,6 @@ main {
 .content-card.is-home {
   position: relative;
   --home-news-w: 500px;
-  /* Ancho del bloque de bienvenida (más estrecho → más wrap y más altura). */
-  --welcome-max: 54rem;
   /*
     Reserva el panel NOTICIAS. Con news a right:-1rem (entra en el padding 1rem de .app),
     padding-right = news-w deja 1rem de hueco texto↔noticias = padding izq. de .app.
@@ -685,6 +683,7 @@ main {
   Título de inicio en flujo normal (no absolute):
   así el texto de bienvenida NUNCA puede meterse debajo al acortar la ventana.
   El panel de noticias sigue absolute a la derecha.
+  Alineación: arriba a la izquierda, como el resto de títulos de sección.
 */
 .content-card.is-home #unit-title {
   position: relative;
@@ -692,20 +691,20 @@ main {
   left: auto;
   right: auto;
   /* Misma caja vertical que el resto de secciones (#unit-title). */
-  margin: 0 auto 0.45rem;
+  margin: 0 0 0.45rem;
   padding: 0.12rem 0.25rem;
   z-index: 2;
   pointer-events: none;
   font-size: 1.85em;
   box-sizing: border-box;
   width: 100%;
-  max-width: var(--welcome-max);
+  max-width: none;
 }
 
 /* HISTÓRICO: mismo anclaje del panel NOTICIAS (is-home), título usable */
 .content-card.is-home:has(.home-split.is-archive) #unit-title {
   pointer-events: auto;
-  max-width: var(--welcome-max);
+  max-width: none;
 }
 
 .content-card.is-home #tab-panel {
@@ -773,7 +772,7 @@ main {
 body:has(.home-split.is-archive) #unit-title {
   display: inline-flex;
   width: fit-content;
-  max-width: min(var(--welcome-max, 54rem), 100%);
+  max-width: 100%;
 }
 
 body.theme-light #unit-title {
@@ -1763,9 +1762,8 @@ body.theme-light .help-form-status.is-error {
 
 .home-split {
   --home-news-w: 500px;
-  --welcome-max: 54rem;
   display: block;
-  /* La reserva del panel y el centrado del texto viven en .content-card.is-home. */
+  /* La reserva del panel vive en .content-card.is-home. */
   padding-left: 0;
   padding-right: 0;
   box-sizing: border-box;
@@ -1952,7 +1950,6 @@ body:has(.home-split.is-archive) {
   flex: 1 1 auto;
   min-height: 0;
   --home-news-w: 500px;
-  --welcome-max: 54rem;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -2480,10 +2477,10 @@ a.year-result-title-link:hover {
 .welcome-copy {
   position: relative;
   min-width: 0;
+  /* Toda la zona blanca (márgenes 1rem izq./der. vía .app + padding-right del card). */
   width: 100%;
-  max-width: var(--welcome-max, 54rem);
-  margin-left: auto;
-  margin-right: auto;
+  max-width: none;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -2843,12 +2840,13 @@ a.news-title-link:hover {
   margin-bottom: 0;
 }
 
-/* Cierre del mensaje de bienvenida: centrado (el bloque hereda justificado del .empty-state.welcome) */
+/* Cierre del mensaje de bienvenida: centrado, una sola línea en escritorio. */
 .welcome-copy > .welcome-intro:last-child {
   margin-top: 1.85rem; /* ~una línea extra respecto al párrafo anterior (CÓDEX) */
   text-align: center;
   text-justify: auto;
   color: #2563eb; /* mismo azul que .welcome-brand (T·I·D·A) */
+  white-space: nowrap;
 }
 
 /* Revelado tipo cortina izq→der del bloque de bienvenida. */
@@ -5623,6 +5621,7 @@ body.ai-assist-page .help-privacy.ai-assist-card,
   .welcome-copy > .welcome-intro:last-child {
     margin-top: 1.15rem;
     font-size: clamp(0.88rem, 2.85vw, 1.02rem);
+    white-space: normal;
   }
 
   .content-card.is-home {
