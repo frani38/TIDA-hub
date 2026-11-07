@@ -2451,6 +2451,17 @@ window.MYWEB_DATA = {
   // poster: ruta local recomendada (por ejemplo: "./media/<id>.jpg")
   media: [
     {
+      id: "anonymous",
+      addedAt: "2026-11-07",
+      themes: ["Películas"],
+      poster: "./media/0007.jpg",
+      title: "Anonymous",
+      year: 2016,
+      age: "+16",
+      description:
+        "Alex Danyliuk, un adolescente ucraniano que emigra con su familia a Canadá, se ve forzado a buscarse la vida cuando la situación económica de su familia se agrava y su madre pierde el trabajo en un banco. Gracias a su habilidad con los ordenadores, comienza a introducirse en el mundo del cibercrimen de la mano de Sye, un estafador callejero que le abre las puertas del mercado negro. Su ascenso les lleva a conocer a Kira, una hacker con mejores recursos y contactos, con quien escalan sus operaciones fraudulentas lejos de Canadá. Lo que empezó como pequeños golpes para sobrevivir acaba implicándoles con organizaciones criminales internacionales que operan en internet, poniéndoles ante decisiones cada vez más peligrosas de las que será difícil salir sin consecuencias."
+    },
+    {
       id: "chernobyl",
       addedAt: "2026-04-15",
       themes: ["Series"],
