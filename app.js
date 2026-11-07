@@ -3059,11 +3059,20 @@
             const top = Math.round(titleRect.bottom + 10 - iconOffsetTop);
             document.documentElement.style.setProperty("--codex-aside-top", `${top}px`);
 
-            // Centrado en el hueco entre el título de sección y el bloque de contenido.
-            const gutterLeft = titleRect.left;
-            const gutterRight = contentRect && Number.isFinite(contentRect.left) ? contentRect.left : titleRect.right;
+            // El título ya va separado del borde. El logotipo se centra entre ese
+            // borde de la ventana y el comienzo visible del bloque de texto.
+            const pageEl = contentEl?.firstElementChild || contentEl;
+            let textStart = contentRect && Number.isFinite(contentRect.left) ? contentRect.left : titleRect.right;
+            if (pageEl?.getBoundingClientRect) {
+              const pageRect = pageEl.getBoundingClientRect();
+              const padLeft = Number.parseFloat(getComputedStyle(pageEl).paddingLeft);
+              if (Number.isFinite(pageRect.left)) {
+                textStart = pageRect.left + (Number.isFinite(padLeft) ? padLeft : 0);
+              }
+            }
+            const gutterRight = textStart;
             const iconOffsetInAside = iconRect.left - asideRect.left;
-            const iconLeft = gutterLeft + Math.max(0, gutterRight - gutterLeft - iconRect.width) / 2;
+            const iconLeft = Math.max(0, gutterRight - iconRect.width) / 2;
             let asideLeft = Math.round(iconLeft - iconOffsetInAside);
             const clearance = 8;
             const maxLeft = Math.max(0, Math.round(gutterRight - asideRect.width - clearance));
