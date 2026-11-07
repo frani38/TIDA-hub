@@ -1,4 +1,4 @@
- Búsqueda rápida (cabecera):
+Búsqueda rápida (cabecera):
 // - siteSearchEntries: añade filas { section, title, meta, haystack, navTarget } para cualquier
 //   página o bloque nuevo (haystack = todo el texto que debe poder encontrarse).
 // - contentIndex: subapartados por zona (codex, books, about, help). Cada ítem { id, title, description?,
@@ -11,7 +11,7 @@ window.MYWEB_DATA = {
     El pie muestra "v" + version al cargar.
   */
   siteMeta: {
-    version: "1.10.30",
+    version: "1.10.31",
     updated: "2026-11-07",
     assetBust: "",
     /* Temporal: lazo negro (marca de agua) en INICIO. Pon false para quitarlo. */
